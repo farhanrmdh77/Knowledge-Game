@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Privacy Policy - Knowledge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: '#121212', card: '#232236', primary: '#7C5CFF', textDim: '#A09FB1' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>body { background-color: #121212; color: white; }</style>
+    <script src="js/utils/audioManager.js"></script>
+</head>
+<body class="antialiased">
+    <header class="px-6 pt-10 pb-4 sticky top-0 bg-background/90 backdrop-blur-xl z-40 flex items-center gap-4 border-b border-white/5">
+        <button onclick="window.location.href='settings.html'" class="w-10 h-10 bg-card rounded-full flex items-center justify-center border border-white/10 active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-white">arrow_back</span>
+        </button>
+        <h1 class="text-xl font-extrabold tracking-wide">Privacy Policy</h1>
+    </header>
+
+    <main class="px-6 pt-8 pb-12 space-y-6 text-sm leading-relaxed text-white/90">
+        <section class="space-y-3">
+            <h2 class="text-success font-bold text-base uppercase tracking-wider">Informasi Privasi</h2>
+            <p>Kami sangat menghargai privasi Anda. Knowledge Game hanya mengumpulkan informasi dasar yang diperlukan untuk menjalankan sistem akun Anda, yaitu: alamat email, nama pengguna, preferensi aplikasi, dan statistik penyelesaian kuis (XP, Diamond, Skor).</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-success font-bold text-base uppercase tracking-wider">Penyimpanan Data</h2>
+            <p>Data pribadi Anda disimpan dengan aman menggunakan infrastruktur <strong>Firebase (Google Cloud)</strong>. Preferensi antarmuka Anda (seperti Dark Mode dan Musik) disimpan langsung secara lokal pada perangkat Anda <i>(Local Storage)</i> untuk mempercepat kinerja aplikasi.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-success font-bold text-base uppercase tracking-wider">Perlindungan Data</h2>
+            <p>Kami tidak akan pernah menjual, menyewakan, atau membagikan data identitas Anda kepada pihak ketiga mana pun. Kata sandi Anda dienkripsi secara penuh oleh sistem autentikasi Firebase. Anda dapat meminta penghapusan seluruh data dengan menghubungi administrator tim.</p>
+        </section>
+    </main>
+</body>
+</html>

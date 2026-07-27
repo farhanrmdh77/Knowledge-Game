@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>html, body { background-color: #121212 !important; } body { animation: fadeIn 0.4s ease-out forwards; opacity: 0; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }</style>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Subject Detail - Knowledge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { background: '#121212', card: '#232236', primary: '#7C5CFF', textDim: '#A09FB1', success: '#00E676', warning: '#FFD600' }, fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] } } } }
+    </script>
+    <style>body { background-color: #121212; color: #FFFFFF; -webkit-tap-highlight-color: transparent; } .icon-filled { font-variation-settings: 'FILL' 1; }</style>
+    <script src="js/utils/audioManager.js"></script>
+</head>
+<body class="pb-24 antialiased">
+
+    <!-- Header -->
+    <header class="px-6 pt-10 pb-4 sticky top-0 bg-background/90 backdrop-blur-xl z-40 flex items-center gap-4">
+        <button onclick="window.location.href='learn.html'" class="w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-white">arrow_back</span>
+        </button>
+        <h1 id="subject-header-title" class="text-xl font-bold">Mathematics</h1>
+    </header>
+
+    <main class="px-6 space-y-6">
+        <!-- Subject Overview Card -->
+        <section class="bg-card p-6 rounded-[28px] border border-white/5 shadow-lg flex items-center gap-4">
+            <div id="subject-icon-container" class="w-16 h-16 rounded-[20px] bg-[#00B0FF] flex-shrink-0 flex items-center justify-center shadow-lg">
+                <span id="subject-icon" class="material-symbols-outlined text-white icon-filled text-[32px]">calculate</span>
+            </div>
+            <div>
+                <h2 id="subject-title" class="text-2xl font-extrabold mb-1">Mathematics</h2>
+                <p class="text-xs text-textDim leading-relaxed">Complete challenges to master this subject and earn rewards.</p>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="grid grid-cols-2 gap-4">
+            <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center">
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Progress</p>
+                <p class="text-xl font-extrabold text-success">65%</p>
+            </div>
+            <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center">
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Total XP</p>
+                <p class="text-xl font-extrabold text-primary">3,200</p>
+            </div>
+        </section>
+
+        <!-- Challenge List -->
+        <section>
+            <h3 class="text-lg font-bold mb-4">Challenges</h3>
+            <div id="challenge-list" class="space-y-4">
+                <p class="text-center text-textDim text-sm py-4">Memuat tantangan...</p>
+                <!-- Tantangan akan di-generate oleh subject.js -->
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/pages/subject.js"></script>
+</body>
+</html>

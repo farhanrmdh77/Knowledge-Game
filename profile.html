@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+        html, body { background-color: #121212 !important; visibility: visible !important; }
+        body { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Profile - Knowledge Game</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#121212', card: '#232236', primary: '#7C5CFF', primaryLight: '#9b82ff',
+                        textDim: '#A09FB1', success: '#00E676', warning: '#FFD600', info: '#00E5FF'
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #121212; color: #FFFFFF; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        .icon-filled { font-variation-settings: 'FILL' 1; }
+        ::-webkit-scrollbar { display: none; }
+        .pb-safe-area-inset-bottom { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+        .menu-item:active { transform: scale(0.98); background-color: rgba(255,255,255,0.05); }
+    </style>
+    <script src="js/utils/audioManager.js"></script>
+</head>
+<body class="antialiased pb-32">
+
+    <!-- Header -->
+    <header class="px-6 pt-10 pb-4 sticky top-0 bg-background/90 backdrop-blur-xl z-40 flex items-center justify-between border-b border-white/5">
+        <h1 class="text-2xl font-extrabold">Profile</h1>
+        
+        <!-- HANYA TOMBOL SHOP -->
+        <button onclick="window.location.href='shop.html'" class="bg-[#00E5FF]/10 px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-[#00E5FF]/40 shadow-[0_0_10px_rgba(0,229,255,0.2)] hover:bg-[#00E5FF]/20 active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[#00E5FF] text-[16px]">shopping_cart</span>
+            <span class="font-bold text-xs text-[#00E5FF]">Shop</span>
+        </button>
+    </header>
+
+    <main class="px-6 pt-4 space-y-6">
+        
+        <!-- PROFILE CARD -->
+        <section class="bg-card p-6 rounded-[28px] border border-white/5 shadow-lg text-center relative">
+            
+            <!-- AVATAR DENGAN WADAH BINGKAI (Siap untuk Custom Frame PNG) -->
+            <div id="avatar-border-container" class="relative w-24 h-24 mx-auto mb-4 flex items-center justify-center flex-shrink-0 group">
+                <img id="profile-avatar" src="" alt="Profile" class="w-full h-full rounded-full object-cover z-0 transition-all">
+                <!-- Frame PNG akan disuntikkan secara otomatis di sini oleh JS -->
+                
+                <!-- Tombol edit z-20 agar di atas frame -->
+                <button id="btn-edit-avatar" class="absolute bottom-0 right-0 bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-background shadow-md hover:bg-primaryLight transition-colors z-20">
+                    <span class="material-symbols-outlined text-[16px] icon-filled">edit</span>
+                </button>
+            </div>
+
+            <!-- NAMA & GELAR KUSTOM -->
+            <h2 id="display-name" class="text-2xl font-extrabold mb-0.5">Memuat...</h2>
+            
+            <!-- Tempat Gelar Muncul (Tahap 2) -->
+            <p id="display-title" class="text-[11px] font-black tracking-widest uppercase mb-1 hidden"></p> 
+            
+            <p id="display-username" class="text-sm text-textDim mb-4">@user</p>
+
+            <!-- League Badge -->
+            <div id="league-container" class="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-6 transition-colors">
+                <span id="league-icon" class="material-symbols-outlined text-white text-[16px] icon-filled">shield</span>
+                <span id="league-text" class="text-xs font-bold text-white">Memuat Liga...</span>
+            </div>
+
+            <!-- XP Progress -->
+            <div class="w-full text-left">
+                <div class="flex justify-between items-end mb-2">
+                    <span class="font-extrabold text-sm text-white">Level <span id="display-level">0</span></span>
+                    <span class="text-xs font-bold text-primaryLight"><span id="display-xp">0</span> / 1000 XP</span>
+                </div>
+                <div class="w-full h-3 bg-background rounded-full overflow-hidden border border-white/5">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-primary to-primaryLight rounded-full shadow-[0_0_10px_rgba(124,92,255,0.5)] transition-all duration-1000" style="width: 0%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTICS GRID -->
+        <section class="grid grid-cols-3 gap-3">
+            <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
+                <span class="material-symbols-outlined text-success mb-2 text-[28px]">show_chart</span>
+                <p id="stat-challenges" class="text-xl font-black text-white leading-none mb-1">0</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Challenges</p>
+            </div>
+            <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
+                <span class="material-symbols-outlined text-warning mb-2 text-[28px] icon-filled">workspace_premium</span>
+                <p id="stat-perfects" class="text-xl font-black text-white leading-none mb-1">0</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Perfects</p>
+            </div>
+            <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
+                <span class="material-symbols-outlined text-info mb-2 text-[28px] icon-filled">grid_on</span>
+                <p id="stat-accuracy" class="text-xl font-black text-white leading-none mb-1">0%</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Accuracy</p>
+            </div>
+        </section>
+
+        <!-- RECENT ACTIVITY -->
+        <section>
+            <div class="flex justify-between items-end mb-3 px-1">
+                <h3 class="text-lg font-bold">Recent Activity</h3>
+                <span class="text-[10px] text-textDim">Last 3 activities</span>
+            </div>
+            <div id="recent-activity-list" class="bg-card rounded-[24px] border border-white/5 overflow-hidden">
+                <div class="p-6 text-center text-textDim text-sm">Memuat aktivitas...</div>
+            </div>
+        </section>
+
+        <!-- ACCOUNT MENU SECTION -->
+        <section class="space-y-2 mt-4 relative z-10">
+            <h3 class="text-lg font-bold mb-3 px-1 mt-6">Account</h3>
+            
+            <button id="menu-edit-profile" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-textDim">edit_square</span>
+                    <span class="font-bold text-sm text-white">Edit Profile</span>
+                </div>
+                <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
+            </button>
+            
+            <button id="menu-history" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-textDim">history</span>
+                    <span class="font-bold text-sm text-white">Learning History</span>
+                </div>
+                <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
+            </button>
+
+            <button id="menu-achievements" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-textDim icon-filled">military_tech</span>
+                    <span class="font-bold text-sm text-white">Achievements</span>
+                </div>
+                <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
+            </button>
+
+            <button onclick="window.location.href='settings.html'" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all mt-4">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-textDim icon-filled">settings</span>
+                    <span class="font-bold text-sm text-white">Settings</span>
+                </div>
+                <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
+            </button>
+
+            <button id="btn-logout" class="menu-item w-full bg-card p-4 rounded-[20px] border border-danger/20 flex items-center justify-between transition-all mt-4 group">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-danger">logout</span>
+                    <span class="font-bold text-sm text-danger group-hover:text-danger/80">Logout</span>
+                </div>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="fixed bottom-0 left-0 w-full bg-card border-t border-white/5 px-6 pt-3 pb-safe-area-inset-bottom h-[88px] rounded-t-[32px] flex justify-around items-start z-[60] shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+        <a href="home.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
+            <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
+                <span class="material-symbols-outlined">home</span>
+            </div>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Home</span>
+        </a>
+        <a href="learn.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
+            <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
+                <span class="material-symbols-outlined">explore</span>
+            </div>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Learn</span>
+        </a>
+        <a href="leaderboard.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
+            <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
+                <span class="material-symbols-outlined">emoji_events</span>
+            </div>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Rank</span>
+        </a>
+        <a href="profile.html" class="flex flex-col items-center gap-1 w-16 group">
+            <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all group-active:scale-95 shadow-[inset_0_0_12px_rgba(124,92,255,0.2)]">
+                <span class="material-symbols-outlined icon-filled">person</span>
+            </div>
+            <span class="text-[10px] font-bold text-primary">Profile</span>
+        </a>
+    </nav>
+
+    <!-- MODAL LAYERS -->
+    <div id="modal-edit-profile" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
+        <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
+            <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
+            <h2 class="text-xl font-bold">Edit Profile</h2>
+        </header>
+        <main class="px-6 pt-8 flex-grow overflow-y-auto">
+            <div class="flex flex-col items-center mb-8">
+                <div class="relative w-24 h-24 mb-3 group cursor-pointer" onclick="document.getElementById('input-edit-photo').click()">
+                    <img id="edit-preview-avatar" src="" class="w-full h-full rounded-full border-2 border-primary object-cover bg-card">
+                    <div class="absolute inset-0 bg-black/50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="material-symbols-outlined text-white">photo_camera</span>
+                    </div>
+                </div>
+                <label for="input-edit-photo" class="text-xs font-bold text-primary cursor-pointer hover:text-primaryLight">Ganti Foto dari Galeri</label>
+                <input type="file" id="input-edit-photo" accept="image/png, image/jpeg, image/jpg" class="hidden">
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block">Username</label>
+                    <input type="text" id="input-edit-username" class="w-full bg-card rounded-2xl p-4 text-white placeholder-textDim outline-none border border-white/5 focus:border-primary transition-colors font-bold" placeholder="Masukkan nama baru">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block mt-6">New Password (Opsional)</label>
+                    <input type="password" id="input-edit-password" class="w-full bg-card rounded-2xl p-4 text-white placeholder-textDim outline-none border border-white/5 focus:border-primary transition-colors font-bold" placeholder="Kosongkan jika tidak diganti">
+                </div>
+                <button id="btn-save-profile" class="w-full bg-primary text-white font-bold py-4 rounded-[20px] shadow-lg mt-8 hover:bg-primaryLight active:scale-95 transition-all">
+                    Save Changes
+                </button>
+                <p id="edit-msg" class="text-center text-xs mt-3 hidden"></p>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL: LEARNING HISTORY -->
+    <div id="modal-history" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
+        <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
+            <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
+            <h2 class="text-xl font-bold">Learning History</h2>
+        </header>
+        <main class="px-6 pt-6 flex-grow overflow-y-auto pb-10">
+            <div id="full-history-list" class="space-y-3">
+                <p class="text-center text-textDim text-sm py-10">Memuat riwayat penuh...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL: ACHIEVEMENTS -->
+    <div id="modal-achievements" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
+        <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
+            <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
+            <h2 class="text-xl font-bold">Achievements</h2>
+        </header>
+        <main class="px-6 pt-6 flex-grow overflow-y-auto pb-10">
+            <div id="achievements-grid" class="space-y-4">
+                <p class="text-center text-textDim text-sm py-10">Mengevaluasi lencana Anda...</p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/pages/profile.js"></script>
+</body>
+</html>

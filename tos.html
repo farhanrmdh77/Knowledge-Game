@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Terms of Service - Knowledge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: '#121212', card: '#232236', primary: '#7C5CFF', textDim: '#A09FB1' },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>body { background-color: #121212; color: white; }</style>
+    <script src="js/utils/audioManager.js"></script>
+</head>
+<body class="antialiased">
+    <header class="px-6 pt-10 pb-4 sticky top-0 bg-background/90 backdrop-blur-xl z-40 flex items-center gap-4 border-b border-white/5">
+        <button onclick="window.location.href='settings.html'" class="w-10 h-10 bg-card rounded-full flex items-center justify-center border border-white/10 active:scale-95 transition-transform">
+            <span class="material-symbols-outlined text-white">arrow_back</span>
+        </button>
+        <h1 class="text-xl font-extrabold tracking-wide">Terms of Service</h1>
+    </header>
+
+    <main class="px-6 pt-8 pb-12 space-y-6 text-sm leading-relaxed text-white/90">
+        <p class="text-textDim">Terakhir Diperbarui: 26 Juli 2026</p>
+
+        <section class="space-y-3">
+            <h2 class="text-primaryLight font-bold text-base uppercase tracking-wider">1. Aturan Penggunaan</h2>
+            <p>Selamat datang di Knowledge Game. Dengan menggunakan aplikasi ini, Anda setuju untuk mematuhi aturan komunitas kami. Aplikasi ini dirancang sebagai platform edukasi interaktif tertutup. Anda dilarang menggunakan cara curang (cheat/bot) untuk memanipulasi XP atau Diamond di Leaderboard.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-primaryLight font-bold text-base uppercase tracking-wider">2. Tanggung Jawab Pengguna</h2>
+            <p>Pengguna bertanggung jawab penuh atas kredensial akun yang digunakan (Email/Username). Kami tidak mentolerir penggunaan bahasa kasar, pelecehan, atau nama profil yang tidak pantas. Admin berhak menghapus akun yang melanggar kenyamanan anggota lain.</p>
+        </section>
+
+        <section class="space-y-3">
+            <h2 class="text-primaryLight font-bold text-base uppercase tracking-wider">3. Ketentuan Umum</h2>
+            <p>Layanan diberikan "sebagaimana adanya". Kami berhak mengubah, memperbarui, atau menghapus fitur, serta mengatur ulang (reset) statistik permainan (Seasons) untuk menjaga keseimbangan aplikasi kapan saja tanpa pemberitahuan sebelumnya.</p>
+        </section>
+    </main>
+</body>
+</html>

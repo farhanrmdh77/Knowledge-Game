@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <style>
+        html, body { background-color: #121212 !important; visibility: visible !important; }
+        body { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Animasi Pop-in untuk Hitung Mundur */
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    </style>
+    
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Quiz Gameplay - Knowledge Game</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#121212', card: '#232236', primary: '#7C5CFF',
+                        success: '#00E676', warning: '#FFD600', danger: '#FF1744', textDim: '#A09FB1'
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #121212; color: #FFFFFF; -webkit-tap-highlight-color: transparent; }
+        .icon-filled { font-variation-settings: 'FILL' 1; }
+        /* Transisi warna tombol agar halus */
+        .option-btn { transition: all 0.3s ease; }
+    </style>
+    <script src="js/utils/audioManager.js"></script>
+</head>
+<body class="antialiased overflow-hidden h-screen flex flex-col">
+
+    <!-- OVERLAY HITUNG MUNDUR (3..2..1..) -->
+    <div id="countdown-overlay" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center">
+        <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">GET READY</h2>
+        <div id="countdown-number" class="text-8xl font-extrabold text-white animate-pop">3</div>
+    </div>
+
+    <!-- HEADER: Close, Progress, Lives -->
+    <header class="px-6 pt-10 pb-4 flex items-center justify-between gap-4">
+        <button id="btn-exit" class="w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5 active:scale-95 transition-all text-textDim hover:text-white">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <!-- Progress Bar -->
+        <div class="flex-grow">
+            <div class="flex justify-between text-[10px] font-bold text-textDim mb-1 px-1">
+                <span class="tracking-widest uppercase">Progress</span>
+                <span id="progress-text">1 / 5</span>
+            </div>
+            <div class="w-full h-2 bg-card rounded-full overflow-hidden border border-white/5">
+                <div id="progress-bar" class="h-full bg-primary rounded-full transition-all duration-500" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- Lives (Nyawa) -->
+        <div id="lives-container" class="flex items-center gap-1 text-danger">
+            <span class="material-symbols-outlined icon-filled text-lg">favorite</span>
+            <span class="material-symbols-outlined icon-filled text-lg">favorite</span>
+            <span class="material-symbols-outlined icon-filled text-lg">favorite</span>
+        </div>
+    </header>
+
+    <!-- STATS BAR: Score, Combo, Timer -->
+    <div class="px-6 py-2 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="bg-card px-3 py-1.5 rounded-[12px] border border-white/5 flex items-center gap-1.5 shadow-sm">
+                <span class="material-symbols-outlined text-warning text-[16px] icon-filled">stars</span>
+                <span id="score-text" class="font-bold text-sm">0</span>
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="bg-card px-3 py-1.5 rounded-[12px] border border-white/5 flex items-center gap-1.5 text-white">
+            <span class="material-symbols-outlined text-[16px]">timer</span>
+            <span id="timer-text" class="font-extrabold text-sm font-mono w-5 text-center">15</span>
+        </div>
+    </div>
+
+    <!-- MAIN GAME AREA -->
+    <main class="flex-grow px-6 flex flex-col pb-8 pt-4 overflow-y-auto">
+        
+        <!-- Question Card -->
+        <div class="bg-card p-6 rounded-[28px] border border-white/5 shadow-lg min-h-[160px] flex items-center justify-center text-center mb-6 relative">
+            <h2 id="question-text" class="text-xl md:text-2xl font-bold leading-snug">Memuat pertanyaan...</h2>
+        </div>
+
+        <!-- Options Container -->
+        <div id="options-container" class="space-y-3 flex-grow">
+            <!-- Tombol jawaban akan di-generate oleh JavaScript -->
+        </div>
+
+        <!-- Explanation Box (Muncul setelah menjawab) -->
+        <div id="explanation-box" class="fixed bottom-0 left-0 w-full z-50 p-5 pb-10 sm:pb-12 bg-card border-t-2 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] rounded-t-[32px] transition-all duration-300 hidden translate-y-4 opacity-0">
+            <div class="max-w-md mx-auto flex items-start gap-4">
+                <!-- Ikon -->
+                <span id="explanation-icon" class="material-symbols-outlined icon-filled text-3xl mt-0.5 flex-shrink-0"></span>
+                
+                <!-- Area Teks -->
+                <div class="flex-1 w-full">
+                    <h3 id="explanation-title" class="font-bold text-sm mb-1"></h3>
+                    
+                    <!-- KUNCI PERBAIKAN: max-h-[90px] dan overflow-y-auto membuat teks panjang bisa di-scroll -->
+                    <p id="explanation-text" class="text-xs sm:text-sm text-white/90 leading-relaxed max-h-[90px] overflow-y-auto pr-2"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/pages/play.js"></script>
+</body>
+</html>

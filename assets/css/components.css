@@ -1,0 +1,85 @@
+.card {
+    background-color: var(--color-surface);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    transition: box-shadow var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.text-primary {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+/* Form & Input */
+.input-group {
+    margin: 25px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+input[type="text"]:focus {
+    border-color: var(--color-primary);
+}
+
+/* Button */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color var(--transition);
+}
+
+.btn:active {
+    transform: scale(0.95); /* Efek saat ditekan */
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #5b4bc4;
+}
+
+.btn-block {
+    width: 100%;
+}
+/* Efek saat jawaban benar / salah */
+.btn-option.correct {
+    background-color: #00b894 !important;
+    border-color: #00b894 !important;
+    color: white;
+}
+
+.btn-option.wrong {
+    background-color: #d63031 !important;
+    border-color: #d63031 !important;
+    color: white;
+}
+
+/* Menonaktifkan tombol agar tidak di-spam klik */
+.btn-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
