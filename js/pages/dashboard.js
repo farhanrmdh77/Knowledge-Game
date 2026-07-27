@@ -10,15 +10,15 @@ const cosmeticsData = {
         
         // SISTEM KALIBRASI BARU: Cukup tulis angka persentasenya (tanpa persen atau w-). 
         // 100 = pas dengan foto. Jika longgar turunkan ke 95, jika kekecilan naikkan ke 115, 120, dst.
-        'frame_1': { type: 'image', url: 'assets/frames/frame1.png', scale: 115, name: 'Bebek Laut', price: 500 },
-        'frame_2': { type: 'image', url: 'assets/frames/frame2.png', scale: 135, name: 'Sayap Naga', price: 800 },
-        'frame_3': { type: 'image', url: 'assets/frames/frame3.png', scale: 135, name: 'Frame 3', price: 1000 },
-        'frame_4': { type: 'image', url: 'assets/frames/frame4.png', scale: 105, name: 'Frame 4', price: 1000 },
-        'frame_5': { type: 'image', url: 'assets/frames/frame5.png', scale: 120, name: 'Frame 5', price: 1200 },
-        'frame_6': { type: 'image', url: 'assets/frames/frame6.png', scale: 110, name: 'Frame 6', price: 1200 },
-        'frame_7': { type: 'image', url: 'assets/frames/frame7.png', scale: 110, name: 'Frame 7', price: 1500 },
-        'frame_8': { type: 'image', url: 'assets/frames/frame8.png', scale: 115, name: 'Frame 8', price: 1500 },
-        'frame_9': { type: 'image', url: 'assets/frames/frame9.png', scale: 115, name: 'Mahkota Raja', price: 2000 }
+        'frame_1': { type: 'image', url: 'assets/frames/Frame1.png', scale: 115, name: 'Bebek Laut', price: 500 },
+        'frame_2': { type: 'image', url: 'assets/frames/Frame2.png', scale: 135, name: 'Sayap Naga', price: 800 },
+        'frame_3': { type: 'image', url: 'assets/frames/Frame3.png', scale: 135, name: 'Frame 3', price: 1000 },
+        'frame_4': { type: 'image', url: 'assets/frames/Frame4.png', scale: 105, name: 'Frame 4', price: 1000 },
+        'frame_5': { type: 'image', url: 'assets/frames/Frame5.png', scale: 120, name: 'Frame 5', price: 1200 },
+        'frame_6': { type: 'image', url: 'assets/frames/Frame6.png', scale: 110, name: 'Frame 6', price: 1200 },
+        'frame_7': { type: 'image', url: 'assets/frames/Frame7.png', scale: 110, name: 'Frame 7', price: 1500 },
+        'frame_8': { type: 'image', url: 'assets/frames/Frame8.png', scale: 115, name: 'Frame 8', price: 1500 },
+        'frame_9': { type: 'image', url: 'assets/frames/Frame9.png', scale: 115, name: 'Mahkota Raja', price: 2000 }
     },
     titles: {
         'title_default': { name: '', color: 'hidden' },
