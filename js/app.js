@@ -1,16 +1,20 @@
 // File: js/app.js
 
-// (KITA HAPUS IMPORT THEMEMANAGER KARENA MENYEBABKAN ERROR 404)
+// 🔥 PERHATIKAN: Kita sekarang mengimpor getActiveAvatarUrl, bukan getSelectedAvatar!
+import { loginUser, registerUser, checkAuth, renderAvatarSlider, getActiveAvatarUrl } from './services/authService.js';
 
-// Import Fungsi Auth dari Firebase Service Anda
-import { loginUser, registerUser, checkAuth } from './services/authService.js';
+// KUNCI BUG FIX: Rem tangan agar tidak pindah halaman sebelum database tersimpan
+let isProcessingAuth = false; 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Cek status login, jika sudah masuk, arahkan otomatis ke home.html
+    // 1. Cek status login
     if (typeof checkAuth === 'function') {
         checkAuth((user) => {
-            window.location.href = 'home.html';
+            // Hanya lempar ke home.html JIKA tidak sedang memproses form daftar/login
+            if (!isProcessingAuth) {
+                window.location.href = 'home.html';
+            }
         }, null);
     }
 
@@ -19,8 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const authForm = document.getElementById('auth-form');
 
-    // Pastikan skrip ini hanya berjalan jika ada elemen auth-form (sedang di halaman login.html)
     if (authForm) {
+        
+        renderAvatarSlider();
+
         let isLoginMode = true;
         const formTitle = document.getElementById('form-title');
         const formSubtitle = document.getElementById('form-subtitle');
@@ -31,35 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleModeBtn = document.getElementById('toggle-mode');
         const usernameInput = document.getElementById('username');
 
-        // Elemen Avatar
-        const avatarOptions = document.querySelectorAll('.avatar-option');
-        const avatarInput = document.getElementById('input-avatar-url');
-        const avatarError = document.getElementById('avatar-error');
-
-        // A. Logika Interaksi Pilih Avatar
-        if (avatarOptions.length > 0) {
-            avatarOptions.forEach(opt => {
-                opt.addEventListener('click', () => {
-                    // Hapus highlight dari semua avatar
-                    avatarOptions.forEach(a => {
-                        a.classList.remove('border-[#2edcd7]', 'opacity-100', 'scale-110');
-                        a.classList.add('border-transparent', 'opacity-50');
-                    });
-                    // Tambahkan highlight dan animasi ke avatar yang diklik
-                    opt.classList.remove('border-transparent', 'opacity-50');
-                    opt.classList.add('border-[#2edcd7]', 'opacity-100', 'scale-110');
-                    
-                    // Simpan URL avatar
-                    avatarInput.value = opt.getAttribute('data-url');
-                    avatarError.classList.add('hidden');
-                });
-            });
-        }
-
         // B. Logika Toggle antara Login dan Register
         if (toggleModeBtn) {
             toggleModeBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Mencegah browser refresh saat tombol diklik
+                e.preventDefault(); 
                 isLoginMode = !isLoginMode;
                 
                 if (isLoginMode) {
@@ -67,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formSubtitle.textContent = "Masuk untuk melanjutkan permainan";
                     usernameField.classList.add('hidden');
                     avatarField.classList.add('hidden'); 
-                    if (usernameInput) usernameInput.removeAttribute('required'); // Hapus wajib isi
+                    if (usernameInput) usernameInput.removeAttribute('required'); 
                     submitBtn.textContent = "Masuk";
                     toggleText.textContent = "Belum punya akun?";
                     toggleModeBtn.textContent = "Daftar sekarang";
@@ -76,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formSubtitle.textContent = "Bergabunglah dengan kelompok belajar Anda";
                     usernameField.classList.remove('hidden');
                     avatarField.classList.remove('hidden'); 
-                    if (usernameInput) usernameInput.setAttribute('required', 'true'); // Wajib isi username
+                    if (usernameInput) usernameInput.setAttribute('required', 'true'); 
                     submitBtn.textContent = "Daftar";
                     toggleText.textContent = "Sudah punya akun?";
                     toggleModeBtn.textContent = "Masuk di sini";
@@ -84,33 +65,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // C. Eksekusi Submit Form (Kirim ke Firebase)
+        // C. Eksekusi Submit Form
         authForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Cegah halaman refresh
+            e.preventDefault(); 
             
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const username = usernameInput ? usernameInput.value.trim() : '';
-            const avatarUrl = avatarInput ? avatarInput.value : '';
+            
+            // 🚨 AMBIL AVATAR DARI FUNGSI SAPU JAGAT DI AUTHSERVICE 🚨
+            let avatarUrl = "";
+            if (typeof getActiveAvatarUrl === 'function') {
+                avatarUrl = getActiveAvatarUrl();
+            }
 
-            // Validasi khusus untuk Mode Daftar
+            console.log("📸 URL AVATAR YANG DITANGKAP SEBELUM KE FIREBASE:", avatarUrl);
+
+            // Validasi Khusus Pendaftaran (Daftar Akun)
             if (!isLoginMode) {
                 if (!username) {
                     alert("Nama pengguna wajib diisi!");
                     return;
                 }
-                if (!avatarUrl) {
-                    avatarError.classList.remove('hidden');
+                
+                // JIKA AVATAR MASIH KOSONG, HENTIKAN PENDAFTARAN! 
+                if (!avatarUrl || avatarUrl === "") {
+                    alert("🚨 ERROR: Sistem gagal membaca avatar pilihan Anda!\n\nSolusi: Silakan REFRESH BERAT halaman ini (Tekan Ctrl + F5) lalu coba lagi.");
                     return;
                 }
             }
 
-            // Kunci tombol agar tidak diklik dua kali
+            // Kunci tombol agar tidak dobel klik
             submitBtn.disabled = true;
             submitBtn.textContent = "Memproses...";
 
+            // TARIK REM TANGAN: Jangan biarkan checkAuth memotong proses ini!
+            isProcessingAuth = true; 
+
             if (isLoginMode) {
-                // Proses Login
                 const res = await loginUser(email, password);
                 if (res.success) {
                     window.location.href = 'home.html';
@@ -118,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert("Gagal Masuk: Cek kembali Email dan Password Anda.");
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Masuk";
+                    isProcessingAuth = false; // Lepas rem
                 }
             } else {
                 // Proses Daftar
@@ -125,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (res.success) {
                     window.location.href = 'home.html';
                 } else {
-                    // Terjemahkan error Firebase agar mudah dipahami
                     let errorMsg = res.error;
                     if (errorMsg.includes("weak-password")) errorMsg = "Password minimal harus 6 karakter.";
                     else if (errorMsg.includes("email-already-in-use")) errorMsg = "Email ini sudah terdaftar. Silakan login.";
@@ -134,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert("Gagal Daftar: " + errorMsg);
                     submitBtn.disabled = false;
                     submitBtn.textContent = "Daftar";
+                    isProcessingAuth = false; // Lepas rem
                 }
             }
         });

@@ -7,9 +7,6 @@ import { doc, getDoc, setDoc, updateDoc, increment, collection, query, where, ge
 const cosmeticsData = {
     borders: {
         'border_default': { type: 'css', value: 'border-white/10 border-2', name: 'Tanpa Bingkai', price: 0 },
-        
-        // SISTEM KALIBRASI BARU: Cukup tulis angka persentasenya (tanpa persen atau w-). 
-        // 100 = pas dengan foto. Jika longgar turunkan ke 95, jika kekecilan naikkan ke 115, 120, dst.
         'frame_1': { type: 'image', url: 'assets/frames/Frame1.png', scale: 115, name: 'Abyssal Eye', price: 500 },
         'frame_2': { type: 'image', url: 'assets/frames/Frame2.png', scale: 135, name: 'Eternal Frost', price: 800 },
         'frame_3': { type: 'image', url: 'assets/frames/Frame3.png', scale: 135, name: 'Venomous Jaw', price: 1000 },
@@ -55,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     uid: user.uid,
                     username: "Pemain",
                     email: user.email || "",
-                    avatarUrl: `https://api.dicebear.com/7.x/adventurer/svg?seed=${user.uid}&backgroundColor=7C5CFF`,
+                    // Gunakan encodeURIComponent agar spasi pada nama tidak membuat link error
+                    avatarUrl: `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent("Pemain")}&backgroundColor=7C5CFF`,
                     level: 1,
                     xp: 0,
                     diamond: 50,
@@ -72,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let diamond = data.diamond || 0; 
             const xp = data.xp || 0;
             const level = data.level || 1;
-            const avatarUrl = data.avatarUrl;
+            
+            // ✅ KODE FINAL (Prioritaskan avatarUrl dari database, aman dengan spasi)
+            const avatarUrl = data.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(username)}&backgroundColor=7C5CFF`;
 
             // Logika Streak Harian
             let currentStreak = data.streak || 0;
@@ -124,7 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const frameImg = document.createElement('img');
                     frameImg.id = 'custom-image-frame';
                     frameImg.src = borderObj.url;
-                    frameImg.className = `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${borderObj.scale} object-contain pointer-events-none z-10`;
+                    // Render skala bingkai dinamis menggunakan style inline (Dijamin presisi)
+                    frameImg.style.width = `${borderObj.scale}%`;
+                    frameImg.style.height = `${borderObj.scale}%`;
+                    frameImg.className = `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none object-contain pointer-events-none z-10`;
                     avatarContainer.appendChild(frameImg);
                 }
             }
@@ -213,6 +216,7 @@ async function loadLeaderboardPreview(currentUid) {
             const d = doc.data();
             players.push({
                 id: doc.id, username: d.username || "Pemain", points: d.diamond || 0, xp: d.xp || 0,
+                // Menggunakan encodeURIComponent untuk Leaderboard
                 avatarUrl: d.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(d.username || 'Pemain')}&backgroundColor=7C5CFF`,
                 equippedBorder: d.equippedBorder || 'border_default', equippedTitle: d.equippedTitle || 'title_default'
             });
