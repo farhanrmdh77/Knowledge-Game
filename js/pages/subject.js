@@ -124,33 +124,49 @@ async function loadSubjectDetail(uid) {
     document.getElementById('subject-icon').textContent = data.icon;
     document.querySelector('p.text-xs.text-textDim.leading-relaxed').textContent = data.desc;
 
-    // Ambil progres langsung dari Firestore untuk memastikan keakuratan data
+    // ==========================================
+    // SISTEM AUTO-HEALING & ANTI-BUG TIPE DATA
+    // ==========================================
     let completedCount = 0;
+    let currentXp = 0;
+
     try {
         const userRef = doc(db, "users", uid);
         const snap = await getDoc(userRef);
+        
         if (snap.exists()) {
             const userData = snap.data();
             const dbSubjects = userData.subjects || {};
+            
             if (dbSubjects[subjectId]) {
-                // 🔥 PENTING: Gunakan parseInt agar tipe datanya dijamin murni sebagai Angka (Number) 🔥
-                completedCount = parseInt(dbSubjects[subjectId].completed, 10) || 0;
-                
-                // Fallback otomatis jika ada XP tapi completed belum terekam
-                if (completedCount === 0 && (dbSubjects[subjectId].xp || 0) > 0) {
-                    completedCount = 1;
+                // Tarik angka asli, hindari string
+                currentXp = Number(dbSubjects[subjectId].xp) || 0;
+                let dbCompleted = Number(dbSubjects[subjectId].completed);
+
+                // Auto-Healing: Sinkron dengan learn.js agar tidak ada gap progress
+                if (isNaN(dbCompleted) || (dbCompleted === 0 && currentXp > 0)) {
+                    if (currentXp >= 5000) dbCompleted = 3;
+                    else if (currentXp >= 3000) dbCompleted = 2;
+                    else if (currentXp > 0) dbCompleted = 1;
+                    else dbCompleted = 0;
                 }
+                
+                completedCount = dbCompleted > 4 ? 4 : dbCompleted;
             }
         }
     } catch (error) {
         console.error("Gagal mengambil progress subjek:", error);
-        // Fallback ke localStorage jika offline
+        // Fallback jika offline/gagal
         const userProgress = JSON.parse(localStorage.getItem('userProgress')) || {};
-        const myProgress = userProgress[subjectId] || { completed: 0 };
-        completedCount = parseInt(myProgress.completed, 10) || 0;
+        const myProgress = userProgress[subjectId] || {};
+        completedCount = Number(myProgress.completed) || 0;
+        currentXp = Number(myProgress.totalXp) || 0;
     }
 
-    // Hitung persentase total (berdasarkan 4 stage)
+    // PAKSA menjadi tipe angka (Number) seutuhnya
+    completedCount = Number(completedCount);
+
+    // Update UI Persentase Total
     const progressPercent = Math.round((completedCount / data.challenges.length) * 100);
     const percentEl = document.querySelector('.text-success');
     if (percentEl) percentEl.textContent = `${progressPercent}%`;
@@ -185,11 +201,13 @@ function renderChallenges(challenges, completedCount, subjectId, themeColor) {
         const seconds = totalSeconds % 60;
         const displayTime = seconds > 0 ? `${minutes}m ${seconds}s` : `${minutes} min`;
 
-        // 🔥 LOGIKA PENENTUAN STATUS YANG AMAN DARI BUG STRING/NUMBER 🔥
+        // 🔥 LOGIKA KUNCI ANTI-BUG TIPE DATA 🔥
         let status = 'locked';
-        if (index < completedCount) {
+        let idx = Number(index); // Paksa ke Number
+        
+        if (idx < completedCount) {
             status = 'done';
-        } else if (index === completedCount) {
+        } else if (idx === completedCount) { // Sekarang dijamin Number === Number (1 === 1) bernilai TRUE!
             status = 'available';
         }
 
@@ -198,13 +216,13 @@ function renderChallenges(challenges, completedCount, subjectId, themeColor) {
         let opacityClass = status === 'locked' ? 'opacity-60 grayscale' : '';
         let difficultyBadge = '';
 
-        if (index === 0) {
+        if (idx === 0) {
             difficultyBadge = `<span class="bg-success/10 text-success border border-success/20 px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider">Easy</span>`;
-        } else if (index === 1) {
+        } else if (idx === 1) {
             difficultyBadge = `<span class="bg-warning/10 text-warning border border-warning/20 px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider">Medium</span>`;
-        } else if (index === 2) {
+        } else if (idx === 2) {
             difficultyBadge = `<span class="bg-[#EF5350]/10 text-[#EF5350] border border-[#EF5350]/20 px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider">Hard</span>`;
-        } else if (index === 3) {
+        } else if (idx === 3) {
             difficultyBadge = `<span class="bg-[#D500F9]/10 text-[#D500F9] border border-[#D500F9]/30 px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider flex items-center gap-1 shadow-[0_0_10px_rgba(213,0,249,0.3)]"><span class="material-symbols-outlined text-[10px] icon-filled">local_fire_department</span> EPIC</span>`;
         }
 
@@ -222,15 +240,15 @@ function renderChallenges(challenges, completedCount, subjectId, themeColor) {
         const card = document.createElement('div');
         card.className = `bg-card p-4 rounded-[24px] border border-white/5 flex flex-col gap-3 ${opacityClass} transition-all`;
         
-        if (index === 3 && status !== 'locked') {
+        if (idx === 3 && status !== 'locked') {
             card.classList.add('border-[#D500F9]/30', 'shadow-[0_4px_20px_rgba(213,0,249,0.1)]');
         }
 
         card.innerHTML = `
             <div class="flex justify-between items-start">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background-color: ${index === 3 ? '#D500F933' : themeColor + '33'}; color: ${index === 3 ? '#D500F9' : themeColor};">
-                        <span class="font-black text-sm">${index === 3 ? '☠️' : index + 1}</span>
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background-color: ${idx === 3 ? '#D500F933' : themeColor + '33'}; color: ${idx === 3 ? '#D500F9' : themeColor};">
+                        <span class="font-black text-sm">${idx === 3 ? '☠️' : idx + 1}</span>
                     </div>
                     <div>
                         <h4 class="font-bold text-sm text-white">${ch.title}</h4>
