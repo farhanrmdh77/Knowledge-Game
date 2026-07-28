@@ -76,12 +76,19 @@
         </div>
     </header>
 
-    <!-- STATS BAR: Score, Combo, Timer -->
+    <!-- STATS BAR: Score, Diamond, Timer -->
     <div class="px-6 py-2 flex justify-between items-center">
+        <!-- KOTAK XP & DIAMOND -->
         <div class="flex items-center gap-3">
+            <!-- UI XP -->
             <div class="bg-card px-3 py-1.5 rounded-[12px] border border-white/5 flex items-center gap-1.5 shadow-sm">
                 <span class="material-symbols-outlined text-warning text-[16px] icon-filled">stars</span>
                 <span id="score-text" class="font-bold text-sm">0</span>
+            </div>
+            <!-- UI Diamond Baru -->
+            <div class="bg-card px-3 py-1.5 rounded-[12px] border border-transparent flex items-center gap-1.5 shadow-sm transition-all duration-300">
+                <span class="material-symbols-outlined text-[#00E5FF] text-[16px] icon-filled">diamond</span>
+                <span id="diamond-text" class="font-bold text-sm text-[#00E5FF]">0</span>
             </div>
         </div>
 
@@ -123,5 +130,73 @@
     </main>
 
     <script type="module" src="js/pages/play.js"></script>
+    
+    <!-- MODAL REVIVE (NYAWA EKSTRA) -->
+    <div id="revive-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-6">
+        <!-- Backdrop Gelap -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        
+        <!-- Kotak Pop-up -->
+        <div class="bg-card border border-primary/30 rounded-[28px] p-6 w-full max-w-sm relative z-10 shadow-[0_10px_40px_rgba(124,92,255,0.3)] text-center">
+            <div class="w-16 h-16 mx-auto bg-danger/20 rounded-full flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined icon-filled text-danger text-3xl">favorite_border</span>
+            </div>
+            
+            <h2 class="text-2xl font-black text-white mb-2">Nyawa Habis!</h2>
+            <p class="text-textDim text-sm mb-6 leading-relaxed">Jangan menyerah! Lanjutkan tanpa mengulang dari awal?</p>
+            
+            <!-- Dompet Diamond -->
+            <div class="flex items-center justify-center gap-2 mb-6 bg-background py-2.5 rounded-xl border border-white/5">
+                <span class="text-xs text-textDim font-bold">Dompet Kamu:</span>
+                <span class="material-symbols-outlined icon-filled text-[#00E5FF] text-[16px]">diamond</span>
+                <span id="modal-current-diamond" class="font-extrabold text-[#00E5FF]">0</span>
+            </div>
+            
+            <!-- Tombol Aksi -->
+            <div class="flex gap-3">
+                <button onclick="declineRevive()" class="w-1/2 bg-white/5 border border-white/10 text-white font-bold py-3.5 rounded-[16px] hover:bg-white/10 active:scale-95 transition-all text-xs uppercase tracking-wider">
+                    Menyerah
+                </button>
+                <button onclick="acceptRevive()" class="w-1/2 bg-primary text-white font-bold py-3.5 rounded-[16px] shadow-[0_4px_15px_rgba(124,92,255,0.4)] hover:scale-[1.02] active:scale-95 transition-all text-sm flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined icon-filled text-[18px]">diamond</span> 50
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KONFIRMASI KELUAR -->
+    <div id="exit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="bg-card border border-white/10 rounded-[28px] p-6 w-full max-w-sm relative z-10 shadow-2xl text-center">
+            <div class="w-16 h-16 mx-auto bg-warning/20 rounded-full flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined icon-filled text-warning text-3xl">logout</span>
+            </div>
+            <h2 class="text-2xl font-black text-white mb-2">Keluar Kuis?</h2>
+            <p class="text-textDim text-sm mb-6 leading-relaxed">Progres dan jawaban kuis ini akan hangus dan tidak disimpan.</p>
+            <div class="flex gap-3">
+                <button onclick="closeExitModal()" class="w-1/2 bg-white/5 border border-white/10 text-white font-bold py-3.5 rounded-[16px] hover:bg-white/10 active:scale-95 transition-all text-xs uppercase tracking-wider">
+                    Batal
+                </button>
+                <button onclick="confirmExit()" class="w-1/2 bg-danger text-white font-bold py-3.5 rounded-[16px] shadow-[0_4px_15px_rgba(255,23,68,0.4)] hover:scale-[1.02] active:scale-95 transition-all text-sm">
+                    Ya, Keluar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL DIAMOND TIDAK CUKUP -->
+    <div id="insufficient-diamond-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center px-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="bg-card border border-danger/30 rounded-[28px] p-6 w-full max-w-sm relative z-10 shadow-2xl text-center">
+            <div class="w-16 h-16 mx-auto bg-danger/20 rounded-full flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined icon-filled text-danger text-3xl">diamond</span>
+            </div>
+            <h2 class="text-2xl font-black text-white mb-2">Diamond Kurang!</h2>
+            <p class="text-textDim text-sm mb-6 leading-relaxed">Maaf, saldo Diamond kamu tidak mencukupi untuk membeli nyawa ekstra.</p>
+            <button onclick="closeInsufficientModal()" class="w-full bg-danger text-white font-bold py-3.5 rounded-[16px] shadow-[0_4px_15px_rgba(255,23,68,0.4)] hover:scale-[1.02] active:scale-95 transition-all text-sm uppercase tracking-wider">
+                Mengerti
+            </button>
+        </div>
+    </div>
 </body>
 </html>

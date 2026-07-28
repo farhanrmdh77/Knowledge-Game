@@ -1,544 +1,878 @@
 // File: js/data/quizData.js
 
 export const quizData = {
+    // ==========================================
+    // 1. MATHEMATICS (Matematika)
+    // ==========================================
     mathematics: {
         challenges: [
-            { id: "math_1", questions: [
-                {question:"1 + 1 = ?",options:["1","2","3","4"],correctAnswer:1,explanation:"1+1=2"},
-                {question:"2 + 3 = ?",options:["4","5","6","7"],correctAnswer:1,explanation:"2+3=5"},
-                {question:"4 + 4 = ?",options:["6","7","8","9"],correctAnswer:2,explanation:"4+4=8"},
-                {question:"5 + 2 = ?",options:["6","7","8","9"],correctAnswer:1,explanation:"5+2=7"},
-                {question:"6 + 4 = ?",options:["9","10","11","12"],correctAnswer:1,explanation:"6+4=10"},
-                {question:"8 + 1 = ?",options:["7","8","9","10"],correctAnswer:2,explanation:"8+1=9"},
-                {question:"3 + 6 = ?",options:["7","8","9","10"],correctAnswer:2,explanation:"3+6=9"},
-                {question:"7 + 7 = ?",options:["12","13","14","15"],correctAnswer:2,explanation:"7+7=14"},
-                {question:"10 - 2 = ?",options:["6","7","8","9"],correctAnswer:2,explanation:"10-2=8"},
-                {question:"8 - 4 = ?",options:["2","3","4","5"],correctAnswer:2,explanation:"8-4=4"},
-                {question:"9 - 5 = ?",options:["2","3","4","5"],correctAnswer:2,explanation:"9-5=4"},
-                {question:"12 - 6 = ?",options:["4","5","6","7"],correctAnswer:2,explanation:"12-6=6"},
-                {question:"15 - 5 = ?",options:["8","9","10","11"],correctAnswer:2,explanation:"15-5=10"},
-                {question:"20 - 10 = ?",options:["8","9","10","11"],correctAnswer:2,explanation:"20-10=10"},
-                {question:"14 - 7 = ?",options:["6","7","8","9"],correctAnswer:1,explanation:"14-7=7"}
-            ]},
-            { id: "math_2", questions: [
-                {question:"2 x 3 = ?",options:["4","5","6","7"],correctAnswer:2,explanation:"2x3=6"},
-                {question:"4 x 4 = ?",options:["12","14","16","18"],correctAnswer:2,explanation:"4x4=16"},
-                {question:"5 x 5 = ?",options:["20","25","30","35"],correctAnswer:1,explanation:"5x5=25"},
-                {question:"6 x 3 = ?",options:["15","18","21","24"],correctAnswer:1,explanation:"6x3=18"},
-                {question:"7 x 2 = ?",options:["12","14","16","18"],correctAnswer:1,explanation:"7x2=14"},
-                {question:"8 x 4 = ?",options:["28","30","32","34"],correctAnswer:2,explanation:"8x4=32"},
-                {question:"9 x 3 = ?",options:["25","27","29","31"],correctAnswer:1,explanation:"9x3=27"},
-                {question:"10 x 5 = ?",options:["40","45","50","55"],correctAnswer:2,explanation:"10x5=50"},
-                {question:"12 / 2 = ?",options:["4","5","6","7"],correctAnswer:2,explanation:"12 dibagi 2 = 6"},
-                {question:"15 / 3 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"15 dibagi 3 = 5"},
-                {question:"20 / 4 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"20 dibagi 4 = 5"},
-                {question:"25 / 5 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"25 dibagi 5 = 5"},
-                {question:"30 / 6 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"30 dibagi 6 = 5"},
-                {question:"40 / 8 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"40 dibagi 8 = 5"},
-                {question:"50 / 10 = ?",options:["3","4","5","6"],correctAnswer:2,explanation:"50 dibagi 10 = 5"}
-            ]},
-            { id: "math_3", questions: [
-                {question:"2 + 3 x 4 = ?",options:["14","20","10","12"],correctAnswer:0,explanation:"Perkalian didahulukan: 3x4=12, lalu 2+12=14"},
-                {question:"10 - 2 x 3 = ?",options:["4","24","8","6"],correctAnswer:0,explanation:"Perkalian didahulukan: 2x3=6, lalu 10-6=4"},
-                {question:"(4 + 2) x 3 = ?",options:["18","10","14","24"],correctAnswer:0,explanation:"Kurung didahulukan: 6x3=18"},
-                {question:"Bentuk desimal dari 1/2 adalah?",options:["0.2","0.5","0.12","1.2"],correctAnswer:1,explanation:"1 dibagi 2 = 0.5"},
-                {question:"Bentuk desimal dari 1/4 adalah?",options:["0.25","0.4","1.4","0.14"],correctAnswer:0,explanation:"1 dibagi 4 = 0.25"},
-                {question:"Akar kuadrat dari 64 adalah?",options:["6","7","8","9"],correctAnswer:2,explanation:"8x8=64"},
-                {question:"Akar kuadrat dari 100 adalah?",options:["10","20","50","100"],correctAnswer:0,explanation:"10x10=100"},
-                {question:"Akar kuadrat dari 144 adalah?",options:["10","11","12","14"],correctAnswer:2,explanation:"12x12=144"},
-                {question:"3 pangkat 2 (3²) = ?",options:["6","9","12","27"],correctAnswer:1,explanation:"3x3=9"},
-                {question:"2 pangkat 3 (2³) = ?",options:["6","8","12","16"],correctAnswer:1,explanation:"2x2x2=8"},
-                {question:"5 pangkat 2 (5²) = ?",options:["10","15","20","25"],correctAnswer:3,explanation:"5x5=25"},
-                {question:"20% dari 100 adalah?",options:["10","20","30","40"],correctAnswer:1,explanation:"20/100 x 100 = 20"},
-                {question:"50% dari 200 adalah?",options:["50","100","150","200"],correctAnswer:1,explanation:"Setengah dari 200 = 100"},
-                {question:"Luas persegi dengan sisi 4cm?",options:["8","12","16","20"],correctAnswer:2,explanation:"Sisi x Sisi = 4x4 = 16"},
-                {question:"Luas persegi panjang 5x3 cm?",options:["8","15","20","25"],correctAnswer:1,explanation:"Panjang x Lebar = 5x3 = 15"},
-                {question:"Jika x + 5 = 10, nilai x?",options:["3","4","5","6"],correctAnswer:2,explanation:"10-5=5"},
-                {question:"Jika 2x = 12, nilai x?",options:["4","5","6","7"],correctAnswer:2,explanation:"12/2=6"},
-                {question:"Keliling persegi sisi 5cm?",options:["10","15","20","25"],correctAnswer:2,explanation:"4 x Sisi = 4x5 = 20"},
-                {question:"1 jam = ... detik?",options:["60","360","3600","6000"],correctAnswer:2,explanation:"60 menit x 60 detik = 3600"},
-                {question:"1 km = ... meter?",options:["10","100","1000","10000"],correctAnswer:2,explanation:"Kilo berarti ribu, jadi 1000 meter"}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Hasil dari 5 + 7 x 2 adalah?", options: ["24", "19", "17", "14"], correctAnswer: 1, explanation: "Perkalian dikerjakan lebih dulu (7x2=14), lalu ditambah 5." },
+                    { question: "Bangun datar yang memiliki 3 sisi dan 3 sudut adalah?", options: ["Persegi", "Lingkaran", "Segitiga", "Trapesium"], correctAnswer: 2, explanation: "Segitiga memiliki 3 sisi dan 3 sudut." },
+                    { question: "100 dibagi 4 sama dengan?", options: ["20", "25", "30", "50"], correctAnswer: 1, explanation: "100 : 4 = 25." },
+                    { question: "1 jam sama dengan berapa menit?", options: ["30", "60", "100", "120"], correctAnswer: 1, explanation: "1 jam = 60 menit." },
+                    { question: "2 pangkat 3 (2³) hasilnya adalah?", options: ["5", "6", "8", "9"], correctAnswer: 2, explanation: "2 x 2 x 2 = 8." },
+                    { question: "Sudut siku-siku besarnya adalah?", options: ["45 derajat", "90 derajat", "180 derajat", "360 derajat"], correctAnswer: 1, explanation: "Sudut siku-siku berbentuk L tegak lurus (90°)." },
+                    { question: "Bentuk pecahan dari 0,5 adalah?", options: ["1/2", "1/3", "1/4", "1/5"], correctAnswer: 0, explanation: "0,5 sama dengan setengah (1/2)." },
+                    { question: "Berapa luas persegi panjang dengan panjang 5 cm dan lebar 4 cm?", options: ["9 cm²", "18 cm²", "20 cm²", "40 cm²"], correctAnswer: 2, explanation: "Luas = panjang x lebar (5 x 4 = 20)." },
+                    { question: "1 lusin sama dengan berapa buah?", options: ["10", "12", "20", "24"], correctAnswer: 1, explanation: "1 lusin = 12 buah." },
+                    { question: "1 kilometer (km) sama dengan berapa meter (m)?", options: ["10 m", "100 m", "1000 m", "10000 m"], correctAnswer: 2, explanation: "Kilo berarti ribu. 1 km = 1000 meter." },
+                    { question: "50% dari 200 adalah?", options: ["50", "100", "150", "200"], correctAnswer: 1, explanation: "50% adalah setengahnya. Setengah dari 200 adalah 100." },
+                    { question: "Sebuah dadu standar memiliki berapa sisi?", options: ["4", "6", "8", "12"], correctAnswer: 1, explanation: "Dadu berbentuk kubus yang memiliki 6 sisi." },
+                    { question: "Angka romawi 'X' bernilai?", options: ["5", "10", "50", "100"], correctAnswer: 1, explanation: "V = 5, X = 10, L = 50, C = 100." },
+                    { question: "Berapa sisa pembagian 10 dibagi 3?", options: ["0", "1", "2", "3"], correctAnswer: 1, explanation: "3 x 3 = 9. Sisa 1 untuk mencapai 10." },
+                    { question: "Berapa keliling persegi yang sisinya 3 cm?", options: ["6 cm", "9 cm", "12 cm", "15 cm"], correctAnswer: 2, explanation: "Keliling = 4 x sisi (4 x 3 = 12)." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Rumus luas lingkaran adalah?", options: ["π x r", "2 x π x r", "π x r²", "π x d"], correctAnswer: 2, explanation: "Luas lingkaran = πr²." },
+                    { question: "Jika x + 5 = 12, maka nilai x adalah?", options: ["5", "7", "12", "17"], correctAnswer: 1, explanation: "x = 12 - 5, maka x = 7." },
+                    { question: "Akar kuadrat dari 144 adalah?", options: ["10", "12", "14", "16"], correctAnswer: 1, explanation: "12 x 12 = 144." },
+                    { question: "Berapa volume kubus yang memiliki panjang rusuk 3 cm?", options: ["9 cm³", "18 cm³", "27 cm³", "81 cm³"], correctAnswer: 2, explanation: "Volume = rusuk x rusuk x rusuk (3x3x3 = 27)." },
+                    { question: "Hasil dari 3/4 + 1/4 adalah?", options: ["1/2", "1", "4/8", "2"], correctAnswer: 1, explanation: "4/4 sama dengan 1." },
+                    { question: "Jumlah semua sudut dalam sebuah segitiga selalu?", options: ["90 derajat", "180 derajat", "270 derajat", "360 derajat"], correctAnswer: 1, explanation: "Total sudut segitiga selalu 180°." },
+                    { question: "Harga baju Rp100.000 diskon 20%. Berapa yang harus dibayar?", options: ["Rp20.000", "Rp80.000", "Rp100.000", "Rp120.000"], correctAnswer: 1, explanation: "Diskon 20rb. Harga bayar = 100rb - 20rb = 80rb." },
+                    { question: "1 kodi sama dengan berapa buah?", options: ["12", "20", "144", "500"], correctAnswer: 1, explanation: "1 lusin = 12, 1 kodi = 20, 1 gross = 144." },
+                    { question: "Rumus Teorema Pythagoras untuk segitiga siku-siku adalah?", options: ["a² - b² = c²", "a + b = c", "a² + b² = c²", "a x b = c"], correctAnswer: 2, explanation: "Kuadrat sisi miring sama dengan jumlah kuadrat sisi lainnya." },
+                    { question: "1 rim kertas sama dengan berapa lembar?", options: ["100", "250", "500", "1000"], correctAnswer: 2, explanation: "1 rim = 500 lembar kertas." },
+                    { question: "Skala peta 1:100. Jika jarak di peta 5 cm, jarak sebenarnya adalah?", options: ["50 cm", "5 meter", "50 meter", "500 meter"], correctAnswer: 1, explanation: "5 cm x 100 = 500 cm = 5 meter." },
+                    { question: "Kecepatan 60 km/jam. Jarak yang ditempuh dalam 2 jam adalah?", options: ["30 km", "60 km", "120 km", "240 km"], correctAnswer: 2, explanation: "Jarak = Kecepatan x Waktu (60 x 2 = 120)." },
+                    { question: "Rata-rata dari angka 4, 6, dan 8 adalah?", options: ["5", "6", "7", "8"], correctAnswer: 1, explanation: "Total 18 dibagi 3 angka = 6." },
+                    { question: "Bentuk desimal dari 2/5 adalah?", options: ["0,2", "0,4", "0,5", "0,25"], correctAnswer: 1, explanation: "2/5 sama dengan 4/10, yaitu 0,4." },
+                    { question: "Sudut lurus (sebuah garis lurus) besarnya adalah?", options: ["90 derajat", "180 derajat", "270 derajat", "360 derajat"], correctAnswer: 1, explanation: "Garis lurus membentuk sudut 180°." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Nilai dari Sin 30° adalah?", options: ["0", "1/2", "1", "√3/2"], correctAnswer: 1, explanation: "Sin 30° = 0,5 (1/2)." },
+                    { question: "Turunan pertama (derivatif) dari f(x) = x² adalah?", options: ["x", "2x", "x³", "1"], correctAnswer: 1, explanation: "Pangkat dikali ke depan, pangkatnya dikurang 1." },
+                    { question: "Hasil integral dari 2x dx adalah?", options: ["x² + c", "2x² + c", "x + c", "2 + c"], correctAnswer: 0, explanation: "Kebalikan turunan, integral 2x adalah x²." },
+                    { question: "Berapa nilai dari Log 100 (basis 10)?", options: ["1", "2", "10", "100"], correctAnswer: 1, explanation: "10 pangkat 2 = 100, maka log 100 = 2." },
+                    { question: "Peluang munculnya angka genap pada pelemparan satu buah dadu adalah?", options: ["1/6", "1/4", "1/3", "1/2"], correctAnswer: 3, explanation: "Angka genap (2,4,6) ada 3. Peluang = 3/6 = 1/2." },
+                    { question: "Gradien (kemiringan) dari garis y = 3x + 2 adalah?", options: ["1", "2", "3", "5"], correctAnswer: 2, explanation: "Bentuk y = mx + c. Gradien (m) adalah 3." },
+                    { question: "Nilai mutlak dari |-5| adalah?", options: ["-5", "0", "1/5", "5"], correctAnswer: 3, explanation: "Nilai mutlak selalu bernilai positif." },
+                    { question: "Hasil penjabaran dari (a + b)² adalah?", options: ["a² + b²", "a² + 2ab + b²", "2a + 2b", "a² - 2ab + b²"], correctAnswer: 1, explanation: "Penjabaran binomial (a+b)(a+b)." },
+                    { question: "Nilai dari Cos 90° adalah?", options: ["0", "1/2", "1", "Tak hingga"], correctAnswer: 0, explanation: "Cos 90° nilainya nol." },
+                    { question: "Nilai faktorial dari 5! adalah?", options: ["15", "25", "100", "120"], correctAnswer: 3, explanation: "5x4x3x2x1 = 120." },
+                    { question: "Banyaknya cara menyusun 3 huruf dari A, B, C tanpa pengulangan adalah?", options: ["3", "6", "9", "27"], correctAnswer: 1, explanation: "Permutasi 3! = 3x2x1 = 6 cara." },
+                    { question: "Pada matriks identitas, nilai elemen diagonal utamanya adalah?", options: ["0", "1", "-1", "Tak hingga"], correctAnswer: 1, explanation: "Diagonal utama matriks identitas selalu bernilai 1." },
+                    { question: "Nilai x yang memenuhi persamaan kuadrat x² - 4 = 0 adalah?", options: ["2 saja", "-2 saja", "2 dan -2", "4"], correctAnswer: 2, explanation: "(x-2)(x+2) = 0. Akar-akarnya 2 dan -2." },
+                    { question: "Fungsi invers dari f(x) = x + 1 adalah?", options: ["x", "x - 1", "1 - x", "1/x"], correctAnswer: 1, explanation: "Kebalikan dari ditambah 1 adalah dikurang 1." },
+                    { question: "Nilai dari ²log 8 (logaritma basis 2 dari 8) adalah?", options: ["2", "3", "4", "16"], correctAnswer: 1, explanation: "2 pangkat 3 sama dengan 8." },
+                    { question: "Rumus luas permukaan bola adalah?", options: ["πr²", "4/3 πr³", "4πr²", "2πr"], correctAnswer: 2, explanation: "Luas permukaan bola adalah 4 kali luas lingkarannya." },
+                    { question: "Suku ke-10 dari barisan aritmatika 2, 4, 6, 8... adalah?", options: ["16", "18", "20", "22"], correctAnswer: 2, explanation: "Un = a + (n-1)b. 2 + (9)2 = 20." },
+                    { question: "Limit x mendekati 0 untuk (sin x) / x adalah?", options: ["0", "1", "-1", "Tak terhingga"], correctAnswer: 1, explanation: "Sifat dasar limit trigonometri." },
+                    { question: "Sebuah persamaan kuadrat akan memiliki akar kembar jika nilai Diskriminan (D) nya?", options: ["D < 0", "D = 0", "D > 0", "D = 1"], correctAnswer: 1, explanation: "D=0 berarti akarnya kembar (sama)." },
+                    { question: "Jika f(x) = 2x dan g(x) = x+3, maka (f o g)(x) adalah?", options: ["2x + 3", "2x + 6", "3x + 2", "x² + 6"], correctAnswer: 1, explanation: "Masukkan g(x) ke f(x) -> 2(x+3) = 2x + 6." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Matematika Tingkat Dewa)
+                questions: [
+                    { question: "Hasil integral tak tentu dari ∫ 3x² dx adalah?", options: ["3x³ + c", "x³ + c", "6x + c", "x² + c"], correctAnswer: 1, explanation: "Pangkat ditambah 1, lalu koefisien dibagi dengan pangkat baru." },
+                    { question: "Turunan pertama dari f(x) = sin(x) adalah?", options: ["cos(x)", "-cos(x)", "tan(x)", "-sin(x)"], correctAnswer: 0, explanation: "Sifat dasar trigonometri, turunan dari sinus adalah cosinus." },
+                    { question: "Berapakah nilai limit x mendekati 0 untuk (tan x) / x?", options: ["0", "Tak hingga", "1", "-1"], correctAnswer: 2, explanation: "Menurut dalil L'Hopital atau limit dasar trigonometri, nilainya 1." },
+                    { question: "Logaritma natural (ln) menggunakan basis berupa konstanta?", options: ["Pi (π)", "10", "100", "Euler (e)"], correctAnswer: 3, explanation: "Nilai konstanta Euler (e) adalah sekitar 2,718." },
+                    { question: "Berapa nilai determinan dari matriks ordo 2x2 dengan baris pertama [2, 3] dan baris kedua [1, 4]?", options: ["5", "8", "11", "0"], correctAnswer: 0, explanation: "Rumus (ad - bc). Jadi (2*4) - (3*1) = 8 - 3 = 5." },
+                    { question: "Identitas trigonometri yang benar: sin²(x) + cos²(x) sama dengan?", options: ["0", "1", "tan²(x)", "sin(2x)"], correctAnswer: 1, explanation: "Ini adalah identitas Pythagoras paling dasar dalam trigonometri." },
+                    { question: "Peluang munculnya jumlah angka 7 pada pelemparan 2 buah dadu sekaligus adalah?", options: ["1/6", "1/12", "1/36", "7/36"], correctAnswer: 0, explanation: "Ada 6 kombinasi (1+6, 2+5, 3+4, dst) dari total 36 kemungkinan (6/36 = 1/6)." },
+                    { question: "Berapa hasil dari 5! (5 Faktorial) dibagi dengan 3!?", options: ["2", "15", "20", "60"], correctAnswer: 2, explanation: "120 dibagi 6 sama dengan 20 (atau cukup 5 x 4)." },
+                    { question: "Bentuk sederhana dari i² (bilangan imajiner kuadrat) adalah?", options: ["1", "-1", "0", "Tak terdefinisi"], correctAnswer: 1, explanation: "Bilangan imajiner (i) didefinisikan sebagai akar kuadrat dari -1." },
+                    { question: "Nilai dari deret tak hingga 1 + 1/2 + 1/4 + 1/8 + ... konvergen ke angka?", options: ["1.5", "2", "Tak terhingga", "0"], correctAnswer: 1, explanation: "Rumus deret geometri tak hingga S = a / (1 - r) -> 1 / (1 - 0.5) = 2." },
+                    { question: "Titik potong sumbu y pada fungsi kuadrat f(x) = 2x² - 4x + 6 adalah?", options: ["(0, 2)", "(0, -4)", "(0, 6)", "(6, 0)"], correctAnswer: 2, explanation: "Masukkan x=0, maka y bernilai 6." },
+                    { question: "Himpunan penyelesaian dari nilai mutlak |2x - 3| = 7 adalah?", options: ["x=5 atau x=-2", "x=5 atau x=2", "x=10", "Tidak ada solusi"], correctAnswer: 0, explanation: "2x-3=7 (x=5) dan 2x-3=-7 (x=-2)." },
+                    { question: "Turunan dari konstanta Euler berpangkat x (d/dx e^x) adalah?", options: ["x*e^x", "e^x", "e", "0"], correctAnswer: 1, explanation: "Fungsi e^x sangat unik karena turunannya adalah fungsi itu sendiri." },
+                    { question: "Panjang diagonal sebuah persegi yang memiliki sisi 5 cm adalah?", options: ["10 cm", "25 cm", "5√2 cm", "5√3 cm"], correctAnswer: 2, explanation: "Diagonal persegi = sisi x √2." },
+                    { question: "Berapa derajat sudut interior pada segilima beraturan (pentagon)?", options: ["90°", "108°", "120°", "360°"], correctAnswer: 1, explanation: "Rumus sudut interior segi-n: (n-2)x180/n. Jadi (3x180)/5 = 108°." },
+                    { question: "Jika log 2 = a dan log 3 = b, maka nilai log 6 adalah?", options: ["a * b", "a + b", "a² + b²", "10ab"], correctAnswer: 1, explanation: "Sifat logaritma perkalian: log(2*3) = log 2 + log 3 = a + b." },
+                    { question: "Jika keliling lingkaran adalah 10π, maka luas lingkaran tersebut adalah?", options: ["10π", "20π", "25π", "100π"], correctAnswer: 2, explanation: "Keliling 10π -> r=5. Luas = πr² = 25π." },
+                    { question: "Kuartil bawah (Q1) dari kumpulan data terurut membagi data pada persentil ke?", options: ["25%", "50%", "75%", "100%"], correctAnswer: 0, explanation: "Kuartil bawah memotong 25% data pertama." },
+                    { question: "Fungsi f(x) = x³ - 3x akan mencapai titik stasioner minimum lokal pada?", options: ["x=0", "x=1", "x=-1", "x=3"], correctAnswer: 1, explanation: "Turunan 3x²-3=0 -> x=1 atau -1. x=1 memberikan nilai y minimum (-2)." },
+                    { question: "Manakah dari angka berikut yang merupakan bilangan Fibonacci?", options: ["4", "9", "21", "25"], correctAnswer: 2, explanation: "Deret Fibonacci: 0,1,1,2,3,5,8,13,21,34..." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 2. SCIENCE (Astronomi & Ilmu Bumi Global)
+    // ==========================================
     science: {
         challenges: [
-            { id: "sci_1", questions: [
-                {question:"Pusat tata surya adalah?",options:["Bumi","Bulan","Matahari","Mars"],correctAnswer:2,explanation:"Matahari adalah pusat tata surya"},
-                {question:"Planet terdekat dengan Matahari?",options:["Venus","Bumi","Merkurius","Mars"],correctAnswer:2,explanation:"Merkurius planet pertama"},
-                {question:"Hewan pemakan daging disebut?",options:["Herbivora","Karnivora","Omnivora","Insektivora"],correctAnswer:1,explanation:"Karnivora memakan daging"},
-                {question:"Hewan pemakan tumbuhan disebut?",options:["Herbivora","Karnivora","Omnivora","Insektivora"],correctAnswer:0,explanation:"Herbivora memakan tumbuhan"},
-                {question:"Bumi memiliki satelit alami bernama?",options:["Titan","Bulan","Phobos","Europa"],correctAnswer:1,explanation:"Bulan adalah satelit Bumi"},
-                {question:"Gas yang dihirup manusia?",options:["Karbondioksida","Oksigen","Nitrogen","Helium"],correctAnswer:1,explanation:"Manusia menghirup Oksigen"},
-                {question:"Gas yang dikeluarkan manusia saat bernapas?",options:["Oksigen","Karbondioksida","Hidrogen","Metana"],correctAnswer:1,explanation:"Karbondioksida adalah sisa pernapasan"},
-                {question:"Proses tumbuhan membuat makanan?",options:["Respirasi","Fotosintesis","Transpirasi","Adaptasi"],correctAnswer:1,explanation:"Tumbuhan menggunakan Fotosintesis"},
-                {question:"Air berwujud cair. Jika membeku menjadi?",options:["Gas","Uap","Es","Plasma"],correctAnswer:2,explanation:"Air membeku menjadi es (padat)"},
-                {question:"Zat hijau daun disebut?",options:["Karoten","Klorofil","Melanin","Selulosa"],correctAnswer:1,explanation:"Klorofil memberi warna hijau pada daun"},
-                {question:"Hewan yang bisa hidup di air dan darat?",options:["Reptil","Amfibi","Mamalia","Unggas"],correctAnswer:1,explanation:"Amfibi seperti katak"},
-                {question:"Benda yang memancarkan cahaya sendiri?",options:["Cermin","Bulan","Bintang","Kaca"],correctAnswer:2,explanation:"Bintang memancarkan cahayanya sendiri"},
-                {question:"Planet terbesar di tata surya?",options:["Bumi","Saturnus","Jupiter","Uranus"],correctAnswer:2,explanation:"Jupiter adalah yang terbesar"},
-                {question:"Planet yang memiliki cincin jelas?",options:["Mars","Saturnus","Venus","Merkurius"],correctAnswer:1,explanation:"Saturnus terkenal dengan cincinnya"},
-                {question:"Alat pernapasan ikan?",options:["Paru-paru","Trakea","Kulit","Insang"],correctAnswer:3,explanation:"Ikan bernapas dengan insang"}
-            ]},
-            { id: "sci_2", questions: [
-                {question:"Perubahan padat ke cair?",options:["Membeku","Menguap","Mencair","Menyublim"],correctAnswer:2,explanation:"Padat ke cair = Mencair"},
-                {question:"Perubahan cair ke gas?",options:["Mencair","Menguap","Mengkristal","Mengembun"],correctAnswer:1,explanation:"Cair ke gas = Menguap"},
-                {question:"Perubahan gas ke cair?",options:["Mencair","Menguap","Mengkristal","Mengembun"],correctAnswer:3,explanation:"Gas ke cair = Mengembun"},
-                {question:"Perubahan padat ke gas?",options:["Membeku","Mencair","Menyublim","Mengembun"],correctAnswer:2,explanation:"Padat ke gas = Menyublim (contoh: kapur barus)"},
-                {question:"Satuan gaya dalam fisika?",options:["Watt","Joule","Newton","Pascal"],correctAnswer:2,explanation:"Satuan gaya adalah Newton (N)"},
-                {question:"Gaya yang menarik benda ke bumi?",options:["Gesek","Gravitasi","Magnet","Pegas"],correctAnswer:1,explanation:"Gravitasi bumi menarik benda ke bawah"},
-                {question:"Benda yang ditarik kuat oleh magnet?",options:["Kayu","Plastik","Besi","Kaca"],correctAnswer:2,explanation:"Besi adalah bahan feromagnetik"},
-                {question:"Alat pengukur suhu tubuh?",options:["Barometer","Termometer","Anemometer","Higrometer"],correctAnswer:1,explanation:"Termometer mengukur suhu"},
-                {question:"Satuan suhu internasional?",options:["Celcius","Fahrenheit","Reamur","Kelvin"],correctAnswer:3,explanation:"SI untuk suhu adalah Kelvin"},
-                {question:"Bunyi merambat paling cepat di?",options:["Udara","Ruang Hampa","Air","Benda Padat"],correctAnswer:3,explanation:"Kerapatan benda padat membuat bunyi cepat merambat"},
-                {question:"Organ pemompa darah?",options:["Otak","Paru-paru","Jantung","Lambung"],correctAnswer:2,explanation:"Jantung memompa darah ke seluruh tubuh"},
-                {question:"Tempat pertukaran O2 dan CO2?",options:["Hati","Paru-paru","Ginjal","Usus"],correctAnswer:1,explanation:"Paru-paru adalah organ pernapasan"},
-                {question:"Organ penyaring racun?",options:["Jantung","Hati","Lambung","Usus Besar"],correctAnswer:1,explanation:"Hati (Liver) menawar racun dalam darah"},
-                {question:"Tulang daun menyirip ada pada daun?",options:["Pepaya","Mangga","Jagung","Padi"],correctAnswer:1,explanation:"Mangga memiliki tulang daun menyirip"},
-                {question:"Penyakit kekurangan sel darah merah?",options:["Leukemia","Anemia","Hipertensi","Hipotensi"],correctAnswer:1,explanation:"Anemia adalah kurang darah merah"}
-            ]},
-            { id: "sci_3", questions: [
-                {question:"Enzim di mulut yang mengubah karbohidrat?",options:["Pepsin","Renin","Ptialin","Lipase"],correctAnswer:2,explanation:"Ptialin (Amilase) memecah amilum jadi glukosa"},
-                {question:"Enzim pepsin berada di organ?",options:["Mulut","Lambung","Usus Halus","Pankreas"],correctAnswer:1,explanation:"Lambung menghasilkan pepsin dan renin"},
-                {question:"Rumus kimia air?",options:["CO2","H2O","O2","NaCl"],correctAnswer:1,explanation:"H2O adalah air"},
-                {question:"Rumus kimia garam dapur?",options:["CO2","H2O","NaCl","HCl"],correctAnswer:2,explanation:"NaCl adalah Natrium Klorida (garam)"},
-                {question:"Planet yang dijuluki Planet Merah?",options:["Venus","Mars","Jupiter","Saturnus"],correctAnswer:1,explanation:"Mars merah karena besi oksida"},
-                {question:"Bintang terpanas berwarna?",options:["Merah","Kuning","Putih/Biru","Jingga"],correctAnswer:2,explanation:"Bintang biru lebih panas dari merah"},
-                {question:"Lapisan pelindung bumi dari UV?",options:["Troposfer","Ozon","Mesosfer","Inti bumi"],correctAnswer:1,explanation:"Lapisan ozon menyerap sinar UV"},
-                {question:"Perpindahan panas melalui perantara padat?",options:["Konveksi","Radiasi","Konduksi","Isolasi"],correctAnswer:2,explanation:"Konduksi = merambat melalui benda padat"},
-                {question:"Perpindahan panas tanpa perantara?",options:["Konveksi","Radiasi","Konduksi","Isolasi"],correctAnswer:1,explanation:"Radiasi (pancaran) seperti panas matahari"},
-                {question:"Hewan yang berkembang biak dengan bertelur?",options:["Vivipar","Ovipar","Ovovivipar","Mamalia"],correctAnswer:1,explanation:"Ovipar = bertelur"},
-                {question:"Mamalia air yang bernapas dengan paru-paru?",options:["Hiu","Paus","Pari","Kuda Laut"],correctAnswer:1,explanation:"Paus dan Lumba-lumba adalah mamalia"},
-                {question:"Tumbuhan yang memakan serangga?",options:["Kaktus","Venus Flytrap","Bambu","Teratai"],correctAnswer:1,explanation:"Kantong semar dan Venus Flytrap insektivora"},
-                {question:"Bagian bunga untuk alat kelamin jantan?",options:["Putik","Benang Sari","Mahkota","Kelopak"],correctAnswer:1,explanation:"Benang sari menghasilkan serbuk sari"},
-                {question:"Simbol unsur Besi (Iron)?",options:["Fe","Au","Ag","Cu"],correctAnswer:0,explanation:"Fe dari kata Ferrum"},
-                {question:"Simbol unsur Emas?",options:["Fe","Au","Ag","Cu"],correctAnswer:1,explanation:"Au dari kata Aurum"},
-                {question:"Proses membesarnya pupil mata dipengaruhi?",options:["Cahaya","Suhu","Tekanan","Suara"],correctAnswer:0,explanation:"Pupil membesar di tempat gelap (cahaya kurang)"},
-                {question:"Pembuluh darah yang membawa darah kembali ke jantung?",options:["Arteri","Vena","Kapiler","Aorta"],correctAnswer:1,explanation:"Vena (pembuluh balik)"},
-                {question:"Gerakan tumbuhan menuju arah cahaya?",options:["Geotropisme","Fototropisme","Tigmotropisme","Hidrotropisme"],correctAnswer:1,explanation:"Foto = cahaya"},
-                {question:"Hukum gravitasi universal ditemukan oleh?",options:["Einstein","Newton","Galileo","Tesla"],correctAnswer:1,explanation:"Isaac Newton merumuskan gravitasi"},
-                {question:"Bakteri pengurai susu menjadi yogurt?",options:["E. coli","Lactobacillus","Salmonella","Streptococcus"],correctAnswer:1,explanation:"Lactobacillus bulgaricus digunakan untuk yogurt"}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Pusat dari tata surya kita adalah?", options: ["Bumi", "Bulan", "Matahari", "Jupiter"], correctAnswer: 2, explanation: "Semua planet mengorbit mengelilingi Matahari." },
+                    { question: "Satelit alami yang mengelilingi planet Bumi adalah?", options: ["Matahari", "Bintang", "Meteor", "Bulan"], correctAnswer: 3, explanation: "Bulan adalah satu-satunya satelit alami Bumi." },
+                    { question: "Planet yang dijuluki sebagai 'Planet Merah' adalah?", options: ["Venus", "Mars", "Saturnus", "Uranus"], correctAnswer: 1, explanation: "Mars tampak merah karena debu oksida besi (karat) di permukaannya." },
+                    { question: "Planet terbesar di tata surya kita adalah?", options: ["Bumi", "Jupiter", "Saturnus", "Neptunus"], correctAnswer: 1, explanation: "Jupiter adalah planet gas raksasa terbesar." },
+                    { question: "Perputaran Bumi pada porosnya disebut?", options: ["Revolusi", "Evolusi", "Rotasi", "Gravitasi"], correctAnswer: 2, explanation: "Rotasi menyebabkan terjadinya siang dan malam." },
+                    { question: "Planet yang terkenal karena memiliki cincin yang indah adalah?", options: ["Mars", "Jupiter", "Saturnus", "Uranus"], correctAnswer: 2, explanation: "Cincin Saturnus terbuat dari es dan debu angkasa." },
+                    { question: "Matahari terbit dari arah?", options: ["Utara", "Selatan", "Timur", "Barat"], correctAnswer: 2, explanation: "Karena rotasi bumi, matahari selalu terbit dari Timur." },
+                    { question: "Benua terbesar di Bumi adalah?", options: ["Afrika", "Eropa", "Amerika", "Asia"], correctAnswer: 3, explanation: "Asia adalah benua terluas dengan populasi terbanyak." },
+                    { question: "Samudra terluas di dunia adalah?", options: ["Atlantik", "Hindia", "Pasifik", "Arktik"], correctAnswer: 2, explanation: "Samudra Pasifik menutupi hampir sepertiga permukaan bumi." },
+                    { question: "Alat untuk mengukur suhu tubuh atau udara adalah?", options: ["Barometer", "Termometer", "Higrometer", "Anemometer"], correctAnswer: 1, explanation: "Termometer digunakan untuk mengukur temperatur/suhu." },
+                    { question: "Udara yang bergerak dari tekanan tinggi ke tekanan rendah disebut?", options: ["Awan", "Hujan", "Angin", "Petir"], correctAnswer: 2, explanation: "Perbedaan tekanan udara menghasilkan angin." },
+                    { question: "Bumi berputar mengelilingi matahari membutuhkan waktu sekitar?", options: ["1 Bulan", "6 Bulan", "365 Hari", "500 Hari"], correctAnswer: 2, explanation: "Revolusi bumi memakan waktu 1 tahun (365/366 hari)." },
+                    { question: "Planet terdekat dengan Matahari adalah?", options: ["Merkurius", "Venus", "Bumi", "Mars"], correctAnswer: 0, explanation: "Merkurius berada di lintasan paling dalam tata surya." },
+                    { question: "Lapisan udara yang menyelubungi bumi dan melindungi dari radiasi adalah?", options: ["Kerak Bumi", "Mantel", "Atmosfer", "Stratosfer"], correctAnswer: 2, explanation: "Atmosfer melindungi bumi dari meteor dan radiasi UV." },
+                    { question: "Benda langit yang memancarkan cahayanya sendiri disebut?", options: ["Planet", "Bintang", "Bulan", "Komet"], correctAnswer: 1, explanation: "Bintang (seperti Matahari) memiliki reaksi fusi penghasil cahaya." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Alat pengukur kekuatan gempa bumi disebut?", options: ["Termometer", "Seismograf", "Barometer", "Mikroskop"], correctAnswer: 1, explanation: "Seismograf mencatat getaran pada permukaan bumi." },
+                    { question: "Magma yang sudah keluar ke permukaan bumi akibat letusan gunung disebut?", options: ["Lahar", "Lava", "Batu Apung", "Kawah"], correctAnswer: 1, explanation: "Lava adalah magma cair yang menyentuh udara luar." },
+                    { question: "Garis lintang 0 derajat yang membelah bumi menjadi utara dan selatan disebut?", options: ["Garis Bujur", "Garis Ekuator", "Garis Tropik", "Garis Kutub"], correctAnswer: 1, explanation: "Ekuator (Khatulistiwa) merupakan titik nol lintang bumi." },
+                    { question: "Benda langit yang terbakar saat memasuki atmosfer bumi sering disebut 'bintang jatuh', yaitu?", options: ["Komet", "Asteroid", "Meteor", "Planet"], correctAnswer: 2, explanation: "Meteor habis terbakar di atmosfer sebelum menyentuh tanah." },
+                    { question: "Galaksi tempat tata surya kita berada bernama?", options: ["Andromeda", "Triangulum", "Bimasakti (Milky Way)", "Sombrero"], correctAnswer: 2, explanation: "Bimasakti adalah galaksi berbentuk spiral." },
+                    { question: "Gerhana bulan terjadi ketika posisi?", options: ["Bulan di antara Matahari dan Bumi", "Bumi di antara Matahari dan Bulan", "Matahari di antara Bumi dan Bulan", "Bulan sejajar dengan Mars"], correctAnswer: 1, explanation: "Bayangan bumi menutupi bulan sepenuhnya." },
+                    { question: "Lapisan bumi bagian paling luar yang kita injak saat ini adalah?", options: ["Inti Dalam", "Inti Luar", "Mantel Bumi", "Kerak Bumi"], correctAnswer: 3, explanation: "Kerak bumi (Litosfer) adalah lapisan terluar yang padat." },
+                    { question: "Alat bantu optik untuk mengamati benda langit yang jauh adalah?", options: ["Periskop", "Mikroskop", "Teleskop", "Kamera"], correctAnswer: 2, explanation: "Teleskop mengumpulkan cahaya agar objek angkasa terlihat dekat." },
+                    { question: "Indonesia memiliki iklim tropis karena wilayahnya dilalui oleh?", options: ["Garis Bujur", "Garis Khatulistiwa", "Garis Balik Utara", "Garis Kutub"], correctAnswer: 1, explanation: "Wilayah ekuator selalu mendapat sinar matahari sepanjang tahun." },
+                    { question: "Lapisan pelindung ozon yang menyerap radiasi ultraviolet berada pada atmosfer bagian?", options: ["Troposfer", "Stratosfer", "Mesosfer", "Eksosfer"], correctAnswer: 1, explanation: "Lapisan ozon (O3) terletak di dalam stratosfer." },
+                    { question: "Peristiwa pasang surut air laut sangat dipengaruhi oleh?", options: ["Rotasi Bumi", "Suhu air laut", "Gaya gravitasi Bulan", "Kecepatan angin"], correctAnswer: 2, explanation: "Tarikan gravitasi bulan paling kuat memengaruhi air laut." },
+                    { question: "Batuan yang terbentuk dari pendinginan dan pembekuan magma disebut?", options: ["Batuan Sedimen", "Batuan Metamorf", "Batuan Beku", "Batuan Fosil"], correctAnswer: 2, explanation: "Contoh batuan beku adalah granit dan basal." },
+                    { question: "Kumpulan dari miliaran bintang, gas, dan debu yang terikat oleh gravitasi disebut?", options: ["Tata Surya", "Galaksi", "Gugus Bintang", "Nebula"], correctAnswer: 1, explanation: "Galaksi adalah struktur masif di alam semesta." },
+                    { question: "Skala ukur kekuatan gempa yang paling umum dikenal publik adalah?", options: ["Skala Kelvin", "Skala Celcius", "Skala Richter", "Skala Mohs"], correctAnswer: 2, explanation: "Skala Richter mencatat magnitudo gempa." },
+                    { question: "Planet yang dulu diakui, namun sejak 2006 diklasifikasikan sebagai planet kerdil (dwarf planet) adalah?", options: ["Ceres", "Pluto", "Eris", "Makemake"], correctAnswer: 1, explanation: "Pluto tidak memenuhi syarat karena tidak 'membersihkan' orbitnya." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Berapa perkiraan umur alam semesta menurut sains modern saat ini?", options: ["4,5 Miliar Tahun", "13,8 Miliar Tahun", "50 Miliar Tahun", "100 Juta Tahun"], correctAnswer: 1, explanation: "Dihitung berdasarkan laju ekspansi alam semesta (Konstanta Hubble)." },
+                    { question: "Teori yang paling luas diterima mengenai asal usul alam semesta adalah?", options: ["Steady State", "Pulsating Universe", "Big Bang", "Nebular Hypothesis"], correctAnswer: 2, explanation: "Teori Big Bang menyatakan alam semesta dimulai dari satu titik padat." },
+                    { question: "Bintang paling terang yang bisa dilihat di langit malam dari Bumi adalah?", options: ["Matahari", "Sirius", "Polaris", "Alpha Centauri"], correctAnswer: 1, explanation: "Sirius (Dog Star) berjarak sekitar 8,6 tahun cahaya." },
+                    { question: "Awan debu dan gas raksasa di ruang angkasa yang menjadi tempat lahirnya bintang disebut?", options: ["Supernova", "Nebula", "Pulsar", "Quasar"], correctAnswer: 1, explanation: "Nebula terbentuk dari ledakan bintang mati atau gas sisa alam semesta." },
+                    { question: "Batas gravitasi dari lubang hitam (black hole) di mana cahaya tidak bisa lolos disebut?", options: ["Singularitas", "Event Horizon", "Korona", "Jet Relativistik"], correctAnswer: 1, explanation: "Event Horizon adalah 'titik tanpa harapan kembali' (point of no return)." },
+                    { question: "Pergerakan lempeng tektonik bumi digerakkan oleh?", options: ["Gravitasi bulan", "Arus konveksi di mantel bumi", "Rotasi inti dalam", "Tekanan atmosfer"], correctAnswer: 1, explanation: "Panas dari inti bumi menciptakan arus konveksi pada mantel." },
+                    { question: "Zaman es besar terakhir yang dialami Bumi dikenal dengan era?", options: ["Holosen", "Mesozoikum", "Pleistosen", "Kambrium"], correctAnswer: 2, explanation: "Pleistosen adalah zaman es di mana gletser menutupi benua." },
+                    { question: "Batuan sedimen atau beku yang berubah bentuk karena suhu dan tekanan tinggi di dalam bumi disebut batuan?", options: ["Sedimen Klastik", "Metamorf", "Ekstrusif", "Piroklastik"], correctAnswer: 1, explanation: "Contohnya marmer (dari batu kapur) karena tekanan metamorfosis." },
+                    { question: "Cahaya kutub utara yang menari akibat tabrakan partikel matahari dengan medan magnet bumi disebut?", options: ["Aurora Australis", "Halo Matahari", "Aurora Borealis", "Fatana Morgana"], correctAnswer: 2, explanation: "Aurora Borealis di utara, Aurora Australis di selatan." },
+                    { question: "Efek yang membelokkan arah angin dan arus laut akibat rotasi Bumi disebut?", options: ["Gaya Sentrifugal", "Efek Doppler", "Gaya Coriolis", "Efek Rumah Kaca"], correctAnswer: 2, explanation: "Gaya Coriolis membuat angin membelok ke kanan di belahan utara." },
+                    { question: "Gas yang memiliki persentase volume paling besar di atmosfer Bumi adalah?", options: ["Oksigen", "Karbon Dioksida", "Nitrogen", "Argon"], correctAnswer: 2, explanation: "Atmosfer terdiri dari 78% Nitrogen dan 21% Oksigen." },
+                    { question: "Proses tektonik di mana dasar samudra baru terbentuk akibat magma yang naik di tengah punggung laut disebut?", options: ["Subduksi", "Sea-floor spreading", "Continental drift", "Sesar mendatar"], correctAnswer: 1, explanation: "Pemekaran lantai samudra terjadi di punggung tengah samudra (MID)." },
+                    { question: "Ilmu yang mempelajari gempa bumi dan perambatan gelombang seismik adalah?", options: ["Geomorfologi", "Seismologi", "Meteorologi", "Paleontologi"], correctAnswer: 1, explanation: "Seismologi digunakan untuk memahami struktur dalam bumi." },
+                    { question: "Titik pusat patahan gempa yang berada jauh DI DALAM lapisan bumi disebut?", options: ["Episentrum", "Hiposentrum", "Sesar", "Tsunami"], correctAnswer: 1, explanation: "Hiposentrum adalah pusat di dalam, Episentrum adalah pusat di permukaan." },
+                    { question: "Satelit alami (bulan) terbesar di seluruh tata surya kita adalah?", options: ["Titan", "Ganymede", "Europa", "Callisto"], correctAnswer: 1, explanation: "Ganymede adalah bulan milik Jupiter, ukurannya lebih besar dari planet Merkurius." },
+                    { question: "Komet periodik paling terkenal yang bisa dilihat dari Bumi setiap 75-76 tahun sekali adalah?", options: ["Komet Hale-Bopp", "Komet Shoemaker-Levy", "Komet Halley", "Komet Encke"], correctAnswer: 2, explanation: "Terakhir terlihat tahun 1986, akan muncul lagi tahun 2061." },
+                    { question: "Gas rumah kaca yang paling bertanggung jawab atas pemanasan global akibat aktivitas manusia adalah?", options: ["Metana", "Oksigen", "Karbon Dioksida", "Ozon"], correctAnswer: 2, explanation: "CO2 dominan dihasilkan dari pembakaran bahan bakar fosil." },
+                    { question: "Skala yang digunakan oleh geolog untuk mengukur tingkat kekerasan suatu mineral adalah?", options: ["Skala Mohs", "Skala Fujita", "Skala Mercalli", "Skala pH"], correctAnswer: 0, explanation: "Talk paling lunak (1), Berlian paling keras (10)." },
+                    { question: "Satuan jarak yang digunakan untuk mengukur jarak antara Bumi dan Matahari (sekitar 150 juta km) disebut?", options: ["Tahun Cahaya", "Satuan Astronomi (SA)", "Parsec", "Mil Angkasa"], correctAnswer: 1, explanation: "1 SA (Astronomical Unit) digunakan untuk skala di dalam tata surya." },
+                    { question: "Angin yang bertiup dari laut menuju daratan pada siang hari disebut?", options: ["Angin Darat", "Angin Muson", "Angin Lembah", "Angin Laut"], correctAnswer: 3, explanation: "Daratan lebih cepat panas di siang hari, sehingga udara naik dan digantikan udara laut." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Science, Astronomi & Geologi Tingkat Dewa)
+                questions: [
+                    { question: "Jari-jari batas dari sebuah lubang hitam (black hole) di mana kecepatan lepasnya setara dengan kecepatan cahaya disebut?", options: ["Limit Chandrasekhar", "Radius Schwarzschild", "Efek Doppler", "Cakrawala Peristiwa"], correctAnswer: 1, explanation: "Di bawah radius Schwarzschild, tidak ada cahaya yang bisa melarikan diri." },
+                    { question: "Gunung berapi perisai raksasa tertinggi yang pernah ditemukan di seluruh tata surya kita terletak di planet Mars, bernama?", options: ["Mauna Loa", "Gunung Everest", "Olympus Mons", "Valles Marineris"], correctAnswer: 2, explanation: "Olympus Mons di Mars tiga kali lebih tinggi dari Gunung Everest." },
+                    { question: "Fenomena bergesernya spektrum cahaya dari galaksi jauh ke arah warna merah yang membuktikan alam semesta terus mengembang disebut?", options: ["Blueshift", "Efek Fotolistrik", "Redshift (Pergeseran Merah)", "Radiasi Hawking"], correctAnswer: 2, explanation: "Redshift membuktikan bahwa galaksi-galaksi saling menjauh dengan cepat." },
+                    { question: "Bintang neutron yang berputar sangat cepat dan memancarkan gelombang elektromagnetik secara periodik (seperti mercusuar) disebut?", options: ["Quasar", "Pulsar", "Magnetar", "Katai Putih"], correctAnswer: 1, explanation: "Pulsar memancarkan denyut radiasi yang sangat akurat dari kutub magnetnya." },
+                    { question: "Titik orbit terdekat sebuah planet, komet, atau asteroid saat mengelilingi Matahari dinamakan?", options: ["Aphelion", "Apogee", "Perigee", "Perihelion"], correctAnswer: 3, explanation: "Perihelion adalah titik terdekat, sedangkan Aphelion adalah titik terjauh dari matahari." },
+                    { question: "Satelit buatan pertama yang berhasil diluncurkan ke orbit luar angkasa oleh umat manusia (Uni Soviet) pada tahun 1957 adalah?", options: ["Apollo 11", "Voyager 1", "Sputnik 1", "Explorer 1"], correctAnswer: 2, explanation: "Peluncuran Sputnik 1 memicu dimulainya Perlombaan Angkasa (Space Race)." },
+                    { question: "Batas pemisah demarkasi antara kerak bumi yang padat dengan lapisan mantel bumi di bawahnya dikenal dengan nama?", options: ["Litosfer", "Astenosfer", "Sesar San Andreas", "Diskontinuitas Mohorovicic (Moho)"], correctAnswer: 3, explanation: "Batas Moho mencatat perubahan mendadak pada kecepatan gelombang gempa." },
+                    { question: "Batas lempeng tektonik di mana dua lempeng saling bergesekan sejajar (berpapasan) memicu gempa dangkal disebut batas?", options: ["Konvergen", "Divergen", "Subduksi", "Transform"], correctAnswer: 3, explanation: "Contoh batas transform yang paling terkenal adalah Patahan San Andreas di California." },
+                    { question: "Zona orbit layak huni di sekitar sebuah bintang di mana suhu memungkinkan adanya air cair di permukaan planet disebut zona?", options: ["Goldilocks", "Twilight", "Exoplanet", "Habitual"], correctAnswer: 0, explanation: "Zona Goldilocks bersuhu pas (tidak terlalu panas dan tidak terlalu dingin)." },
+                    { question: "Medan magnet bumi yang berfungsi sebagai perisai pelindung dari badai radiasi matahari dihasilkan oleh pergerakan cairan besi super panas di bagian?", options: ["Inti Dalam Bumi", "Inti Luar Bumi", "Mantel Bumi", "Kerak Bumi"], correctAnswer: 1, explanation: "Efek dinamo (geodynamo) pada cairan inti luar menghasilkan medan magnet raksasa." },
+                    { question: "Terowongan teoretis dalam ruang-waktu yang memanipulasi gravitasi untuk menghubungkan dua titik yang sangat jauh di alam semesta disebut?", options: ["Lubang Hitam", "Jembatan Einstein-Rosen (Wormhole)", "Singularitas", "Garis Edar"], correctAnswer: 1, explanation: "Wormhole adalah jalan pintas kosmik yang sering muncul dalam teori relativitas umum." },
+                    { question: "Inti galaksi aktif yang sangat jauh dan memancarkan energi cahaya luar biasa terang yang ditenagai oleh lubang hitam supermasif disebut?", options: ["Quasar", "Supernova", "Nova", "Nebula Planeter"], correctAnswer: 0, explanation: "Quasar adalah objek paling terang dan paling energik di alam semesta." },
+                    { question: "Batas massa teoritis maksimum (sekitar 1,44 massa matahari) bagi sebuah bintang katai putih sebelum ia runtuh menjadi ledakan supernova disebut?", options: ["Batas Roche", "Batas Hubble", "Batas Chandrasekhar", "Limit Planck"], correctAnswer: 2, explanation: "Ditemukan oleh fisikawan India Subrahmanyan Chandrasekhar." },
+                    { question: "Radiasi panas purba sisa dari peristiwa Big Bang yang kini mendingin dan tersebar merata di seluruh alam semesta berada pada spektrum gelombang?", options: ["Sinar Gamma", "Ultraviolet", "Mikro (Microwave)", "Radio"], correctAnswer: 2, explanation: "Cosmic Microwave Background (CMB) adalah bukti terkuat terjadinya Big Bang." },
+                    { question: "Skala logaritmik yang digunakan oleh para astronom secara global untuk mengukur tingkat kecerahan visual suatu bintang disebut skala?", options: ["Kelvin", "Magnitudo", "Luminositas", "Fahrenheit"], correctAnswer: 1, explanation: "Semakin kecil nilai magnitudo suatu bintang, maka cahayanya semakin terang." },
+                    { question: "Awan raksasa berbentuk cangkang bola di batas terluar tata surya yang diyakini menjadi pabrik asal muasal komet berekor panjang adalah?", options: ["Sabuk Kuiper", "Sabuk Asteroid", "Awan Oort", "Awan Magellan"], correctAnswer: 2, explanation: "Awan Oort mengelilingi tata surya kita pada jarak yang sangat ekstrem jauhnya." },
+                    { question: "Megastruktur mesin teoretis fiksi ilmiah yang menutupi sebuah bintang secara penuh untuk memanen 100% energi radiasinya disebut?", options: ["Dyson Sphere", "Death Star", "Stargate", "Space Elevator"], correctAnswer: 0, explanation: "Ide ini digagas oleh fisikawan Freeman Dyson untuk peradaban tipe maju." },
+                    { question: "Superbenua raksasa tunggal yang menyatukan seluruh daratan bumi pada akhir era Paleozoikum (sekitar 335 juta tahun yang lalu) dinamakan?", options: ["Gondwana", "Laurasia", "Pangaea", "Atlantis"], correctAnswer: 2, explanation: "Pangaea perlahan terpecah menjadi benua-benua modern karena pergeseran tektonik." },
+                    { question: "Bagian inti bayangan yang paling gelap dan pekat yang terbentuk di bumi saat terjadi peristiwa gerhana matahari total disebut?", options: ["Penumbra", "Umbra", "Antumbra", "Korona"], correctAnswer: 1, explanation: "Orang yang berdiri di dalam jalur umbra akan melihat gerhana matahari total 100%." },
+                    { question: "Gaya misterius yang diyakini menyumbang sekitar 68% dari total massa-energi alam semesta dan memicu percepatan ekspansi alam semesta adalah?", options: ["Anti-Materi", "Materi Gelap (Dark Matter)", "Energi Gelap (Dark Energy)", "Gaya Nuklir Kuat"], correctAnswer: 2, explanation: "Energi Gelap bertindak sebagai antigravitasi yang mendorong galaksi saling menjauh." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 3. TECHNOLOGY (Komputer & Jaringan)
+    // ==========================================
     technology: {
         challenges: [
-            { id: "tech_1", questions: [
-                {question:"Kepanjangan CPU?",options:["Central Process Unit","Central Processing Unit","Computer Process Unit","Core Processing Unit"],correctAnswer:1,explanation:"CPU adalah otak komputer"},
-                {question:"Perangkat untuk mengetik?",options:["Mouse","Monitor","Keyboard","Printer"],correctAnswer:2,explanation:"Keyboard berisi papan tik"},
-                {question:"Perangkat penunjuk di layar?",options:["Keyboard","Mouse","Speaker","Scanner"],correctAnswer:1,explanation:"Mouse mengontrol kursor"},
-                {question:"Layar yang menampilkan gambar komputer?",options:["CPU","Monitor","Printer","Webcam"],correctAnswer:1,explanation:"Monitor untuk output visual"},
-                {question:"Alat untuk mencetak dokumen?",options:["Scanner","Monitor","Printer","Speaker"],correctAnswer:2,explanation:"Printer mencetak di atas kertas"},
-                {question:"Kepanjangan RAM?",options:["Random Access Memory","Read Access Memory","Run All Memory","Ready Access Memory"],correctAnswer:0,explanation:"RAM menyimpan memori sementara"},
-                {question:"Jaringan nirkabel populer?",options:["LAN","Kabel","Wi-Fi","USB"],correctAnswer:2,explanation:"Wi-Fi menggunakan gelombang radio"},
-                {question:"Penyimpanan awan dari Google?",options:["OneDrive","iCloud","Google Drive","Dropbox"],correctAnswer:2,explanation:"Google Drive milik Google"},
-                {question:"OS buatan Microsoft?",options:["macOS","Linux","Android","Windows"],correctAnswer:3,explanation:"Windows sangat populer di PC"},
-                {question:"OS buatan Apple untuk iPhone?",options:["Android","Windows Mobile","iOS","Symbian"],correctAnswer:2,explanation:"iOS khusus untuk perangkat mobile Apple"},
-                {question:"Perusahaan pembuat Android?",options:["Apple","Microsoft","Google","Facebook"],correctAnswer:2,explanation:"Google mengembangkan Android"},
-                {question:"Hardware adalah istilah untuk?",options:["Perangkat Keras","Perangkat Lunak","Pengguna","Jaringan"],correctAnswer:0,explanation:"Hardware adalah wujud fisik komputer"},
-                {question:"Software adalah istilah untuk?",options:["Perangkat Keras","Perangkat Lunak","Pengguna","Jaringan"],correctAnswer:1,explanation:"Software adalah program/aplikasi"},
-                {question:"Konektor layar definisi tinggi?",options:["USB","VGA","HDMI","LAN"],correctAnswer:2,explanation:"HDMI mentransfer video dan audio HD"},
-                {question:"Kepanjangan AI?",options:["Auto Internet","Alien Invasion","Artificial Intelligence","Art Image"],correctAnswer:2,explanation:"Kecerdasan Buatan = AI"}
-            ]},
-            { id: "tech_2", questions: [
-                {question:"Bahasa untuk struktur web?",options:["Python","Java","HTML","C++"],correctAnswer:2,explanation:"Hypertext Markup Language (HTML)"},
-                {question:"Bahasa untuk mempercantik (style) web?",options:["CSS","HTML","SQL","PHP"],correctAnswer:0,explanation:"Cascading Style Sheets (CSS)"},
-                {question:"Aplikasi penjelajah internet disebut?",options:["Database","Browser","OS","Antivirus"],correctAnswer:1,explanation:"Browser seperti Chrome, Firefox"},
-                {question:"Cacat dalam program disebut?",options:["Virus","Worm","Bug","Malware"],correctAnswer:2,explanation:"Bug adalah kesalahan kode"},
-                {question:"Framework buatan Google untuk mobile?",options:["React Native","Flutter","Xamarin","Ionic"],correctAnswer:1,explanation:"Flutter sangat populer untuk cross-platform"},
-                {question:"Bahasa pemrograman utama Flutter?",options:["Java","Kotlin","Swift","Dart"],correctAnswer:3,explanation:"Dart dikembangkan oleh Google"},
-                {question:"Bahasa untuk mengelola database relasional?",options:["HTML","CSS","SQL","JS"],correctAnswer:2,explanation:"Structured Query Language (SQL)"},
-                {question:"Serangan mencuri password lewat link palsu?",options:["DDoS","Phishing","Ransomware","Botnet"],correctAnswer:1,explanation:"Phishing memancing korban mengisi data rahasia"},
-                {question:"Virus yang meminta uang tebusan?",options:["Trojan","Adware","Ransomware","Spyware"],correctAnswer:2,explanation:"Ransom (Tebusan) ware"},
-                {question:"Domain untuk website pemerintahan Indonesia?",options:[".com",".id",".go.id",".edu"],correctAnswer:2,explanation:".go.id (Government Indonesia)"},
-                {question:"Domain untuk institusi pendidikan kampus?",options:[".com",".net",".ac.id",".org"],correctAnswer:2,explanation:".ac.id (Academy Indonesia)"},
-                {question:"Pencipta Facebook?",options:["Elon Musk","Bill Gates","Steve Jobs","Mark Zuckerberg"],correctAnswer:3,explanation:"Mark Zuckerberg dkk mendirikan FB"},
-                {question:"Penemu lampu pijar komersial pertama?",options:["Nikola Tesla","Thomas Edison","Graham Bell","Isaac Newton"],correctAnswer:1,explanation:"Thomas Alva Edison mengembangkan lampu pijar"},
-                {question:"Perangkat untuk menghubungkan banyak komputer ke internet?",options:["Monitor","Router","Printer","Scanner"],correctAnswer:1,explanation:"Router mengatur lalu lintas jaringan"},
-                {question:"URL singkatan dari?",options:["Uniform Resource Locator","Universal Record Link","United Route Logic","User Resource Link"],correctAnswer:0,explanation:"Alamat web standar di internet"}
-            ]},
-            { id: "tech_3", questions: [
-                {question:"Apa fungsi dari DNS?",options:["Menghapus virus","Mengubah nama domain jadi IP","Menyimpan data","Mempercepat internet"],correctAnswer:1,explanation:"Domain Name System mengubah URL (misal google.com) menjadi IP Address"},
-                {question:"Protokol transfer data aman di web?",options:["HTTP","FTP","HTTPS","SMTP"],correctAnswer:2,explanation:"Huruf 'S' pada HTTPS berarti Secure (Aman)"},
-                {question:"Apa fungsi SMTP?",options:["Mengirim Email","Mengunduh File","Menonton Video","Bermain Game"],correctAnswer:0,explanation:"Simple Mail Transfer Protocol untuk email"},
-                {question:"Cloud computing model untuk sewa infrastruktur?",options:["SaaS","PaaS","IaaS","BaaS"],correctAnswer:2,explanation:"Infrastructure as a Service (IaaS)"},
-                {question:"Antarmuka pengguna grafis disebut?",options:["CLI","GUI","API","SDK"],correctAnswer:1,explanation:"Graphical User Interface (GUI)"},
-                {question:"Antarmuka berbasis teks (command line)?",options:["GUI","API","CLI","IDE"],correctAnswer:2,explanation:"Command Line Interface (CLI)"},
-                {question:"Kumpulan fungsi siap pakai untuk developer?",options:["GUI","CLI","API","HTML"],correctAnswer:2,explanation:"Application Programming Interface (API)"},
-                {question:"Basis bilangan komputer (0 dan 1)?",options:["Desimal","Oktal","Heksadesimal","Biner"],correctAnswer:3,explanation:"Komputer memproses data dalam Biner"},
-                {question:"Penyimpanan permanen di dalam PC?",options:["RAM","Cache","Hard Disk/SSD","VGA"],correctAnswer:2,explanation:"HDD/SSD menyimpan data secara permanen"},
-                {question:"Satuan kecepatan prosesor?",options:["Gigabyte (GB)","Hertz (Hz)","Pixel (px)","Watt (W)"],correctAnswer:1,explanation:"Clock speed CPU diukur dalam Gigahertz (GHz)"},
-                {question:"Metode enkripsi dua arah?",options:["Hashing","Asimetris","Simetris","Biner"],correctAnswer:2,explanation:"Simetris pakai 1 kunci untuk enkripsi & dekripsi"},
-                {question:"Kripto pertama dan terpopuler?",options:["Ethereum","Dogecoin","Bitcoin","Solana"],correctAnswer:2,explanation:"Bitcoin diciptakan Satoshi Nakamoto"},
-                {question:"Teknologi buku besar terdistribusi di balik kripto?",options:["Cloud","Database","Blockchain","Server"],correctAnswer:2,explanation:"Blockchain mencatat transaksi permanen"},
-                {question:"Apa itu Open Source?",options:["Kode sumber tertutup","Gratis untuk dicopy/ubah","Aplikasi berbayar","Hanya untuk Apple"],correctAnswer:1,explanation:"Kode sumbernya terbuka untuk publik"},
-                {question:"OS Linux bersimbol?",options:["Jendela","Apel","Pinguin","Robot Hijau"],correctAnswer:2,explanation:"Maskot Linux adalah Pinguin bernama Tux"},
-                {question:"Komponen pengolah grafis?",options:["CPU","GPU / VGA","RAM","PSU"],correctAnswer:1,explanation:"Graphics Processing Unit"},
-                {question:"Alat pengubah sinyal digital ke analog (dan sebaliknya)?",options:["Router","Switch","Modem","Hub"],correctAnswer:2,explanation:"Modulator Demodulator (Modem)"},
-                {question:"Jaringan privat yang aman di internet publik?",options:["LAN","WAN","VPN","PAN"],correctAnswer:2,explanation:"Virtual Private Network (VPN)"},
-                {question:"Platform berbagi video terbesar Google?",options:["Netflix","Hulu","Twitch","YouTube"],correctAnswer:3,explanation:"YouTube diakuisisi Google tahun 2006"},
-                {question:"Sistem penentuan lokasi global (Satelit)?",options:["NFC","GPS","Bluetooth","Infrared"],correctAnswer:1,explanation:"Global Positioning System (GPS)"}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Perangkat keras komputer yang berfungsi sebagai otak utama pemroses data adalah?", options: ["RAM", "Motherboard", "CPU (Processor)", "Hard Drive"], correctAnswer: 2, explanation: "CPU adalah otak pemroses data utama di komputer." },
+                    { question: "Mana dari berikut ini yang merupakan perangkat input (masukan)?", options: ["Monitor", "Keyboard", "Printer", "Speaker"], correctAnswer: 1, explanation: "Keyboard digunakan untuk mengetik dan memasukkan data." },
+                    { question: "Aplikasi yang digunakan untuk menjelajahi internet disebut?", options: ["Sistem Operasi", "Browser", "Antivirus", "Microsoft Word"], correctAnswer: 1, explanation: "Browser (seperti Chrome) dipakai untuk membuka halaman web." },
+                    { question: "Apa kepanjangan dari OS dalam dunia komputer?", options: ["Operating System", "Open Software", "Office System", "Optical Storage"], correctAnswer: 0, explanation: "OS adalah perangkat lunak utama sistem komputer." },
+                    { question: "Jaringan nirkabel untuk menyambungkan perangkat ke internet tanpa kabel disebut?", options: ["LAN", "Wi-Fi", "Ethernet", "Flashdisk"], correctAnswer: 1, explanation: "Wi-Fi adalah koneksi internet nirkabel via gelombang radio." },
+                    { question: "Alat yang berfungsi untuk mencetak dokumen digital ke kertas adalah?", options: ["Scanner", "Proyektor", "Printer", "Webcam"], correctAnswer: 2, explanation: "Printer mencetak gambar atau teks ke media kertas." },
+                    { question: "Tindakan mengirim pesan atau surat elektronik melalui internet disebut?", options: ["Browsing", "Chatting", "E-mail", "Streaming"], correctAnswer: 2, explanation: "E-mail adalah layanan kirim surat secara elektronik." },
+                    { question: "Bagian komputer yang menampilkan teks dan gambar secara visual adalah?", options: ["Keyboard", "Mouse", "Monitor", "CPU"], correctAnswer: 2, explanation: "Monitor berfungsi sebagai layar penampil visual." },
+                    { question: "Kata sandi rahasia untuk melindungi akun agar tidak dibajak disebut?", options: ["Username", "Password", "Email", "Captcha"], correctAnswer: 1, explanation: "Password adalah kode rahasia pelindung keamanan akun." },
+                    { question: "Mesin pencari (search engine) paling populer di dunia saat ini adalah?", options: ["Yahoo", "Bing", "Google", "DuckDuckGo"], correctAnswer: 2, explanation: "Google adalah mesin pencari internet terbesar saat ini." },
+                    { question: "Perangkat lunak jahat yang dirancang merusak sistem komputer disebut?", options: ["Freeware", "Hardware", "Virus / Malware", "Firmware"], correctAnswer: 2, explanation: "Virus adalah program jahat yang merusak sistem." },
+                    { question: "Alat penyimpan data portabel berukuran kecil via colokan USB adalah?", options: ["Disket", "CD-ROM", "Flashdisk", "VGA Card"], correctAnswer: 2, explanation: "Flashdisk adalah media simpan data kecil via port USB." },
+                    { question: "Mana yang merupakan sistem operasi untuk smartphone (HP)?", options: ["Windows 10", "Android", "Linux Ubuntu", "MacOS"], correctAnswer: 1, explanation: "Android adalah OS buatan Google khusus untuk smartphone." },
+                    { question: "Singkatan dari WWW pada awal alamat sebuah website adalah?", options: ["World Wide Web", "World Web Wide", "Web World Wide", "Wide World Web"], correctAnswer: 0, explanation: "WWW singkatan dari World Wide Web." },
+                    { question: "Kamera kecil di atas monitor laptop untuk video call disebut?", options: ["DSLR", "Webcam", "CCTV", "Handycam"], correctAnswer: 1, explanation: "Webcam adalah kamera untuk panggilan video di komputer." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Protokol jaringan untuk mengamankan pertukaran data di web browser adalah?", options: ["HTTP", "FTP", "HTTPS", "SMTP"], correctAnswer: 2, explanation: "HTTPS mengenkripsi data agar aman saat browsing." },
+                    { question: "Dalam konfigurasi jaringan, alamat IP 192.168.1.1 masuk dalam kelas?", options: ["Kelas A", "Kelas B", "Kelas C", "Kelas D"], correctAnswer: 2, explanation: "IP awalan 192 masuk dalam jaringan Kelas C." },
+                    { question: "Memori sementara yang datanya hilang jika komputer dimatikan adalah?", options: ["ROM", "Harddisk", "RAM", "SSD"], correctAnswer: 2, explanation: "RAM menyimpan data sementara saat komputer menyala." },
+                    { question: "Penipuan online dengan memalsukan halaman login bank/sosmed disebut?", options: ["Hacking", "Phishing", "Spamming", "Carding"], correctAnswer: 1, explanation: "Phishing menipu korban untuk mencuri password/data." },
+                    { question: "Bahasa markup standar untuk membuat struktur halaman web adalah?", options: ["CSS", "JavaScript", "HTML", "PHP"], correctAnswer: 2, explanation: "HTML adalah kerangka dasar pembuat halaman web." },
+                    { question: "Media penyimpanan modern yang lebih cepat dari Hard Disk (HDD) adalah?", options: ["Floppy Disk", "SSD", "CD-R", "Magnetic Tape"], correctAnswer: 1, explanation: "SSD lebih cepat dan tahan banting daripada HDD." },
+                    { question: "Layanan penyimpanan data di internet (tanpa alat fisik) disebut?", options: ["Cloud Computing", "Localhost", "Server Room", "Data Center"], correctAnswer: 0, explanation: "Cloud menyimpan data online di server internet." },
+                    { question: "Kapasitas maksimal pengiriman data dalam sebuah jaringan disebut?", options: ["Ping", "Latency", "Bandwidth", "Jitter"], correctAnswer: 2, explanation: "Bandwidth adalah batas kecepatan maksimal transfer data." },
+                    { question: "Perintah command prompt untuk menguji koneksi antar komputer adalah?", options: ["ipconfig", "ping", "tracert", "netstat"], correctAnswer: 1, explanation: "Ping menguji apakah koneksi jaringan saling terhubung." },
+                    { question: "Nama unik pengganti alamat IP di internet (contoh: google.com) disebut?", options: ["URL", "Domain", "Hosting", "DNS"], correctAnswer: 1, explanation: "Domain mengubah IP angka menjadi nama web." },
+                    { question: "Perangkat jaringan yang menghubungkan dua jaringan berbeda adalah?", options: ["Switch", "Hub", "Router", "Repeater"], correctAnswer: 2, explanation: "Router merutekan data antar jaringan (subnet) yang beda." },
+                    { question: "Sistem yang menyaring lalu lintas data agar jaringan aman disebut?", options: ["Antivirus", "Firewall", "VPN", "Proxy"], correctAnswer: 1, explanation: "Firewall memblokir akses asing yang tidak sah." },
+                    { question: "Apa kepanjangan dari jaringan LAN?", options: ["Local Area Network", "Logical Area Network", "Large Area Network", "Link Access Network"], correctAnswer: 0, explanation: "LAN adalah jaringan lokal ruang lingkup kecil/gedung." },
+                    { question: "Sistem yang menerjemahkan nama domain web menjadi alamat IP adalah?", options: ["DHCP", "DNS", "FTP", "TCP"], correctAnswer: 1, explanation: "DNS berfungsi seperti buku telepon alamat internet." },
+                    { question: "Kabel jaringan berbahan tembaga yang paling umum untuk LAN adalah?", options: ["Fiber Optic", "Coaxial", "Twisted Pair (UTP)", "HDMI"], correctAnswer: 2, explanation: "Kabel UTP sangat umum dipakai untuk jaringan LAN." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Dalam OSI 7 Layer, lapisan yang bertanggung jawab untuk routing IP adalah?", options: ["Data Link Layer", "Network Layer", "Transport Layer", "Physical Layer"], correctAnswer: 1, explanation: "Layer 3 (Network) mengurus alamat IP dan routing." },
+                    { question: "Struktur data yang beroperasi menggunakan prinsip LIFO (Last In, First Out)?", options: ["Queue", "Array", "Tree", "Stack"], correctAnswer: 3, explanation: "Stack berarti data terakhir masuk, pertama keluar." },
+                    { question: "Alamat fisik unik 48-bit yang tertanam permanen pada kartu jaringan disebut?", options: ["IPv4", "IPv6", "MAC Address", "Subnet Mask"], correctAnswer: 2, explanation: "MAC Address adalah identitas fisik unik perangkat." },
+                    { question: "Serangan membanjiri server dengan traffic palsu hingga down disebut?", options: ["SQL Injection", "DDoS", "Cross-Site Scripting", "MitM"], correctAnswer: 1, explanation: "DDoS membuat server kewalahan dan akhirnya mati." },
+                    { question: "Konsep OOP di mana 'Class' mewariskan sifat ke turunannya disebut?", options: ["Polymorphism", "Encapsulation", "Inheritance", "Abstraction"], correctAnswer: 2, explanation: "Inheritance adalah konsep pewarisan dalam pemrograman." },
+                    { question: "Dalam arsitektur komputer modern, 1 Byte sama dengan berapa bit?", options: ["4", "8", "16", "32"], correctAnswer: 1, explanation: "1 Byte selalu terdiri dari tepat 8 bit." },
+                    { question: "Subnet Mask /24 (255.255.255.0) memiliki batas maksimal host valid sebanyak?", options: ["256", "255", "254", "128"], correctAnswer: 2, explanation: "Dari 256, dikurang IP Network dan Broadcast, sisa 254." },
+                    { question: "Protokol yang menjamin pengiriman paket data akurat dan berurutan adalah?", options: ["UDP", "ICMP", "TCP", "ARP"], correctAnswer: 2, explanation: "TCP memastikan data sampai tanpa ada yang hilang." },
+                    { question: "Sistem version control (pelacak kode) yang paling populer bagi programmer adalah?", options: ["Docker", "Git", "Jenkins", "Kubernetes"], correctAnswer: 1, explanation: "Git melacak revisi kode untuk kolaborasi tim." },
+                    { question: "Teknik mengubah data menjadi kode rahasia agar tidak bisa dibaca disebut?", options: ["Hashing", "Enkripsi", "Encoding", "Kompresi"], correctAnswer: 1, explanation: "Enkripsi mengacak data agar aman dari peretas." },
+                    { question: "Manakah yang merupakan Relational Database Management System (RDBMS)?", options: ["MongoDB", "Redis", "MySQL", "Cassandra"], correctAnswer: 2, explanation: "MySQL adalah database relasional berbasis bahasa SQL." },
+                    { question: "Singkatan dari API dalam rekayasa perangkat lunak adalah?", options: ["Application Programming Interface", "Advanced Program Integration", "Automated Process Interface", "Applied Protocol Internet"], correctAnswer: 0, explanation: "API menghubungkan dua sistem agar bisa saling interaksi." },
+                    { question: "Inti Sistem Operasi yang menghubungkan hardware dengan software adalah?", options: ["Shell", "GUI", "Kernel", "Compiler"], correctAnswer: 2, explanation: "Kernel adalah inti OS pengontrol sumber daya komputer." },
+                    { question: "Bilangan biner '1010' jika dikonversi menjadi desimal bernilai?", options: ["8", "10", "12", "14"], correctAnswer: 1, explanation: "Biner 1010 bernilai: 8 + 0 + 2 + 0 = 10." },
+                    { question: "Alamat IPv6 memiliki total ukuran panjang bit sebesar?", options: ["32-bit", "64-bit", "128-bit", "256-bit"], correctAnswer: 2, explanation: "IPv6 memiliki kapasitas panjang alamat 128-bit." },
+                    { question: "Layanan yang memberikan alamat IP secara otomatis ke komputer client adalah?", options: ["DNS Server", "Web Server", "DHCP Server", "Proxy Server"], correctAnswer: 2, explanation: "DHCP bertugas menyewakan alamat IP secara otomatis." },
+                    { question: "Cabang AI di mana sistem belajar pola dari data tanpa diprogram eksplisit disebut?", options: ["Internet of Things", "Machine Learning", "Blockchain", "Augmented Reality"], correctAnswer: 1, explanation: "Machine Learning memungkinkan komputer belajar mandiri." },
+                    { question: "Serangan menyisipkan kode bahaya ke input form untuk membobol database disebut?", options: ["XSS", "Brute Force", "SQL Injection", "Deface"], correctAnswer: 2, explanation: "SQL Injection memanipulasi celah database website." },
+                    { question: "Arsitektur jaringan buku besar terdesentralisasi (dasar dari Bitcoin) adalah?", options: ["Cloud Database", "Blockchain", "Data Warehouse", "Tor Network"], correctAnswer: 1, explanation: "Blockchain adalah teknologi buku besar yang anti manipulasi." },
+                    { question: "Fungsi/metode pemrograman yang memanggil dirinya sendiri secara berulang disebut?", options: ["Looping", "Iteration", "Recursive", "Overloading"], correctAnswer: 2, explanation: "Rekursif adalah fungsi pemanggil dirinya sendiri." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Teknologi & Komputer Tingkat Dewa)
+                questions: [
+                    { question: "Manakah dari algoritma kriptografi berikut yang menggunakan sistem Asimetris (Public/Private Key)?", options: ["AES", "DES", "RSA", "Blowfish"], correctAnswer: 2, explanation: "RSA menggunakan sepasang kunci berbeda untuk enkripsi dan dekripsi." },
+                    { question: "Dalam dunia jaringan, protokol OSPF menggunakan algoritma routing apa?", options: ["Distance Vector", "Link State", "Path Vector", "Spanning Tree"], correctAnswer: 1, explanation: "OSPF (Open Shortest Path First) memetakan topologi secara lengkap (Link State)." },
+                    { question: "Port default yang digunakan oleh protokol SSH (Secure Shell) adalah?", options: ["Port 21", "Port 22", "Port 23", "Port 80"], correctAnswer: 1, explanation: "Port 22 adalah standar jaringan aman untuk remote login (SSH)." },
+                    { question: "Prinsip ACID sangat krusial dalam perancangan database relasional. Huruf 'A' pada ACID singkatan dari?", options: ["Atomicity", "Availability", "Accuracy", "Asynchronous"], correctAnswer: 0, explanation: "Atomicity berarti sebuah transaksi sukses total atau gagal total tanpa sisa." },
+                    { question: "Apa peran dari komponen 'Hypervisor' dalam teknologi Virtualisasi?", options: ["Menyaring virus", "Membagi bandwidth jaringan", "Menjalankan & mengelola Virtual Machine", "Mempercepat grafis (GPU)"], correctAnswer: 2, explanation: "Hypervisor adalah jembatan antara OS virtual (Guest) dengan hardware fisik." },
+                    { question: "Serangan siber 'Man-in-the-Middle' (MitM) paling efektif dicegah dengan implementasi?", options: ["Antivirus", "Enkripsi end-to-end", "Disk Defragmenter", "Port Forwarding"], correctAnswer: 1, explanation: "Enkripsi membuat penyadap tidak bisa membaca paket data yang dicuri." },
+                    { question: "Arsitektur CPU yang mendominasi perangkat mobile/smartphone saat ini karena hemat daya adalah?", options: ["x86", "x64", "ARM", "MIPS"], correctAnswer: 2, explanation: "Arsitektur ARM dirancang khusus dengan instruksi sederhana (RISC) yang hemat baterai." },
+                    { question: "Pada pemograman berorientasi objek (OOP), menyembunyikan detail implementasi internal dari luar disebut?", options: ["Polymorphism", "Inheritance", "Encapsulation", "Abstraction"], correctAnswer: 2, explanation: "Enkapsulasi membungkus data dan metode layaknya sebuah kapsul tertutup." },
+                    { question: "Sistem file default (File System) yang digunakan pada OS Windows modern (Windows 10/11) adalah?", options: ["FAT32", "ext4", "NTFS", "APFS"], correctAnswer: 2, explanation: "NTFS (New Technology File System) mendukung file berukuran raksasa dan fitur keamanan." },
+                    { question: "Bahasa pemrograman tingkat rendah yang posisinya tepat satu tingkat di atas bahasa mesin (0 dan 1) adalah?", options: ["Python", "C++", "Assembly", "Java"], correctAnswer: 2, explanation: "Assembly menggunakan mnemonic (singkatan) yang diubah ke biner oleh assembler." },
+                    { question: "Model layanan komputasi awan di mana vendor menyediakan infrastruktur, OS, dan database siap pakai (contoh: Heroku) disebut?", options: ["SaaS", "IaaS", "PaaS", "BaaS"], correctAnswer: 2, explanation: "Platform as a Service (PaaS) memudahkan developer langsung fokus coding." },
+                    { question: "Algoritma pengurutan (Sorting) manakah yang secara rata-rata memiliki waktu eksekusi tercepat (O(n log n))?", options: ["Bubble Sort", "Insertion Sort", "Selection Sort", "Quick Sort"], correctAnswer: 3, explanation: "Quick Sort memecah data dengan metode divide and conquer yang sangat efisien." },
+                    { question: "Alamat IPv4 terdiri dari 32 bit. Berapa panjang bit dari alamat IPv6?", options: ["64 bit", "128 bit", "256 bit", "512 bit"], correctAnswer: 1, explanation: "IPv6 sepanjang 128 bit mampu menyediakan alamat triliunan kali lipat dari IPv4." },
+                    { question: "Framework JavaScript manakah yang dikembangkan dan di-maintain oleh Facebook (Meta)?", options: ["Angular", "Vue.js", "React", "Svelte"], correctAnswer: 2, explanation: "React digunakan untuk membangun User Interface yang interaktif dan reaktif." },
+                    { question: "Pola desain (Design Pattern) untuk memastikan sebuah Class hanya memiliki SATU instance (objek) disebut?", options: ["Factory", "Observer", "Singleton", "Decorator"], correctAnswer: 2, explanation: "Singleton membatasi instansiasi agar objek tidak terganda memakan memori." },
+                    { question: "Alat pengujian penetrasi (Pen-testing) yang paling terkenal untuk menganalisis kelemahan jaringan adalah?", options: ["Photoshop", "Wireshark / Kali Linux", "AutoCAD", "Microsoft Excel"], correctAnswer: 1, explanation: "Wireshark mengendus paket data, sedangkan Kali Linux kaya akan tool hacking etis." },
+                    { question: "Berapa banyak kemungkinan status/nilai yang dapat direpresentasikan oleh 8 bit (1 Byte)?", options: ["8", "64", "128", "256"], correctAnswer: 3, explanation: "2 pangkat 8 menghasilkan 256 kombinasi angka (0 hingga 255)." },
+                    { question: "Perintah SQL untuk menambahkan data baru ke dalam sebuah tabel database adalah?", options: ["ADD DATA", "INSERT INTO", "UPDATE", "CREATE NEW"], correctAnswer: 1, explanation: "INSERT INTO tabel_nama (kolom) VALUES (nilai)." },
+                    { question: "Teknologi wadah perangkat lunak (Containerization) yang mengisolasi aplikasi beserta dependensinya disebut?", options: ["Git", "Docker", "Jenkins", "Ansible"], correctAnswer: 1, explanation: "Docker memastikan aplikasi berjalan konsisten di komputer manapun." },
+                    { question: "Dalam konsep Jaringan Saraf Tiruan (Neural Network) AI, lapisan yang berada di antara Input dan Output disebut?", options: ["Hidden Layer", "Data Layer", "Black Box", "Synapse"], correctAnswer: 0, explanation: "Hidden Layer (Lapisan Tersembunyi) adalah tempat algoritma AI melakukan komputasi kompleks." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 4. HISTORY (Sejarah Indonesia & Dunia)
+    // ==========================================
     history: {
         challenges: [
-            { id: "hist_1", questions: [
-                {question:"Presiden RI pertama?",options:["Soeharto","B.J. Habibie","Soekarno","Megawati"],correctAnswer:2,explanation:"Ir. Soekarno menjabat sejak 1945"},
-                {question:"Wakil Presiden RI pertama?",options:["Adam Malik","Mohammad Hatta","Jusuf Kalla","Sultan HB IX"],correctAnswer:1,explanation:"Drs. Moh. Hatta adalah proklamator bersama Soekarno"},
-                {question:"Tanggal Proklamasi RI?",options:["17 Agustus 1945","1 Juni 1945","20 Mei 1908","28 Oktober 1928"],correctAnswer:0,explanation:"Kemerdekaan RI diproklamasikan 17 Agustus 1945"},
-                {question:"Penjahit bendera pusaka?",options:["Cut Nyak Dien","Fatmawati","R.A. Kartini","Dewi Sartika"],correctAnswer:1,explanation:"Ibu Fatmawati menjahit bendera Merah Putih"},
-                {question:"Pengetik teks proklamasi?",options:["Sayuti Melik","Soekarni","Wikana","Ahmad Soebardjo"],correctAnswer:0,explanation:"Sayuti Melik mengetik agar naskah terlihat resmi"},
-                {question:"Hari Lahir Pancasila diperingati?",options:["1 Juni","17 Agustus","28 Oktober","10 November"],correctAnswer:0,explanation:"Pidato Soekarno tentang dasar negara tanggal 1 Juni 1945"},
-                {question:"Sumpah Pemuda lahir pada tahun?",options:["1908","1928","1945","1965"],correctAnswer:1,explanation:"28 Oktober 1928 mengikrarkan satu tanah air, bangsa, dan bahasa"},
-                {question:"Pencipta lagu Indonesia Raya?",options:["W.R. Supratman","Ibu Sud","C. Simanjuntak","Ismail Marzuki"],correctAnswer:0,explanation:"Wage Rudolf Supratman"},
-                {question:"Hari Pahlawan 10 November berawal dari perang di kota?",options:["Bandung","Semarang","Surabaya","Medan"],correctAnswer:2,explanation:"Pertempuran heroik di Surabaya 1945"},
-                {question:"Penjajahan Jepang di Indonesia sekitar?",options:["3.5 Tahun","350 Tahun","10 Tahun","1 Abad"],correctAnswer:0,explanation:"Jepang menjajah dari 1942 hingga 1945"},
-                {question:"BPUPKI dibentuk oleh?",options:["Belanda","Jepang","Inggris","Sekutu"],correctAnswer:1,explanation:"Jepang membentuknya untuk janji kemerdekaan"},
-                {question:"Nama asli Ki Hajar Dewantara?",options:["Raden Mas Soewardi","Tirto Adhi Soerjo","Wahid Hasyim","Tjipto Mangunkusumo"],correctAnswer:0,explanation:"Bapak Pendidikan Indonesia ini bernama asli RM Soewardi Soerjaningrat"},
-                {question:"Organisasi Budi Utomo lahir tanggal?",options:["20 Mei 1908","28 Okt 1928","17 Agt 1945","1 Juni 1945"],correctAnswer:0,explanation:"Kelahirannya diperingati sebagai Hari Kebangkitan Nasional"},
-                {question:"Tokoh pahlawan wanita dari Aceh?",options:["R.A. Kartini","Dewi Sartika","Cut Nyak Dien","Martha Christina"],correctAnswer:2,explanation:"Cut Nyak Dien berjuang melawan Belanda di Aceh"},
-                {question:"Perang Diponegoro terjadi di pulau?",options:["Sumatera","Jawa","Bali","Sulawesi"],correctAnswer:1,explanation:"Dikenal juga sebagai Perang Jawa (1825-1830)"}
-            ]},
-            { id: "hist_2", questions: [
-                {question:"Kerajaan Hindu tertua di Indonesia?",options:["Sriwijaya","Majapahit","Kutai","Tarumanegara"],correctAnswer:2,explanation:"Kutai di Kaltim dibuktikan dengan prasasti Yupa"},
-                {question:"Patih Majapahit yang terkenal dengan Sumpah Palapa?",options:["Gajah Mada","Hayam Wuruk","Ken Arok","Raden Wijaya"],correctAnswer:0,explanation:"Gajah Mada bersumpah menyatukan Nusantara"},
-                {question:"Raja Majapahit yang membawa ke masa keemasan?",options:["Ken Arok","Raden Wijaya","Hayam Wuruk","Mulawarman"],correctAnswer:2,explanation:"Hayam Wuruk bersama Patih Gajah Mada"},
-                {question:"Candi Borobudur dibangun pada wangsa?",options:["Sanjaya","Syailendra","Isyana","Girindra"],correctAnswer:1,explanation:"Wangsa Syailendra yang beragama Buddha"},
-                {question:"Candi Prambanan bercorak agama?",options:["Buddha","Hindu","Konghucu","Islam"],correctAnswer:1,explanation:"Prambanan adalah candi Hindu terbesar di Indonesia"},
-                {question:"Kerajaan maritim Buddha terbesar di Sumatera?",options:["Samudera Pasai","Majapahit","Sriwijaya","Demak"],correctAnswer:2,explanation:"Sriwijaya pusat perdagangan dan Buddha di Asia Tenggara"},
-                {question:"Kerajaan Islam pertama di Indonesia?",options:["Demak","Mataram","Samudera Pasai","Banten"],correctAnswer:2,explanation:"Samudera Pasai terletak di ujung utara Sumatera"},
-                {question:"Pendiri kerajaan Majapahit?",options:["Ken Arok","Raden Wijaya","Hayam Wuruk","Gajah Mada"],correctAnswer:1,explanation:"Raden Wijaya mendirikan Majapahit (1293)"},
-                {question:"Pahlawan dari Maluku yang memimpin perlawanan tahun 1817?",options:["Pangeran Antasari","Kapitan Pattimura","Sultan Hasanuddin","Teuku Umar"],correctAnswer:1,explanation:"Thomas Matulessy (Pattimura)"},
-                {question:"Julukan Ayam Jantan dari Timur untuk?",options:["Sultan Ageng Tirtayasa","Sultan Hasanuddin","Pangeran Diponegoro","Sultan Nuku"],correctAnswer:1,explanation:"Sultan Hasanuddin dari Kerajaan Gowa (Makassar)"},
-                {question:"Kongsi dagang Belanda di Indonesia?",options:["EIC","VOC","NICA","KNIL"],correctAnswer:1,explanation:"Vereenigde Oostindische Compagnie (VOC)"},
-                {question:"Gubernur Jenderal Belanda yang membangun Jalan Anyer-Panarukan?",options:["Raffles","Daendels","Van den Bosch","Jan Pieterszoon Coen"],correctAnswer:1,explanation:"Herman Willem Daendels"},
-                {question:"Pencetus Tanam Paksa (Cultuurstelsel)?",options:["Van den Bosch","Daendels","Raffles","Cornelis de Houtman"],correctAnswer:0,explanation:"Johannes van den Bosch (1830)"},
-                {question:"Buku 'Max Havelaar' mengkritik sistem tanam paksa, ditulis oleh?",options:["Multatuli (Eduard Douwes Dekker)","Van Deventer","Snouck Hurgronje","Van Mook"],correctAnswer:0,explanation:"Buku ini membuka mata dunia tentang penderitaan rakyat Jawa"},
-                {question:"Tokoh pahlawan Bali yang memimpin Puputan Margarana?",options:["I Gusti Ketut Jelantik","I Gusti Ngurah Rai","Anak Agung Gede","Untung Surapati"],correctAnswer:1,explanation:"Perang habis-habisan (Puputan) dipimpin I Gusti Ngurah Rai"}
-            ]},
-            { id: "hist_3", questions: [
-                {question:"Pemicu Perang Dunia 1?",options:["Invasi Polandia","Terbunuhnya Franz Ferdinand","Jatuhnya Tembok Berlin","Krisis Kuba"],correctAnswer:1,explanation:"Pewaris takhta Austria-Hongaria dibunuh di Sarajevo"},
-                {question:"Pemicu Perang Dunia 2 di Eropa?",options:["Jerman serang Polandia","Jepang serang Pearl Harbor","Jerman serang Rusia","Italia serang Ethiopia"],correctAnswer:0,explanation:"Tahun 1939 Hitler menginvasi Polandia"},
-                {question:"Pangkalan AS yang diserang Jepang di PD2?",options:["Guantanamo","Okinawa","Pearl Harbor","Midway"],correctAnswer:2,explanation:"Serangan mendadak di Hawaii, 7 Desember 1941"},
-                {question:"Dua kota Jepang yang dibom atom AS?",options:["Tokyo & Kyoto","Hiroshima & Nagasaki","Osaka & Kobe","Fukuoka & Sapporo"],correctAnswer:1,explanation:"Agustus 1945 mengakhiri PD2 di Pasifik"},
-                {question:"Organisasi PBB dibentuk tahun?",options:["1919","1939","1945","1955"],correctAnswer:2,explanation:"United Nations (PBB) dibentuk usai PD2 untuk jaga perdamaian"},
-                {question:"Konferensi Asia Afrika (KAA) 1955 diadakan di?",options:["Jakarta","Bandung","Surabaya","Bali"],correctAnswer:1,explanation:"Membangun solidaritas negara berkembang"},
-                {question:"Tembok yang membelah Jerman pada Perang Dingin?",options:["Tembok Besar","Tembok Ratapan","Tembok Berlin","Tembok Kremlin"],correctAnswer:2,explanation:"Runtuh tahun 1989"},
-                {question:"Revolusi Perancis terkenal dengan semboyan?",options:["Veni Vidi Vici","Bhinneka Tunggal Ika","Liberty, Equality, Fraternity","Gold, Glory, Gospel"],correctAnswer:2,explanation:"Kebebasan, Keadilan, Persaudaraan"},
-                {question:"Penjelajah yang menemukan benua Amerika 1492?",options:["Vasco da Gama","Christopher Columbus","Magellan","James Cook"],correctAnswer:1,explanation:"Mewakili Spanyol, ia tiba di kepulauan Karibia"},
-                {question:"Revolusi Industri bermula di negara?",options:["Prancis","Jerman","Inggris","Amerika Serikat"],correctAnswer:2,explanation:"Bermula di Inggris pada abad ke-18 dengan mesin uap"},
-                {question:"Pemimpin Uni Soviet di masa PD2?",options:["Lenin","Trotsky","Gorbachev","Stalin"],correctAnswer:3,explanation:"Joseph Stalin"},
-                {question:"Perang Dingin adalah ketegangan politik antara?",options:["AS & Inggris","AS & Uni Soviet","Jerman & Prancis","Cina & Jepang"],correctAnswer:1,explanation:"Blok Barat (AS) dan Blok Timur (Soviet)"},
-                {question:"Firaun Mesir kuno yang makamnya utuh ditemukan 1922?",options:["Ramses II","Cleopatra","Tutankhamun","Khufu"],correctAnswer:2,explanation:"Makam Raja Tutankhamun oleh Howard Carter"},
-                {question:"Kerajaan Kuno Mesopotamia berada di wilayah negara modern?",options:["Iran","Mesir","Suriah","Irak"],correctAnswer:3,explanation:"Di antara sungai Eufrat dan Tigris (Irak)"},
-                {question:"Aliansi militer Blok Barat saat Perang Dingin?",options:["Pakta Warsawa","NATO","SEATO","ANZUS"],correctAnswer:1,explanation:"North Atlantic Treaty Organization"},
-                {question:"Presiden AS ke-16 yang menghapus perbudakan?",options:["George Washington","Thomas Jefferson","Abraham Lincoln","John F. Kennedy"],correctAnswer:2,explanation:"Lincoln memimpin saat Perang Saudara AS"},
-                {question:"Deklarasi Kemerdekaan Amerika disusun pada?",options:["1776","1789","1812","1865"],correctAnswer:0,explanation:"4 Juli 1776"},
-                {question:"Pendiri Kekaisaran Mongol?",options:["Kubilai Khan","Genghis Khan","Attila","Timur Lenk"],correctAnswer:1,explanation:"Membangun kekaisaran darat terluas di dunia"},
-                {question:"Tokoh Renaissance pelukis Monalisa?",options:["Michelangelo","Raphael","Donatello","Leonardo da Vinci"],correctAnswer:3,explanation:"Polymath asal Italia"},
-                {question:"Agresi Militer Belanda I di Indonesia terjadi tahun?",options:["1945","1946","1947","1948"],correctAnswer:2,explanation:"Juli 1947 untuk merebut kembali wilayah kaya ekonomi"}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Tanggal berapakah kemerdekaan Republik Indonesia diproklamasikan?", options: ["17 Agustus 1945", "1 Juni 1945", "28 Oktober 1928", "20 Mei 1908"], correctAnswer: 0, explanation: "Soekarno membacakan teks proklamasi pada 17 Agustus 1945." },
+                    { question: "Siapakah Presiden pertama Republik Indonesia?", options: ["Mohammad Hatta", "Soeharto", "Soekarno", "B.J. Habibie"], correctAnswer: 2, explanation: "Soekarno adalah presiden pertama RI." },
+                    { question: "Candi bercorak Buddha terbesar di Indonesia yang terletak di Magelang adalah?", options: ["Prambanan", "Borobudur", "Mendut", "Singasari"], correctAnswer: 1, explanation: "Candi Borobudur dibangun pada masa Dinasti Syailendra." },
+                    { question: "Negara manakah yang menjajah Indonesia paling lama?", options: ["Jepang", "Inggris", "Portugis", "Belanda"], correctAnswer: 3, explanation: "Belanda menjajah Indonesia selama kurang lebih 350 tahun." },
+                    { question: "Hari Sumpah Pemuda diperingati setiap tanggal?", options: ["2 Mei", "17 Agustus", "28 Oktober", "10 November"], correctAnswer: 2, explanation: "Sumpah Pemuda diikrarkan pada 28 Oktober 1928." },
+                    { question: "Pahlawan wanita dari Aceh yang memimpin perang gerilya melawan Belanda adalah?", options: ["R.A. Kartini", "Cut Nyak Dien", "Martha Christina Tiahahu", "Dewi Sartika"], correctAnswer: 1, explanation: "Cut Nyak Dien adalah pahlawan nasional dari Tanah Rencong, Aceh." },
+                    { question: "Naskah asli teks Proklamasi Kemerdekaan Indonesia diketik oleh?", options: ["Sayuti Melik", "Sukarni", "B.M. Diah", "Ahmad Soebardjo"], correctAnswer: 0, explanation: "Sayuti Melik bertugas mengetik naskah proklamasi tulisan tangan Soekarno." },
+                    { question: "Kerajaan Hindu tertua di Indonesia yang terletak di Kalimantan Timur adalah?", options: ["Majapahit", "Tarumanegara", "Sriwijaya", "Kutai"], correctAnswer: 3, explanation: "Kerajaan Kutai berdiri sekitar abad ke-4 Masehi." },
+                    { question: "Semboyan negara Indonesia adalah Bhinneka Tunggal Ika, yang artinya?", options: ["Maju terus pantang mundur", "Berbeda-beda tetapi tetap satu jua", "Bersatu kita teguh bercerai kita runtuh", "Keadilan bagi seluruh rakyat"], correctAnswer: 1, explanation: "Bhinneka Tunggal Ika melambangkan persatuan dalam keberagaman." },
+                    { question: "Siapakah tokoh yang dijuluki sebagai Bapak Koperasi Indonesia?", options: ["Soekarno", "Mohammad Hatta", "Ki Hajar Dewantara", "Sudirman"], correctAnswer: 1, explanation: "Bung Hatta sangat berjasa dalam membangun sistem ekonomi koperasi." },
+                    { question: "Dua kota di Jepang yang dijatuhi bom atom oleh Sekutu pada Perang Dunia II adalah?", options: ["Tokyo dan Kyoto", "Osaka dan Kobe", "Hiroshima dan Nagasaki", "Fukuoka dan Sapporo"], correctAnswer: 2, explanation: "Bom atom ini memaksa Jepang menyerah tanpa syarat kepada Sekutu." },
+                    { question: "Bendera pusaka Sang Saka Merah Putih dijahit oleh?", options: ["Megawati", "Cut Meutia", "Fatmawati", "Kartini"], correctAnswer: 2, explanation: "Ibu Fatmawati menjahit bendera pusaka sebelum hari kemerdekaan." },
+                    { question: "Sumpah Palapa adalah janji untuk menyatukan Nusantara yang diucapkan oleh?", options: ["Hayam Wuruk", "Gajah Mada", "Ken Arok", "Raden Wijaya"], correctAnswer: 1, explanation: "Patih Gajah Mada mengucapkannya pada masa Kerajaan Majapahit." },
+                    { question: "Perang Dunia II secara resmi berakhir pada tahun?", options: ["1918", "1939", "1945", "1950"], correctAnswer: 2, explanation: "Perang Dunia II berakhir menyusul kekalahan Jerman dan Jepang tahun 1945." },
+                    { question: "Penemu benua Amerika pada tahun 1492 adalah?", options: ["Vasco da Gama", "James Cook", "Christopher Columbus", "Ferdinand Magellan"], correctAnswer: 2, explanation: "Columbus mendarat di Amerika saat mencari jalur laut ke India." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                /* Penjelasan padat & pas */
+                questions: [
+                    { question: "Organisasi pergerakan nasional pertama di Indonesia yang didirikan pada 1908 adalah?", options: ["Sarekat Islam", "Indische Partij", "Budi Utomo", "Muhammadiyah"], correctAnswer: 2, explanation: "Budi Utomo didirikan oleh Dr. Soetomo dan mahasiswa STOVIA." },
+                    { question: "Sistem Tanam Paksa (Cultuurstelsel) di Indonesia dicetuskan oleh Gubernur Jenderal?", options: ["Daendels", "Van den Bosch", "Raffles", "Cornelis de Houtman"], correctAnswer: 1, explanation: "Johannes van den Bosch menerapkan tanam paksa pada tahun 1830." },
+                    { question: "Pertempuran dahsyat di Surabaya yang kemudian diperingati sebagai Hari Pahlawan terjadi pada?", options: ["1 Maret 1949", "10 November 1945", "24 Maret 1946", "20 Mei 1908"], correctAnswer: 1, explanation: "Tanggal 10 November dijadikan Hari Pahlawan Nasional." },
+                    { question: "Pemimpin perang dari Kesultanan Gowa yang dijuluki 'Ayam Jantan dari Timur' adalah?", options: ["Sultan Ageng Tirtayasa", "Sultan Hasanuddin", "Kapitan Pattimura", "Tuanku Imam Bonjol"], correctAnswer: 1, explanation: "Belanda menjulukinya demikian karena keberaniannya melawan VOC." },
+                    { question: "Nama badan bentukan Jepang yang bertugas menyelidiki usaha persiapan kemerdekaan adalah?", options: ["PPKI", "BPUPKI", "PUTERA", "PETA"], correctAnswer: 1, explanation: "Dalam bahasa Jepang BPUPKI disebut Dokuritsu Junbi Cosakai." },
+                    { question: "Kerajaan Islam pertama di nusantara adalah?", options: ["Demak", "Samudera Pasai", "Mataram", "Aceh"], correctAnswer: 1, explanation: "Samudera Pasai terletak di pesisir utara Sumatera." },
+                    { question: "Kongsi dagang Hindia Timur Belanda (VOC) didirikan pada tahun?", options: ["1596", "1602", "1800", "1942"], correctAnswer: 1, explanation: "VOC memonopoli perdagangan rempah di nusantara sejak 1602." },
+                    { question: "Buku 'Habis Gelap Terbitlah Terang' adalah kumpulan surat yang ditulis oleh?", options: ["Dewi Sartika", "R.A. Kartini", "Cut Nyak Dien", "Rohana Kudus"], correctAnswer: 1, explanation: "Buku ini dibukukan oleh J.H. Abendanon dari surat-surat Kartini." },
+                    { question: "Raja Tarumanegara yang terkenal karena membangun saluran air Gomati adalah?", options: ["Purnawarman", "Aswawarman", "Mulawarman", "Sanjaya"], correctAnswer: 0, explanation: "Purnawarman adalah raja terbesar di Kerajaan Tarumanegara." },
+                    { question: "Tokoh yang dikenal sebagai Bapak Pendidikan Nasional dan pendiri Taman Siswa adalah?", options: ["Soekarno", "Ki Hajar Dewantara", "Douwes Dekker", "Cipto Mangunkusumo"], correctAnswer: 1, explanation: "Hari lahir Ki Hajar Dewantara diperingati sebagai Hari Pendidikan." },
+                    { question: "Perjanjian yang membagi Kerajaan Mataram Islam menjadi Surakarta dan Yogyakarta adalah?", options: ["Perjanjian Bongaya", "Perjanjian Giyanti", "Perjanjian Salatiga", "Perjanjian Roem-Royen"], correctAnswer: 1, explanation: "Perjanjian Giyanti ditandatangani pada tahun 1755." },
+                    { question: "Pendiri sekaligus raja pertama Kerajaan Majapahit adalah?", options: ["Raden Patah", "Raden Wijaya", "Ken Arok", "Hayam Wuruk"], correctAnswer: 1, explanation: "Raden Wijaya mendirikan Majapahit setelah mengalahkan tentara Mongol." },
+                    { question: "Monumen Nasional (Monas) mulai dibangun pada masa pemerintahan presiden?", options: ["Soeharto", "B.J. Habibie", "Megawati", "Soekarno"], correctAnswer: 3, explanation: "Soekarno menggagas Monas untuk mengenang perlawanan rakyat." },
+                    { question: "Taktik perang yang digunakan oleh Jenderal Sudirman saat melawan Belanda adalah?", options: ["Taktik Supit Urang", "Perang Parit", "Taktik Gerilya", "Serangan Kilat (Blitzkrieg)"], correctAnswer: 2, explanation: "Gerilya dilakukan secara sembunyi-sembunyi dan berpindah-pindah." },
+                    { question: "Tiga tokoh pengibar bendera merah putih pada saat proklamasi kemerdekaan adalah?", options: ["Suhud, Latief, S.K. Trimurti", "Soekarno, Hatta, Sayuti", "B.M. Diah, Sukarni, Chaerul Saleh", "Sudirman, Yos Sudarso, Nasution"], correctAnswer: 0, explanation: "Mereka bertugas mengibarkan bendera pusaka jahitan Fatmawati." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Tragedi pembunuhan putra mahkota Austria yang memicu meletusnya Perang Dunia 1 dilakukan oleh?", options: ["Adolf Hitler", "Gavrilo Princip", "Benito Mussolini", "Josef Stalin"], correctAnswer: 1, explanation: "Princip menembak Franz Ferdinand di Sarajevo pada 1914." },
+                    { question: "Perundingan yang mengakui kedaulatan Indonesia oleh Belanda secara resmi (KMB) diadakan di kota?", options: ["Linggarjati", "Jakarta", "Den Haag", "Amsterdam"], correctAnswer: 2, explanation: "Konferensi Meja Bundar (KMB) tahun 1949 digelar di Den Haag, Belanda." },
+                    { question: "Revolusi Prancis tahun 1789 meletus yang ditandai dengan penyerbuan rakyat ke penjara?", options: ["Alcatraz", "Bastille", "Auschwitz", "Guantanamo"], correctAnswer: 1, explanation: "Jatuhnya penjara Bastille menjadi simbol peruntuhan monarki absolut." },
+                    { question: "Pada masa Demokrasi Terpimpin, Indonesia pernah secara resmi keluar dari PBB pada tahun?", options: ["1960", "1965", "1970", "1998"], correctAnswer: 1, explanation: "Soekarno menarik Indonesia dari PBB sebagai protes atas masuknya Malaysia." },
+                    { question: "Perang Dingin adalah ketegangan politik militer panjang yang terjadi antara?", options: ["Inggris dan Prancis", "Jepang dan China", "Amerika Serikat dan Uni Soviet", "Jerman dan Rusia"], correctAnswer: 2, explanation: "Berlangsung setelah PD 2 hingga runtuhnya Uni Soviet tahun 1991." },
+                    { question: "Operasi militer Trikora yang diserukan Presiden Soekarno bertujuan untuk membebaskan?", options: ["Timor Timur", "Kalimantan Utara", "Irian Barat", "Aceh"], correctAnswer: 2, explanation: "Trikora merebut Irian Barat (Papua) dari cengkeraman Belanda." },
+                    { question: "Siapakah yang menjabat sebagai Perdana Menteri pertama Republik Indonesia?", options: ["Mohammad Hatta", "Amir Sjarifuddin", "Sutan Sjahrir", "Ali Sastroamidjojo"], correctAnswer: 2, explanation: "Sutan Sjahrir memimpin kabinet parlementer pertama Indonesia." },
+                    { question: "Peristiwa Rengasdengklok terjadi karena golongan muda ingin mendesak Soekarno-Hatta untuk?", options: ["Menyerah kepada Sekutu", "Segera memproklamasikan kemerdekaan", "Membubarkan BPUPKI", "Membentuk kabinet baru"], correctAnswer: 1, explanation: "Golongan muda menolak menunggu janji kemerdekaan dari Jepang." },
+                    { question: "Tujuh buah Prasasti Yupa peninggalan Kerajaan Kutai ditulis menggunakan huruf?", options: ["Pallawa", "Kawi", "Jawa Kuno", "Arab Pegon"], correctAnswer: 0, explanation: "Prasasti ini berbahasa Sanskerta dengan huruf Pallawa." },
+                    { question: "Perjanjian Renville (1948) sangat merugikan pihak Indonesia karena?", options: ["Belanda menguasai seluruh Jawa", "Wilayah RI menjadi semakin sempit", "Ibukota pindah ke Jakarta", "Soekarno ditawan"], correctAnswer: 1, explanation: "Garis Van Mook membatasi wilayah RI hanya Jawa Tengah, Yogyakarta, dan Sumatera." },
+                    { question: "Kekaisaran daratan bersatu terbesar dalam sejarah dunia didirikan oleh bangsa Mongol di bawah pimpinan?", options: ["Kubilai Khan", "Genghis Khan", "Attila the Hun", "Alexander the Great"], correctAnswer: 1, explanation: "Genghis Khan menaklukkan wilayah dari Asia Timur hingga Eropa Timur." },
+                    { question: "Raja terbesar yang membawa Kerajaan Sriwijaya mencapai masa kejayaan maritim adalah?", options: ["Balaputradewa", "Samaratungga", "Dapunta Hyang", "Rakay Pikatan"], correctAnswer: 0, explanation: "Di bawah Balaputradewa, Sriwijaya menjadi pusat perdagangan dan agama Buddha." },
+                    { question: "Tembok Berlin yang memisahkan Jerman Barat dan Timur resmi diruntuhkan pada tahun?", options: ["1945", "1989", "1991", "2000"], correctAnswer: 1, explanation: "Runtuhnya tembok ini menandai akhir Perang Dingin di Eropa." },
+                    { question: "Siapakah pemimpin fasis diktator Italia yang menjadi sekutu Hitler pada Perang Dunia II?", options: ["Joseph Stalin", "Benito Mussolini", "Winston Churchill", "Francisco Franco"], correctAnswer: 1, explanation: "Mussolini mendirikan rezim fasis Italia dan bergabung dengan Blok Poros." },
+                    { question: "Organisasi Perserikatan Bangsa-Bangsa (PBB) didirikan pasca PD 2 tepatnya pada tahun?", options: ["1945", "1948", "1950", "1990"], correctAnswer: 0, explanation: "PBB dibentuk 24 Oktober 1945 untuk mencegah perang dunia ketiga." },
+                    { question: "Firaun muda Mesir Kuno yang makamnya ditemukan utuh oleh Howard Carter tahun 1922 adalah?", options: ["Ramses II", "Cleopatra", "Tutankhamun", "Khufu"], correctAnswer: 2, explanation: "Penemuan makam Raja Tut mengungkap harta karun Mesir tanpa dijarah." },
+                    { question: "Peristiwa pelengseran Presiden Soeharto yang dikenal sebagai masa Reformasi terjadi pada tahun?", options: ["1965", "1990", "1998", "2004"], correctAnswer: 2, explanation: "Krisis moneter dan demonstrasi mahasiswa memicu mundurnya Soeharto tahun 1998." },
+                    { question: "Perjanjian Tordesillas (1494) membagi garis hak pelayaran eksplorasi dunia untuk dua negara, yaitu?", options: ["Inggris dan Prancis", "Spanyol dan Portugis", "Belanda dan Inggris", "Italia dan Jerman"], correctAnswer: 1, explanation: "Paus membagi dunia baru untuk mencegah perang antara Spanyol dan Portugis." },
+                    { question: "Candi Prambanan yang merupakan candi Hindu terbesar di Indonesia dibangun oleh dinasti?", options: ["Syailendra", "Sanjaya", "Isyana", "Girindra"], correctAnswer: 1, explanation: "Rakai Pikatan dari Wangsa Sanjaya membangunnya pada abad ke-9 Masehi." },
+                    { question: "Konferensi Asia Afrika (KAA) pertama diselenggarakan pada tahun 1955 di kota?", options: ["Jakarta", "New Delhi", "Bandung", "Kairo"], correctAnswer: 2, explanation: "KAA di Bandung memelopori Gerakan Non-Blok negara dunia ketiga." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Sejarah Tingkat Dewa)
+                questions: [
+                    { question: "Pemberontakan petani besar-besaran di Banten melawan pemerintah kolonial Belanda pada tahun 1888 dikenal dengan nama peristiwa?", options: ["Perang Padri", "Geger Cilegon", "Perang Puputan", "Pemberontakan DI/TII"], correctAnswer: 1, explanation: "Geger Cilegon dipimpin oleh para ulama lokal untuk melawan ketidakadilan Belanda." },
+                    { question: "Siapakah Jenderal dari Kartago yang legendaris karena memimpin pasukan gajah melintasi Pegunungan Alpen untuk menyerang Romawi?", options: ["Julius Caesar", "Alexander Agung", "Hannibal Barca", "Spartacus"], correctAnswer: 2, explanation: "Hannibal Barca adalah mimpi buruk terbesar Kekaisaran Romawi Kuno." },
+                    { question: "Organisasi bentukan Jepang yang menjadi cikal bakal terbentuknya Tentara Nasional Indonesia (TNI) adalah?", options: ["Seinendan", "Keibodan", "PETA (Pembela Tanah Air)", "Heiho"], correctAnswer: 2, explanation: "PETA didirikan untuk melatih pemuda Indonesia dalam bidang kemiliteran." },
+                    { question: "Perjanjian yang mengakhiri Perang Dunia I dan menjatuhkan sanksi ganti rugi sangat berat kepada Jerman adalah?", options: ["Perjanjian Versailles", "Perjanjian Tordesillas", "Perjanjian Roem-Royen", "Perjanjian Renville"], correctAnswer: 0, explanation: "Sanksi berat ini yang memicu kemarahan Hitler untuk memulai Perang Dunia II." },
+                    { question: "Kota Konstantinopel (Bizantium) jatuh ke tangan Kekaisaran Turki Utsmani (Ottoman) pada tahun?", options: ["1453", "1492", "1511", "1914"], correctAnswer: 0, explanation: "Penaklukan ini dipimpin oleh Sultan Muhammad Al-Fatih (Mehmed II)." },
+                    { question: "Revolusi Bolshevik di Rusia pada tahun 1917 yang menggulingkan Kekaisaran Tsar dipimpin oleh?", options: ["Joseph Stalin", "Vladimir Lenin", "Karl Marx", "Mikhail Gorbachev"], correctAnswer: 1, explanation: "Lenin mendirikan negara komunis pertama di dunia (Uni Soviet)." },
+                    { question: "Prasasti tertua peninggalan Kerajaan Tarumanegara yang berisi cetakan sepasang telapak kaki Raja Purnawarman adalah Prasasti?", options: ["Yupa", "Ciaruteun", "Kedukan Bukit", "Talang Tuo"], correctAnswer: 1, explanation: "Cetakan kaki itu disamakan dengan tapak kaki Dewa Wisnu." },
+                    { question: "Firaun Mesir Kuno yang memerintahkan pembangunan Piramida Agung Giza sebagai makamnya adalah?", options: ["Ramses II", "Tutankhamun", "Khufu (Cheops)", "Cleopatra"], correctAnswer: 2, explanation: "Piramida Khufu adalah yang terbesar dan merupakan salah satu dari 7 Keajaiban Dunia Kuno." },
+                    { question: "Sistem ekonomi abad ke-16 di Eropa yang mengukur kekayaan negara dari banyaknya logam mulia (emas/perak) disebut?", options: ["Kapitalisme", "Sosialisme", "Merkantilisme", "Feodalisme"], correctAnswer: 2, explanation: "Sistem inilah yang memicu penjelajahan samudra dan penjajahan dunia." },
+                    { question: "Operasi pendaratan amfibi terbesar Sekutu di pantai Normandia (D-Day) pada PD II dipimpin oleh komandan?", options: ["Winston Churchill", "Douglas MacArthur", "Dwight D. Eisenhower", "George Patton"], correctAnswer: 2, explanation: "Eisenhower kelak menjadi Presiden Amerika Serikat berkat kesuksesan D-Day." },
+                    { question: "Badan Penyelidik Usaha-Usaha Persiapan Kemerdekaan Indonesia (BPUPKI) dalam bahasa Jepang disebut?", options: ["Dokuritsu Junbi Cosakai", "Dokuritsu Junbi Inkai", "Chuo Sangi In", "Tonarigumi"], correctAnswer: 0, explanation: "Ketuanya adalah dr. Radjiman Wedyodiningrat." },
+                    { question: "Perang saudara berdarah di Amerika Serikat (American Civil War) meletus pada 1861 terutama karena konflik mengenai isu?", options: ["Ekspansi wilayah", "Penghapusan perbudakan", "Pajak teh", "Penemuan emas"], correctAnswer: 1, explanation: "Presiden Abraham Lincoln memimpin kubu Utara untuk menghapus perbudakan di Selatan." },
+                    { question: "Tokoh Renaissance Italia jenius yang melukis mahakarya 'Mona Lisa' dan 'Perjamuan Terakhir' adalah?", options: ["Michelangelo", "Raphael", "Donatello", "Leonardo da Vinci"], correctAnswer: 3, explanation: "Da Vinci juga seorang ilmuwan dan penemu di era renaisans." },
+                    { question: "Siapakah pendiri dan raja pertama dari Kerajaan Singasari yang terkenal dengan legenda keris Mpu Gandring?", options: ["Ken Arok", "Hayam Wuruk", "Kertanegara", "Raden Wijaya"], correctAnswer: 0, explanation: "Ken Arok mendirikan wangsa Rajasa setelah membunuh Tunggul Ametung." },
+                    { question: "Ratu Mesir dari dinasti Ptolemeus yang memiliki hubungan asmara tragis dengan Julius Caesar dan Mark Antony adalah?", options: ["Nefertiti", "Hatshepsut", "Cleopatra VII", "Isis"], correctAnswer: 2, explanation: "Cleopatra adalah firaun aktif terakhir dari Mesir kuno." },
+                    { question: "Teori masuknya pengaruh Hindu-Buddha ke Nusantara melalui peran para pedagang India disebut teori?", options: ["Brahmana", "Ksatria", "Waisya", "Arus Balik"], correctAnswer: 2, explanation: "Waisya adalah kasta para pedagang dan saudagar." },
+                    { question: "Revolusi Industri yang mengubah tenaga manusia menjadi mesin uap pertama kali dimulai pada abad ke-18 di negara?", options: ["Prancis", "Jerman", "Amerika Serikat", "Inggris"], correctAnswer: 3, explanation: "Dimulai dari industri tekstil di Inggris sebelum menyebar ke seluruh dunia." },
+                    { question: "Perjanjian Tordesillas (1494) yang difasilitasi Paus membagi hak eksplorasi dunia baru untuk dua negara pelopor, yaitu?", options: ["Belanda & Inggris", "Spanyol & Portugis", "Italia & Prancis", "Jerman & Rusia"], correctAnswer: 1, explanation: "Spanyol mendapat belahan barat (Amerika), Portugis mendapat timur (Asia/Afrika)." },
+                    { question: "Peradaban kuno yang membangun kuil megah Chichen Itza dengan kalender kiamat astronomi 2012 adalah?", options: ["Suku Aztec", "Suku Inca", "Suku Maya", "Suku Apache"], correctAnswer: 2, explanation: "Suku Maya di Amerika Tengah sangat maju di bidang matematika dan astronomi." },
+                    { question: "Siapakah penemu komersial bola lampu pijar yang berhasil mendirikan perusahaan General Electric (GE)?", options: ["Nikola Tesla", "Thomas Alva Edison", "Alexander Graham Bell", "Albert Einstein"], correctAnswer: 1, explanation: "Edison menyempurnakan lampu pijar agar tahan lama dan murah." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 5. ENGLISH (Bahasa Inggris)
+    // ==========================================
     english: {
         challenges: [
-            { id: "eng_1", questions: [
-                {question:"Antonym of 'Brave'?",options:["Coward","Hero","Strong","Fast"],correctAnswer:0,explanation:"Brave (Berani) >< Coward (Pengecut)"},
-                {question:"Synonym of 'Enormous'?",options:["Tiny","Fast","Huge","Smart"],correctAnswer:2,explanation:"Enormous = Huge (Sangat Besar)"},
-                {question:"'I ... to school everyday.'",options:["go","goes","went","going"],correctAnswer:0,explanation:"Simple present tense untuk 'I' tidak pakai s/es"},
-                {question:"'She ... to school everyday.'",options:["go","goes","went","going"],correctAnswer:1,explanation:"Simple present untuk 'She' harus ditambah s/es"},
-                {question:"Antonym of 'Hot'?",options:["Warm","Boiling","Cold","Sunny"],correctAnswer:2,explanation:"Hot (Panas) >< Cold (Dingin)"},
-                {question:"'They ... playing football right now.'",options:["is","am","are","were"],correctAnswer:2,explanation:"Subjek jamak 'They' to-be nya 'are'"},
-                {question:"'He is ... engineer.'",options:["a","an","the","-"],correctAnswer:1,explanation:"'an' karena kata berawalan bunyi vokal (engineer)"},
-                {question:"'I ... an apple yesterday.'",options:["eat","eats","ate","eating"],correctAnswer:2,explanation:"Past tense (kemarin), gunakan verb 2 (ate)"},
-                {question:"'We ... happy.'",options:["is","am","are","do"],correctAnswer:2,explanation:"To-be untuk We adalah Are"},
-                {question:"Synonym of 'Beautiful'?",options:["Ugly","Pretty","Angry","Fast"],correctAnswer:1,explanation:"Beautiful = Pretty (Cantik)"},
-                {question:"Antonym of 'Fast'?",options:["Quick","Rapid","Slow","Speed"],correctAnswer:2,explanation:"Fast (Cepat) >< Slow (Lambat)"},
-                {question:"'Do you like apples?' Correct answer?",options:["Yes, I do","Yes, I am","Yes, I does","Yes, I did"],correctAnswer:0,explanation:"Pertanyaan 'Do you' dijawab 'Yes, I do'"},
-                {question:"Which one is a noun?",options:["Run","Beautiful","Happiness","Quickly"],correctAnswer:2,explanation:"Happiness (Kebahagiaan) adalah kata benda"},
-                {question:"Which one is an adjective?",options:["Car","Blue","Run","Happily"],correctAnswer:1,explanation:"Blue (Biru) adalah kata sifat"},
-                {question:"Translate 'Saya sedang membaca buku'",options:["I read book","I am reading a book","I read a book","I was reading a book"],correctAnswer:1,explanation:"Present Continuous: am/is/are + verb-ing"}
-            ]},
-            { id: "eng_2", questions: [
-                {question:"Comparative of 'Good'?",options:["Gooder","More good","Better","Best"],correctAnswer:2,explanation:"Bentuk lebih dari good adalah better"},
-                {question:"Superlative of 'Bad'?",options:["Baddest","Worse","Worst","Most bad"],correctAnswer:2,explanation:"Paling buruk = Worst"},
-                {question:"'She has ... in London since 2010.'",options:["live","lives","lived","living"],correctAnswer:2,explanation:"Present Perfect: has/have + Verb 3"},
-                {question:"'I would buy a car if I ... rich.'",options:["am","was","were","be"],correctAnswer:2,explanation:"Conditional type 2 menggunakan 'were' untuk semua subjek"},
-                {question:"'The letter was ... by John.'",options:["write","wrote","written","writing"],correctAnswer:2,explanation:"Passive voice: to be + Verb 3 (written)"},
-                {question:"Plural of 'Mouse'?",options:["Mouses","Mice","Mouse","Meese"],correctAnswer:1,explanation:"Kata jamak tidak beraturan: Mouse -> Mice"},
-                {question:"Plural of 'Child'?",options:["Childs","Children","Childrens","Childes"],correctAnswer:1,explanation:"Kata jamak tidak beraturan: Child -> Children"},
-                {question:"'I didn't ... my homework.'",options:["do","did","done","doing"],correctAnswer:0,explanation:"Setelah 'did not' harus kembali ke Verb 1 dasar"},
-                {question:"'She is looking ... her lost keys.'",options:["at","for","after","up"],correctAnswer:1,explanation:"'Look for' = mencari"},
-                {question:"'Can you turn ... the light? It's too dark.'",options:["on","off","up","down"],correctAnswer:0,explanation:"'Turn on' = menyalakan"},
-                {question:"'He is good ... math.'",options:["in","at","on","with"],correctAnswer:1,explanation:"Preposisi yang tepat untuk kemampuan adalah 'good at'"},
-                {question:"'I prefer tea ... coffee.'",options:["than","to","more","over"],correctAnswer:1,explanation:"Struktur prefer: Prefer A to B"},
-                {question:"'You should ... medicine.'",options:["take","takes","took","taking"],correctAnswer:0,explanation:"Setelah modal (should), gunakan bare infinitive (V1)"},
-                {question:"'He is the ... boy in the class.'",options:["tall","taller","tallest","most tall"],correctAnswer:2,explanation:"Superlative untuk 1 suku kata tambah -est"},
-                {question:"'There is ... milk in the fridge.'",options:["a few","many","some","any"],correctAnswer:2,explanation:"Kalimat positif uncountable pakai 'some'"}
-            ]},
-            { id: "eng_3", questions: [
-                {question:"Idiom 'Piece of cake' means?",options:["Delicious","Very easy","Very hard","Baking"],correctAnswer:1,explanation:"Sangat mudah"},
-                {question:"Idiom 'Raining cats and dogs' means?",options:["Animals falling","Heavy rain","Light rain","Sunny"],correctAnswer:1,explanation:"Hujan turun sangat deras"},
-                {question:"Idiom 'Break a leg' means?",options:["Get hurt","Good luck","Stop walking","Dance"],correctAnswer:1,explanation:"Ucapan semoga sukses (biasanya untuk penampil)"},
-                {question:"Idiom 'Bite the bullet' means?",options:["Eat hard food","Face a painful situation","Shoot a gun","Run away"],correctAnswer:1,explanation:"Menghadapi situasi sulit dengan berani"},
-                {question:"'If I had known, I ... there.'",options:["would go","will go","would have gone","went"],correctAnswer:2,explanation:"Conditional Type 3: would have + V3"},
-                {question:"'Neither John ... Mary came to the party.'",options:["or","nor","and","but"],correctAnswer:1,explanation:"Pasangan kata: Neither... nor..."},
-                {question:"'Either you ... I must go.'",options:["or","nor","and","but"],correctAnswer:0,explanation:"Pasangan kata: Either... or..."},
-                {question:"'The man ... car was stolen is sad.'",options:["who","whom","whose","which"],correctAnswer:2,explanation:"'Whose' menunjukkan kepemilikan (mobil miliknya)"},
-                {question:"'This is the house ... I was born.'",options:["when","which","where","who"],correctAnswer:2,explanation:"'Where' digunakan untuk menerangkan tempat"},
-                {question:"'He is used to ... early.'",options:["wake","woke","waking","waken"],correctAnswer:2,explanation:"'To be used to' diikuti oleh Gerund (V-ing)"},
-                {question:"'By the time you arrive, I ... finished it.'",options:["will have","will","have","had"],correctAnswer:0,explanation:"Future Perfect Tense: kejadian akan sudah selesai di masa depan"},
-                {question:"'I wish I ... a bird.'",options:["am","was","were","have been"],correctAnswer:2,explanation:"Wish (pengandaian tidak nyata) selalu pakai 'were'"},
-                {question:"'Despite ... raining, we played football.'",options:["it","the","of","-"],correctAnswer:0,explanation:"Kalimat lengkapnya: Despite it raining..."},
-                {question:"'She asked me where ...'",options:["was I going","I was going","am I going","I am going"],correctAnswer:1,explanation:"Indirect speech: subject + verb (bukan format pertanyaan)"},
-                {question:"'Hardly ... reached home when it rained.'",options:["had I","I had","did I","I did"],correctAnswer:0,explanation:"Inversi setelah kata negatif (Hardly had + S + V3)"},
-                {question:"Idiom 'Once in a blue moon' means?",options:["Very often","Never","Very rarely","Every night"],correctAnswer:2,explanation:"Sangat jarang terjadi"},
-                {question:"'He denied ... the money.'",options:["steal","to steal","stolen","stealing"],correctAnswer:3,explanation:"Kata kerja 'deny' diikuti Gerund (V-ing)"},
-                {question:"'You had better ... now.'",options:["to leave","leave","leaving","left"],correctAnswer:1,explanation:"'Had better' diikuti V1 dasar (bare infinitive)"},
-                {question:"'It is high time you ... a job.'",options:["get","getting","got","to get"],correctAnswer:2,explanation:"Frasa 'It is high time' + Subject + Past Tense (V2)"},
-                {question:"Idiom 'Let the cat out of the bag' means?",options:["Reveal a secret","Buy a pet","Lose something","Get angry"],correctAnswer:0,explanation:"Membongkar sebuah rahasia secara tidak sengaja"}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "I ... a student.", options: ["is", "am", "are", "be"], correctAnswer: 1, explanation: "Subjek 'I' selalu berpasangan dengan to be 'am'." },
+                    { question: "She ... to school every day.", options: ["go", "goes", "going", "gone"], correctAnswer: 1, explanation: "Present Tense untuk subjek tunggal (She) ditambahkan s/es." },
+                    { question: "What is the plural form of 'child'?", options: ["childs", "childrens", "children", "childes"], correctAnswer: 2, explanation: "'Children' adalah bentuk jamak yang tidak beraturan dari child." },
+                    { question: "What is the opposite of 'Tall'?", options: ["Big", "Short", "Long", "Fat"], correctAnswer: 1, explanation: "Antonym (lawan kata) dari tinggi (tall) adalah pendek (short)." },
+                    { question: "He is eating an ...", options: ["banana", "grape", "apple", "mango"], correctAnswer: 2, explanation: "Artikel 'an' digunakan sebelum kata benda berawalan huruf vokal (a,i,u,e,o)." },
+                    { question: "... you like to drink coffee?", options: ["Does", "Do", "Are", "Is"], correctAnswer: 1, explanation: "Kata bantu tanya untuk subjek 'you' pada verb adalah 'Do'." },
+                    { question: "Yesterday, I ... to the market.", options: ["go", "went", "gone", "going"], correctAnswer: 1, explanation: "'Went' adalah bentuk lampau (Verb 2) dari go untuk kejadian kemarin." },
+                    { question: "The sun sets in the ...", options: ["East", "West", "North", "South"], correctAnswer: 1, explanation: "Matahari terbenam di arah barat (West)." },
+                    { question: "What is the synonym of 'Happy'?", options: ["Sad", "Angry", "Joyful", "Tired"], correctAnswer: 2, explanation: "Joyful bermakna gembira, sama dengan arti kata happy." },
+                    { question: "My father's brother is my ...", options: ["Uncle", "Aunt", "Cousin", "Nephew"], correctAnswer: 0, explanation: "Saudara laki-laki ayah disebut paman (Uncle)." },
+                    { question: "Where ... they live?", options: ["does", "do", "is", "are"], correctAnswer: 1, explanation: "Subjek jamak 'they' menggunakan auxiliary verb 'do'." },
+                    { question: "I have two ...", options: ["cat", "cats", "cates", "cat's"], correctAnswer: 1, explanation: "Kata benda jamak (lebih dari satu) ditambah akhiran 's'." },
+                    { question: "They ... playing football right now.", options: ["is", "am", "are", "were"], correctAnswer: 2, explanation: "Present continuous tense subjek 'They' menggunakan to be 'are'." },
+                    { question: "Can you help ...?", options: ["I", "my", "mine", "me"], correctAnswer: 3, explanation: "'Me' adalah kata ganti objek (object pronoun) dari I." },
+                    { question: "The sky is ...", options: ["red", "green", "blue", "yellow"], correctAnswer: 2, explanation: "Warna langit yang normal adalah biru (blue)." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "I have ... in Jakarta for 5 years.", options: ["live", "lives", "lived", "living"], correctAnswer: 2, explanation: "Present Perfect Tense (have + Verb 3)." },
+                    { question: "The letter ... by him yesterday.", options: ["writes", "wrote", "is written", "was written"], correctAnswer: 3, explanation: "Kalimat pasif lampau menggunakan 'was + Verb 3'." },
+                    { question: "If it rains, I ... at home.", options: ["will stay", "would stay", "stayed", "staying"], correctAnswer: 0, explanation: "Conditional Type 1 menggunakan 'will + Verb 1'." },
+                    { question: "He is the ... boy in the classroom.", options: ["tall", "taller", "tallest", "most tall"], correctAnswer: 2, explanation: "Superlative (paling) dari kata sifat pendek ditambah '-est'." },
+                    { question: "She is very good ... speaking English.", options: ["in", "on", "at", "for"], correctAnswer: 2, explanation: "Preposisi yang tepat untuk ungkapan mahir adalah 'good at'." },
+                    { question: "The synonym of 'Diligent' is?", options: ["Lazy", "Hardworking", "Stupid", "Careless"], correctAnswer: 1, explanation: "Diligent (rajin) bersinonim dengan Hardworking pekerja keras." },
+                    { question: "... of the two boys wants to play.", options: ["None", "Neither", "All", "Both"], correctAnswer: 1, explanation: "'Neither' digunakan untuk dua subjek berskala negatif/tidak satupun." },
+                    { question: "I look forward ... hearing from you.", options: ["to", "in", "for", "with"], correctAnswer: 0, explanation: "Frasa baku 'look forward to' (menantikan) selalu berpasangan." },
+                    { question: "You should give ... smoking because it's bad for health.", options: ["in", "away", "out", "up"], correctAnswer: 3, explanation: "Phrasal verb 'give up' berarti menyerah atau berhenti." },
+                    { question: "Which of the following words is an ADJECTIVE?", options: ["Beautifully", "Beauty", "Beautiful", "Beautify"], correctAnswer: 2, explanation: "Beautiful adalah kata sifat (adjective), beauty adalah noun." },
+                    { question: "The movie was ... boring that I fell asleep.", options: ["so", "such", "very", "too"], correctAnswer: 0, explanation: "Pola 'so + adjective + that' digunakan untuk efek sebab akibat." },
+                    { question: "She usually ... a cup of tea in the morning.", options: ["drink", "drinking", "drinks", "drank"], correctAnswer: 2, explanation: "Rutinitas (usually) menggunakan Simple Present Tense." },
+                    { question: "He has been studying English ... 3 hours.", options: ["since", "for", "in", "at"], correctAnswer: 1, explanation: "'For' digunakan untuk durasi waktu (selama)." },
+                    { question: "The antonym of 'Artificial' is?", options: ["Fake", "Synthetic", "Natural", "Plastic"], correctAnswer: 2, explanation: "Lawan kata buatan (artificial) adalah alami (natural)." },
+                    { question: "My mother makes me ... my room every day.", options: ["clean", "to clean", "cleaning", "cleaned"], correctAnswer: 0, explanation: "Kata kerja kausatif 'make' selalu diikuti infinitive murni (tanpa to)." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "If I ... you, I would tell her the truth.", options: ["am", "was", "were", "been"], correctAnswer: 2, explanation: "Conditional Type 2 khayalan menggunakan to be 'were' untuk semua subjek." },
+                    { question: "By this time next year, I ... from university.", options: ["will graduate", "am graduating", "will have graduated", "have graduated"], correctAnswer: 2, explanation: "Future Perfect Tense untuk kejadian yang akan sudah selesai di masa depan." },
+                    { question: "Scarcely ... the door when the phone rang.", options: ["he had opened", "had he opened", "did he open", "he opens"], correctAnswer: 1, explanation: "Aturan inversi (pindah to be ke depan) berlaku setelah kata 'Scarcely'." },
+                    { question: "The word 'Meticulous' is closest in meaning to?", options: ["Careless", "Very careful", "Angry", "Lazy"], correctAnswer: 1, explanation: "Meticulous berarti sangat teliti dan berhati-hati." },
+                    { question: "He wishes he ... the answer to the question right now.", options: ["knows", "knew", "had known", "know"], correctAnswer: 1, explanation: "Harapan (wish) di masa sekarang menggunakan verb bentuk lampau (knew)." },
+                    { question: "The idiom 'Bite the bullet' means?", options: ["To eat fast", "To shoot a gun", "To face a difficult situation bravely", "To run away"], correctAnswer: 2, explanation: "Idiom ini berarti berani menghadapi situasi sulit tak terhindarkan." },
+                    { question: "I'd rather you ... it right now.", options: ["do", "did", "have done", "doing"], correctAnswer: 1, explanation: "Polanya adalah: subject + would rather + someone else + Past Tense (did)." },
+                    { question: "Despite ... hard, he failed the final exam.", options: ["he studied", "study", "studied", "studying"], correctAnswer: 3, explanation: "Kata 'Despite' harus selalu diikuti oleh Noun atau Gerund (V-ing)." },
+                    { question: "The clever thief managed to get ... with the stolen money.", options: ["away", "in", "over", "up"], correctAnswer: 0, explanation: "Phrasal verb 'get away' berarti berhasil melarikan diri." },
+                    { question: "What is the antonym of 'Obsolete'?", options: ["Ancient", "Old-fashioned", "Modern", "Useless"], correctAnswer: 2, explanation: "Obsolete (kuno/usang) berlawanan dengan modern (baru)." },
+                    { question: "Neither the teacher nor the students ... in the classroom.", options: ["is", "are", "has", "was"], correctAnswer: 1, explanation: "Pada pola 'neither..nor..', verb mengikuti subjek terakhir terdekat (students = are)." },
+                    { question: "He is used to ... up early in the morning.", options: ["wake", "woke", "waking", "waken"], correctAnswer: 2, explanation: "Frasa 'is used to' (terbiasa) harus selalu diikuti gerund (V-ing)." },
+                    { question: "Not until yesterday ... the real truth.", options: ["I knew", "did I know", "I did know", "know I"], correctAnswer: 1, explanation: "Frasa negatif di awal kalimat (Not until) memaksa struktur Inversi." },
+                    { question: "Had I known about the accident, I ... there to help.", options: ["would go", "will go", "would have gone", "went"], correctAnswer: 2, explanation: "Inversi Conditional Type 3 (kejadian batal di masa lalu)." },
+                    { question: "Bread and butter ... my favorite breakfast.", options: ["is", "are", "were", "be"], correctAnswer: 0, explanation: "Dianggap sebagai satu kesatuan hidangan tunggal (singular verb = is)." },
+                    { question: "The meeting has been 'put off' until next week. 'Put off' means?", options: ["Canceled", "Postponed", "Started", "Finished"], correctAnswer: 1, explanation: "Phrasal verb 'put off' memiliki arti menunda jadwal." },
+                    { question: "She firmly denied ... the company's money.", options: ["stealing", "to steal", "steal", "stolen"], correctAnswer: 0, explanation: "Kata kerja 'deny' selalu diikuti objek berupa Gerund (V-ing)." },
+                    { question: "It’s high time you ... a proper job.", options: ["find", "finding", "found", "to find"], correctAnswer: 2, explanation: "Pola 'It's high time' mewajibkan penggunaan Past Tense (V2)." },
+                    { question: "The young man was accused ... stealing a car.", options: ["for", "of", "with", "in"], correctAnswer: 1, explanation: "Preposisi pasangan tetap (collocation) untuk accused adalah 'of'." },
+                    { question: "The synonym of 'Ambiguous' is?", options: ["Clear", "Definite", "Unclear", "Perfect"], correctAnswer: 2, explanation: "Ambiguous bermakna ganda atau tidak jelas (unclear)." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Bahasa Inggris Tingkat Dewa - TOEFL Level)
+                questions: [
+                    { question: "By the time the manager arrives tomorrow, the team ... the project.", options: ["will finish", "will be finishing", "will have finished", "finished"], correctAnswer: 2, explanation: "Future Perfect Tense digunakan untuk kejadian yang akan sudah selesai di masa depan." },
+                    { question: "If it ... for his extraordinary intelligence, we would have lost the game.", options: ["had not been", "were not", "was not", "is not"], correctAnswer: 0, explanation: "Bentuk inversi/conditional tipe 3 (pengandaian masa lalu yang batal)." },
+                    { question: "The word 'Ubiquitous' is closest in meaning to?", options: ["Rare", "Expensive", "Omnipresent (Everywhere)", "Hidden"], correctAnswer: 2, explanation: "Ubiquitous berarti ada di mana-mana pada waktu bersamaan." },
+                    { question: "Scarcely ... entering the room when the lights went out completely.", options: ["he had finished", "had he finished", "did he finished", "he finishes"], correctAnswer: 1, explanation: "Aturan Inversi (Verb ditarik ke depan Subject) wajib jika diawali kata negatif 'Scarcely'." },
+                    { question: "What is the antonym of the word 'Cacophony'?", options: ["Noise", "Harmony", "Disaster", "Silence"], correctAnswer: 1, explanation: "Cacophony berarti suara sumbang/bising, berlawanan dengan harmony (keselarasan)." },
+                    { question: "The committee demanded that the CEO ... the legal document immediately.", options: ["signs", "signed", "sign", "signing"], correctAnswer: 2, explanation: "Struktur Subjunctive mewajibkan penggunaan Verb-1 murni (tanpa s/es) untuk semua subjek." },
+                    { question: "What does the English idiom 'To cut corners' mean?", options: ["To use scissors", "To take a shortcut and do something poorly to save money", "To drive very fast", "To stop talking"], correctAnswer: 1, explanation: "Mengerjakan sesuatu dengan kualitas buruk untuk menghemat waktu/biaya." },
+                    { question: "Not only ... the final exam, but he also secured a full scholarship.", options: ["he passed", "did he pass", "passed he", "he did pass"], correctAnswer: 1, explanation: "Sama seperti 'Scarcely', frasa 'Not only' di awal kalimat mewajibkan Inversi (did + Subject + V1)." },
+                    { question: "A word, phrase, or sequence that reads the same backward as forward (e.g., 'madam') is called a?", options: ["Palindrome", "Anagram", "Synonym", "Acronym"], correctAnswer: 0, explanation: "Palindrome adalah kata yang sama persis jika dibaca terbalik (seperti KATAK)." },
+                    { question: "I would rather you ... me the painful truth yesterday.", options: ["tell", "told", "have told", "had told"], correctAnswer: 3, explanation: "Pola 'Would rather' untuk penyesalan masa lalu (yesterday) menggunakan Past Perfect (had V3)." },
+                    { question: "The phenomenon of finding something good accidentally is called?", options: ["Tragedy", "Serendipity", "Catastrophe", "Epiphany"], correctAnswer: 1, explanation: "Serendipity adalah penemuan kebetulan yang membawa keberuntungan." },
+                    { question: "Despite ... very hard for months, he failed to lift the heavy weight.", options: ["he trained", "trained", "training", "trains"], correctAnswer: 2, explanation: "Kata 'Despite' tidak bisa diikuti klausa Subjek+Verb, harus diikuti Noun/Gerund (V-ing)." },
+                    { question: "The English suffix '-ology' (as in Biology, Geology) primarily means?", options: ["The fear of", "The study of", "The creation of", "The disease of"], correctAnswer: 1, explanation: "-ology berasal dari bahasa Yunani yang berarti 'Ilmu atau studi tentang'." },
+                    { question: "He is entirely accustomed to ... late at night for his thesis.", options: ["working", "work", "worked", "be working"], correctAnswer: 0, explanation: "Frasa 'accustomed to' (terbiasa dengan) diakhiri preposisi 'to' sehingga wajib memakai Gerund (V-ing)." },
+                    { question: "The word 'Lethargic' can be best replaced by?", options: ["Energetic", "Sluggish (Lazy/Tired)", "Happy", "Angry"], correctAnswer: 1, explanation: "Lethargic menggambarkan rasa lesu, lambat, atau kurang energi." },
+                    { question: "It is absolutely imperative that the safety protocols ... strictly.", options: ["are followed", "were followed", "be followed", "is followed"], correctAnswer: 2, explanation: "Ini adalah bentuk Pasif dari Subjunctive (be + V3 murni)." },
+                    { question: "The idiom 'A blessing in disguise' usually describes?", options: ["A magician's trick", "A curse", "A bad event that ends up bringing a good result", "Someone wearing a mask"], correctAnswer: 2, explanation: "Sesuatu yang awalnya tampak seperti musibah tapi ternyata membawa berkah/hikmah." },
+                    { question: "The board of directors ... unable to reach a unanimous decision today.", options: ["was", "were", "has", "have"], correctAnswer: 0, explanation: "Kata 'board of directors' dianggap sebagai satu kesatuan tunggal (singular verb 'was')." },
+                    { question: "A sudden, intuitive perception of or insight into the reality or essential meaning of something is an?", options: ["Illusion", "Epiphany", "Amnesia", "Ignorance"], correctAnswer: 1, explanation: "Epiphany adalah momen kesadaran/pencerahan yang datang tiba-tiba (Aha moment!)." },
+                    { question: "I look forward ... you at the international conference next week.", options: ["to meet", "to meeting", "meet", "meeting"], correctAnswer: 1, explanation: "Preposisi 'to' dalam phrasal verb 'look forward to' harus diikuti oleh Gerund (meeting)." }
+                ]
+            }
         ]
-    },
+    },    
+    // ==========================================
+    // 6. INDONESIAN (Bahasa Indonesia)
+    // ==========================================
     indonesian: {
         challenges: [
-            { id: "indo_1", questions: [
-                {question:"Antonim 'Tinggi'?",options:["Pendek","Besar","Kurus","Panjang"],correctAnswer:0,explanation:"Lawan dari tinggi adalah pendek."},
-                {question:"Kata baku yang benar?",options:["Apotik","Apotek","Praktek","Jadual"],correctAnswer:1,explanation:"KBBI: Apotek."},
-                {question:"Sinonim 'Cerdas'?",options:["Rajin","Tangkas","Pintar","Kuat"],correctAnswer:2,explanation:"Cerdas = Pintar."},
-                {question:"Antonim 'Gelap'?",options:["Cahaya","Terang","Mendung","Hitam"],correctAnswer:1,explanation:"Gelap >< Terang."},
-                {question:"Kata baku yang benar?",options:["Antre","Antri","Pebruari","Nopember"],correctAnswer:0,explanation:"KBBI: Antre."},
-                {question:"Sinonim 'Bohong'?",options:["Benar","Jujur","Dusta","Nyata"],correctAnswer:2,explanation:"Bohong = Dusta."},
-                {question:"Antonim 'Cepat'?",options:["Gesit","Laju","Lambat","Lekas"],correctAnswer:2,explanation:"Cepat >< Lambat."},
-                {question:"Kata baku yang benar?",options:["Nasihat","Nasehat","Ijasah","Kwalitas"],correctAnswer:0,explanation:"KBBI: Nasihat."},
-                {question:"Sinonim 'Indah'?",options:["Cantik","Jelek","Kasar","Buruk"],correctAnswer:0,explanation:"Indah = Cantik / Elok."},
-                {question:"Antonim 'Mahal'?",options:["Tinggi","Murah","Banyak","Sedikit"],correctAnswer:1,explanation:"Mahal >< Murah."},
-                {question:"Kata baku yang benar?",options:["Zaman","Jaman","Coklat","Bisik"],correctAnswer:0,explanation:"KBBI: Zaman."},
-                {question:"Sinonim 'Asli'?",options:["Palsu","Tulen","Tiruan","Baru"],correctAnswer:1,explanation:"Asli = Tulen."},
-                {question:"Antonim 'Lebar'?",options:["Panjang","Sempit","Besar","Luas"],correctAnswer:1,explanation:"Lebar >< Sempit."},
-                {question:"Kata baku yang benar?",options:["Resiko","Risiko","Metoda","Sistim"],correctAnswer:1,explanation:"KBBI: Risiko."},
-                {question:"Sinonim 'Faedah'?",options:["Rugi","Sia-sia","Guna / Manfaat","Bahaya"],correctAnswer:2,explanation:"Faedah = Manfaat."}
-            ]},
-            { id: "indo_2", questions: [
-                {question:"Kalimat perintah diakhiri tanda?",options:["(!) Seru","(?) Tanya","(.) Titik","(,) Koma"],correctAnswer:0,explanation:"Tanda seru untuk perintah."},
-                {question:"Peribahasa 'Besar pasak daripada tiang' berarti?",options:["Pelit","Pengeluaran > Pemasukan","Pemarah","Suka menolong"],correctAnswer:1,explanation:"Belanja lebih besar dari pendapatan."},
-                {question:"Tokoh utama bersifat baik disebut?",options:["Antagonis","Tritagonis","Figuran","Protagonis"],correctAnswer:3,explanation:"Protagonis berwatak positif."},
-                {question:"Tokoh jahat/penentang disebut?",options:["Protagonis","Tritagonis","Antagonis","Figuran"],correctAnswer:2,explanation:"Antagonis melawan tokoh utama."},
-                {question:"Kata ganti orang pertama jamak?",options:["Saya","Dia","Mereka","Kami"],correctAnswer:3,explanation:"Kami atau Kita (lebih dari satu)."},
-                {question:"Ide pokok suatu paragraf disebut?",options:["Kalimat penjelas","Gagasan utama","Amanat","Latar"],correctAnswer:1,explanation:"Gagasan utama mendasari paragraf."},
-                {question:"Cerita hewan bertingkah seperti manusia?",options:["Mitos","Legenda","Fabel","Sage"],correctAnswer:2,explanation:"Contoh fabel: Si Kancil."},
-                {question:"Cerita asal-usul suatu tempat disebut?",options:["Fabel","Mitos","Legenda","Dongeng"],correctAnswer:2,explanation:"Contoh legenda: Tangkuban Perahu."},
-                {question:"Tanda koma (,) berfungsi untuk?",options:["Mengakhiri kalimat","Tanya","Memisahkan unsur kalimat","Perintah"],correctAnswer:2,explanation:"Jeda pendek pemisah unsur."},
-                {question:"Arti peribahasa 'Air susu dibalas air tuba'?",options:["Kebaikan dibalas kebaikan","Kebaikan dibalas kejahatan","Sama-sama rugi","Saling menolong"],correctAnswer:1,explanation:"Balasan buruk untuk kebaikan."},
-                {question:"Cerita tentang dewa/roh halus?",options:["Fabel","Sage","Legenda","Mite (Mitos)"],correctAnswer:3,explanation:"Mite kental dengan mistis."},
-                {question:"Gagasan utama di awal paragraf disebut?",options:["Deduktif","Induktif","Campuran","Eksposisi"],correctAnswer:0,explanation:"Paragraf deduktif = awal."},
-                {question:"Gagasan utama di akhir paragraf disebut?",options:["Deduktif","Induktif","Campuran","Naratif"],correctAnswer:1,explanation:"Paragraf induktif = akhir."},
-                {question:"Kalimat tanya 'Kapan' digunakan untuk menanyakan?",options:["Tempat","Waktu","Alasan","Cara"],correctAnswer:1,explanation:"Menanyakan waktu kejadian."},
-                {question:"Karangan bebas tidak terikat bait/rima disebut?",options:["Puisi","Pantun","Prosa","Gurindam"],correctAnswer:2,explanation:"Prosa berbentuk cerita (paragraf)."}
-            ]},
-            { id: "indo_3", questions: [
-                {question:"Peribahasa 'Tong kosong nyaring bunyinya'?",options:["Banyak bicara, tak ada ilmu","Orang pintar banyak ide","Orang kaya sombong","Rajin pangkal pandai"],correctAnswer:0,explanation:"Orang bodoh biasanya banyak omong."},
-                {question:"Majas perbandingan benda mati seolah hidup?",options:["Hiperbola","Personifikasi","Metafora","Ironi"],correctAnswer:1,explanation:"Contoh: Angin menari-nari."},
-                {question:"Majas yang melebih-lebihkan keadaan?",options:["Hiperbola","Personifikasi","Metafora","Litotes"],correctAnswer:0,explanation:"Contoh: Suaranya membelah angkasa."},
-                {question:"Pesan moral dalam sebuah cerita disebut?",options:["Alur","Latar","Amanat","Tema"],correctAnswer:2,explanation:"Amanat adalah pesan pengarang."},
-                {question:"Jalan cerita dalam karya sastra disebut?",options:["Amanat","Tema","Latar","Alur (Plot)"],correctAnswer:3,explanation:"Alur maju, mundur, atau campuran."},
-                {question:"Pantun terdiri atas ... baris per bait.",options:["2","3","4","5"],correctAnswer:2,explanation:"Biasanya bersajak a-b-a-b."},
-                {question:"Baris ke 1 dan 2 pada pantun disebut?",options:["Isi","Sampiran","Amanat","Rima"],correctAnswer:1,explanation:"Sebagai pengantar rima."},
-                {question:"Baris ke 3 dan 4 pada pantun disebut?",options:["Sampiran","Amanat","Isi","Bait"],correctAnswer:2,explanation:"Isi atau pesan pantun."},
-                {question:"Kata depan 'di' yang dipisah penulisannya untuk?",options:["Kata kerja","Keterangan Tempat","Kata sifat","Kata benda"],correctAnswer:1,explanation:"Contoh: di pasar (dipisah)."},
-                {question:"'Di' yang digabung penulisannya sebagai awalan?",options:["Kata kerja pasif","Tempat","Waktu","Sifat"],correctAnswer:0,explanation:"Contoh: dimakan (digabung)."},
-                {question:"Kata ganti orang ketiga tunggal?",options:["Saya","Kamu","Dia / Ia","Mereka"],correctAnswer:2,explanation:"Untuk menyebut satu orang lain."},
-                {question:"Karangan yang berisi langkah-langkah / cara membuat sesuatu?",options:["Deskripsi","Eksposisi","Prosedur (Teks Prosedur)","Narasi"],correctAnswer:2,explanation:"Teks Prosedur / Teks Petunjuk."},
-                {question:"Cerita pendek sering disingkat menjadi?",options:["Cepot","Cerpen","Cerpenis","Cerkak"],correctAnswer:1,explanation:"Cerpen (Cerita Pendek)."},
-                {question:"Arti peribahasa 'Ada udang di balik batu'?",options:["Ada maksud tersembunyi","Mencari untung besar","Saling menguntungkan","Mencari rezeki"],correctAnswer:0,explanation:"Ada niat yang tidak diungkapkan."},
-                {question:"Tulisan riwayat hidup seseorang yang ditulis oleh orang lain?",options:["Autobiografi","Biografi","Prosa","Resensi"],correctAnswer:1,explanation:"Kalau ditulis sendiri disebut Autobiografi."},
-                {question:"Ulasan atau penilaian terhadap sebuah buku disebut?",options:["Resensi","Sinopsis","Abstrak","Epilog"],correctAnswer:0,explanation:"Menilai kelebihan/kekurangan buku."},
-                {question:"Ringkasan cerita disebut?",options:["Epilog","Prolog","Sinopsis","Indeks"],correctAnswer:2,explanation:"Rangkuman singkat isi cerita."},
-                {question:"Kata penutup dalam karya sastra / drama disebut?",options:["Prolog","Monolog","Dialog","Epilog"],correctAnswer:3,explanation:"Epilog ada di akhir cerita."},
-                {question:"Percakapan seorang diri dalam drama disebut?",options:["Dialog","Epilog","Monolog","Prolog"],correctAnswer:2,explanation:"Tokoh berbicara sendiri."},
-                {question:"Imbuhan di akhir kata disebut?",options:["Prefiks","Sufiks","Infiks","Konfiks"],correctAnswer:1,explanation:"Prefiks (awal), Sufiks (akhir)."}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Antonim (lawan kata) dari kata 'Panjang' adalah?", options: ["Besar", "Tinggi", "Pendek", "Luas"], correctAnswer: 2, explanation: "Lawan kata yang tepat untuk ukuran memanjang adalah pendek." },
+                    { question: "Cerita fiksi yang tokoh utamanya adalah hewan disebut?", options: ["Legenda", "Fabel", "Mitos", "Sage"], correctAnswer: 1, explanation: "Fabel adalah dongeng tentang hewan yang berperilaku seperti manusia." },
+                    { question: "Tanda baca yang digunakan untuk mengakhiri kalimat tanya adalah?", options: ["Titik (.)", "Koma (,)", "Tanda Seru (!)", "Tanda Tanya (?)"], correctAnswer: 3, explanation: "Tanda tanya digunakan khusus pada akhir kalimat pertanyaan." },
+                    { question: "Sinonim (persamaan kata) dari 'Pintar' adalah?", options: ["Bodoh", "Rajin", "Pandai", "Malas"], correctAnswer: 2, explanation: "Pandai memiliki makna yang sama persis dengan pintar." },
+                    { question: "Penulisan kata baku yang paling benar di bawah ini adalah?", options: ["Apotik", "Apotek", "Praktek", "Nasehat"], correctAnswer: 1, explanation: "Sesuai KBBI, penulisannya adalah apotek (dari kata apoteker)." },
+                    { question: "Huruf kapital JANGAN digunakan pada?", options: ["Awal kalimat", "Nama orang", "Nama kota", "Di tengah kata biasa"], correctAnswer: 3, explanation: "Huruf kapital hanya untuk awal kalimat, nama diri, dan geografi." },
+                    { question: "Orang yang menulis puisi disebut?", options: ["Penulis", "Penyair", "Pelukis", "Wartawan"], correctAnswer: 1, explanation: "Penyair (sastrawan) adalah sebutan untuk pengarang puisi." },
+                    { question: "Tokoh berwatak jahat atau penentang dalam cerita disebut?", options: ["Protagonis", "Tritagonis", "Figuran", "Antagonis"], correctAnswer: 3, explanation: "Antagonis adalah tokoh yang melawan tokoh utama (kebaikan)." },
+                    { question: "Puisi lama yang terdiri dari 4 baris berima a-b-a-b disebut?", options: ["Syair", "Gurindam", "Pantun", "Karmina"], correctAnswer: 2, explanation: "Pantun khas dengan sampiran di dua baris awal dan rima a-b-a-b." },
+                    { question: "Kata 'Meja' termasuk ke dalam jenis kata?", options: ["Kata Sifat", "Kata Benda", "Kata Kerja", "Kata Keterangan"], correctAnswer: 1, explanation: "Kata benda (nomina) merujuk pada segala sesuatu yang dibendakan." },
+                    { question: "Imbuhan 'me-' jika bertemu dengan kata 'sapu' menjadi?", options: ["Mesapu", "Mensapu", "Menyapu", "Mengsapu"], correctAnswer: 2, explanation: "Huruf awalan 's' akan luluh menjadi 'ny' jika bertemu imbuhan me-." },
+                    { question: "Gagasan utama yang mendasari sebuah paragraf disebut?", options: ["Ide Pokok", "Kesimpulan", "Kalimat Penjelas", "Judul"], correctAnswer: 0, explanation: "Ide pokok adalah inti permasalahan dari sebuah paragraf." },
+                    { question: "Kata penghubung (konjungsi) yang menyatakan pertentangan adalah?", options: ["Dan", "Atau", "Tetapi", "Sebab"], correctAnswer: 2, explanation: "Kata 'tetapi' menyatukan dua kalimat yang saling berlawanan." },
+                    { question: "Tempat bertemunya penjual dan pembeli disebut?", options: ["Terminal", "Stasiun", "Pasar", "Sekolah"], correctAnswer: 2, explanation: "Pasar adalah pusat transaksi ekonomi dan jual beli." },
+                    { question: "Kalimat yang berisi perintah atau larangan harus diakhiri dengan?", options: ["Tanda Titik", "Tanda Tanya", "Tanda Seru", "Tanda Koma"], correctAnswer: 2, explanation: "Tanda seru (!) menandakan penegasan, perintah, atau seruan." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Gaya bahasa yang melebih-lebihkan suatu kenyataan disebut majas?", options: ["Metafora", "Personifikasi", "Hiperbola", "Litotes"], correctAnswer: 2, explanation: "Hiperbola melebih-lebihkan fakta agar terkesan dramatis." },
+                    { question: "Paragraf yang kalimat utamanya terletak di awal paragraf disebut?", options: ["Deduktif", "Induktif", "Campuran", "Naratif"], correctAnswer: 0, explanation: "Deduktif (depan) berarti ide pokok dijelaskan dari umum ke khusus." },
+                    { question: "Teks yang berisi langkah-langkah atau tahapan membuat sesuatu disebut?", options: ["Teks Eksposisi", "Teks Eksplanasi", "Teks Prosedur", "Teks Anekdot"], correctAnswer: 2, explanation: "Teks prosedur berisi instruksi langkah demi langkah (tutorial)." },
+                    { question: "Majas yang mengumpamakan benda mati seolah-olah hidup disebut?", options: ["Ironi", "Personifikasi", "Sinekdoke", "Paradoks"], correctAnswer: 1, explanation: "Personifikasi memberi sifat manusia/hidup pada benda mati." },
+                    { question: "Dalam kalimat 'Budi menendang bola', kata 'bola' berkedudukan sebagai?", options: ["Subjek (S)", "Predikat (P)", "Objek (O)", "Keterangan (K)"], correctAnswer: 2, explanation: "Bola adalah sasaran/objek yang dikenai tindakan oleh subjek." },
+                    { question: "Cerita lucu yang berisi kritikan atau sindiran terhadap seseorang disebut?", options: ["Dongeng", "Anekdot", "Cerpen", "Hikayat"], correctAnswer: 1, explanation: "Anekdot adalah cerita humor singkat yang menyelipkan kritik." },
+                    { question: "Teks yang berisi ulasan, penilaian, atau bedah buku disebut?", options: ["Resensi", "Makalah", "Skripsi", "Ringkasan"], correctAnswer: 0, explanation: "Resensi bertujuan memberikan pertimbangan kualitas karya kepada pembaca." },
+                    { question: "Singkatan dari kata-kata yang diucapkan seperti kata wajar (contoh: PEMILU) disebut?", options: ["Inisial", "Sinonim", "Antonim", "Akronim"], correctAnswer: 3, explanation: "Akronim adalah singkatan gabungan suku kata yang bisa dibaca." },
+                    { question: "Kalimat yang subjeknya dikenai pekerjaan (ditandai imbuhan di-/ter-) disebut?", options: ["Kalimat Aktif", "Kalimat Pasif", "Kalimat Majemuk", "Kalimat Tunggal"], correctAnswer: 1, explanation: "Contoh kalimat pasif: Bola ditendang oleh Budi." },
+                    { question: "Majas sindiran halus yang mengatakan sebaliknya dari fakta adalah?", options: ["Ironi", "Sarkasme", "Hiperbola", "Metafora"], correctAnswer: 0, explanation: "Ironi adalah sindiran halus yang bertolak belakang dengan fakta." },
+                    { question: "Keterangan sumber kutipan buku di akhir karya tulis ilmiah disebut?", options: ["Daftar Isi", "Kata Pengantar", "Daftar Pustaka", "Indeks"], correctAnswer: 2, explanation: "Daftar pustaka merangkum semua buku referensi penulis." },
+                    { question: "Kata 'Mata-mata' merupakan bentuk dari?", options: ["Kata Sifat", "Kata Serapan", "Kata Ulang (Reduplikasi)", "Kata Majemuk"], correctAnswer: 2, explanation: "Kata ulang utuh yang maknanya berubah menjadi agen rahasia." },
+                    { question: "Teks yang menjelaskan proses terjadinya suatu fenomena alam/sosial disebut?", options: ["Prosedur", "Eksplanasi", "Deskripsi", "Argumentasi"], correctAnswer: 1, explanation: "Eksplanasi fokus pada alasan sebab-akibat (mengapa dan bagaimana)." },
+                    { question: "Percakapan yang dilakukan oleh dua orang atau lebih dalam drama disebut?", options: ["Monolog", "Prolog", "Epilog", "Dialog"], correctAnswer: 3, explanation: "Dialog adalah interaksi verbal timbal balik antar tokoh." },
+                    { question: "Kata sapaan hormat yang tepat untuk orang yang baru dikenal adalah?", options: ["Bung / Bro", "Kamu / Engkau", "Bapak / Ibu / Saudara", "Dia / Mereka"], correctAnswer: 2, explanation: "Bapak, Ibu, atau Saudara adalah kata sapaan formal baku." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Majas yang merendahkan diri padahal kenyataannya berlebih disebut?", options: ["Litotes", "Hiperbola", "Pleonasme", "Repetisi"], correctAnswer: 0, explanation: "Contoh Litotes: 'Mampirlah ke gubuk reotku' (padahal rumah mewah)." },
+                    { question: "Pergeseran makna kata yang menjadi lebih buruk/kasar dari makna asalnya disebut?", options: ["Ameliorasi", "Peyorasi", "Asosiasi", "Sinestesia"], correctAnswer: 1, explanation: "Contoh Peyorasi: Kata 'oknum' atau 'gerombolan' yang kini berkonotasi negatif." },
+                    { question: "Dua kata yang ejaan dan lafalnya sama, tapi maknanya berbeda (contoh: Bisa = racun / dapat) disebut?", options: ["Homonim", "Homofon", "Homograf", "Polisemi"], correctAnswer: 0, explanation: "Homonim memiliki bentuk identik secara lisan maupun tulisan." },
+                    { question: "Kalimat yang menimbulkan tafsir/makna ganda sehingga membingungkan disebut?", options: ["Kalimat Majemuk", "Kalimat Efektif", "Kalimat Ambigu", "Kalimat Imperatif"], correctAnswer: 2, explanation: "Ambiguitas terjadi karena kesalahan struktur atau pemenggalan kata." },
+                    { question: "Penggunaan huruf miring yang BENAR menurut PUEBI (EYD) adalah untuk?", options: ["Nama orang", "Nama kota", "Judul buku/istilah asing", "Awal paragraf"], correctAnswer: 2, explanation: "Huruf miring dipakai mengutip judul buku dan bahasa asing." },
+                    { question: "Konjungsi korelatif yang pasangannya tepat adalah?", options: ["Baik ... maupun ...", "Tidak ... melainkan ...", "Bukan ... tetapi ...", "Semua benar"], correctAnswer: 3, explanation: "Semua pasangan konjungsi korelatif tersebut baku dan tepat." },
+                    { question: "Tulisan opini resmi redaksi media massa mengenai isu aktual disebut?", options: ["Tajuk Rencana (Editorial)", "Feature", "Kolom", "Pojok"], correctAnswer: 0, explanation: "Editorial mencerminkan suara/pandangan resmi lembaga pers tersebut." },
+                    { question: "Frasa 'Buku sejarah baru' dapat bermakna dua hal. Frasa ini merupakan contoh frasa?", options: ["Eksosentris", "Endosentris", "Ambigu", "Idiom"], correctAnswer: 2, explanation: "Bisa berarti bukunya yang baru, atau sejarahnya yang baru." },
+                    { question: "Kata yang mengalami proses pembentukan afiksasi konfiks (awalan & akhiran) adalah?", options: ["Berjalan", "Makanan", "Keadilan", "Menari"], correctAnswer: 2, explanation: "Keadilan dibentuk dari kata 'adil' ditambah konfiks ke-an." },
+                    { question: "Gabungan kata yang membentuk makna kiasan baru (seperti: banting tulang) disebut?", options: ["Peribahasa", "Idiom (Ungkapan)", "Majas", "Pantun"], correctAnswer: 1, explanation: "Idiom maknanya tidak bisa diterjemahkan kata per kata." },
+                    { question: "Proses penarikan kesimpulan logis dari dua premis umum dan khusus disebut?", options: ["Deduksi", "Induksi", "Silogisme", "Analogi"], correctAnswer: 2, explanation: "Silogisme adalah penalaran deduktif baku dalam logika." },
+                    { question: "Majas Sinekdoke Pars Pro Toto berarti?", options: ["Sebagian untuk seluruh", "Seluruh untuk sebagian", "Sindiran tajam", "Pengulangan kata"], correctAnswer: 0, explanation: "Contoh: 'Tiap kepala diwajibkan membayar pajak' (kepala = orang)." },
+                    { question: "Klausa yang tidak dapat berdiri sendiri sebagai kalimat utuh disebut klausa?", options: ["Induk kalimat", "Klausa Bebas", "Klausa Terikat (Bawahan)", "Frasa"], correctAnswer: 2, explanation: "Anak kalimat/klausa terikat wajib menempel pada induk kalimat." },
+                    { question: "Penggunaan kata mubazir seperti 'Maju ke depan' merupakan pelanggaran asas kalimat?", options: ["Sistematis", "Logis", "Efektif (Hemat)", "Baku"], correctAnswer: 2, explanation: "Kalimat efektif menghindari pemborosan kata (Pleonasme)." },
+                    { question: "Bentuk terikat (klitika) 'ku' dan 'kau' penulisannya yang benar adalah?", options: ["Dipisah dari kata", "Digabung (Serangkai)", "Diberi tanda hubung", "Diberi kutip"], correctAnswer: 1, explanation: "Klitika ditulis serangkai (contoh: kubaca, kaulihat, bukuku)." },
+                    { question: "Paragraf yang gagasan utamanya terletak di TENGAH disebut paragraf?", options: ["Deduktif", "Induktif", "Campuran", "Ineratif"], correctAnswer: 3, explanation: "Ineratif meletakkan simpulan ide pokok di tengah-tengah paragraf." },
+                    { question: "Kata ganti orang ketiga tunggal (Pronomina Persona) adalah?", options: ["Aku / Saya", "Kamu / Anda", "Dia / Ia", "Mereka / Kita"], correctAnswer: 2, explanation: "Dia/Ia merujuk pada satu orang lain yang sedang dibicarakan." },
+                    { question: "Teks yang berisi debat persetujuan (pro) dan penolakan (kontra) disebut?", options: ["Diskusi", "Eksposisi", "Deskripsi", "Teks Prosedur"], correctAnswer: 0, explanation: "Teks diskusi menampilkan dua sudut pandang berbeda." },
+                    { question: "Majas yang memperhalus kata-kata kasar/tabu agar lebih sopan disebut?", options: ["Sarkasme", "Eufemisme", "Paradoks", "Repetisi"], correctAnswer: 1, explanation: "Contoh eufemisme: Mengganti kata 'mati' menjadi 'meninggal dunia'." },
+                    { question: "Gaya bahasa yang membandingkan dua hal berbeda secara langsung tanpa kata penghubung disebut?", options: ["Simile", "Metafora", "Personifikasi", "Alegori"], correctAnswer: 1, explanation: "Contoh Metafora: 'Raja siang' (untuk matahari) atau 'Tikus kantor'." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Bahasa & Sastra Indonesia Tingkat Dewa)
+                questions: [
+                    { question: "Gaya bahasa (majas) yang menyebutkan sebagian anggota tubuh atau bagian untuk mewakili keseluruhan disebut?", options: ["Totum pro parte", "Pars pro toto", "Eufemisme", "Litotes"], correctAnswer: 1, explanation: "Contoh Pars pro toto: 'Hingga kini ia belum menampakkan batang hidungnya'." },
+                    { question: "Karya sastra legendaris berbentuk roman berjudul 'Siti Nurbaya' (1922) dikarang oleh sastrawan?", options: ["Pramoedya Ananta Toer", "Chairil Anwar", "Marah Roesli", "Andrea Hirata"], correctAnswer: 2, explanation: "Novel ini menjadi puncak karya sastra Angkatan Balai Pustaka." },
+                    { question: "Kalimat yang di dalamnya terdapat lebih dari satu struktur klausa (subjek dan predikat) disebut kalimat?", options: ["Tunggal", "Majemuk", "Imperatif", "Pasif"], correctAnswer: 1, explanation: "Kalimat majemuk ditandai dengan adanya dua klausa yang dihubungkan konjungsi." },
+                    { question: "Proses penarikan kesimpulan logis dari dua premis (premis mayor dan premis minor) dalam bahasa Indonesia disebut?", options: ["Analogi", "Silogisme", "Sarkasme", "Reduplikasi"], correctAnswer: 1, explanation: "Silogisme adalah logika deduktif baku (contoh: Semua manusia mati. Budi manusia. Budi mati)." },
+                    { question: "Berdasarkan PUEBI, penulisan kata gabung berimbuhan konfiks (awalan & akhiran) yang paling benar adalah?", options: ["Bertanggung jawab", "Bertanggungjawab", "Mempertanggung jawabkan", "Mempertanggungjawabkan"], correctAnswer: 3, explanation: "Jika mendapat awalan dan akhiran sekaligus, kata majemuk harus ditulis serangkai." },
+                    { question: "Perubahan makna kata yang menjadi lebih halus atau sopan dibandingkan makna asalnya disebut?", options: ["Peyorasi", "Ameliorasi", "Eufemisme", "Sinestesia"], correctAnswer: 2, explanation: "Contoh eufemisme: Menggunakan kata 'tuna netra' untuk menggantikan kata 'buta'." },
+                    { question: "Karya sastra prosa Melayu klasik yang berisi cerita dewa-dewi, raja, dan pahlawan sakti penuh kemustahilan disebut?", options: ["Hikayat", "Fabel", "Anekdot", "Resensi"], correctAnswer: 0, explanation: "Hikayat bersifat istanasentris dan anonim (tidak diketahui pengarangnya)." },
+                    { question: "Antonim (lawan kata) yang paling tepat untuk kata 'Skeptis' (ragu-ragu/curiga) adalah?", options: ["Pesimis", "Optimis", "Apatis", "Yakin"], correctAnswer: 3, explanation: "Skeptis berarti kurang percaya, maka lawannya adalah yakin (percaya)." },
+                    { question: "Gabungan kata yang membentuk makna kiasan baru dan tidak bisa diartikan kata-per-kata (contoh: cuci mata) disebut?", options: ["Idiom / Ungkapan", "Peribahasa", "Majas", "Gurindam"], correctAnswer: 0, explanation: "Idiom membentuk makna utuh yang lepas dari makna leksikal asalnya." },
+                    { question: "Apa makna dari peribahasa 'Bagai pungguk merindukan bulan'?", options: ["Mendapat untung besar", "Saling mencintai", "Mengharapkan sesuatu yang sangat mustahil", "Orang yang sombong"], correctAnswer: 2, explanation: "Peribahasa ini ditujukan bagi orang miskin yang mencintai putri raja/mustahil digapai." },
+                    { question: "Pemenggalan kata, baris, atau kalimat dalam pembacaan puisi untuk mengatur jeda napas tanpa merusak makna disebut?", options: ["Intonasi", "Enjambemen", "Rima", "Diksi"], correctAnswer: 1, explanation: "Enjambemen menjaga kelancaran dan emosi saat mendeklamasikan puisi." },
+                    { question: "Imbuhan (afiks) kuno yang disisipkan di TENGAH kata dasar (seperti -el- pada telunjuk, -er- pada seruling) disebut?", options: ["Prefiks", "Sufiks", "Infiks", "Konfiks"], correctAnswer: 2, explanation: "Infiks (sisipan) diletakkan di dalam kata dasar itu sendiri." },
+                    { question: "Paragraf yang bertujuan untuk meyakinkan pembaca dengan menyertakan alasan, bukti, dan data faktual logis disebut paragraf?", options: ["Deskripsi", "Narasi", "Persuasi", "Argumentasi"], correctAnswer: 3, explanation: "Argumentasi membuktikan suatu kebenaran, sedangkan persuasi murni berisi ajakan." },
+                    { question: "Makna kata yang didasarkan pada definisi asli yang tercantum di dalam kamus tanpa konteks kalimat disebut makna?", options: ["Gramatikal", "Leksikal", "Kiasan", "Konotatif"], correctAnswer: 1, explanation: "Leksikal berasal dari kata leksikon yang berarti kamus." },
+                    { question: "Siapakah tokoh sastrawan pelopor angkatan Pujangga Baru yang menulis novel 'Layar Terkembang' (1936)?", options: ["Sutan Takdir Alisjahbana", "Armijn Pane", "Sanusi Pane", "Amir Hamzah"], correctAnswer: 0, explanation: "Sutan Takdir Alisjahbana (STA) adalah pelopor modernisasi sastra Indonesia." },
+                    { question: "Kesalahan penulisan pada kalimat 'Kepada Bapak Kepala Sekolah, waktu dan tempat kami persilakan' terletak pada pelanggaran asas?", options: ["Baku", "Ejaan", "Logika Bahasa", "Pleonasme"], correctAnswer: 2, explanation: "Secara logika, yang dipersilakan adalah orangnya, bukan waktu dan tempatnya." },
+                    { question: "Kalimat 'Lautan manusia membanjiri stadion GBK malam ini' menggunakan majas?", options: ["Personifikasi", "Metafora (Hiperbola)", "Litotes", "Ironi"], correctAnswer: 1, explanation: "Bisa disebut metafora (kiasan lautan) yang bercampur hiperbola (melebih-lebihkan)." },
+                    { question: "Puisi lama yang setiap baitnya hanya terdiri dari 2 baris bersajak a-a dan berisi nasihat/filosofi hidup disebut?", options: ["Pantun", "Syair", "Karmina", "Gurindam"], correctAnswer: 3, explanation: "Gurindam paling terkenal adalah Gurindam Dua Belas karya Raja Ali Haji." },
+                    { question: "Dalam linguistik, dua buah kata yang ejaan dan lafalnya SAMA PERSIS tapi maknanya BERBEDA (contoh: Bisa = racun/dapat) disebut?", options: ["Homonim", "Homofon", "Homograf", "Sinonim"], correctAnswer: 0, explanation: "Homonim memiliki wujud tulisan dan suara yang identik." },
+                    { question: "Jenis kalimat majemuk di mana anak kalimatnya bertindak sebagai pengganti fungsi subjek atau objek induk kalimat disebut kalimat majemuk?", options: ["Setara", "Rapatan", "Campuran", "Bertingkat"], correctAnswer: 3, explanation: "Pada kalimat majemuk bertingkat, kedudukan klausanya tidak sejajar/sederajat." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 7. IPA (Eksakta, Fisika, Biologi, Kimia)
+    // ==========================================
     ipa: {
         challenges: [
-            { id: "ipa_1", questions: [
-                {question:"Pusat tata surya kita?",options:["Bumi","Bulan","Matahari","Jupiter"],correctAnswer:2,explanation:"Matahari sebagai pusat gravitasi."},
-                {question:"Hewan pemakan tumbuhan?",options:["Herbivora","Karnivora","Omnivora","Insektivora"],correctAnswer:0,explanation:"Herbivora (contoh: sapi, kuda)."},
-                {question:"Hewan pemakan daging?",options:["Herbivora","Karnivora","Omnivora","Insektivora"],correctAnswer:1,explanation:"Karnivora (contoh: harimau)."},
-                {question:"Hewan pemakan segalanya (tumbuhan & daging)?",options:["Herbivora","Karnivora","Omnivora","Insektivora"],correctAnswer:2,explanation:"Omnivora (contoh: ayam, beruang)."},
-                {question:"Gas yang dihirup saat bernapas?",options:["Karbondioksida","Oksigen","Nitrogen","Helium"],correctAnswer:1,explanation:"Manusia menghirup oksigen."},
-                {question:"Tumbuhan hijau menyerap gas ... untuk fotosintesis.",options:["Oksigen","Karbondioksida","Hidrogen","Metana"],correctAnswer:1,explanation:"Tumbuhan butuh CO2 untuk membuat makanan."},
-                {question:"Satuan penunjuk suhu?",options:["Meter","Liter","Derajat","Joule"],correctAnswer:2,explanation:"Derajat Celcius/Fahrenheit/dll."},
-                {question:"Planet terdekat dari matahari?",options:["Bumi","Venus","Merkurius","Mars"],correctAnswer:2,explanation:"Urutan: Merkurius, Venus, Bumi..."},
-                {question:"Alat pernapasan ikan?",options:["Paru-paru","Kulit","Trakea","Insang"],correctAnswer:3,explanation:"Insang menyaring Oksigen di air."},
-                {question:"Alat pernapasan serangga (misal belalang)?",options:["Trakea","Insang","Paru-paru","Kulit"],correctAnswer:0,explanation:"Trakea adalah saluran udara pada serangga."},
-                {question:"Hewan berkantung dari Australia?",options:["Singa","Kangguru","Jerapah","Beruang"],correctAnswer:1,explanation:"Marsupial khas Australia."},
-                {question:"Bagian tumbuhan penghisap air dari tanah?",options:["Daun","Batang","Bunga","Akar"],correctAnswer:3,explanation:"Akar menyerap unsur hara."},
-                {question:"Matahari terbit di sebelah?",options:["Utara","Selatan","Timur","Barat"],correctAnswer:2,explanation:"Akibat rotasi bumi dari barat ke timur."},
-                {question:"Bumi berputar pada porosnya disebut?",options:["Revolusi","Rotasi","Evolusi","Kala"],correctAnswer:1,explanation:"Menyebabkan siang dan malam."},
-                {question:"Bumi mengelilingi matahari disebut?",options:["Rotasi","Revolusi","Orbit","Satelit"],correctAnswer:1,explanation:"Satu revolusi bumi = 1 tahun."}
-            ]},
-            { id: "ipa_2", questions: [
-                {question:"Perubahan padat menjadi cair?",options:["Membeku","Menguap","Mencair","Menyublim"],correctAnswer:2,explanation:"Contoh: es batu dipanaskan."},
-                {question:"Perubahan cair menjadi gas?",options:["Mengembun","Menguap","Membeku","Mengkristal"],correctAnswer:1,explanation:"Contoh: air mendidih."},
-                {question:"Perubahan padat menjadi gas?",options:["Menyublim","Mengembun","Mencair","Membeku"],correctAnswer:0,explanation:"Contoh: kapur barus yang habis di lemari."},
-                {question:"Planet terbesar di tata surya?",options:["Saturnus","Bumi","Mars","Jupiter"],correctAnswer:3,explanation:"Jupiter ukurannya raksasa."},
-                {question:"Planet bercincin indah?",options:["Uranus","Neptunus","Saturnus","Jupiter"],correctAnswer:2,explanation:"Cincin terbentuk dari bongkahan es dan debu."},
-                {question:"Hewan amfibi contohnya?",options:["Kucing","Ayam","Katak","Kadal"],correctAnswer:2,explanation:"Bisa hidup di air dan darat."},
-                {question:"Hewan melata (Reptil) contohnya?",options:["Katak","Ular","Burung","Ikan Paus"],correctAnswer:1,explanation:"Bergerak merayap/melata."},
-                {question:"Paus bernapas menggunakan?",options:["Insang","Kulit","Trakea","Paru-paru"],correctAnswer:3,explanation:"Paus adalah mamalia laut, bukan ikan."},
-                {question:"Gaya tarik bumi disebut?",options:["Gesek","Magnet","Gravitasi","Otot"],correctAnswer:2,explanation:"Benda jatuh ke bawah karena gravitasi."},
-                {question:"Zat hijau daun?",options:["Karoten","Selulosa","Klorofil","Stomata"],correctAnswer:2,explanation:"Berperan penting dalam fotosintesis."},
-                {question:"Lubang kecil di daun untuk bernapas?",options:["Lentisel","Stomata","Xilem","Floem"],correctAnswer:1,explanation:"Mulut daun (Stomata)."},
-                {question:"Perpindahan panas pada logam panas (tanpa partikel ikut)?",options:["Konduksi","Konveksi","Radiasi","Isolasi"],correctAnswer:0,explanation:"Rambatan pada benda padat."},
-                {question:"Panas matahari sampai ke bumi secara?",options:["Konduksi","Konveksi","Radiasi","Absorpsi"],correctAnswer:2,explanation:"Radiasi (pancaran tanpa perantara)."},
-                {question:"Benda yang sulit menghantarkan panas?",options:["Konduktor","Radiator","Isolator","Generator"],correctAnswer:2,explanation:"Contoh: kayu, plastik."},
-                {question:"Benda yang mudah menghantarkan listrik/panas?",options:["Isolator","Konduktor","Kapasitor","Resistor"],correctAnswer:1,explanation:"Contoh: besi, tembaga."}
-            ]},
-            { id: "ipa_3", questions: [
-                {question:"Alat ukur gempa bumi?",options:["Termometer","Barometer","Seismograf","Anemometer"],correctAnswer:2,explanation:"Mencatat getaran kulit bumi."},
-                {question:"Kumpulan bintang yang membentuk pola disebut?",options:["Galaksi","Rasi bintang","Nebula","Tata surya"],correctAnswer:1,explanation:"Contoh: Rasi bintang Pari, Scorpio."},
-                {question:"Bunyi memantul yang terdengar jelas setelah bunyi asli?",options:["Gaung","Kerdam","Gema","Desah"],correctAnswer:2,explanation:"Terjadi jika dinding pantul sangat jauh (tebing)."},
-                {question:"Bunyi pantul yang mengganggu bunyi asli?",options:["Gema","Gaung","Nada","Desibel"],correctAnswer:1,explanation:"Terjadi di ruangan tertutup (bioskop, studio)."},
-                {question:"Bagian bunga yang menarik serangga?",options:["Kelopak","Putik","Benang Sari","Mahkota"],correctAnswer:3,explanation:"Berwarna-warni dan indah."},
-                {question:"Alat kelamin jantan pada bunga?",options:["Putik","Kelopak","Benang Sari","Tangkai"],correctAnswer:2,explanation:"Berisi serbuk sari."},
-                {question:"Alat kelamin betina pada bunga?",options:["Benang Sari","Putik","Mahkota","Bakal Buah"],correctAnswer:1,explanation:"Menerima serbuk sari saat penyerbukan."},
-                {question:"Pembuluh darah balik (menuju jantung)?",options:["Arteri","Vena","Kapiler","Aorta"],correctAnswer:1,explanation:"Darah kaya CO2."},
-                {question:"Pembuluh darah nadi (keluar dari jantung)?",options:["Arteri","Vena","Kapiler","Koroner"],correctAnswer:0,explanation:"Darah kaya O2 (kecuali arteri pulmonalis)."},
-                {question:"Organ pemompa darah manusia?",options:["Paru-paru","Otak","Hati","Jantung"],correctAnswer:3,explanation:"Memiliki 4 ruang (serambi & bilik)."},
-                {question:"Enzim pencerna protein di lambung?",options:["Amilase","Lipase","Pepsin","Ptialin"],correctAnswer:2,explanation:"Mengubah protein menjadi pepton."},
-                {question:"Enzim di mulut pemecah karbohidrat?",options:["Pepsin","Renin","Ptialin / Amilase","Tripsin"],correctAnswer:2,explanation:"Nasi terasa manis jika dikunyah lama."},
-                {question:"Pencernaan kimiawi dan penyerapan sari makanan terjadi di?",options:["Lambung","Usus Besar","Mulut","Usus Halus"],correctAnswer:3,explanation:"Diserap oleh jonjot usus."},
-                {question:"Pembuatan sel darah merah terjadi di?",options:["Hati","Sumsum tulang","Jantung","Ginjal"],correctAnswer:1,explanation:"Sumsum tulang belakang dan pipih."},
-                {question:"Magnet memiliki dua kutub yaitu?",options:["Kiri Kanan","Atas Bawah","Utara Selatan","Barat Timur"],correctAnswer:2,explanation:"Kutub senama tolak-menolak, beda ditarik."},
-                {question:"Pelangi terjadi akibat peristiwa cahaya yaitu?",options:["Pemantulan","Pembiasan","Perambatan","Penyerapan"],correctAnswer:1,explanation:"Dispersi dan pembiasan cahaya oleh titik air."},
-                {question:"Cahaya matahari yang tampak putih sebenarnya gabungan ... warna?",options:["3","5","7","9"],correctAnswer:2,explanation:"MeJiKuHiBiNiU (7 warna spektrum)."},
-                {question:"Sistem saraf pusat manusia terdiri dari?",options:["Otak dan Sumsum Tulang Belakang","Jantung dan Paru","Hati dan Ginjal","Otot dan Rangka"],correctAnswer:0,explanation:"Mengatur seluruh kendali tubuh."},
-                {question:"Simbol kimia untuk Emas?",options:["Ag","Fe","Au","Cu"],correctAnswer:2,explanation:"Au (Aurum)."},
-                {question:"Simbol kimia untuk Besi?",options:["Au","Fe","Ag","O"],correctAnswer:1,explanation:"Fe (Ferrum)."}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Sel darah merah manusia pembawa oksigen disebut?", options: ["Eritrosit", "Leukosit", "Trombosit", "Plasma"], correctAnswer: 0, explanation: "Eritrosit (sel darah merah) bertugas mengikat oksigen." },
+                    { question: "Proses tumbuhan membuat makanan dengan cahaya matahari disebut?", options: ["Respirasi", "Transpirasi", "Fotosintesis", "Adaptasi"], correctAnswer: 2, explanation: "Fotosintesis menghasilkan glukosa dengan bantuan cahaya." },
+                    { question: "Hewan yang sumber makanan utamanya berupa daging dikelompokkan sebagai?", options: ["Karnivora", "Herbivora", "Omnivora", "Insektivora"], correctAnswer: 0, explanation: "Karnivora adalah kelompok hewan pemangsa (daging)." },
+                    { question: "Perubahan wujud zat dari padat menjadi cair disebut?", options: ["Membeku", "Mencair", "Menguap", "Menyublim"], correctAnswer: 1, explanation: "Mencair berarti wujud benda padat berubah jadi air." },
+                    { question: "Alat pernapasan utama pada ikan di dalam air adalah?", options: ["Paru-paru", "Trakea", "Insang", "Kulit"], correctAnswer: 2, explanation: "Insang menyaring oksigen yang terlarut di air." },
+                    { question: "Sumber energi panas dan cahaya terbesar bagi bumi adalah?", options: ["Bulan", "Batu Bara", "Gunung Berapi", "Matahari"], correctAnswer: 3, explanation: "Matahari adalah pusat energi kehidupan di bumi." },
+                    { question: "Magnet memiliki dua buah kutub, yaitu kutub?", options: ["Atas dan Bawah", "Positif dan Negatif", "Utara dan Selatan", "Kanan dan Kiri"], correctAnswer: 2, explanation: "Kutub magnet selalu menghadap Utara dan Selatan." },
+                    { question: "Rangka atau tulang manusia berfungsi untuk?", options: ["Menghasilkan darah", "Alat gerak pasif", "Memompa darah", "Mencerna makanan"], correctAnswer: 1, explanation: "Tulang adalah penopang tubuh dan alat gerak pasif." },
+                    { question: "Zat hijau daun penangkap cahaya dalam fotosintesis disebut?", options: ["Kloroplas", "Klorofil", "Stomata", "Kambium"], correctAnswer: 1, explanation: "Klorofil adalah pigmen hijau pada daun." },
+                    { question: "Organ yang memompa darah beroksigen ke seluruh tubuh manusia adalah?", options: ["Hati", "Paru-paru", "Jantung", "Ginjal"], correctAnswer: 2, explanation: "Jantung memompa sirkulasi darah tanpa henti." },
+                    { question: "Buah jeruk dan tomat adalah sumber utama vitamin?", options: ["A", "B", "C", "D"], correctAnswer: 2, explanation: "Buah sitrus sangat kaya akan Vitamin C." },
+                    { question: "Bagian luar telinga penangkap getaran suara berbentuk corong disebut?", options: ["Daun telinga", "Gendang telinga", "Koklea", "Eustachius"], correctAnswer: 0, explanation: "Daun telinga menangkap gelombang suara dari luar." },
+                    { question: "Kemampuan kelelawar mengetahui letak benda dalam gelap lewat suara pantulan disebut?", options: ["Mimikri", "Autotomi", "Ekolokasi", "Kamuflase"], correctAnswer: 2, explanation: "Ekolokasi menggunakan pantulan suara (ultrasonik)." },
+                    { question: "Cahaya senter yang tembus melewati gelas kaca membuktikan cahaya bersifat?", options: ["Dipantulkan", "Dibiaskan", "Menembus benda bening", "Merambat lurus"], correctAnswer: 2, explanation: "Benda transparan dapat ditembus oleh sinar cahaya." },
+                    { question: "Satuan pokok internasional (SI) untuk mengukur besaran panjang adalah?", options: ["Kilometer", "Sentimeter", "Meter", "Inci"], correctAnswer: 2, explanation: "Meter (m) adalah satuan standar ukur panjang." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Hukum Newton I yang menyatakan benda cenderung mempertahankan keadaannya disebut?", options: ["Kekekalan Energi", "Inersia", "Aksi Reaksi", "Gravitasi"], correctAnswer: 1, explanation: "Inersia adalah sifat kelembaman suatu benda." },
+                    { question: "Enzim ptyalin (amilase) di dalam air liur bertugas memecah?", options: ["Protein", "Lemak", "Karbohidrat", "Vitamin"], correctAnswer: 2, explanation: "Amilase memecah karbohidrat menjadi glukosa manis." },
+                    { question: "Hubungan kerbau dan burung jalak yang saling menguntungkan disebut simbiosis?", options: ["Parasitisme", "Komensalisme", "Mutualisme", "Amensalisme"], correctAnswer: 2, explanation: "Mutualisme menguntungkan kedua belah pihak." },
+                    { question: "Gaya yang menghambat laju benda akibat persentuhan alas disebut gaya?", options: ["Pegas", "Gesek", "Magnet", "Gravitasi"], correctAnswer: 1, explanation: "Gaya gesek berlawanan dengan arah gerak benda." },
+                    { question: "Alat mekanik roda beralur tali penarik beban untuk permudah kerja disebut?", options: ["Tuas", "Bidang Miring", "Katrol", "Baji"], correctAnswer: 2, explanation: "Katrol mengubah arah gaya untuk angkat beban berat." },
+                    { question: "Membeloknya arah cahaya akibat melewati batas dua zat yang berbeda kerapatan disebut?", options: ["Refleksi", "Refraksi", "Difraksi", "Interferensi"], correctAnswer: 1, explanation: "Refraksi (pembiasan) buat sedotan di air tampak patah." },
+                    { question: "Bunyi pantul yang terdengar jelas SETELAH bunyi asli selesai disebut?", options: ["Gaung", "Gema", "Kerdam", "Resonansi"], correctAnswer: 1, explanation: "Gema terjadi di tebing jauh karena jarak pantulnya lama." },
+                    { question: "Organ pencernaan penyerap sari-sari makanan ke dalam peredaran darah adalah?", options: ["Lambung", "Usus Besar", "Usus Halus", "Pankreas"], correctAnswer: 2, explanation: "Usus halus menyerap nutrisi melalui jonjot/villi." },
+                    { question: "Orang golongan darah O disebut donor universal karena sel darah merahnya?", options: ["Tidak ada antigen (aglutinogen)", "Banyak antibodi", "Tidak ada antibodi", "Darahnya encer"], correctAnswer: 0, explanation: "Tanpa antigen, darah O tidak diserang sistem imun." },
+                    { question: "Organ penyaring racun dan kotoran darah menjadi urine (air seni) adalah?", options: ["Hati", "Paru-paru", "Pankreas", "Ginjal"], correctAnswer: 3, explanation: "Ginjal menyaring dan membuang limbah cair tubuh." },
+                    { question: "Perpindahan panas melalui aliran zat perantaranya (seperti air mendidih) disebut?", options: ["Konduksi", "Konveksi", "Radiasi", "Isolasi"], correctAnswer: 1, explanation: "Konveksi adalah rambatan panas melalui benda cair/gas." },
+                    { question: "Beda utama sel tumbuhan dibanding sel hewan adalah sel tumbuhan memiliki?", options: ["Membran Sel", "Nukleus", "Dinding Sel", "Mitokondria"], correctAnswer: 2, explanation: "Dinding sel membuat tumbuhan kaku tegak." },
+                    { question: "Rumus matematis untuk menghitung massa jenis (densitas) benda adalah?", options: ["Massa + Volume", "Massa / Volume", "Volume * Massa", "Volume / Massa"], correctAnswer: 1, explanation: "Massa jenis (rho) dihitung dengan Massa dibagi Volume." },
+                    { question: "Rantai makanan yang membentuk jaring ekosistem selalu berawal dari?", options: ["Konsumen", "Dekomposer", "Produsen", "Herbivora"], correctAnswer: 2, explanation: "Produsen (tumbuhan) selalu di level trofik terdasar." },
+                    { question: "Pada metamorfosis tidak sempurna, serangga tidak akan mengalami masa?", options: ["Telur", "Nimfa", "Pupa (Kepompong)", "Dewasa"], correctAnswer: 2, explanation: "Pupa hanya ada di metamorfosis sempurna (kupu-kupu)." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Berapa percepatan gerak benda 1000 kg yang ditarik gaya 5000 Newton?", options: ["0.2 m/s²", "5 m/s²", "50 m/s²", "5000 m/s²"], correctAnswer: 1, explanation: "Percepatan = Gaya / Massa (5000 : 1000 = 5)." },
+                    { question: "Organel 'powerhouse of the cell' tempat respirasi sel penghasil energi (ATP) adalah?", options: ["Ribosom", "Lisosom", "Badan Golgi", "Mitokondria"], correctAnswer: 3, explanation: "Mitokondria memproduksi ATP penyedia energi sel." },
+                    { question: "Ikatan kimia dari pemakaian bersama pasangan elektron antar non-logam disebut?", options: ["Ion", "Logam", "Kovalen", "Van der Waals"], correctAnswer: 2, explanation: "Kovalen men-share elektron untuk mencapai kestabilan." },
+                    { question: "Gaya apung zat cair pada benda sama dengan berat cairan yang tumpah. Ini hukum?", options: ["Pascal", "Archimedes", "Boyle", "Bernoulli"], correctAnswer: 1, explanation: "Hukum Archimedes jelaskan benda apung dan tenggelam." },
+                    { question: "Jika resistor 10 Ohm dihubungkan aki 5 Volt, kuat arus listriknya adalah?", options: ["0.5 A", "2 A", "15 A", "50 A"], correctAnswer: 0, explanation: "Arus (I) = Tegangan / Hambatan (5 : 10 = 0.5)." },
+                    { question: "Pada meiosis, satu induk sel diploid (2n) akan membelah diri menjadi?", options: ["2 anak (2n)", "2 anak (n)", "4 anak (2n)", "4 anak haploid (n)"], correctAnswer: 3, explanation: "Meiosis (sel kelamin) hasilkan 4 sel haploid (n)." },
+                    { question: "Skala angka pH yang menandakan sifat basa (alkalis) pada cairan adalah?", options: ["pH < 7", "pH = 7", "pH > 7", "pH = 0"], correctAnswer: 2, explanation: "pH di bawah 7 itu asam, di atas 7 itu basa." },
+                    { question: "Atom unsur yang sama jumlah protonnya tapi beda massa/neutronnya disebut?", options: ["Isotop", "Isobar", "Isoton", "Isomer"], correctAnswer: 0, explanation: "Isotop sama proton, tapi massa neutronnya beda." },
+                    { question: "Energi Kinetik (gerak) benda akan selalu berbanding lurus dengan massa dan?", options: ["Ketinggian tanah", "Kuadrat kecepatan", "Waktu tempuh", "Gaya gesek"], correctAnswer: 1, explanation: "Rumus EK adalah 1/2 dikali massa dikali v kuadrat." },
+                    { question: "Proses sintesis protein membaca kode mRNA jadi asam amino di ribosom disebut?", options: ["Transkripsi", "Replikasi", "Translasi", "Mutasi"], correctAnswer: 2, explanation: "Translasi adalah tahap mencetak protein dari kode RNA." },
+                    { question: "Bunyi sirine tinggi saat mendekat dan merendah saat menjauh akibat gerak disebut?", options: ["Efek Zeeman", "Efek Compton", "Efek Doppler", "Fotolistrik"], correctAnswer: 2, explanation: "Efek Doppler terkait frekuensi sumber yang bergerak." },
+                    { question: "Hormon pankreas yang menyerap dan menurunkan kadar gula (glukosa) darah adalah?", options: ["Adrenalin", "Tiroksin", "Insulin", "Testosteron"], correctAnswer: 2, explanation: "Insulin menetralisir gula kelebihan dalam darah." },
+                    { question: "Reaksi kimia yang membuang kalor/panas sehingga lingkungan sekitar jadi hangat?", options: ["Endoterm", "Eksoterm", "Redoks", "Hidrolisis"], correctAnswer: 1, explanation: "Reaksi eksoterm melepaskan energi panas ke luar." },
+                    { question: "Jaringan aktif pembelahan pelebar diameter batang kayu (pertumbuhan sekunder)?", options: ["Epidermis", "Parenkim", "Kambium", "Xilem"], correctAnswer: 2, explanation: "Kambium menyebabkan batang pohon jadi tebal." },
+                    { question: "Titik didih maksimal air murni bila diukur dengan termometer Fahrenheit adalah?", options: ["100 °F", "180 °F", "212 °F", "373 °F"], correctAnswer: 2, explanation: "Air mendidih pada 100°C yang setara dengan 212°F." },
+                    { question: "Basa nitrogen unik milik RNA yang tugasnya menggantikan posisi Timin pada DNA?", options: ["Sitosin", "Guanin", "Urasil", "Adenin"], correctAnswer: 2, explanation: "Urasil (U) eksklusif ada di susunan kode gen RNA." },
+                    { question: "Asortasi persilangan gen secara bebas untuk sifat yang berbeda disebut Hukum?", options: ["Mendel I", "Mendel II", "Hardy-Weinberg", "Charles"], correctAnswer: 1, explanation: "Hukum Mendel II atur persilangan gen independen." },
+                    { question: "Gaya dorongan yang timbul saat kawat arus listrik dipotong medan magnet disebut?", options: ["Coulomb", "Lorentz", "GGL", "Faraday"], correctAnswer: 1, explanation: "Gaya Lorentz adalah dasar ilmu pembuat motor listrik." },
+                    { question: "Unsur golongan VIIIA tabel periodik yang sangat sulit bereaksi kimia disebut?", options: ["Halogen", "Alkali", "Alkali Tanah", "Gas Mulia"], correctAnswer: 3, explanation: "Gas Mulia sangat stabil karena elektron luar penuh." },
+                    { question: "Perbedaan mendasar besaran kecepatan (velocity) dengan kelajuan (speed) adalah?", options: ["Kelajuan vektor", "Kecepatan vektor", "Kelajuan arahnya bebas", "Tidak ada bedanya"], correctAnswer: 1, explanation: "Kecepatan adalah besaran vektor (memiliki arah yang pasti)." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Eksakta & Sains Tingkat Dewa)
+                questions: [
+                    { question: "Senyawa kimia yang memberikan energi instan pada sel (sering disebut mata uang energi sel) adalah?", options: ["DNA", "RNA", "ATP", "ADP"], correctAnswer: 2, explanation: "ATP (Adenosine Triphosphate) diproduksi di mitokondria." },
+                    { question: "Dalam tabel periodik, unsur dengan keelektronegatifan paling tinggi (paling kuat menarik elektron) adalah?", options: ["Oksigen (O)", "Klorin (Cl)", "Fluorin (F)", "Nitrogen (N)"], correctAnswer: 2, explanation: "Fluorin (F) berada di kanan atas tabel periodik (golongan halogen)." },
+                    { question: "Hukum Termodinamika ke-2 menyatakan bahwa di alam semesta, derajat ketidakteraturan akan selalu meningkat. Istilah ini disebut?", options: ["Entalpi", "Entropi", "Kalor", "Isotermis"], correctAnswer: 1, explanation: "Entropi adalah ukuran keacakan atau ketidakteraturan sistem alam semesta." },
+                    { question: "Organel pada sel tumbuhan yang mengandung enzim katalase untuk menguraikan racun hidrogen peroksida adalah?", options: ["Lisosom", "Glioksisom", "Peroksisom", "Ribosom"], correctAnswer: 2, explanation: "Peroksisom menetralkan racun H2O2 menjadi air dan oksigen." },
+                    { question: "Prinsip fisika yang menjelaskan bahwa tekanan fluida akan menurun jika kecepatannya meningkat (menyebabkan pesawat terbang) adalah?", options: ["Hukum Pascal", "Hukum Archimedes", "Hukum Bernoulli", "Efek Doppler"], correctAnswer: 2, explanation: "Prinsip Bernoulli diaplikasikan pada desain sayap pesawat (aerofoil)." },
+                    { question: "Berapa jumlah kromosom normal pada satu sel somatik (sel tubuh) manusia sehat?", options: ["23 pasang (46 buah)", "22 pasang (44 buah)", "24 pasang (48 buah)", "46 pasang (92 buah)"], correctAnswer: 0, explanation: "Manusia memiliki 46 kromosom (22 pasang autosom + 1 pasang gonosom/kelamin)." },
+                    { question: "Gelombang elektromagnetik dengan frekuensi paling tinggi dan energi terbesar yang bisa memicu mutasi DNA adalah?", options: ["Sinar Inframerah", "Sinar X", "Sinar Gamma", "Gelombang Radio"], correctAnswer: 2, explanation: "Sinar Gamma dihasilkan dari reaksi nuklir dan sangat merusak jaringan biologis." },
+                    { question: "Ikatan kimia antar molekul air (H2O) yang menyebabkan air memiliki titik didih tinggi dan tegangan permukaan kuat adalah?", options: ["Ikatan Kovalen Polar", "Ikatan Ionik", "Ikatan Logam", "Ikatan Hidrogen"], correctAnswer: 3, explanation: "Ikatan Hidrogen terjadi antara atom H dari satu molekul dengan atom O dari molekul lain." },
+                    { question: "Teori evolusi Darwin yang menyatakan bahwa individu dengan sifat paling cocok akan bertahan hidup dikenal dengan istilah?", options: ["Use and Disuse", "Natural Selection", "Mutation", "Genetic Drift"], correctAnswer: 1, explanation: "Seleksi alam (Natural Selection) memastikan yang terkuat dan adaptif yang bertahan." },
+                    { question: "Jika laju reaksi naik dua kali lipat setiap kenaikan suhu 10°C, berapa kali lipat laju reaksinya jika suhu naik 30°C?", options: ["3 kali", "6 kali", "8 kali", "9 kali"], correctAnswer: 2, explanation: "2 pangkat 3 (karena 30/10 = 3), sehingga 2 * 2 * 2 = 8 kali lebih cepat." },
+                    { question: "Kelenjar endokrin yang dijuluki 'Master Gland' (Kelenjar Induk) karena mengatur kelenjar hormon lainnya adalah?", options: ["Tiroid", "Hipofisis (Pituitari)", "Adrenal", "Pankreas"], correctAnswer: 1, explanation: "Kelenjar pituitari di otak memproduksi hormon pengontrol kelenjar tubuh lain." },
+                    { question: "Efek rumah kaca paling kuat sebenarnya BUKAN disebabkan oleh Karbon Dioksida (CO2), melainkan oleh?", options: ["Gas Metana (CH4)", "Nitrogen Oksida (N2O)", "Uap Air (H2O)", "CFC"], correctAnswer: 2, explanation: "Uap air adalah kontributor terbesar efek rumah kaca secara volume di atmosfer murni." },
+                    { question: "Batas teoritis kecepatan maksimum yang dapat dicapai oleh benda bermassa di alam semesta (Konstanta c) adalah sekitar?", options: ["300.000 km/detik", "343 meter/detik", "11.2 km/detik", "1 Juta km/detik"], correctAnswer: 0, explanation: "Kecepatan cahaya di ruang hampa adalah batas kecepatan mutlak alam semesta." },
+                    { question: "Penyakit keturunan Hemofilia (darah sulit membeku) disebabkan oleh mutasi gen resesif yang terpaut pada kromosom?", options: ["Kromosom Y", "Kromosom X", "Kromosom Autosom nomor 21", "Mitokondria"], correctAnswer: 1, explanation: "Oleh karena itu, pria (XY) jauh lebih rentan terkena hemofilia dibanding wanita (XX)." },
+                    { question: "Proses pemecahan satu molekul glukosa (6 karbon) menjadi dua asam piruvat (3 karbon) di sitoplasma disebut?", options: ["Siklus Krebs", "Transpor Elektron", "Dekarboksilasi Oksidatif", "Glikolisis"], correctAnswer: 3, explanation: "Glikolisis adalah tahap awal respirasi sel anaerobik maupun aerobik." },
+                    { question: "Campuran homogen antara tembaga (Cu) dan timah (Sn) menghasilkan logam paduan (alloy) berupa?", options: ["Kuningan (Brass)", "Perunggu (Bronze)", "Baja (Steel)", "Emas Putih"], correctAnswer: 1, explanation: "Perunggu sangat keras dan mendominasi senjata pada 'Zaman Perunggu'." },
+                    { question: "Dalam hukum gravitasi Newton, jika jarak antara dua benda dijauhkan menjadi DUA KALI lipat, maka gaya gravitasinya akan menjadi?", options: ["1/2 kali lipat", "1/4 kali lipat", "Tetap", "2 kali lipat"], correctAnswer: 1, explanation: "Gaya gravitasi berbanding terbalik dengan kuadrat jarak (F ~ 1/r²)." },
+                    { question: "Virus mematikan yang menyerang sistem kekebalan tubuh dengan menghancurkan sel darah putih (CD4/T-cell) adalah?", options: ["Virus Rabies", "Virus Corona", "HIV", "Virus Ebola"], correctAnswer: 2, explanation: "HIV merusak imunitas tubuh manusia sehingga rentan terhadap infeksi mematikan (AIDS)." },
+                    { question: "Partikel dasar (subatomik) yang mengorbit inti atom dan TIDAK memiliki massa yang signifikan adalah?", options: ["Proton", "Neutron", "Positron", "Elektron"], correctAnswer: 3, explanation: "Massa elektron sangat kecil (1/1836 dari proton) sehingga sering diabaikan." },
+                    { question: "Gaya fiktif yang seolah-olah melempar benda ke arah luar lintasan saat benda bergerak melingkar disebut gaya?", options: ["Sentripetal", "Sentrifugal", "Gaya Pegas", "Gaya Normal"], correctAnswer: 1, explanation: "Sentrifugal terasa melempar ke luar (seperti di komidi putar), lawan dari gaya sentripetal." }
+                ]
+            }
         ]
-    },
+    },   
+    // ==========================================
+    // 8. IPS (Ilmu Pengetahuan Sosial - Ekonomi & Geografi)
+    // ==========================================
     ips: {
         challenges: [
-            { id: "ips_1", questions: [
-                {question:"Ibu kota negara Indonesia?",options:["Surabaya","Medan","Jakarta","Bandung"],correctAnswer:2,explanation:"Pusat pemerintahan RI."},
-                {question:"Mata uang Indonesia?",options:["Rupiah","Ringgit","Baht","Peso"],correctAnswer:0,explanation:"Simbolnya Rp."},
-                {question:"Matahari terbit dari?",options:["Barat","Utara","Timur","Selatan"],correctAnswer:2,explanation:"Seiring rotasi bumi."},
-                {question:"Provinsi paling barat di Indonesia?",options:["Papua","Aceh","Banten","Jawa Barat"],correctAnswer:1,explanation:"Nanggroe Aceh Darussalam."},
-                {question:"Provinsi paling timur di Indonesia?",options:["Papua","Maluku","NTT","Sulawesi Utara"],correctAnswer:0,explanation:"Berbatasan dengan Papua Nugini."},
-                {question:"Gunung tertinggi di pulau Jawa?",options:["G. Bromo","G. Merapi","G. Semeru","G. Krakatau"],correctAnswer:2,explanation:"Puncak Mahameru di Jatim."},
-                {question:"Danau terbesar di Indonesia?",options:["D. Singkarak","D. Toba","D. Poso","D. Towuti"],correctAnswer:1,explanation:"Terletak di Sumatera Utara."},
-                {question:"Simbol gambar wilayah di bidang datar?",options:["Globe","Skala","Peta","Legenda"],correctAnswer:2,explanation:"Proyeksi bumi ke kertas/layar."},
-                {question:"Keterangan simbol-simbol pada peta?",options:["Skala","Garis Tepi","Judul","Legenda"],correctAnswer:3,explanation:"Untuk membaca peta dengan benar."},
-                {question:"Perbandingan jarak peta dengan jarak asli?",options:["Skala","Legenda","Simbol","Arah Mata Angin"],correctAnswer:0,explanation:"Misal 1 : 100.000."},
-                {question:"Arah atas pada peta selalu menunjukkan?",options:["Selatan","Timur","Utara","Barat"],correctAnswer:2,explanation:"Utara menjadi pedoman orientasi."},
-                {question:"Selat antara pulau Jawa dan Sumatera?",options:["Selat Bali","Selat Sunda","Selat Malaka","Selat Makassar"],correctAnswer:1,explanation:"Pernah letusannya Krakatau di sini."},
-                {question:"Negara tetangga di sebelah utara Kalimantan?",options:["Singapura","Thailand","Filipina","Malaysia"],correctAnswer:3,explanation:"Malaysia Timur (Sabah & Sarawak)."},
-                {question:"Benua terkecil di dunia?",options:["Asia","Eropa","Australia","Afrika"],correctAnswer:2,explanation:"Sekaligus sebagai sebuah negara."},
-                {question:"Samudra terluas di dunia?",options:["Hindia","Atlantik","Pasifik","Arktik"],correctAnswer:2,explanation:"Mencakup hampir sepertiga bumi."}
-            ]},
-            { id: "ips_2", questions: [
-                {question:"Kegiatan menghasilkan barang/jasa?",options:["Konsumsi","Distribusi","Produksi","Investasi"],correctAnswer:2,explanation:"Orangnya disebut Produsen."},
-                {question:"Kegiatan memakai/menghabiskan nilai barang?",options:["Konsumsi","Produksi","Distribusi","Perdagangan"],correctAnswer:0,explanation:"Orangnya disebut Konsumen."},
-                {question:"Kegiatan menyalurkan barang dari produsen ke konsumen?",options:["Grosir","Distribusi","Produksi","Konsumsi"],correctAnswer:1,explanation:"Orangnya disebut Distributor."},
-                {question:"Pertukaran barang dengan barang?",options:["Jual beli","Ekspor","Impor","Barter"],correctAnswer:3,explanation:"Sistem sebelum ada uang."},
-                {question:"Menjual barang dari dalam ke luar negeri?",options:["Impor","Ekspor","Barter","Retur"],correctAnswer:1,explanation:"Pelakunya Eksportir."},
-                {question:"Membeli barang dari luar ke dalam negeri?",options:["Ekspor","Impor","Barter","Grosir"],correctAnswer:1,explanation:"Pelakunya Importir."},
-                {question:"Sila ke-1 Pancasila dilambangkan?",options:["Padi & Kapas","Bintang","Rantai","Beringin"],correctAnswer:1,explanation:"Ketuhanan YME (Bintang emas)."},
-                {question:"Sila ke-3 Pancasila dilambangkan?",options:["Pohon Beringin","Bintang","Kepala Banteng","Rantai"],correctAnswer:0,explanation:"Persatuan Indonesia."},
-                {question:"Sila ke-4 Pancasila dilambangkan?",options:["Rantai","Padi & Kapas","Kepala Banteng","Pohon Beringin"],correctAnswer:2,explanation:"Kerakyatan..."},
-                {question:"Sila ke-5 Pancasila dilambangkan?",options:["Bintang","Rantai","Kepala Banteng","Padi dan Kapas"],correctAnswer:3,explanation:"Keadilan Sosial (Sandang Pangan)."},
-                {question:"Bapak Koperasi Indonesia?",options:["Ir. Soekarno","Moh. Hatta","Ki Hajar Dewantara","Soedirman"],correctAnswer:1,explanation:"Bung Hatta penggerak ekonomi kerakyatan."},
-                {question:"Rumah adat provinsi Sumatera Barat?",options:["Rumah Gadang","Honai","Joglo","Limasan"],correctAnswer:0,explanation:"Atapnya mirip tanduk kerbau."},
-                {question:"Senjata tradisional masyarakat Jawa (khususnya Jawa Tengah)?",options:["Rencong","Mandau","Keris","Celurit"],correctAnswer:2,explanation:"Warisan budaya dunia oleh UNESCO."},
-                {question:"Tari Kecak berasal dari?",options:["Aceh","Jawa Barat","Bali","Papua"],correctAnswer:2,explanation:"Tarian ritual dan seni khas Bali."},
-                {question:"Semboyan Bhinneka Tunggal Ika tertulis di kitab?",options:["Sutasoma","Negarakertagama","Arjuna Wiwaha","Ramayana"],correctAnswer:0,explanation:"Karangan Mpu Tantular (Majapahit)."}
-            ]},
-            { id: "ips_3", questions: [
-                {question:"Organisasi negara-negara Asia Tenggara?",options:["NATO","PBB","ASEAN","OPEC"],correctAnswer:2,explanation:"Didirikan 8 Agustus 1967."},
-                {question:"Negara pendiri ASEAN dari Filipina?",options:["Adam Malik","Tun Abdul Razak","Narciso Ramos","S. Rajaratnam"],correctAnswer:2,explanation:"Menteri Luar Negeri Filipina saat itu."},
-                {question:"Mata uang negara Thailand?",options:["Peso","Baht","Dong","Kyat"],correctAnswer:1,explanation:"Baht adalah mata uang sah Thailand."},
-                {question:"Negara ASEAN yang tidak pernah dijajah bangsa Eropa?",options:["Indonesia","Malaysia","Thailand","Vietnam"],correctAnswer:2,explanation:"Thailand (Siam) sebagai negara penyangga."},
-                {question:"Julukan Negara Gajah Putih?",options:["India","Myanmar","Thailand","Kamboja"],correctAnswer:2,explanation:"Gajah putih dianggap suci di Thailand."},
-                {question:"Negara terkaya di Asia Tenggara (GPD per kapita)?",options:["Indonesia","Singapura","Malaysia","Brunei"],correctAnswer:1,explanation:"Singapura pusat perdagangan dan jasa."},
-                {question:"Badan PBB urusan anak-anak dunia?",options:["WHO","UNESCO","UNICEF","ILO"],correctAnswer:2,explanation:"United Nations Children's Fund."},
-                {question:"Badan PBB urusan pendidikan & kebudayaan?",options:["WHO","UNESCO","IMF","FAO"],correctAnswer:1,explanation:"Menetapkan situs warisan dunia."},
-                {question:"Badan PBB urusan kesehatan dunia?",options:["WHO","UNICEF","ILO","FAO"],correctAnswer:0,explanation:"World Health Organization."},
-                {question:"Iklim negara Indonesia adalah?",options:["Subtropis","Sedang","Tropis","Dingin"],correctAnswer:2,explanation:"Dilewati garis khatulistiwa (Equator)."},
-                {question:"Garis bujur 0 derajat melewati kota?",options:["New York","Paris","Greenwich (London)","Tokyo"],correctAnswer:2,explanation:"Titik patokan waktu dunia (GMT)."},
-                {question:"WIB (Waktu Ind. Barat) beda berapa jam dari GMT?",options:["+7","+8","+9","+10"],correctAnswer:0,explanation:"WIB adalah GMT+7."},
-                {question:"Gempa yang disebabkan aktivitas gunung berapi?",options:["Tektonik","Vulkanik","Runtuhan","Bumi"],correctAnswer:1,explanation:"Vulkanik berkaitan dengan magma."},
-                {question:"Gempa akibat pergeseran lempeng bumi?",options:["Vulkanik","Tektonik","Tsunami","Bawah laut"],correctAnswer:1,explanation:"Bisa menyebabkan kerusakan masif/Tsunami."},
-                {question:"Batas utara benua Asia?",options:["Samudra Hindia","Samudra Pasifik","Samudra Arktik","Benua Afrika"],correctAnswer:2,explanation:"Kutub utara / Arktik."},
-                {question:"Sungai terpanjang di dunia?",options:["Amazon","Nil","Yangtze","Mississippi"],correctAnswer:1,explanation:"Sungai Nil di Benua Afrika."},
-                {question:"Gurun terluas di dunia?",options:["Gobi","Kalahari","Sahara","Atacama"],correctAnswer:2,explanation:"Di bagian utara Benua Afrika."},
-                {question:"Penduduk asli benua Australia?",options:["Indian","Aborigin","Maori","Eskimo"],correctAnswer:1,explanation:"Suku Aborigin."},
-                {question:"Organisasi pengekspor minyak dunia?",options:["APEC","OPEC","NATO","WTO"],correctAnswer:1,explanation:"Organization of the Petroleum Exporting Countries."},
-                {question:"Pasar bebas di kawasan Asia Tenggara?",options:["AFTA","NAFTA","CAFTA","EU"],correctAnswer:0,explanation:"ASEAN Free Trade Area."}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Ibu kota negara Republik Indonesia saat ini adalah?", options: ["Surabaya", "Bandung", "Jakarta", "Medan"], correctAnswer: 2, explanation: "Jakarta adalah pusat pemerintahan dan ekonomi Indonesia." },
+                    { question: "Alat pembayaran yang sah untuk kegiatan jual beli disebut?", options: ["Saham", "Uang", "Kwitansi", "Cek"], correctAnswer: 1, explanation: "Uang berfungsi sebagai alat tukar menukar barang." },
+                    { question: "Kebutuhan manusia yang paling mendasar dan harus segera dipenuhi (seperti makan dan pakaian) disebut kebutuhan?", options: ["Tersier", "Sekunder", "Mewah", "Primer"], correctAnswer: 3, explanation: "Kebutuhan primer menyangkut kelangsungan hidup manusia." },
+                    { question: "Kegiatan mengirim atau menjual barang ke luar negeri disebut?", options: ["Impor", "Ekspor", "Barter", "Grosir"], correctAnswer: 1, explanation: "Ekspor menambah devisa negara melalui penjualan ke asing." },
+                    { question: "Orang yang pekerjaannya mencari ikan di laut disebut?", options: ["Petani", "Peternak", "Nelayan", "Tukang"], correctAnswer: 2, explanation: "Nelayan memanfaatkan sumber daya pesisir dan laut." },
+                    { question: "Buku kumpulan peta-peta yang dibukukan disebut?", options: ["Globe", "Atlas", "Kamus", "Ensiklopedia"], correctAnswer: 1, explanation: "Atlas memudahkan orang melihat peta berbagai wilayah sekaligus." },
+                    { question: "Bencana alam berupa guncangan hebat di permukaan bumi disebut?", options: ["Tsunami", "Banjir", "Tanah Longsor", "Gempa Bumi"], correctAnswer: 3, explanation: "Gempa bumi diakibatkan oleh pergeseran lempeng bumi." },
+                    { question: "Lembaga sosial terkecil di dalam masyarakat adalah?", options: ["Keluarga", "Sekolah", "Rukun Tetangga", "Desa"], correctAnswer: 0, explanation: "Keluarga terdiri dari ayah, ibu, dan anak sebagai unit dasar." },
+                    { question: "Gunung tertinggi di Pulau Jawa yang terletak di Jawa Timur adalah?", options: ["Merapi", "Semeru", "Rinjani", "Kerinci"], correctAnswer: 1, explanation: "Gunung Semeru dengan puncak Mahameru adalah yang tertinggi di Jawa." },
+                    { question: "Organisasi persatuan negara-negara di kawasan Asia Tenggara disebut?", options: ["PBB", "NATO", "ASEAN", "OPEC"], correctAnswer: 2, explanation: "ASEAN didirikan untuk memajukan kerjasama ekonomi dan budaya Asia Tenggara." },
+                    { question: "Suku asli yang berasal dari Provinsi Jawa Barat adalah suku?", options: ["Jawa", "Batak", "Dayak", "Sunda"], correctAnswer: 3, explanation: "Suku Sunda mendominasi wilayah barat pulau Jawa." },
+                    { question: "Menanam kembali hutan yang telah gundul agar tidak banjir disebut?", options: ["Irigasi", "Reboisasi", "Terasering", "Urbanisasi"], correctAnswer: 1, explanation: "Reboisasi mengembalikan fungsi serapan air pada hutan." },
+                    { question: "Kegiatan membeli atau memasukkan barang dari luar negeri ke dalam negeri disebut?", options: ["Ekspor", "Impor", "Subsidi", "Retribusi"], correctAnswer: 1, explanation: "Impor dilakukan untuk memenuhi barang yang tidak ada di dalam negeri." },
+                    { question: "Sistem jual beli dengan cara menukar barang dengan barang lain (tanpa uang) disebut?", options: ["Kredit", "Lelang", "Barter", "Gadai"], correctAnswer: 2, explanation: "Barter adalah sistem transaksi tradisional paling kuno." },
+                    { question: "Tempat bertemunya bertemunya penjual dan pembeli untuk bertransaksi disebut?", options: ["Pabrik", "Kantor", "Pasar", "Gudang"], correctAnswer: 2, explanation: "Pasar merupakan pusat penggerak roda ekonomi masyarakat." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Garis khayal yang membelah bumi menjadi belahan utara dan selatan adalah?", options: ["Garis Bujur", "Garis Tropik", "Garis Wallace", "Garis Khatulistiwa"], correctAnswer: 3, explanation: "Khatulistiwa (Ekuator) membuat negara beriklim tropis." },
+                    { question: "Kondisi di mana harga barang-barang naik secara terus-menerus dan nilai uang turun disebut?", options: ["Deflasi", "Inflasi", "Devaluasi", "Resesi"], correctAnswer: 1, explanation: "Inflasi menurunkan daya beli masyarakat secara drastis." },
+                    { question: "Pihak atau badan yang melakukan kegiatan menghasilkan barang atau jasa disebut?", options: ["Konsumen", "Distributor", "Produsen", "Kolektor"], correctAnswer: 2, explanation: "Produsen menciptakan nilai guna suatu barang/jasa." },
+                    { question: "Perpindahan penduduk dari desa menuju kota besar untuk mencari pekerjaan disebut?", options: ["Transmigrasi", "Urbanisasi", "Imigrasi", "Emigrasi"], correctAnswer: 1, explanation: "Urbanisasi sering menyebabkan kepadatan penduduk di kota." },
+                    { question: "Proses penyesuaian sosial untuk meredakan pertentangan/konflik disebut?", options: ["Asimilasi", "Akomodasi", "Akulturasi", "Kompetisi"], correctAnswer: 1, explanation: "Akomodasi bertujuan menstabilkan hubungan pihak yang bertikai." },
+                    { question: "Peta yang menggambarkan relief tinggi rendahnya permukaan bumi (biasanya dengan garis kontur) disebut?", options: ["Peta Tematik", "Peta Topografi", "Peta Kadaster", "Peta Cuaca"], correctAnswer: 1, explanation: "Topografi sangat berguna untuk pendakian gunung atau geologi." },
+                    { question: "Garis batas biogeografis yang memisahkan fauna tipe Asia (Barat) dengan tipe peralihan di Indonesia adalah?", options: ["Garis Khatulistiwa", "Garis Bujur", "Garis Weber", "Garis Wallace"], correctAnswer: 3, explanation: "Garis Wallace membentang antara Kalimantan-Sulawesi dan Bali-Lombok." },
+                    { question: "Letak astronomis wilayah Indonesia berada pada?", options: ["6° LU - 11° LS dan 95° BT - 141° BT", "6° LS - 11° LU dan 95° BT - 141° BB", "6° LU - 11° LS dan 95° BB - 141° BB", "11° LU - 6° LS dan 95° BT - 141° BT"], correctAnswer: 0, explanation: "Posisi ini membuat Indonesia berada di wilayah tropis matahari." },
+                    { question: "Iuran wajib rakyat kepada kas negara berdasarkan undang-undang tanpa mendapat balas jasa langsung disebut?", options: ["Retribusi", "Sumbangan", "Zakat", "Pajak"], correctAnswer: 3, explanation: "Pajak digunakan untuk membiayai fasilitas dan infrastruktur publik." },
+                    { question: "Badan usaha yang berasaskan kekeluargaan demi kesejahteraan anggotanya (Bapaknya Bung Hatta) adalah?", options: ["PT", "CV", "Firma", "Koperasi"], correctAnswer: 3, explanation: "Koperasi menjunjung tinggi prinsip gotong royong dan kebersamaan." },
+                    { question: "Tahap sosialisasi pertama yang dialami individu semenjak lahir di dalam keluarga disebut sosialisasi?", options: ["Sekunder", "Tersier", "Primer", "Partisipatoris"], correctAnswer: 2, explanation: "Keluarga adalah agen sosialisasi primer pembentuk kepribadian." },
+                    { question: "Peleburan dua kebudayaan berbeda menjadi satu kebudayaan baru dan menghilangkan unsur aslinya disebut?", options: ["Akulturasi", "Asimilasi", "Akomodasi", "Difusi"], correctAnswer: 1, explanation: "Berbeda dengan akulturasi yang unsur aslinya masih terlihat." },
+                    { question: "Angin yang bertiup setiap setengah tahun sekali dan memengaruhi musim kemarau di Indonesia adalah angin muson?", options: ["Timur (Tenggara)", "Barat", "Utara", "Selatan"], correctAnswer: 0, explanation: "Muson Timur membawa udara kering dari gurun di Australia." },
+                    { question: "Kerjasama ekonomi negara-negara Asia Tenggara untuk menciptakan pasar bebas tunggal dikenal dengan istilah?", options: ["OPEC", "APEC", "MEA", "WTO"], correctAnswer: 2, explanation: "Masyarakat Ekonomi ASEAN (MEA) menghapus batas bea cukai negara serumpun." },
+                    { question: "Tingkatan kelas atau pelapisan sosial di masyarakat secara vertikal (atas-bawah) disebut?", options: ["Diferensiasi Sosial", "Stratifikasi Sosial", "Mobilitas Sosial", "Konflik Sosial"], correctAnswer: 1, explanation: "Stratifikasi mengelompokkan orang berdasarkan kekayaan atau kekuasaan." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Hukum ekonomi dasar menyatakan bahwa jika penawaran tetap namun permintaan meningkat, maka harga akan?", options: ["Turun", "Tetap stabil", "Naik", "Menghilang"], correctAnswer: 2, explanation: "Semakin banyak yang mau beli tapi barangnya sedikit, harga akan melambung." },
+                    { question: "Indikator ekonomi untuk mengukur total nilai barang dan jasa yang diproduksi Warga Negara (baik di dalam maupun luar negeri) disebut?", options: ["Gross Domestic Product (GDP)", "Gross National Product (GNP)", "Pendapatan Per Kapita", "Net National Income"], correctAnswer: 1, explanation: "GNP fokus pada kewarganegaraan, bukan batas teritori fisik (GDP)." },
+                    { question: "Piramida penduduk yang bentuknya menyerupai granat atau nisan (stasioner) menandakan bahwa?", options: ["Angka kelahiran sangat tinggi", "Angka kematian tinggi", "Kelahiran dan kematian seimbang", "Sebagian besar penduduk berusia muda"], correctAnswer: 2, explanation: "Piramida stasioner banyak ditemukan di negara maju dengan populasi stabil." },
+                    { question: "Tenaga dari dalam bumi yang sifatnya membangun dan mengangkat lapisan bumi (membentuk gunung) disebut?", options: ["Tenaga Eksogen", "Erosi", "Tenaga Endogen", "Pelapukan"], correctAnswer: 2, explanation: "Tektonisme dan vulkanisme adalah contoh tenaga endogen." },
+                    { question: "Teori yang menyatakan pertumbuhan penduduk mengikuti deret ukur, sedangkan pertumbuhan pangan mengikuti deret hitung dikemukakan oleh?", options: ["Adam Smith", "Karl Marx", "Thomas Robert Malthus", "David Ricardo"], correctAnswer: 2, explanation: "Malthus memperingatkan bahaya ledakan penduduk yang akan menyebabkan kelaparan." },
+                    { question: "Bentuk interaksi sosial asosiatif yang berupa kerjasama untuk mencapai tujuan bersama disebut?", options: ["Kooptasi", "Koalisi", "Gotong Royong (Cooperation)", "Kompetisi"], correctAnswer: 2, explanation: "Asosiatif adalah interaksi yang mengarah pada persatuan dan kesatuan." },
+                    { question: "Alat pembayaran internasional yang diakui dan digunakan antarnegara (seperti US Dollar atau Emas) disebut?", options: ["Bursa Efek", "Obligasi", "Devisa", "Saham"], correctAnswer: 2, explanation: "Cadangan devisa menentukan kekuatan ekonomi suatu negara di mata global." },
+                    { question: "Kebijakan Bank Sentral (BI) untuk mengatur jumlah uang yang beredar di masyarakat disebut kebijakan?", options: ["Fiskal", "Moneter", "Proteksi", "Dumping"], correctAnswer: 1, explanation: "Moneter berkaitan dengan suku bunga dan uang beredar, fiskal berkaitan dengan pajak." },
+                    { question: "Jika skala peta adalah 1:500.000 dan jarak di peta 4 cm, berapakah jarak sebenarnya di lapangan?", options: ["2 KM", "20 KM", "50 KM", "200 KM"], correctAnswer: 1, explanation: "4 x 500.000 = 2.000.000 cm, yang jika diubah ke KM menjadi 20 KM." },
+                    { question: "Wilayah Indonesia berada di titik pertemuan tiga lempeng tektonik utama, yaitu Indo-Australia, Pasifik, dan?", options: ["Eurasia", "Antartika", "Filipina", "Afrika"], correctAnswer: 0, explanation: "Pertemuan ketiga lempeng raksasa ini membuat Indonesia sangat rawan gempa." },
+                    { question: "Fenomena memanasnya suhu muka laut di Samudera Pasifik yang memicu kemarau panjang di Indonesia disebut?", options: ["La Nina", "El Nino", "Global Warming", "Typhoon"], correctAnswer: 1, explanation: "El Nino menghambat pembentukan awan hujan di atas kepulauan Nusantara." },
+                    { question: "Sistem ekonomi di mana pemerintah dan pihak swasta (pasar) saling berbagi peran dalam mengelola perekonomian disebut sistem ekonomi?", options: ["Komando (Sosialis)", "Liberal (Kapitalis)", "Campuran", "Tradisional"], correctAnswer: 2, explanation: "Indonesia menganut sistem campuran (Pancasila) yang menengahi pasar bebas dan campur tangan negara." },
+                    { question: "Sikap menilai kebudayaan orang lain dengan standar kebudayaannya sendiri (menganggap budayanya paling superior) disebut?", options: ["Etnosentrisme", "Chauvinisme", "Pluralisme", "Multikulturalisme"], correctAnswer: 0, explanation: "Etnosentrisme sering menjadi akar penyebab konflik antar suku/ras." },
+                    { question: "Kebijakan resmi pemerintah menurunkan nilai mata uang dalam negeri terhadap mata uang asing disebut?", options: ["Revaluasi", "Depresiasi", "Apresiasi", "Devaluasi"], correctAnswer: 3, explanation: "Devaluasi biasanya dilakukan untuk mendongkrak nilai ekspor agar lebih murah di luar negeri." },
+                    { question: "Perjanjian persekutuan antar beberapa perusahaan sejenis untuk mengendalikan harga pasar secara monopoli disebut?", options: ["Trust", "Sindikat", "Kartel", "Firma"], correctAnswer: 2, explanation: "Kartel sangat merugikan konsumen karena persaingan harga dihilangkan secara sepihak." },
+                    { question: "Perbedaan mendasar antara 'Cuaca' dan 'Iklim' terletak pada unsur?", options: ["Suhu", "Lokasi dan Jangka Waktu", "Kelembaban", "Curah Hujan"], correctAnswer: 1, explanation: "Cuaca terjadi harian di tempat sempit, Iklim adalah rata-rata tahunan di tempat yang sangat luas." },
+                    { question: "Proses penguapan air dari badan air (laut/sungai) akibat panas matahari dalam siklus hidrologi disebut?", options: ["Kondensasi", "Presipitasi", "Evaporasi", "Infiltrasi"], correctAnswer: 2, explanation: "Evaporasi adalah tahap pertama awan terbentuk sebelum turun hujan (presipitasi)." },
+                    { question: "Perpindahan penduduk dari suatu wilayah ke wilayah lain yang sifatnya sementara (pulang-pergi/nglaju) disebut mobilitas?", options: ["Sirkuler", "Komutasi", "Transmigrasi", "Imigrasi"], correctAnswer: 0, explanation: "Sirkuler (sirkulasi) adalah pergerakan penduduk musiman tanpa menetap selamanya." },
+                    { question: "Lembaga sosial yang berfungsi menegakkan hukum, menjaga tata tertib, dan membuat aturan mengikat masyarakat adalah lembaga?", options: ["Agama", "Keluarga", "Politik (Pemerintahan)", "Ekonomi"], correctAnswer: 2, explanation: "Pemerintah memegang monopoli wewenang formal atas tatanan negara." },
+                    { question: "Hukum ekonomi yang menyebutkan bahwa manusia berusaha mendapatkan hasil maksimal dengan pengorbanan minimal disebut?", options: ["Motif Ekonomi", "Prinsip Ekonomi", "Tindakan Ekonomi", "Biaya Peluang"], correctAnswer: 1, explanation: "Prinsip ekonomi adalah dasar pemikiran logis setiap manusia saat berbisnis atau berbelanja." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal IPS, Ekonomi Makro & Sosiologi Tingkat Dewa)
+                questions: [
+                    { question: "Indikator utama yang sering digunakan oleh para ekonom dunia untuk mengukur ketimpangan atau kesenjangan distribusi pendapatan suatu negara adalah?", options: ["Kurva Phillips", "Kurva Lorenz (Koefisien Gini)", "Kurva Laffer", "Produk Domestik Bruto (PDB)"], correctAnswer: 1, explanation: "Semakin melengkung Kurva Lorenz (Gini mendekati 1), ketimpangan makin parah." },
+                    { question: "Organisasi internasional di bawah PBB yang bermarkas di Jenewa dan bertugas mengatur lalu lintas perdagangan bebas antarnegara adalah?", options: ["OPEC", "IMF", "WTO (World Trade Organization)", "World Bank"], correctAnswer: 2, explanation: "WTO dibentuk tahun 1995 untuk menyelesaikan sengketa dagang global." },
+                    { question: "Sistem ekonomi makro di mana seluruh sumber daya alam dan alat produksi dikuasai penuh secara terpusat oleh pemerintah negara disebut sistem ekonomi?", options: ["Kapitalis (Liberal)", "Campuran", "Tradisional", "Komando (Sosialis/Terpusat)"], correctAnswer: 3, explanation: "Sistem ini banyak dianut oleh negara komunis untuk mencegah eksploitasi pasar." },
+                    { question: "Dalam siklus hidrologi, proses turunnya air dari atmosfer ke permukaan bumi (baik dalam bentuk hujan, salju, atau es) disebut dengan istilah?", options: ["Kondensasi", "Evaporasi", "Presipitasi", "Infiltrasi"], correctAnswer: 2, explanation: "Presipitasi terjadi ketika awan sudah terlalu berat menampung uap air." },
+                    { question: "Teori keunggulan komparatif (Comparative Advantage) dalam perdagangan internasional klasik dikemukakan oleh ekonom asal Inggris bernama?", options: ["Adam Smith", "Karl Marx", "David Ricardo", "John Maynard Keynes"], correctAnswer: 2, explanation: "Teori ini menyarankan negara fokus produksi barang yang paling efisien/murah baginya." },
+                    { question: "Lembaga peradilan tertinggi dunia (Mahkamah Internasional) yang bertugas menyelesaikan sengketa antar negara bermarkas di kota?", options: ["New York, AS", "Paris, Prancis", "Jenewa, Swiss", "Den Haag, Belanda"], correctAnswer: 3, explanation: "Mahkamah Internasional (ICJ) didirikan pasca PD 2 oleh PBB." },
+                    { question: "Kebijakan Bank Sentral menurunkan nilai mata uang dalam negeri terhadap mata uang asing secara resmi untuk mendongkrak ekspor disebut?", options: ["Apresiasi", "Depresiasi", "Revaluasi", "Devaluasi"], correctAnswer: 3, explanation: "Devaluasi membuat barang dalam negeri terasa lebih murah dibeli oleh pihak asing." },
+                    { question: "Pasar persaingan tidak sempurna di mana hanya terdapat SATU PENJUAL raksasa yang menguasai seluruh pasokan tanpa ada barang pengganti disebut?", options: ["Oligopoli", "Monopoli", "Monopsoni", "Pasar Sempurna"], correctAnswer: 1, explanation: "Monopoli (contoh: PLN di Indonesia) bebas menentukan harga tanpa pesaing." },
+                    { question: "Fenomena geologi alam di mana batuan kapur (karst) larut oleh air hujan berasam lalu membentuk gua-gua atau sungai bawah tanah disebut pelapukan?", options: ["Biologi", "Fisika (Mekanik)", "Kimiawi", "Erosi"], correctAnswer: 2, explanation: "Pelapukan kimiawi mengubah komposisi zat batu kapur secara permanen." },
+                    { question: "Perpindahan seorang individu dari suatu kelas sosial ke kelas sosial lain (baik naik jabatan maupun turun derajat) dalam sosiologi disebut?", options: ["Diferensiasi Sosial", "Mobilitas Sosial (Vertikal)", "Stratifikasi Sosial", "Konflik Antarkelas"], correctAnswer: 1, explanation: "Mobilitas vertikal naik (social climbing) atau turun (social sinking)." },
+                    { question: "Catatan pembukuan statistik yang merangkum semua transaksi ekonomi antara penduduk suatu negara dengan dunia internasional dalam satu periode disebut?", options: ["APBN", "Neraca Pembayaran (Balance of Payment)", "Neraca Perdagangan", "Bursa Efek"], correctAnswer: 1, explanation: "Neraca pembayaran mencatat arus barang, jasa, dan modal keluar-masuk negara." },
+                    { question: "Piramida penduduk yang bentuknya seperti granat/nisan melambangkan pertumbuhan penduduk yang Stasioner, yang berarti?", options: ["Angka kelahiran sangat tinggi", "Kelahiran dan kematian seimbang", "Banyak penduduk usia muda", "Angka kematian membludak"], correctAnswer: 1, explanation: "Piramida stasioner banyak terjadi di negara maju (Amerika/Eropa)." },
+                    { question: "Proses pencampuran dua kebudayaan menjadi budaya baru yang menyatu, NAMUN masih mempertahankan ciri khas budaya aslinya disebut?", options: ["Akulturasi", "Asimilasi", "Amalgamasi", "Difusi"], correctAnswer: 0, explanation: "Contoh Akulturasi: Masjid Menara Kudus (Gabungan budaya Islam dan Hindu)." },
+                    { question: "Keadaan ekonomi makro terburuk di mana tingkat inflasi melonjak sangat tinggi diiringi oleh stagnasi ekonomi dan pengangguran masal disebut?", options: ["Resesi", "Deflasi", "Stagflasi", "Booming"], correctAnswer: 2, explanation: "Stagflasi (Stagnasi + Inflasi) sangat sulit diobati oleh Bank Sentral." },
+                    { question: "Benua yang dijuluki 'Benua Hitam' (Dark Continent) oleh bangsa Eropa zaman dulu karena sejarah penemuannya yang misterius dan geografisnya sulit ditembus adalah?", options: ["Asia", "Amerika Selatan", "Australia", "Afrika"], correctAnswer: 3, explanation: "Selain karena mayoritas ras negro, interior Afrika dulunya belum terpetakan oleh Eropa." },
+                    { question: "Penggabungan dua perusahaan besar atau lebih yang meleburkan diri untuk membentuk satu identitas perusahaan baru yang lebih kuat di pasar dinamakan?", options: ["Kartel", "Merger", "Akuisisi", "Firma"], correctAnswer: 1, explanation: "Contoh Merger: Gojek dan Tokopedia bergabung membentuk entitas baru 'GoTo'." },
+                    { question: "Angin musiman yang berhembus menyeberangi Indonesia setiap 6 bulan sekali yang memicu terjadinya musim kemarau dan penghujan dinamakan angin?", options: ["Siklon Tropis", "Tornado", "Muson (Monsun)", "Fohn (Angin Jatuh)"], correctAnswer: 2, explanation: "Muson Timur dari Australia bawa kemarau, Muson Barat dari Asia bawa hujan." },
+                    { question: "Sikap fanatik yang menilai kebudayaan suku/negara lain menggunakan standar kebudayaannya sendiri dan menganggap budayanya paling agung disebut?", options: ["Pluralisme", "Etnosentrisme", "Chauvinisme", "Multikulturalisme"], correctAnswer: 1, explanation: "Etnosentrisme buta sangat berbahaya karena sering memicu konflik SARA." },
+                    { question: "Stratifikasi (pelapisan) sosial tertutup yang membagi masyarakat berdasarkan keturunan absolut dan tidak bisa diubah seumur hidup sangat kental terjadi pada sistem Kasta di negara?", options: ["Tiongkok", "Jepang", "India", "Arab Saudi"], correctAnswer: 2, explanation: "Di India, Kasta Brahmana di puncak dan kasta Sudra/Paria berada di paling bawah." },
+                    { question: "Laut dangkal di kawasan Indonesia bagian barat (meliputi Sumatera, Jawa, dan Kalimantan) yang dulunya menyatu dengan benua Asia pada Zaman Es disebut Dangkalan?", options: ["Sahul", "Arafuru", "Sunda", "Wallace"], correctAnswer: 2, explanation: "Dangkalan Sunda menyebabkan satwa tipe Asiatis bisa menyeberang ke Indonesia barat." }
+                ]
+            }
         ]
     },
+    // ==========================================
+    // 9. ARABIC (Bahasa Arab Dasar)
+    // ==========================================
     arabic: {
         challenges: [
-            { id: "arab_1", questions: [
-                {question:"كِتَابٌ (Kitabun) artinya?",options:["Buku","Pena","Pintu","Meja"],correctAnswer:0,explanation:"Buku / Kitab."},
-                {question:"قَلَمٌ (Qolamun) artinya?",options:["Meja","Buku","Pena/Pulpen","Kursi"],correctAnswer:2,explanation:"Pulpen untuk menulis."},
-                {question:"بَابٌ (Baabun) artinya?",options:["Jendela","Pintu","Dinding","Lantai"],correctAnswer:1,explanation:"Pintu rumah/kelas."},
-                {question:"كُرْسِيٌّ (Kursiyyun) artinya?",options:["Kursi","Meja","Buku","Tas"],correctAnswer:0,explanation:"Tempat duduk."},
-                {question:"مَكْتَبٌ (Maktabun) artinya?",options:["Rumah","Meja","Sekolah","Pasar"],correctAnswer:1,explanation:"Bisa berarti Meja atau Kantor."},
-                {question:"أَنَا (Ana) artinya?",options:["Kamu","Dia","Saya","Kita"],correctAnswer:2,explanation:"Kata ganti orang pertama tunggal."},
-                {question:"أَنْتَ (Anta) artinya?",options:["Kamu (Pr)","Kamu (Lk)","Dia (Lk)","Saya"],correctAnswer:1,explanation:"Kata ganti orang kedua Laki-laki."},
-                {question:"أَنْتِ (Anti) artinya?",options:["Kamu (Pr)","Kamu (Lk)","Dia (Pr)","Mereka"],correctAnswer:0,explanation:"Kata ganti orang kedua Perempuan."},
-                {question:"هُوَ (Huwa) artinya?",options:["Dia (Pr)","Dia (Lk)","Kamu","Kami"],correctAnswer:1,explanation:"Kata ganti orang ketiga Laki-laki."},
-                {question:"هِيَ (Hiya) artinya?",options:["Dia (Lk)","Dia (Pr)","Saya","Kamu"],correctAnswer:1,explanation:"Kata ganti orang ketiga Perempuan."},
-                {question:"مَا هَذَا؟ (Ma hadza?) artinya?",options:["Siapa ini?","Apa ini? (Lk/Mudzakar)","Di mana ini?","Kapan?"],correctAnswer:1,explanation:"'Apa ini?' untuk benda laki-laki/Mudzakar."},
-                {question:"مَنْ هَذَا؟ (Man hadza?) artinya?",options:["Apa ini?","Siapa ini?","Siapa dia?","Kenapa?"],correctAnswer:1,explanation:"'Man' (Siapa) menanyakan orang."},
-                {question:"بَيْتٌ (Baitun) artinya?",options:["Masjid","Sekolah","Rumah","Kantor"],correctAnswer:2,explanation:"Rumah (Baitullah = Rumah Allah)."},
-                {question:"مَدْرَسَةٌ (Madrasatun) artinya?",options:["Masjid","Pasar","Sekolah","Rumah"],correctAnswer:2,explanation:"Tempat belajar."},
-                {question:"مَسْجِدٌ (Masjidun) artinya?",options:["Gereja","Masjid","Pasar","Rumah"],correctAnswer:1,explanation:"Tempat ibadah umat Islam."}
-            ]},
-            { id: "arab_2", questions: [
-                {question:"Angka 1 (Satu)?",options:["Wahidun","Itsnani","Tsalatsatun","Arba'atun"],correctAnswer:0,explanation:"وَاحِدٌ (Wahidun)."},
-                {question:"Angka 2 (Dua)?",options:["Wahidun","Itsnani","Tsalatsatun","Khamsatun"],correctAnswer:1,explanation:"إِثْنَانِ (Itsnani)."},
-                {question:"Angka 3 (Tiga)?",options:["Sittatun","Khamsatun","Arba'atun","Tsalatsatun"],correctAnswer:3,explanation:"ثَلَاثَةٌ (Tsalatsatun)."},
-                {question:"Angka 4 (Empat)?",options:["Arba'atun","Khamsatun","Sittatun","Sab'atun"],correctAnswer:0,explanation:"أَرْبَعَةٌ (Arba'atun)."},
-                {question:"Angka 5 (Lima)?",options:["Tsalatsatun","Arba'atun","Khamsatun","Sittatun"],correctAnswer:2,explanation:"خَمْسَةٌ (Khamsatun)."},
-                {question:"مُدَرِّسٌ / أُسْتَاذٌ artinya?",options:["Dokter","Guru Laki-laki","Murid Laki-laki","Petani"],correctAnswer:1,explanation:"Pengajar laki-laki."},
-                {question:"طَالِبٌ (Tholibun) artinya?",options:["Guru Laki-laki","Murid Laki-laki","Guru Perempuan","Dokter"],correctAnswer:1,explanation:"Pelajar/Siswa laki-laki."},
-                {question:"طَبِيْبٌ (Thobibun) artinya?",options:["Pedagang","Insinyur","Dokter","Polisi"],correctAnswer:2,explanation:"Dokter laki-laki."},
-                {question:"تَاجِرٌ (Tajirun) artinya?",options:["Petani","Polisi","Pedagang","Hakim"],correctAnswer:2,explanation:"Pedagang / Saudagar (Tajir)."},
-                {question:"أَبٌ (Abun) artinya?",options:["Ibu","Paman","Kakek","Ayah"],correctAnswer:3,explanation:"Ayah (Bapak)."},
-                {question:"أُمٌّ (Ummun) artinya?",options:["Kakek","Nenek","Bibi","Ibu"],correctAnswer:3,explanation:"Ibu / Ummi."},
-                {question:"أَخٌ (Akhun) artinya?",options:["Saudara (Lk)","Saudari (Pr)","Paman","Bibi"],correctAnswer:0,explanation:"Saudara laki-laki (Akhi)."},
-                {question:"أُخْتٌ (Ukhtun) artinya?",options:["Paman","Bibi","Saudara (Lk)","Saudari (Pr)"],correctAnswer:3,explanation:"Saudari perempuan (Ukhti)."},
-                {question:"جَدٌّ (Jaddun) artinya?",options:["Kakek","Nenek","Cucu","Paman"],correctAnswer:0,explanation:"Kakek."},
-                {question:"صَبَاحُ الْخَيْرِ (Shobahul khoir) balasannya?",options:["Masa'ul khoir","Shobahun nuur","Kaifa haluk","Syukran"],correctAnswer:1,explanation:"Selamat pagi balasannya Shobahun nuur."}
-            ]},
-            { id: "arab_3", questions: [
-                {question:"Angka 6 (Enam)?",options:["Khamsatun","Sittatun","Sab'atun","Tsamaniyatun"],correctAnswer:1,explanation:"سِتَّةٌ (Sittatun)."},
-                {question:"Angka 7 (Tujuh)?",options:["Sittatun","Sab'atun","Tsamaniyatun","Tis'atun"],correctAnswer:1,explanation:"سَبْعَةٌ (Sab'atun)."},
-                {question:"Angka 8 (Delapan)?",options:["Sab'atun","Tsamaniyatun","Tis'atun","'Asyarotun"],correctAnswer:1,explanation:"ثَمَانِيَةٌ (Tsamaniyatun)."},
-                {question:"Angka 9 (Sembilan)?",options:["Tsamaniyatun","Tis'atun","'Asyarotun","Mi'atun"],correctAnswer:1,explanation:"تِسْعَةٌ (Tis'atun)."},
-                {question:"Angka 10 (Sepuluh)?",options:["Sittatun","Sab'atun","Tis'atun","'Asyarotun"],correctAnswer:3,explanation:"عَشَرَةٌ ('Asyarotun)."},
-                {question:"مُسْتَشْفَى (Mustasyfa) artinya?",options:["Pasar","Sekolah","Rumah Sakit","Kantor Polisi"],correctAnswer:2,explanation:"Rumah sakit (tempat pengobatan)."},
-                {question:"سُوْقٌ (Suuqun) artinya?",options:["Jalan","Pasar","Kebun","Rumah"],correctAnswer:1,explanation:"Pasar (tempat jual beli)."},
-                {question:"Kata kerja يَذْهَبُ (Yadzhabu) artinya?",options:["Dia sedang pergi","Dia sedang makan","Dia sedang tidur","Dia sedang membaca"],correctAnswer:0,explanation:"Fi'il mudhari (sedang pergi - Lk)."},
-                {question:"Kata kerja يَأْكُلُ (Ya'kulu) artinya?",options:["Dia sedang tidur","Dia sedang minum","Dia sedang makan","Dia sedang menulis"],correctAnswer:2,explanation:"Berasal dari akala - ya'kulu (makan)."},
-                {question:"Kata kerja يَقْرَأُ (Yaqro'u) artinya?",options:["Dia sedang menulis","Dia sedang membaca","Dia sedang duduk","Dia sedang berdiri"],correctAnswer:1,explanation:"Berasal dari qoro'a (Iqra' = bacalah)."},
-                {question:"كَيْفَ حَالُكَ؟ (Kaifa haluka?) artinya?",options:["Siapa namamu?","Dari mana asalnya?","Apa kabarmu (Lk)?","Terima kasih"],correctAnswer:2,explanation:"Menanyakan kabar kepada laki-laki."},
-                {question:"مِنْ أَيْنَ أَنْتَ؟ (Min ayna anta?) artinya?",options:["Siapa kamu?","Dari mana asalmu?","Mau ke mana?","Berapa usiamu?"],correctAnswer:1,explanation:"Menanyakan asal daerah/negara."},
-                {question:"مَا اسْمُكَ؟ (Mas muka?) artinya?",options:["Apa kabarmu?","Siapa namamu (Lk)?","Apa pekerjaanmu?","Di mana rumahmu?"],correctAnswer:1,explanation:"Ismun = Nama."},
-                {question:"إِلَى اللِّقَاءِ (Ilalliqa') artinya?",options:["Selamat pagi","Selamat malam","Terima kasih","Sampai jumpa"],correctAnswer:3,explanation:"Salam perpisahan."},
-                {question:"شُكْرًا (Syukran) balasannya?",options:["'Afwan","Na'am","Laa","Ahlan"],correctAnswer:0,explanation:"Terima kasih dibalas dengan 'Afwan (Sama-sama)."},
-                {question:"نَعَمْ (Na'am) artinya?",options:["Tidak","Ya","Mungkin","Belum"],correctAnswer:1,explanation:"Na'am = Ya."},
-                {question:"لَا (Laa) artinya?",options:["Ya","Tidak","Sama-sama","Bagus"],correctAnswer:1,explanation:"Laa = Tidak / Bukan."},
-                {question:"سَيَّارَةٌ (Sayyarotun) artinya?",options:["Pesawat","Kereta Api","Mobil","Sepeda"],correctAnswer:2,explanation:"Mobil penumpang."},
-                {question:"حَافِلَةٌ (Hafilatun) artinya?",options:["Bus","Kapal","Mobil","Motor"],correctAnswer:0,explanation:"Bus angkutan besar."},
-                {question:"طَائِرَةٌ (Thoo'irotun) artinya?",options:["Mobil","Pesawat Terbang","Kereta","Helikopter"],correctAnswer:1,explanation:"Dari kata tho'ir (terbang/burung)."}
-            ]}
+            {
+                // STAGE 1: EASY (15 Soal)
+                questions: [
+                    { question: "Bahasa Arab dari kata 'Buku' adalah?", options: ["Qalamun", "Kitabun", "Kursiyyun", "Babun"], correctAnswer: 1, explanation: "Kitabun berarti buku cetak atau kitab." },
+                    { question: "Apa arti dari kata 'Ana' (أَنَا)?", options: ["Kamu", "Dia", "Saya", "Mereka"], correctAnswer: 2, explanation: "Ana adalah kata ganti orang pertama (saya)." },
+                    { question: "Kata 'Madrasatun' (مَدْرَسَةٌ) memiliki arti?", options: ["Sekolah", "Rumah", "Masjid", "Pasar"], correctAnswer: 0, explanation: "Madrasah adalah tempat belajar atau sekolah." },
+                    { question: "Bahasa Arab dari angka 'Satu' adalah?", options: ["Itsnani", "Wahidun", "Tsalatsatun", "Khamsatun"], correctAnswer: 1, explanation: "Wahidun adalah bilangan nomor satu (1)." },
+                    { question: "Jika seseorang menyapa 'Kaifa haluka?', jawaban yang tepat adalah?", options: ["Syukran", "Afwan", "Alhamdulillah bikhair", "Na'am"], correctAnswer: 2, explanation: "Bikhair berarti baik-baik saja (jawaban dari apa kabar)." },
+                    { question: "Kata 'Baitun' (بَيْتٌ) berarti?", options: ["Pintu", "Jendela", "Meja", "Rumah"], correctAnswer: 3, explanation: "Baitun adalah tempat tinggal atau rumah." },
+                    { question: "Arti dari kata 'Syukran' (شُكْرًا) adalah?", options: ["Sama-sama", "Terima kasih", "Maaf", "Selamat pagi"], correctAnswer: 1, explanation: "Syukran adalah ucapan terima kasih yang universal." },
+                    { question: "Apa arti dari kata ganti 'Anta' (أَنْتَ)?", options: ["Saya", "Dia laki-laki", "Kamu laki-laki", "Kamu perempuan"], correctAnswer: 2, explanation: "Anta digunakan untuk menunjuk kamu (pria tunggal)." },
+                    { question: "Bahasa Arab untuk kata 'Pena / Pulpen' adalah?", options: ["Maktabun", "Qalamun", "Sariirun", "Thobibun"], correctAnswer: 1, explanation: "Qalamun adalah alat tulis/pena." },
+                    { question: "Kata 'Ustadzun' (أُسْتَاذٌ) berarti?", options: ["Murid", "Dokter", "Guru (Laki-laki)", "Insinyur"], correctAnswer: 2, explanation: "Ustadzun adalah pendidik/guru pria." },
+                    { question: "Jawaban 'Sama-sama' dalam bahasa Arab sering diucapkan dengan kata?", options: ["Afwan", "Na'am", "Laa", "Ahlan"], correctAnswer: 0, explanation: "Afwan berarti maaf atau sama-sama." },
+                    { question: "Bahasa Arab dari kata 'Pintu' adalah?", options: ["Jidarun", "Miftahun", "Babun", "Saqfun"], correctAnswer: 2, explanation: "Babun adalah pintu penghalang ruangan." },
+                    { question: "Kata 'Laa' (لاَ) dalam bahasa Arab artinya?", options: ["Ya", "Tidak", "Mungkin", "Silakan"], correctAnswer: 1, explanation: "Laa adalah kata penolakan (tidak/bukan)." },
+                    { question: "Apa arti dari pertanyaan 'Man Anta?' (مَنْ أَنْتَ؟)", options: ["Di mana kamu?", "Bagaimana kabarmu?", "Siapa kamu?", "Apa ini?"], correctAnswer: 2, explanation: "Kata tanya 'Man' digunakan untuk menanyakan orang (siapa)." },
+                    { question: "Bahasa Arab dari 'Meja' adalah?", options: ["Kursiyyun", "Sabbuuratun", "Maktabun", "Qolamun"], correctAnswer: 2, explanation: "Maktabun bisa berarti meja atau kantor." }
+                ]
+            },
+            {
+                // STAGE 2: MEDIUM (15 Soal)
+                questions: [
+                    { question: "Kata tunjuk 'Ini' untuk benda laki-laki (mudzakkar) adalah?", options: ["Hadza (هَذَا)", "Hazihi (هَذِهِ)", "Tilka (تِلْكَ)", "Zalika (ذَلِكَ)"], correctAnswer: 0, explanation: "Hadza digunakan untuk menunjuk benda dekat berjenis laki-laki." },
+                    { question: "Kata kerja (Fi'il) yang menunjukkan waktu TELAH LAMPAU disebut?", options: ["Fi'il Mudhari'", "Fi'il Amar", "Fi'il Madhi", "Isim Fa'il"], correctAnswer: 2, explanation: "Madhi berarti masa lalu atau sudah terjadi." },
+                    { question: "Kata 'Muslimatun' (مُسْلِمَاتٌ) merupakan bentuk jamak (plural) dari?", options: ["Jamak Taksir", "Jamak Mudzakkar Salim", "Jamak Muannats Salim", "Mutsanna"], correctAnswer: 2, explanation: "Muannats Salim ditandai dengan alif dan ta' di akhir kata." },
+                    { question: "Kata 'Zalika' (ذَلِكَ) berarti?", options: ["Ini (Lk)", "Itu (Lk)", "Ini (Pr)", "Itu (Pr)"], correctAnswer: 1, explanation: "Zalika menunjuk benda jauh berjenis mudzakkar." },
+                    { question: "Kalimat sempurna yang diawali oleh kata benda (Isim) disebut?", options: ["Jumlah Fi'liyyah", "Jumlah Ismiyyah", "Syibhul Jumlah", "Na'at Man'ut"], correctAnswer: 1, explanation: "Ismiyyah terdiri dari subjek (mubtada') dan predikat (khobar)." },
+                    { question: "Kata kerja SEDANG/AKAN terjadi dalam tata bahasa Arab disebut?", options: ["Fi'il Amar", "Fi'il Madhi", "Fi'il Mudhari'", "Masdar"], correctAnswer: 2, explanation: "Mudhari' ditandai dengan huruf awalan ya, ta, hamzah, atau nun." },
+                    { question: "Bentuk jamak (tidak beraturan) dari kata Baitun (Rumah) adalah?", options: ["Baitani", "Buyutun", "Baitatun", "Bawa'it"], correctAnswer: 1, explanation: "Buyutun adalah jamak taksir (pecah) dari rumah." },
+                    { question: "Kata 'Min' (مِنْ) yang berarti 'Dari' termasuk ke dalam kelompok?", options: ["Huruf Jar", "Isim", "Fi'il", "Dhomir"], correctAnswer: 0, explanation: "Huruf jar akan meng-kasroh-kan kata benda di depannya." },
+                    { question: "Isim Ma'rifat (Kata benda spesifik/jelas) biasanya ditandai dengan awalan?", options: ["Tanwin", "Ta' Marbuthah", "Alif Lam (ال)", "Huruf Jar"], correctAnswer: 2, explanation: "Alif Lam menghilangkan tanwin dan mengkhususkan kata benda." },
+                    { question: "Dhomir (Kata ganti) untuk 'Dia Perempuan' adalah?", options: ["Huwa", "Hiya", "Anta", "Anti"], correctAnswer: 1, explanation: "Hiya digunakan untuk pihak ketiga muannats tunggal." },
+                    { question: "Kata sifat yang mengikuti kata bendanya (seperti: Rumah yang besar) disebut susunan?", options: ["Mubtada' Khobar", "Mudhof Ilaih", "Na'at Man'ut", "Fi'il Fa'il"], correctAnswer: 2, explanation: "Na'at adalah sifat yang harus selaras dengan Man'ut (yang disifati)." },
+                    { question: "Akhiran Ta' Marbuthah (ة) pada sebuah kata umumnya menunjukkan jenis?", options: ["Mudzakkar (Laki-laki)", "Jamak (Banyak)", "Muannats (Perempuan)", "Mutsanna (Dua)"], correctAnswer: 2, explanation: "Ta' Marbuthah adalah ciri utama isim muannats." },
+                    { question: "Dhomir muttashil (kata ganti kepemilikan) untuk 'Buku-ku' (buku saya) adalah?", options: ["Kitabuhu", "Kitabuka", "Kitabuki", "Kitabi"], correctAnswer: 3, explanation: "Akhiran Ya' Sukun menunjukkan kepemilikan orang pertama (saya)." },
+                    { question: "Fi'il Amar (فعل أمر) memiliki arti sebagai?", options: ["Kata Sifat", "Kata Kerja Perintah", "Kata Tanya", "Kata Hubung"], correctAnswer: 1, explanation: "Fi'il amar menuntut dilakukannya sebuah pekerjaan (perintah)." },
+                    { question: "Isim yang menunjukkan jumlah DUA (Mutsanna) biasanya ditandai akhiran?", options: ["Alif dan Nun (ان)", "Wawu dan Nun (ون)", "Ya dan Nun (ين)", "Alif dan Ta (ات)"], correctAnswer: 0, explanation: "Contoh: Kitabani (dua buah buku)." }
+                ]
+            },
+            {
+                // STAGE 3: HARD (20 Soal)
+                questions: [
+                    { question: "Tanda dasar (asli) dari I'rab Rofa' pada isim mufrod adalah harakat?", options: ["Fathah", "Kasrah", "Dhammah", "Sukun"], correctAnswer: 2, explanation: "Dhammah adalah tanda utama keadaan rofa' (subjek/pelaku)." },
+                    { question: "Kedudukan kata yang menjadi subjek pelaku (yang melakukan pekerjaan) dalam Jumlah Fi'liyyah disebut?", options: ["Maf'ul Bih", "Fa'il", "Khobar", "Na'at"], correctAnswer: 1, explanation: "Fa'il selalu ber-i'rab rofa' dan terletak setelah kata kerja." },
+                    { question: "Objek penderita yang dikenai pekerjaan dalam bahasa Arab (harakat fathah) disebut?", options: ["Mubtada'", "Fa'il", "Maf'ul Bih", "Mudhof"], correctAnswer: 2, explanation: "Maf'ul bih selalu dalam keadaan nashob (berharakat fathah)." },
+                    { question: "Isim Ghoiru Munshorif adalah kelompok kata benda yang diharamkan menerima?", options: ["Alif Lam", "Harakat Fathah", "Tanwin & Kasrah", "Huruf Jar"], correctAnswer: 2, explanation: "Isim ini tidak boleh bertanwin dan dikasroh (diganti fathah)." },
+                    { question: "Kaidah penggabungan dua kata benda (seperti: Buku murid) di mana kata pertama tidak boleh pakai Alif Lam disebut?", options: ["Na'at Man'ut", "Idhofah (Mudhof - Mudhof Ilaih)", "Mubtada' Khobar", "Taukid"], correctAnswer: 1, explanation: "Idhofah menyatakan penyandaran/kepemilikan." },
+                    { question: "Masuknya 'Inna' (إنّ) ke dalam jumlah ismiyyah akan mengubah i'rab mubtada' menjadi?", options: ["Rofa' (Dhammah)", "Nashob (Fathah)", "Jer (Kasrah)", "Jazm (Sukun)"], correctAnswer: 1, explanation: "Fungsi Inna adalah menashobkan mubtada' dan merofa'kan khobar." },
+                    { question: "Kebalikan dari Inna, masuknya 'Kana' (كان) akan mengubah i'rab khobar menjadi?", options: ["Nashob (Fathah)", "Rofa' (Dhammah)", "Jer (Kasrah)", "Majrur"], correctAnswer: 0, explanation: "Kana merofa'kan mubtada' (Isim Kana) dan menashobkan khobar." },
+                    { question: "Kata yang berfungsi menjelaskan KONDISI/KEADAAN pelaku saat pekerjaan terjadi (selalu fathah) disebut?", options: ["Hal", "Tamyiz", "Mustatsna", "Munada"], correctAnswer: 0, explanation: "Hal adalah keterangan keadaan (contoh: Dia datang 'tersenyum')." },
+                    { question: "Fi'il yang TIDAK membutuhkan objek penderita (Maf'ul Bih) disebut?", options: ["Fi'il Muta'addi", "Fi'il Lazim", "Fi'il Majhul", "Fi'il Ma'lum"], correctAnswer: 1, explanation: "Lazim adalah kata kerja intransitif (seperti: tidur, duduk)." },
+                    { question: "Perubahan kata dari Fi'il (telah) -> Fi'il (sedang) -> Masdar -> Isim Fa'il merupakan cabang ilmu?", options: ["Nahwu", "Balaghah", "Sharaf", "Tajwid"], correctAnswer: 2, explanation: "Sharaf (Morfologi) mempelajari perubahan bentuk kata secara internal." },
+                    { question: "Pola (Wazan) dasar untuk membuat isim fa'il (pelaku) dari fi'il tsulatsi mujarrad (3 huruf) adalah?", options: ["Mufa'ilun", "Faa'ilun", "Maf'uulun", "Taf'iilun"], correctAnswer: 1, explanation: "Contoh: Dari kata Kataba (menulis) menjadi Katibun (penulis)." },
+                    { question: "Kata kerja pasif (Di-...) yang menyembunyikan pelaku utamanya disebut Fi'il?", options: ["Ma'lum", "Sahih", "Mu'tal", "Majhul"], correctAnswer: 3, explanation: "Majhul berharakat dhommah di awal dan kasroh di sebelum akhir." },
+                    { question: "Isim yang menjelaskan kata samar sebelumnya, biasanya jatuh setelah hitungan angka (11-99), disebut?", options: ["Hal", "Tamyiz", "Munada", "Na'at"], correctAnswer: 1, explanation: "Tamyiz menghilangkan kesamaran makna dari angka atau takaran." },
+                    { question: "Huruf 'Lam' (ل) jika masuk kepada Fi'il Mudhari' berfungsi untuk me-nge-Jazm-kan, yang berarti mengubah akhir kata menjadi?", options: ["Dhammah", "Kasrah", "Sukun", "Fathah"], correctAnswer: 2, explanation: "Lam dan Lamma adalah amil jawazim yang mensukunkan fi'il." },
+                    { question: "Kata pengecualian yang terletak setelah huruf 'Illa' (إلا) disebut?", options: ["Mudhof", "Mustatsna", "Mubdal Minhu", "Taukid"], correctAnswer: 1, explanation: "Mustatsna berarti yang dikecualikan dari kelompok sebelumnya." },
+                    { question: "Tanda i'rab jer (majrur) untuk Isim Mutsanna (dua benda) adalah huruf?", options: ["Alif", "Wawu", "Ya'", "Sukun"], correctAnswer: 2, explanation: "Mutsanna berakhiran Ya dan Nun (Yn) jika berstatus majrur/nashob." },
+                    { question: "Kata ganti (Dhomir) munfashil (terpisah) untuk 'Mereka Laki-laki' (Jamak) adalah?", options: ["Huma", "Hum", "Hunna", "Antum"], correctAnswer: 1, explanation: "Hum adalah kata ganti pihak ketiga jamak laki-laki." },
+                    { question: "Ilmu yang mempelajari kaidah harakat akhir kata dan kedudukan kata dalam kalimat Arab disebut?", options: ["Sharaf", "Nahwu", "Badi'", "Bayan"], correctAnswer: 1, explanation: "Nahwu (Sintaksis) sangat krusial untuk mencegah salah arti." },
+                    { question: "Bentuk isim tafdhil (paling/lebih) dari kata 'Kabiirun' (besar) adalah?", options: ["Akbaru", "Kibaarun", "Kabiiratun", "Mukabbarun"], correctAnswer: 0, explanation: "Wazan Af'alu (Akbaru) digunakan untuk menyatakan superlatif (Allahu Akbar)." },
+                    { question: "Tanda tanya 'Hal' (هَلْ) yang berarti 'Apakah', hanya bisa dijawab dengan dua pilihan kata, yaitu?", options: ["Man / Ma", "Mata / Aina", "Na'am / Laa", "Kaifa / Kam"], correctAnswer: 2, explanation: "Pertanyaan 'Hal' adalah Yes/No question dalam bahasa Arab." }
+                ]
+            },
+            {
+                // STAGE 4: EPIC BOSS STAGE (20 Soal Nahwu & Sharaf Arab Tingkat Dewa)
+                questions: [
+                    { question: "Isim yang berfungsi menunjukkan tempat (Makan) atau waktu (Zaman) terjadinya suatu pekerjaan disebut Maf'ul?", options: ["Bih", "Muthlaq", "Fiih (Zharaf)", "Liajlhi"], correctAnswer: 2, explanation: "Maf'ul Fiih (Zharaf) adalah keterangan waktu atau tempat (contoh: Amama/Di depan)." },
+                    { question: "Fi'il (Kata kerja) yang TIDAK membutuhkan objek penderita (Maf'ul Bih) agar kalimatnya sempurna (seperti: tidur, duduk) disebut Fi'il?", options: ["Muta'addi", "Lazim", "Majhul", "Mu'tal"], correctAnswer: 1, explanation: "Fi'il Lazim (Intransitif) cukup berdiri dengan subjeknya saja." },
+                    { question: "Kata yang berfungsi mengecualikan sesuatu, dan biasanya terletak setelah huruf 'Illa' (إلا) disebut?", options: ["Mudhof", "Tamyiz", "Mustatsna", "Hal"], correctAnswer: 2, explanation: "Mustatsna (Pengecualian) biasanya ber-i'rab nashab." },
+                    { question: "Masuknya Amil Nawasikh 'Inna' (إنّ) ke dalam jumlah ismiyyah akan merusak susunan I'rab aslinya menjadi?", options: ["Menashabkan Mubtada dan Merafa'kan Khobar", "Merafa'kan Mubtada dan Menashabkan Khobar", "Men-jer-kan keduanya", "Mensukunkan keduanya"], correctAnswer: 0, explanation: "Inna menjadikan mubtada berharakat fathah (Isim Inna)." },
+                    { question: "Sebaliknya, masuknya 'Kana' (كان) ke dalam kalimat nominal (Jumlah Ismiyyah) akan bertugas untuk?", options: ["Menashabkan Mubtada dan Merafa'kan Khobar", "Merafa'kan Mubtada dan Menashabkan Khobar", "Men-jer-kan Khobar", "Merofa'kan Fa'il"], correctAnswer: 1, explanation: "Kana membiarkan isimnya tetap dhommah, tapi menashabkan (fathah) khobarnya." },
+                    { question: "Isim Ghairu Munsharif adalah kelompok kata benda spesial dalam bahasa Arab yang sangat diharamkan untuk menerima?", options: ["Alif Lam (ال)", "Harakat Fathah", "Tanwin dan Kasrah", "Huruf Jar"], correctAnswer: 2, explanation: "Jika kemasukan huruf Jar, isim ini di-jer-kan dengan harakat Fathah (bukan Kasrah)." },
+                    { question: "Tanda utama I'rab Nashab untuk jamak perempuan (Jamak Muannats Salim) adalah sesuatu yang menyalahi aturan dasar, yaitu menggunakan harakat?", options: ["Fathah", "Kasrah", "Dhammah", "Ya'"], correctAnswer: 1, explanation: "Jamak Muannats Salim di-nashab-kan menggunakan harakat Kasrah." },
+                    { question: "Kalimat (Susunan) yang subjek pelakunya disembunyikan/tidak diketahui, menggunakan kata kerja (Fi'il) pasif yang disebut?", options: ["Fi'il Ma'lum", "Fi'il Majhul", "Fi'il Shahih", "Isim Maf'ul"], correctAnswer: 1, explanation: "Fi'il Majhul (Pasif) di-dhommah awalnya dan di-kasrah sebelum huruf akhirnya." },
+                    { question: "Pola (Wazan) alat (Isim Alat) untuk kata kerja 'Fataha' (Membuka) sehingga artinya berubah menjadi 'Alat Pembuka/Kunci' adalah?", options: ["Maf'uulun", "Faa'ilun", "Mif'aalun (Miftaahun)", "Taf'iilun"], correctAnswer: 2, explanation: "Miftaahun (kunci) adalah Isim Alat dari kata Fataha." },
+                    { question: "Kata yang berfungsi menjelaskan KONDISI/KEADAAN fisik atau mental pelaku saat pekerjaan itu terjadi (selalu manshub/fathah) disebut?", options: ["Hal", "Na'at", "Tamyiz", "Bidal"], correctAnswer: 0, explanation: "Contoh Hal: Zaid datang dalam keadaan 'tersenyum' (Mubtasiman)." },
+                    { question: "Isim yang menjelaskan kata benda yang samar sebelumnya (biasanya muncul setelah hitungan angka 11-99 atau takaran) disebut?", options: ["Na'at", "Tamyiz", "Mustatsna", "Khobar"], correctAnswer: 1, explanation: "Tamyiz menghapus ambiguitas (contoh: Saya punya 11 'buku')." },
+                    { question: "Fi'il (Kata kerja) yang diakhiri oleh huruf ilat yang berpenyakit (yaitu Alif, Wawu, atau Ya) disebut Fi'il?", options: ["Mudha'af", "Mahmuz", "Shahih", "Mu'tal"], correctAnswer: 3, explanation: "Fi'il Mu'tal memiliki aturan i'rab dan tasrif yang cukup rumit (sering dibuang hurufnya)." },
+                    { question: "Tanda I'rab Rofa' pada Fi'il Mudhari' kategori Af'alul Khamsah (5 kata kerja bersambung alif/wawu/ya jamak) BUKANLAH dhommah, melainkan?", options: ["Fathah", "Sukun", "Tetapnya/Tsubutun Nun", "Dibuangnya Nun"], correctAnswer: 2, explanation: "Af'alul khamsah tetap memakai Nun (Yaf'aluuna) saat rofa'." },
+                    { question: "Kaidah penggabungan dua isim (seperti: Buku murid) di mana kata pertama dilarang menggunakan Alif Lam dan Tanwin disebut susunan?", options: ["Na'at - Man'ut", "Idhofah (Mudhaf - Mudhaf Ilaih)", "Mubtada' - Khobar", "Fi'il - Fa'il"], correctAnswer: 1, explanation: "Idhofah menyatakan makna kepemilikan/penyandaran suatu benda." },
+                    { question: "Kata 'Abu' (Bapak) dan 'Akhu' (Saudara) termasuk ke dalam 5 Isim khusus yang I'rab rofa'-nya diwakili oleh huruf Wawu, kelompok ini disebut?", options: ["Asmaul Khamsah", "Af'alul Khamsah", "Jamak Taksir", "Ghairu Munsharif"], correctAnswer: 0, explanation: "Asmaul Khamsah rofa' dengan Wawu, nashab dengan Alif, jer dengan Ya." },
+                    { question: "Bentuk Isim Tafdhil (Superlatif/Paling) dari kata 'Kabiirun' (Besar) mengikuti wazan Af'alu, sehingga menjadi?", options: ["Kibaarun", "Akbaru", "Mukabbarun", "Kabiiratun"], correctAnswer: 1, explanation: "Akbaru digunakan untuk menyatakan derajat lebih atau paling (Allahu Akbar)." },
+                    { question: "Dhomir (Kata ganti) Munfashil (terpisah) untuk orang kedua jamak laki-laki (Kalian semua laki-laki) adalah?", options: ["Hum", "Hunna", "Antum", "Antunna"], correctAnswer: 2, explanation: "Antum digunakan untuk menyapa sekumpulan laki-laki (atau campuran)." },
+                    { question: "Ilmu tata bahasa Arab yang berfokus pada analisis perubahan HARAKAT AKHIR kata dan kedudukannya dalam kalimat disebut ilmu?", options: ["Sharaf (Morfologi)", "Nahwu (Sintaksis)", "Balaghah (Sastra)", "Badi' (Retorika)"], correctAnswer: 1, explanation: "Nahwu menjaga orang dari kesalahan fatal dalam membaca harakat Al-Quran." },
+                    { question: "Jamak dari kata 'Masjid' (مَسْجِدٌ) yang masuk ke dalam pola Shighat Muntahal Jumu' (puncak jamak taksir) adalah?", options: ["Masjidatun", "Masjiduuna", "Masaajid (مَسَاجِدُ)", "Masajidatani"], correctAnswer: 2, explanation: "Masaajidu mengikuti wazan Mafaa'ilu dan tidak boleh ditanwin." },
+                    { question: "Isim yang diturunkan dari Fi'il untuk menunjuk 'Orang yang melakukan' perbuatan disebut?", options: ["Isim Maf'ul", "Masdar", "Isim Fa'il", "Fi'il Amar"], correctAnswer: 2, explanation: "Contoh Isim Fa'il: Dari 'Dhoroba' (memukul) menjadi 'Dhooribun' (Pemukul)." }
+                ]
+            }
         ]
-    }
+    },
 };

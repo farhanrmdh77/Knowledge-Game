@@ -5,12 +5,20 @@
         html, body { background-color: #121212 !important; visibility: visible !important; }
         body { animation: fadeIn 0.5s ease-out forwards; opacity: 0; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        /* Animasi Glow Trophy */
+        
+        /* Animasi Glow Trophy Menang (Emas) */
         @keyframes pulseGlow {
             0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 214, 0, 0.4)); }
             50% { filter: drop-shadow(0 0 30px rgba(255, 214, 0, 0.8)); }
         }
         .trophy-glow { animation: pulseGlow 2s infinite ease-in-out; }
+
+        /* Animasi Glow Kalah (Merah) */
+        @keyframes pulseGlowDanger {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 23, 68, 0.4)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 23, 68, 0.8)); }
+        }
+        .trophy-glow-danger { animation: pulseGlowDanger 2s infinite ease-in-out; }
     </style>
     
     <meta charset="utf-8"/>
@@ -39,20 +47,25 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen pb-10">
 
-    <!-- Header Alert Sederhana -->
+    <!-- Header Alert Sederhana (Replay) -->
     <div id="replay-alert" class="hidden bg-warning/10 text-warning text-center py-2 text-xs font-bold tracking-wider uppercase border-b border-warning/20">
         Mode Replay: Tidak ada XP atau Diamond tambahan yang diberikan.
     </div>
 
+    <!-- Header Alert Gagal (KKM) -->
+    <div id="fail-alert" class="hidden bg-danger/10 text-danger text-center py-2 text-xs font-bold tracking-wider uppercase border-b border-danger/20">
+        Nilai di bawah standar (50%). Level belum terbuka!
+    </div>
+
     <main class="px-6 pt-10 flex-grow flex flex-col items-center max-w-md mx-auto w-full">
         
-        <!-- Trophy & Title -->
+        <!-- Trophy & Title (Sudah ditambahkan ID untuk JS) -->
         <div class="text-center mb-8">
-            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-warning to-[#FF6D00] rounded-full flex items-center justify-center mb-4 trophy-glow">
-                <span class="material-symbols-outlined icon-filled text-white text-5xl">emoji_events</span>
+            <div id="res-icon-container" class="w-24 h-24 mx-auto bg-gradient-to-br from-warning to-[#FF6D00] rounded-full flex items-center justify-center mb-4 trophy-glow transition-all duration-300">
+                <span id="res-icon" class="material-symbols-outlined icon-filled text-white text-5xl">emoji_events</span>
             </div>
-            <h1 class="text-3xl font-extrabold mb-1">Congratulations!</h1>
-            <p class="text-textDim text-sm">You have completed the challenge.</p>
+            <h1 id="res-title" class="text-3xl font-extrabold mb-1">Congratulations!</h1>
+            <p id="res-subtitle" class="text-textDim text-sm">You have completed the challenge.</p>
         </div>
 
         <!-- Main Score Card -->
