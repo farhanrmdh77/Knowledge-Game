@@ -165,6 +165,10 @@ function renderLeaderboard() {
 
 function renderPodium(players) {
     const container = document.getElementById('podium-container');
+    
+    // 🔥 FIX UTAMA: Paksa container rata bawah (items-end) agar balok menapak di lantai
+    container.className = "flex justify-center items-end h-[260px] w-full mt-6 px-2 gap-2 border-b border-white/5 pb-0";
+    
     let html = '';
 
     // ================== RANK 2 ==================
@@ -177,7 +181,7 @@ function renderPodium(players) {
         else if (borderObj.type === 'image') frameHtml = `<img src="${borderObj.url}" style="width: ${borderObj.scale}%; height: ${borderObj.scale}%;" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none object-contain pointer-events-none z-10">`;
 
         html += `
-            <div class="flex flex-col items-center w-1/3 z-10" style="animation-delay: 0.1s;">
+            <div class="flex flex-col items-center justify-end w-1/3 z-10 h-full" style="animation-delay: 0.1s;">
                 <div class="relative mb-2 flex items-center justify-center w-16 h-16 animate-pop">
                     <img src="${p.avatarUrl}" class="${avatarClass}">
                     ${frameHtml}
@@ -185,7 +189,7 @@ function renderPodium(players) {
                 </div>
                 <p class="font-bold text-xs text-white truncate w-full text-center px-1">${p.username}</p>
                 <p class="text-primaryLight text-[10px] font-extrabold mb-2">${p.xp.toLocaleString('id-ID')} XP</p>
-                <div class="w-full h-[80px] bg-gradient-to-t from-gray-500/40 to-transparent rounded-t-2xl border-t border-gray-500/50 podium-bar"></div>
+                <div class="w-full h-[90px] bg-gradient-to-t from-gray-500/40 to-transparent rounded-t-2xl border-t border-gray-500/50 podium-bar"></div>
             </div>
         `;
     } else { html += `<div class="w-1/3"></div>`; }
@@ -200,7 +204,7 @@ function renderPodium(players) {
         else if (borderObj.type === 'image') frameHtml = `<img src="${borderObj.url}" style="width: ${borderObj.scale}%; height: ${borderObj.scale}%;" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none object-contain pointer-events-none z-10">`;
 
         html += `
-            <div class="flex flex-col items-center w-1/3 z-20" style="animation-delay: 0.3s;">
+            <div class="flex flex-col items-center justify-end w-1/3 z-20 h-full" style="animation-delay: 0.3s;">
                 <div class="relative mb-2 flex items-center justify-center w-20 h-20 animate-pop z-20">
                     <span class="absolute -top-6 left-1/2 -translate-x-1/2 w-8 h-8 bg-warning rounded-full flex items-center justify-center text-background font-black border-2 border-background z-20 shadow-[0_0_15px_rgba(255,214,0,0.6)]">
                         <span class="material-symbols-outlined text-[18px] icon-filled">stars</span>
@@ -211,10 +215,10 @@ function renderPodium(players) {
                 </div>
                 <p class="font-bold text-sm text-white truncate w-full text-center px-1 mt-1">${p.username}</p>
                 <p class="text-warning text-xs font-black mb-2">${p.xp.toLocaleString('id-ID')} XP</p>
-                <div class="w-full h-[120px] bg-gradient-to-t from-warning/30 to-transparent rounded-t-[24px] border-t border-warning/50 podium-bar"></div>
+                <div class="w-full h-[140px] bg-gradient-to-t from-warning/30 to-transparent rounded-t-[24px] border-t border-warning/50 podium-bar"></div>
             </div>
         `;
-    }
+    } else { html += `<div class="w-1/3"></div>`; }
 
     // ================== RANK 3 ==================
     if (players[2]) {
@@ -226,7 +230,7 @@ function renderPodium(players) {
         else if (borderObj.type === 'image') frameHtml = `<img src="${borderObj.url}" style="width: ${borderObj.scale}%; height: ${borderObj.scale}%;" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none object-contain pointer-events-none z-10">`;
 
         html += `
-            <div class="flex flex-col items-center w-1/3 z-10" style="animation-delay: 0.2s;">
+            <div class="flex flex-col items-center justify-end w-1/3 z-10 h-full" style="animation-delay: 0.2s;">
                 <div class="relative mb-2 flex items-center justify-center w-16 h-16 animate-pop">
                     <img src="${p.avatarUrl}" class="${avatarClass}">
                     ${frameHtml}
@@ -234,7 +238,7 @@ function renderPodium(players) {
                 </div>
                 <p class="font-bold text-xs text-white truncate w-full text-center px-1">${p.username}</p>
                 <p class="text-primaryLight text-[10px] font-extrabold mb-2">${p.xp.toLocaleString('id-ID')} XP</p>
-                <div class="w-full h-[60px] bg-gradient-to-t from-[#CD7F32]/40 to-transparent rounded-t-2xl border-t border-[#CD7F32]/50 podium-bar"></div>
+                <div class="w-full h-[70px] bg-gradient-to-t from-[#CD7F32]/40 to-transparent rounded-t-2xl border-t border-[#CD7F32]/50 podium-bar"></div>
             </div>
         `;
     } else { html += `<div class="w-1/3"></div>`; }
