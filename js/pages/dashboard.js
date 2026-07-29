@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             safeSetText('db-streak', currentStreak); 
             safeSetText('db-diamond', diamond.toLocaleString('id-ID'));
-            safeSetText('db-level-text', `Level ${level} • Keep going!`);
+            safeSetText('db-level-text', `Level ${level} • Terus semangat!`);
             safeSetText('db-xp-text', `${xp % 1000} / 1000 XP (Total: ${xp} XP)`);
             
             setTimeout(() => {
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnClaim = document.getElementById('btn-claim-reward');
             if (btnClaim) {
                 if (data.lastDailyReward === todayStr) {
-                    btnClaim.textContent = "CLAIMED";
+                    btnClaim.textContent = "DIKLAIM";
                     btnClaim.disabled = true;
                     btnClaim.classList.add('opacity-50', 'cursor-not-allowed');
                 } else {
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     btnClaim.parentNode.replaceChild(newBtnClaim, btnClaim);
 
                     newBtnClaim.addEventListener('click', async () => {
-                        newBtnClaim.textContent = "Processing...";
+                        newBtnClaim.textContent = "Memproses...";
                         newBtnClaim.disabled = true;
                         try {
                             await updateDoc(userRef, { diamond: increment(150), lastDailyReward: todayStr });
@@ -204,12 +204,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             
                             await CustomAlert.success("Bonus Diklaim!", "150 Diamond harian telah ditambahkan ke akun Anda.");
                             
-                            newBtnClaim.textContent = "CLAIMED";
+                            newBtnClaim.textContent = "DIKLAIM";
                             newBtnClaim.classList.add('opacity-50', 'cursor-not-allowed');
                             await loadLeaderboardPreview(user.uid);
                         } catch (err) {
                             CustomAlert.error("Gagal Mengklaim", "Periksa koneksi internet Anda dan coba lagi.");
-                            newBtnClaim.textContent = "CLAIM";
+                            newBtnClaim.textContent = "KLAIM";
                             newBtnClaim.disabled = false;
                         }
                     });

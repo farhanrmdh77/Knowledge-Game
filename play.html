@@ -16,7 +16,7 @@
     
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Quiz Gameplay - Knowledge Game</title>
+    <title>Pengetahuan Game - Kuis</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 
     <!-- OVERLAY HITUNG MUNDUR (3..2..1..) -->
     <div id="countdown-overlay" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center">
-        <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">GET READY</h2>
+        <h2 class="text-primary font-bold tracking-widest text-sm mb-4 uppercase">BERSIAPLAH</h2>
         <div id="countdown-number" class="text-8xl font-extrabold text-white animate-pop">3</div>
     </div>
 
@@ -60,7 +60,7 @@
         <!-- Progress Bar -->
         <div class="flex-grow">
             <div class="flex justify-between text-[10px] font-bold text-textDim mb-1 px-1">
-                <span class="tracking-widest uppercase">Progress</span>
+                <span class="tracking-widest uppercase">Kemajuan</span>
                 <span id="progress-text">1 / 5</span>
             </div>
             <div class="w-full h-2 bg-card rounded-full overflow-hidden border border-white/5">
@@ -129,7 +129,8 @@
         </div>
     </main>
 
-    <script type="module" src="js/pages/play.js"></script>
+    <!-- Panggilan Skrip Dipindah ke Bawah & Dipaksa Bebas Cache -->
+    <script type="module" src="js/pages/play.js?v=999"></script>
     
     <!-- MODAL REVIVE (NYAWA EKSTRA) -->
     <div id="revive-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-6">

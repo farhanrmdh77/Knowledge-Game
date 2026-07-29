@@ -23,7 +23,7 @@
     
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Quiz Result - Knowledge Game</title>
+    <title>Hasil Kuis - Knowledge Game</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
@@ -64,14 +64,14 @@
             <div id="res-icon-container" class="w-24 h-24 mx-auto bg-gradient-to-br from-warning to-[#FF6D00] rounded-full flex items-center justify-center mb-4 trophy-glow transition-all duration-300">
                 <span id="res-icon" class="material-symbols-outlined icon-filled text-white text-5xl">emoji_events</span>
             </div>
-            <h1 id="res-title" class="text-3xl font-extrabold mb-1">Congratulations!</h1>
-            <p id="res-subtitle" class="text-textDim text-sm">You have completed the challenge.</p>
+            <h1 id="res-title" class="text-3xl font-extrabold mb-1">Selamat!</h1>
+            <p id="res-subtitle" class="text-textDim text-sm">Kamu telah menyelesaikan tantangan ini.</p>
         </div>
 
         <!-- Main Score Card -->
         <div class="w-full bg-gradient-to-br from-primary to-[#5a3cc7] rounded-[28px] p-6 shadow-[0_10px_30px_rgba(124,92,255,0.3)] mb-4 text-center relative overflow-hidden">
             <div class="absolute -left-6 -top-6 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
-            <p class="text-white/80 text-xs font-bold uppercase tracking-widest mb-1 relative z-10">Final Score</p>
+            <p class="text-white/80 text-xs font-bold uppercase tracking-widest mb-1 relative z-10">Skor Akhir</p>
             <h2 id="res-score" class="text-5xl font-black text-white relative z-10">0</h2>
         </div>
 
@@ -80,19 +80,19 @@
             <!-- Accuracy -->
             <div class="bg-card rounded-[20px] p-4 text-center border border-white/5">
                 <span class="material-symbols-outlined text-primary mb-1">track_changes</span>
-                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Accuracy</p>
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Akurasi</p>
                 <p id="res-accuracy" class="text-lg font-extrabold text-white">0%</p>
             </div>
             <!-- Correct -->
             <div class="bg-card rounded-[20px] p-4 text-center border border-white/5">
                 <span class="material-symbols-outlined text-success mb-1">check_circle</span>
-                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Correct</p>
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Benar</p>
                 <p id="res-correct" class="text-lg font-extrabold text-success">0</p>
             </div>
             <!-- Wrong -->
             <div class="bg-card rounded-[20px] p-4 text-center border border-white/5">
                 <span class="material-symbols-outlined text-danger mb-1">cancel</span>
-                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Wrong</p>
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Salah</p>
                 <p id="res-wrong" class="text-lg font-extrabold text-danger">0</p>
             </div>
         </div>
@@ -100,7 +100,7 @@
         <!-- Rewards Card -->
         <div class="w-full bg-card rounded-[20px] p-5 border border-white/5 flex justify-around mb-6 shadow-lg">
             <div class="text-center">
-                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Earned XP</p>
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">XP Didapat</p>
                 <div class="flex items-center justify-center gap-1.5 text-primaryLight font-extrabold text-xl">
                     <span class="material-symbols-outlined text-[20px]">stars</span>
                     <span id="res-xp">+0</span>
@@ -108,7 +108,7 @@
             </div>
             <div class="w-px bg-white/10"></div>
             <div class="text-center">
-                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Diamonds</p>
+                <p class="text-[10px] text-textDim uppercase tracking-widest font-bold mb-1">Diamond</p>
                 <div class="flex items-center justify-center gap-1.5 text-[#00E5FF] font-extrabold text-xl">
                     <span class="material-symbols-outlined text-[20px] icon-filled">diamond</span>
                     <span id="res-diamond">+0</span>
@@ -120,7 +120,7 @@
         <div id="level-progress-section" class="w-full mb-8">
             <div class="flex justify-between text-xs font-bold text-textDim mb-2">
                 <span id="res-level-text">Level --</span>
-                <span>Next Level</span>
+                <span>Level Berikutnya</span>
             </div>
             <div class="w-full h-2.5 bg-card rounded-full overflow-hidden border border-white/5">
                 <div id="res-xp-bar" class="h-full bg-success rounded-full shadow-[0_0_10px_rgba(0,230,118,0.5)] transition-all duration-1000" style="width: 0%;"></div>
@@ -130,20 +130,21 @@
         <!-- Action Buttons -->
         <div class="w-full space-y-3 mt-auto">
             <button id="btn-play-again" class="w-full bg-white text-primary font-bold py-4 rounded-[20px] shadow-[0_4px_15px_rgba(255,255,255,0.2)] hover:scale-[1.02] active:scale-95 transition-transform">
-                Play Again
+                Main Lagi
             </button>
             <div class="flex gap-3">
                 <button id="btn-back-subject" class="w-1/2 bg-card border border-white/10 text-white font-bold py-4 rounded-[20px] hover:bg-white/5 active:scale-95 transition-transform">
-                    Back to Subject
+                    Subjek
                 </button>
                 <button onclick="window.location.href='learn.html'" class="w-1/2 bg-card border border-white/10 text-white font-bold py-4 rounded-[20px] hover:bg-white/5 active:scale-95 transition-transform">
-                    Back to Learn
+                    Belajar
                 </button>
             </div>
         </div>
 
     </main>
 
-    <script type="module" src="js/pages/result.js"></script>
+    <!-- Tambahan ?v=999 untuk mencegah cache -->
+    <script type="module" src="js/pages/result.js?v=999"></script>
 </body>
 </html>

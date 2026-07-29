@@ -14,7 +14,7 @@
 
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Knowledge Game - Learn</title>
+    <title>Knowledge Game - Belajar</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -71,15 +71,15 @@
     <!-- Header & Search -->
     <header class="px-6 pt-10 pb-6 sticky top-0 bg-background/90 backdrop-blur-xl z-40 border-b border-white/5">
         <div>
-            <h1 class="text-3xl font-extrabold mb-1">Subjects</h1>
-            <p class="text-textDim text-sm">Choose your next learning adventure.</p>
+            <h1 class="text-3xl font-extrabold mb-1">Mata Pelajaran</h1>
+            <p class="text-textDim text-sm">Pilih petualangan belajarmu selanjutnya.</p>
         </div>
 
         <!-- Search Bar -->
         <div class="flex gap-3 mt-6">
             <div class="relative flex-grow">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-textDim">search</span>
-                <input type="text" id="search-input" placeholder="Search subjects..." class="w-full bg-card rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder-textDim outline-none focus:ring-2 focus:ring-primary border border-white/5 transition-all text-sm font-medium">
+                <input type="text" id="search-input" placeholder="Cari mata pelajaran..." class="w-full bg-card rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder-textDim outline-none focus:ring-2 focus:ring-primary border border-white/5 transition-all text-sm font-medium">
             </div>
             <button class="bg-card w-[52px] h-[52px] flex flex-shrink-0 items-center justify-center rounded-2xl border border-white/5 text-white hover:bg-white/5 transition-colors">
                 <span class="material-symbols-outlined">tune</span>
@@ -105,7 +105,7 @@
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">home</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Home</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Beranda</span>
         </a>
         
         <!-- Learn (ACTIVE) -->
@@ -113,7 +113,7 @@
             <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all group-active:scale-95 shadow-[inset_0_0_12px_rgba(124,92,255,0.2)]">
                 <span class="material-symbols-outlined icon-filled">explore</span>
             </div>
-            <span class="text-[10px] font-bold text-primary">Learn</span>
+            <span class="text-[10px] font-bold text-primary">Belajar</span>
         </a>
 
         <!-- Rank -->
@@ -121,7 +121,7 @@
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">emoji_events</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Rank</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Peringkat</span>
         </a>
 
         <!-- Profile -->
@@ -129,10 +129,11 @@
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">person</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profile</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profil</span>
         </a>
     </nav>
 
-    <script type="module" src="js/pages/learn.js"></script>
+    <!-- Tambahan ?v=999 untuk mencegah cache -->
+    <script type="module" src="js/pages/learn.js?v=999"></script>
 </body>
 </html>

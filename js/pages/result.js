@@ -35,7 +35,6 @@ async function processQuizResult(user) {
     // =========================================================
     if (passStatus === 'gagal') {
         earnedXP = 0;
-        // PENTING: Jangan buat finalDiamond = 0 di sini, agar utang beli nyawanya tetap ditagih!
         
         const failAlert = document.getElementById('fail-alert');
         const titleEl = document.getElementById('res-title');
@@ -63,7 +62,7 @@ async function processQuizResult(user) {
         
     } else if (quizMode === 'replay') {
         earnedXP = 0;
-        finalDiamond = 0; // Kuis replay gratis, tidak dapat dan tidak rugi
+        finalDiamond = 0; 
         document.getElementById('replay-alert').classList.remove('hidden');
         document.getElementById('level-progress-section').classList.add('hidden');
     }
@@ -75,18 +74,18 @@ async function processQuizResult(user) {
     document.getElementById('res-wrong').textContent = wrong;
     document.getElementById('res-xp').textContent = `+${earnedXP}`;
     
-    // Jika finalDiamond bernilai minus, kita hilangkan tanda "+"
     document.getElementById('res-diamond').textContent = finalDiamond >= 0 ? `+${finalDiamond}` : finalDiamond;
 
     // =========================================================
     // UPDATE DATABASE (PROGRESS & XP)
     // =========================================================
     if (quizMode === 'start' || (passStatus === 'gagal' && finalDiamond < 0)) {
-        // Tetap akses database jika dia punya utang minus, meskipun kuisnya gagal.
+        
         let userProgress = JSON.parse(localStorage.getItem('userProgress')) || {};
         if (!userProgress[subjectId]) userProgress[subjectId] = { completed: 0, totalXp: 0 };
         
-        const challengeNumber = parseInt(challengeId.split('_')[1]) || 1;
+        // 🔥 FIX PENCARIAN ANGKA: Mengambil angka murni dari ID (Misal "math_2" menjadi angka 2)
+        const challengeNumber = parseInt(challengeId.replace(/\D/g, '')) || 1;
         
         if (passStatus === 'lulus' && challengeNumber > userProgress[subjectId].completed) {
             userProgress[subjectId].completed = challengeNumber;
@@ -109,12 +108,18 @@ async function processQuizResult(user) {
                 // MENGIRIM TAGIHAN / HADIAH KE DATABASE
                 const updatePayload = {
                     xp: increment(earnedXP),
-                    diamond: increment(finalDiamond), // Otomatis mengurangi database jika nilainya minus
+                    diamond: increment(finalDiamond),
                     level: calculatedLevel
                 };
                 
                 updatePayload[`subjects.${subjectId}.xp`] = increment(earnedXP);
                 updatePayload[`subjects.${subjectId}.diamond`] = increment(finalDiamond);
+
+                // 🔥 BUG FIX UTAMA: KITA WAJIB MENGIRIM STATUS "COMPLETED" (LULUS) KE FIREBASE! 🔥
+                const dbCompleted = userData.subjects?.[subjectId]?.completed || 0;
+                if (passStatus === 'lulus' && challengeNumber > dbCompleted) {
+                    updatePayload[`subjects.${subjectId}.completed`] = challengeNumber;
+                }
                 
                 await updateDoc(userRef, updatePayload);
 

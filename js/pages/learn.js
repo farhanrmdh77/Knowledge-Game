@@ -5,11 +5,11 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-
 
 // === DATABASE 9 MATA PELAJARAN (Total 4 Stage termasuk EPIC) ===
 const subjectsData = [
-    { id: "mathematics", title: "Mathematics", icon: "calculate", color: "#00B0FF" },
-    { id: "science", title: "Science", icon: "science", color: "#00C853" },
-    { id: "technology", title: "Technology", icon: "computer", color: "#E040FB" },
-    { id: "history", title: "History", icon: "history_edu", color: "#FF9100" },
-    { id: "english", title: "English", icon: "language", color: "#7986CB" },
+    { id: "mathematics", title: "Matematika", icon: "calculate", color: "#00B0FF" },
+    { id: "science", title: "Sains Angkasa", icon: "rocket_launch", color: "#00C853" },
+    { id: "technology", title: "Teknologi", icon: "computer", color: "#E040FB" },
+    { id: "history", title: "Sejarah", icon: "history_edu", color: "#FF9100" },
+    { id: "english", title: "Bahasa Inggris", icon: "language", color: "#7986CB" },
     { id: "indonesian", title: "Bahasa Indonesia", icon: "menu_book", color: "#EF5350" },
     { id: "arabic", title: "Bahasa Arab", icon: "translate", color: "#26A69A" },
     { id: "ips", title: "Ilmu Sosial", icon: "public", color: "#BCAAA4" },
@@ -102,7 +102,7 @@ function renderSubjects(progressData, searchTerm = "") {
         container.innerHTML = `
             <div id="empty-search-state" class="text-center py-10 animate-pop">
                 <span class="material-symbols-outlined text-4xl text-textDim mb-2">search_off</span>
-                <p class="text-textDim font-bold">No subjects found.</p>
+                <p class="text-textDim font-bold">Tidak ada mata pelajaran yang ditemukan.</p>
             </div>
         `;
         return;
@@ -131,11 +131,11 @@ function renderSubjects(progressData, searchTerm = "") {
                 </div>
                 
                 <h3 class="font-extrabold text-white text-xl subject-title mb-1">${sub.title}</h3>
-                <p class="text-xs text-textDim mb-6">${completedCount} of ${TOTAL_STAGES} challenges completed</p>
+                <p class="text-xs text-textDim mb-6">${completedCount} dari ${TOTAL_STAGES} tantangan telah diselesaikan</p>
                 
                 <div class="mb-6">
                     <div class="flex justify-between items-center text-[10px] font-bold uppercase tracking-widest mb-2">
-                        <span class="text-textDim">Progress</span>
+                        <span class="text-textDim">Kemajuan</span>
                         <span style="color: ${sub.color}; font-weight: 900;">${progressPercent}%</span>
                     </div>
                     <div class="w-full h-2.5 bg-black/40 rounded-full overflow-hidden">
@@ -150,7 +150,7 @@ function renderSubjects(progressData, searchTerm = "") {
                     </div>
                     
                     <div class="px-6 py-3 rounded-[16px] text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-lg" style="background: linear-gradient(135deg, ${sub.color}, #5a3cc7); box-shadow: 0 4px 15px ${sub.color}50;">
-                        ${completedCount === 0 ? 'Start' : 'Continue'} <span class="material-symbols-outlined text-[16px] icon-filled">arrow_forward</span>
+                        ${completedCount === 0 ? 'Mulai' : 'Lanjutkan'} <span class="material-symbols-outlined text-[16px] icon-filled">arrow_forward</span>
                     </div>
                 </div>
             </div>

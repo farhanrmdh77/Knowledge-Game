@@ -79,19 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
 function timeAgo(date) {
     const seconds = Math.floor((new Date() - date) / 1000);
     let interval = seconds / 31536000;
-    if (interval > 1) return Math.floor(interval) + " years ago";
+    if (interval > 1) return Math.floor(interval) + " tahun yang lalu";
     interval = seconds / 2592000;
-    if (interval > 1) return Math.floor(interval) + " months ago";
+    if (interval > 1) return Math.floor(interval) + " bulan yang lalu";
     interval = seconds / 86400;
     if (interval >= 1) {
-        if (Math.floor(interval) === 1) return "Yesterday";
-        return Math.floor(interval) + " days ago";
+        if (Math.floor(interval) === 1) return "kemarin";
+        return Math.floor(interval) + " hari yang lalu";
     }
     interval = seconds / 3600;
-    if (interval >= 1) return Math.floor(interval) + " hours ago";
+    if (interval >= 1) return Math.floor(interval) + " jam yang lalu";
     interval = seconds / 60;
-    if (interval >= 1) return Math.floor(interval) + " minutes ago";
-    return "Just now";
+    if (interval >= 1) return Math.floor(interval) + " menit yang lalu";
+    return "Baru saja";
 }
 
 function getLeague(xp) {
@@ -236,11 +236,23 @@ function renderRecentActivity(activities) {
     activities.forEach(data => {
         const xpEarned = data.earnedXp || 0;
         const dateObj = data.playedAt ? data.playedAt.toDate() : new Date();
+        
+        // --- SISTEM PENERJEMAH OTOMATIS ---
+        let displayTitle = data.challengeTitle || 'Kuis';
+        displayTitle = displayTitle.replace("Mathematics", "Matematika")
+                                 .replace("Science", "Astronomi")
+                                 .replace("Technology", "Teknologi")
+                                 .replace("History", "Sejarah")
+                                 .replace("English", "Bahasa Inggris")
+                                 .replace("Indonesian", "Bahasa Indonesia")
+                                 .replace("Arabic", "Bahasa Arab")
+                                 .replace("Challenge", "Tantangan");
+
         html += `
             <div class="p-4 border-b border-white/5 flex justify-between items-center hover:bg-white/5 transition-colors">
                 <div>
-                    <p class="font-bold text-sm text-white mb-0.5">${data.challengeTitle || 'Quiz'}</p>
-                    <p class="text-[11px] text-textDim">Completed • ${timeAgo(dateObj)}</p>
+                    <p class="font-bold text-sm text-white mb-0.5">${displayTitle}</p>
+                    <p class="text-[11px] text-textDim">Selesai • ${timeAgo(dateObj)}</p>
                 </div>
                 <span class="font-extrabold text-primary text-sm">+${xpEarned} XP</span>
             </div>
@@ -403,10 +415,21 @@ function renderFullHistory() {
         const dateObj = data.playedAt ? data.playedAt.toDate() : new Date();
         const dateStr = dateObj.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
+        // --- SISTEM PENERJEMAH OTOMATIS ---
+        let displayTitle = data.challengeTitle || 'Kuis';
+        displayTitle = displayTitle.replace("Mathematics", "Matematika")
+                                 .replace("Science", "Astronomi")
+                                 .replace("Technology", "Teknologi")
+                                 .replace("History", "Sejarah")
+                                 .replace("English", "Bahasa Inggris")
+                                 .replace("Indonesian", "Bahasa Indonesia")
+                                 .replace("Arabic", "Bahasa Arab")
+                                 .replace("Challenge", "Tantangan");
+
         html += `
             <div class="bg-card p-4 rounded-2xl border border-white/5 flex flex-col gap-2 hover:bg-white/5 transition-colors">
                 <div class="flex justify-between items-start border-b border-white/5 pb-2">
-                    <h4 class="font-bold text-sm text-white">${data.challengeTitle || 'Quiz'}</h4>
+                    <h4 class="font-bold text-sm text-white">${displayTitle}</h4>
                     <span class="font-bold text-primaryLight text-xs">${score} Pts</span>
                 </div>
                 <div class="flex justify-between items-center pt-1">
@@ -418,7 +441,6 @@ function renderFullHistory() {
     });
     container.innerHTML = html;
 }
-
 function updateAchievementBadge() {
     const menuAchievements = document.getElementById('menu-achievements');
     if (!menuAchievements) return;
@@ -426,7 +448,7 @@ function updateAchievementBadge() {
     const badges = [
         { id: 'first_quiz', req: totalQuizzesCompleted >= 1 },
         { id: 'perfect_score', req: totalPerfects >= 1 },
-        { id: 'quiz_master', req: totalQuizzesCompleted >= 50 },
+        { id: 'quiz_master', req: totalQuizzesCompleted >= 10 },
         { id: 'diamond_league', req: userXP >= 20000 }
     ];
 
@@ -458,10 +480,10 @@ function renderAchievements() {
     const container = document.getElementById('achievements-grid');
     
     const badges = [
-        { id: 'first_quiz', title: 'First Quiz', desc: 'Selesaikan kuis pertama Anda', icon: 'flag', req: totalQuizzesCompleted >= 1, reward: 50 },
-        { id: 'perfect_score', title: 'Perfect Score', desc: 'Dapatkan akurasi 100% pada kuis', icon: 'verified', req: totalPerfects >= 1, reward: 150 },
-        { id: 'quiz_master', title: 'Quiz Master', desc: 'Selesaikan 50 tantangan', icon: 'local_fire_department', req: totalQuizzesCompleted >= 50, reward: 1000 },
-        { id: 'diamond_league', title: 'Diamond League', desc: 'Capai minimal 20.000 XP', icon: 'diamond', req: userXP >= 20000, reward: 2000 }
+        { id: 'first_quiz', title: 'Kuis Pertama', desc: 'Selesaikan kuis pertama Anda', icon: 'flag', req: totalQuizzesCompleted >= 1, reward: 100 },
+        { id: 'perfect_score', title: 'Skor Sempurna', desc: 'Dapatkan akurasi 100% pada kuis', icon: 'verified', req: totalPerfects >= 1, reward: 150 },
+        { id: 'quiz_master', title: 'Master Kuis', desc: 'Selesaikan 10 tantangan', icon: 'local_fire_department', req: totalQuizzesCompleted >= 10, reward: 1000 },
+        { id: 'diamond_league', title: 'Liga Berlian', desc: 'Capai minimal 20.000 XP', icon: 'diamond', req: userXP >= 20000, reward: 2000 }
     ];
 
     let html = '';
@@ -476,13 +498,13 @@ function renderAchievements() {
         if (isClaimed) {
             bgClass = 'bg-card border-white/10';
             iconColor = 'text-primary opacity-50';
-            actionHtml = `<span class="absolute top-4 right-4 text-[11px] font-bold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">check_circle</span> Claimed</span>`;
+           actionHtml = `<span class="absolute top-4 right-4 text-[11px] font-bold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">check_circle</span> Diklaim</span>`;
         } else if (isUnlocked) {
             bgClass = 'bg-card border-primary/40 shadow-[0_4px_15px_rgba(124,92,255,0.15)]';
             iconColor = 'text-warning drop-shadow-[0_0_10px_rgba(255,214,0,0.5)]';
             actionHtml = `
                 <button data-id="${b.id}" data-reward="${b.reward}" class="btn-claim-ach absolute top-3 right-3 bg-[#00E5FF] text-black font-extrabold text-[10px] px-3 py-1.5 rounded-full flex items-center gap-1 shadow-[0_0_10px_rgba(0,229,255,0.4)] hover:scale-105 active:scale-95 transition-transform">
-                    CLAIM <span class="material-symbols-outlined text-[12px] icon-filled">diamond</span>${b.reward}
+                    KLAIM <span class="material-symbols-outlined text-[12px] icon-filled">diamond</span>${b.reward}
                 </button>
             `;
         }
@@ -516,7 +538,7 @@ async function processClaimReward(badgeId, reward, btnElement) {
     if (!currentUserRef) return;
 
     btnElement.disabled = true;
-    btnElement.textContent = "Wait...";
+    btnElement.textContent = "Tunggu...";
     btnElement.classList.replace('bg-[#00E5FF]', 'bg-white/20');
 
     try {
@@ -533,12 +555,12 @@ async function processClaimReward(badgeId, reward, btnElement) {
         await CustomAlert.success("Hebat!", `Selamat! Anda mendapatkan ${reward} Diamond dari pencapaian ini!`);
 
     } catch (error) {
-        console.error("Gagal klaim achievement:", error);
+        console.error("Gagal klaim pencapaian:", error);
         
         CustomAlert.error("Gagal", "Gagal mengklaim hadiah. Periksa koneksi internet Anda dan coba lagi.");
         
         btnElement.disabled = false;
         btnElement.classList.replace('bg-white/20', 'bg-[#00E5FF]');
-        btnElement.innerHTML = `CLAIM <span class="material-symbols-outlined text-[12px] icon-filled">diamond</span>${reward}`;
+        btnElement.innerHTML = `KLAIM <span class="material-symbols-outlined text-[12px] icon-filled">diamond</span>${reward}`;
     }
 }

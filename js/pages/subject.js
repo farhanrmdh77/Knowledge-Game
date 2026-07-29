@@ -6,7 +6,7 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-
 // === PANGKALAN DATA ANTARMUKA PELAJARAN (4 Stage termasuk Boss) ===
 const subjectData = {
     mathematics: {
-        title: "Mathematics", icon: "calculate", color: "#00B0FF",
+        title: "Matematika", icon: "calculate", color: "#00B0FF",
         desc: "Kuasai angka dan logika untuk menyelesaikan masalah kompleks.",
         challenges: [
             { id: "math_1", title: "Aritmatika Dasar", xp: 1500, diamond: 100, req: 0 },
@@ -16,7 +16,7 @@ const subjectData = {
         ]
     },
     science: {
-        title: "Science", icon: "science", color: "#00C853",
+        title: "Sains Angkasa", icon: "science", color: "#00C853",
         desc: "Jelajahi keajaiban alam semesta, tata surya, dan ilmu bumi.",
         challenges: [
             { id: "sci_1", title: "Tata Surya & Bumi", xp: 1500, diamond: 100, req: 0 },
@@ -26,7 +26,7 @@ const subjectData = {
         ]
     },
     technology: {
-        title: "Technology", icon: "computer", color: "#E040FB",
+        title: "Teknologi", icon: "computer", color: "#E040FB",
         desc: "Pelajari perangkat keras, perangkat lunak, dan internet.",
         challenges: [
             { id: "tech_1", title: "Dasar Komputer", xp: 1500, diamond: 100, req: 0 },
@@ -36,7 +36,7 @@ const subjectData = {
         ]
     },
     history: {
-        title: "History", icon: "history_edu", color: "#FF9100",
+        title: "Sejarah", icon: "history_edu", color: "#FF9100",
         desc: "Jelajahi mesin waktu sejarah Nusantara hingga peradaban dunia.",
         challenges: [
             { id: "hist_1", title: "Kemerdekaan Indonesia", xp: 1500, diamond: 100, req: 0 },
@@ -46,12 +46,12 @@ const subjectData = {
         ]
     },
     english: {
-        title: "English", icon: "language", color: "#7986CB",
+        title: "Bahasa Inggris", icon: "language", color: "#7986CB",
         desc: "Kuasai tata bahasa dan kosakata bahasa Inggris internasional.",
         challenges: [
-            { id: "eng_1", title: "Basic Grammar", xp: 1500, diamond: 100, req: 0 },
-            { id: "eng_2", title: "Vocabulary & Tenses", xp: 1500, diamond: 150, req: 1 },
-            { id: "eng_3", title: "Advanced Structure", xp: 2000, diamond: 250, req: 2 },
+            { id: "eng_1", title: "Tata Bahasa Dasar", xp: 1500, diamond: 100, req: 0 },
+            { id: "eng_2", title: "Kosakata & Tenses", xp: 1500, diamond: 150, req: 1 },
+            { id: "eng_3", title: "Struktur Lanjut", xp: 2000, diamond: 250, req: 2 },
             { id: "eng_4", title: "Ujian Akhir (Boss)", xp: 10000, diamond: 2500, req: 3 }
         ]
     },
@@ -207,7 +207,7 @@ function renderChallenges(challenges, completedCount, subjectId, themeColor) {
         
         if (idx < completedCount) {
             status = 'done';
-        } else if (idx === completedCount) { // Sekarang dijamin Number === Number (1 === 1) bernilai TRUE!
+        } else if (idx === completedCount) { 
             status = 'available';
         }
 

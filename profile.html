@@ -9,7 +9,7 @@
 
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Profile - Knowledge Game</title>
+    <title>Profil - Knowledge Game</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -41,12 +41,12 @@
 
     <!-- Header -->
     <header class="px-6 pt-10 pb-4 sticky top-0 bg-background/90 backdrop-blur-xl z-40 flex items-center justify-between border-b border-white/5">
-        <h1 class="text-2xl font-extrabold">Profile</h1>
+        <h1 class="text-2xl font-extrabold">Profil</h1>
         
         <!-- HANYA TOMBOL SHOP -->
         <button onclick="window.location.href='shop.html'" class="bg-[#00E5FF]/10 px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-[#00E5FF]/40 shadow-[0_0_10px_rgba(0,229,255,0.2)] hover:bg-[#00E5FF]/20 active:scale-95 transition-all">
             <span class="material-symbols-outlined text-[#00E5FF] text-[16px]">shopping_cart</span>
-            <span class="font-bold text-xs text-[#00E5FF]">Shop</span>
+            <span class="font-bold text-xs text-[#00E5FF]">Toko</span>
         </button>
     </header>
 
@@ -97,25 +97,25 @@
             <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
                 <span class="material-symbols-outlined text-success mb-2 text-[28px]">show_chart</span>
                 <p id="stat-challenges" class="text-xl font-black text-white leading-none mb-1">0</p>
-                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Challenges</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Tantangan</p>
             </div>
             <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
                 <span class="material-symbols-outlined text-warning mb-2 text-[28px] icon-filled">workspace_premium</span>
                 <p id="stat-perfects" class="text-xl font-black text-white leading-none mb-1">0</p>
-                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Perfects</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Sempurna</p>
             </div>
             <div class="bg-card p-4 rounded-[20px] border border-white/5 text-center flex flex-col items-center justify-center h-28">
                 <span class="material-symbols-outlined text-info mb-2 text-[28px] icon-filled">grid_on</span>
                 <p id="stat-accuracy" class="text-xl font-black text-white leading-none mb-1">0%</p>
-                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Accuracy</p>
+                <p class="text-[9px] text-textDim uppercase tracking-widest font-bold">Akurasi</p>
             </div>
         </section>
 
         <!-- RECENT ACTIVITY -->
         <section>
             <div class="flex justify-between items-end mb-3 px-1">
-                <h3 class="text-lg font-bold">Recent Activity</h3>
-                <span class="text-[10px] text-textDim">Last 3 activities</span>
+                <h3 class="text-lg font-bold">Aktivitas Terakhir</h3>
+                <span class="text-[10px] text-textDim">3 aktivitas terakhir</span>
             </div>
             <div id="recent-activity-list" class="bg-card rounded-[24px] border border-white/5 overflow-hidden">
                 <div class="p-6 text-center text-textDim text-sm">Memuat aktivitas...</div>
@@ -124,12 +124,12 @@
 
         <!-- ACCOUNT MENU SECTION -->
         <section class="space-y-2 mt-4 relative z-10">
-            <h3 class="text-lg font-bold mb-3 px-1 mt-6">Account</h3>
+            <h3 class="text-lg font-bold mb-3 px-1 mt-6">Akun</h3>
             
             <button id="menu-edit-profile" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-textDim">edit_square</span>
-                    <span class="font-bold text-sm text-white">Edit Profile</span>
+                    <span class="font-bold text-sm text-white">Edit Profil</span>
                 </div>
                 <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
             </button>
@@ -137,7 +137,7 @@
             <button id="menu-history" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-textDim">history</span>
-                    <span class="font-bold text-sm text-white">Learning History</span>
+                    <span class="font-bold text-sm text-white">Riwayat Belajar</span>
                 </div>
                 <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
             </button>
@@ -145,7 +145,7 @@
             <button id="menu-achievements" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-textDim icon-filled">military_tech</span>
-                    <span class="font-bold text-sm text-white">Achievements</span>
+                    <span class="font-bold text-sm text-white">Pencapaian</span>
                 </div>
                 <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
             </button>
@@ -153,7 +153,7 @@
             <button onclick="window.location.href='settings.html'" class="menu-item w-full bg-card p-4 rounded-[20px] border border-white/5 flex items-center justify-between transition-all mt-4">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-textDim icon-filled">settings</span>
-                    <span class="font-bold text-sm text-white">Settings</span>
+                    <span class="font-bold text-sm text-white">Pengaturan</span>
                 </div>
                 <span class="material-symbols-outlined text-textDim text-sm">chevron_right</span>
             </button>
@@ -161,7 +161,7 @@
             <button id="btn-logout" class="menu-item w-full bg-card p-4 rounded-[20px] border border-danger/20 flex items-center justify-between transition-all mt-4 group">
                 <div class="flex items-center gap-3">
                     <span class="material-symbols-outlined text-danger">logout</span>
-                    <span class="font-bold text-sm text-danger group-hover:text-danger/80">Logout</span>
+                    <span class="font-bold text-sm text-danger group-hover:text-danger/80">Keluar</span>
                 </div>
             </button>
         </section>
@@ -174,25 +174,25 @@
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">home</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Home</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Beranda</span>
         </a>
         <a href="learn.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">explore</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Learn</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Belajar</span>
         </a>
         <a href="leaderboard.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">emoji_events</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Rank</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Peringkat</span>
         </a>
         <a href="profile.html" class="flex flex-col items-center gap-1 w-16 group">
             <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all group-active:scale-95 shadow-[inset_0_0_12px_rgba(124,92,255,0.2)]">
                 <span class="material-symbols-outlined icon-filled">person</span>
             </div>
-            <span class="text-[10px] font-bold text-primary">Profile</span>
+            <span class="text-[10px] font-bold text-primary">Profil</span>
         </a>
     </nav>
 
@@ -200,7 +200,7 @@
     <div id="modal-edit-profile" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
         <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
             <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
-            <h2 class="text-xl font-bold">Edit Profile</h2>
+            <h2 class="text-xl font-bold">Edit Profil</h2>
         </header>
         <main class="px-6 pt-8 flex-grow overflow-y-auto">
             <div class="flex flex-col items-center mb-8">
@@ -216,15 +216,15 @@
 
             <div class="space-y-4">
                 <div>
-                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block">Username</label>
+                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block">Nama Pengguna</label>
                     <input type="text" id="input-edit-username" class="w-full bg-card rounded-2xl p-4 text-white placeholder-textDim outline-none border border-white/5 focus:border-primary transition-colors font-bold" placeholder="Masukkan nama baru">
                 </div>
                 <div>
-                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block mt-6">New Password (Opsional)</label>
+                    <label class="text-xs font-bold text-textDim uppercase tracking-widest mb-2 block mt-6">Kata Sandi Baru (Opsional)</label>
                     <input type="password" id="input-edit-password" class="w-full bg-card rounded-2xl p-4 text-white placeholder-textDim outline-none border border-white/5 focus:border-primary transition-colors font-bold" placeholder="Kosongkan jika tidak diganti">
                 </div>
                 <button id="btn-save-profile" class="w-full bg-primary text-white font-bold py-4 rounded-[20px] shadow-lg mt-8 hover:bg-primaryLight active:scale-95 transition-all">
-                    Save Changes
+                    Simpan Perubahan
                 </button>
                 <p id="edit-msg" class="text-center text-xs mt-3 hidden"></p>
             </div>
@@ -235,7 +235,7 @@
     <div id="modal-history" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
         <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
             <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
-            <h2 class="text-xl font-bold">Learning History</h2>
+            <h2 class="text-xl font-bold">Riwayat Belajar</h2>
         </header>
         <main class="px-6 pt-6 flex-grow overflow-y-auto pb-10">
             <div id="full-history-list" class="space-y-3">
@@ -248,7 +248,7 @@
     <div id="modal-achievements" class="fixed inset-0 z-[100] bg-background translate-y-full transition-transform duration-300 flex flex-col">
         <header class="px-6 pt-10 pb-4 border-b border-white/5 flex items-center gap-4 bg-card/50">
             <button class="btn-close-modal w-10 h-10 rounded-xl bg-card border border-white/5 flex items-center justify-center hover:bg-white/5"><span class="material-symbols-outlined text-white">close</span></button>
-            <h2 class="text-xl font-bold">Achievements</h2>
+            <h2 class="text-xl font-bold">Pencapaian</h2>
         </header>
         <main class="px-6 pt-6 flex-grow overflow-y-auto pb-10">
             <div id="achievements-grid" class="space-y-4">
@@ -257,6 +257,7 @@
         </main>
     </div>
 
-    <script type="module" src="js/pages/profile.js"></script>
+    <!-- Tambahan ?v=999 untuk mencegah cache -->
+    <script type="module" src="js/pages/profile.js?v=999"></script>
 </body>
 </html>

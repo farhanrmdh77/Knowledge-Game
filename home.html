@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Knowledge Game - Dashboard</title>
+    <title>Knowledge Game - Beranda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -27,34 +27,46 @@
         .icon-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         ::-webkit-scrollbar { display: none; }
         .pb-safe-area-inset-bottom { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+
+        /* PERBAIKAN BUG NAVBAR: Gunakan fadeIn murni HANYA opacity, dilarang ada transform! */
+        body { animation: fadeIn 0.3s ease-out forwards; opacity: 0; min-height: 100vh; }
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
     </style>
 </head>
-<body class="pb-28 antialiased">
+<!-- Tambahkan pb-32 agar konten paling bawah tidak tertutup navbar -->
+<body class="pb-32 antialiased">
 
-    <!-- Top Header -->
-    <header class="flex justify-between items-center px-6 pt-10 pb-4">
-        <div>
-            <h1 class="text-2xl font-bold">Hello, <span id="db-username">Pemain</span></h1>
-            <p class="text-textDim text-sm mt-1">Ready to continue learning?</p>
-        </div>
-        <div class="flex items-center gap-3">
+    <!-- PERBAIKAN HEADER -->
+    <header class="px-6 pt-10 pb-4 flex justify-between items-center gap-4">
+        
+        <!-- Kiri: Teks & Info -->
+        <div class="flex-1 min-w-0"> <!-- min-w-0 wajib agar truncate berfungsi -->
+            <p class="text-textDim text-sm mb-0.5">Halo,</p>
+            <h1 id="db-username" class="text-2xl font-extrabold text-white truncate">Pemain</h1>
             
-            <!-- STREAK API -->
-            <div class="bg-card px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/5">
-                <span class="material-symbols-outlined text-[#FF9800] text-lg icon-filled drop-shadow-[0_0_8px_rgba(255,152,0,0.6)]">local_fire_department</span>
-                <span id="db-streak" class="font-bold text-sm">0</span>
-            </div>
+            <p class="text-textDim text-xs mt-2">Siap melanjutkan belajar?</p>
+        </div>
 
-            <!-- DIAMOND -->
-            <div class="bg-card px-3 py-1.5 rounded-full flex items-center gap-1.5 border border-white/5">
-                <span class="material-symbols-outlined text-[#00E5FF] text-lg icon-filled">diamond</span>
-                <span id="db-diamond" class="font-bold text-sm">0</span>
+        <!-- Kanan: Badges & Avatar -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <!-- Badges disusun vertikal agar rapi dan hemat ruang -->
+            <div class="flex flex-col gap-1.5 items-end">
+                <div class="bg-card px-2.5 py-1 rounded-full flex items-center gap-1 border border-white/5 shadow-sm">
+                    <span class="material-symbols-outlined text-[#FF9800] text-sm icon-filled drop-shadow-[0_0_5px_rgba(255,152,0,0.6)]">local_fire_department</span>
+                    <span id="db-streak" class="font-bold text-[11px]">0</span>
+                </div>
+                <div class="bg-card px-2.5 py-1 rounded-full flex items-center gap-1 border border-white/5 shadow-sm">
+                    <span class="material-symbols-outlined text-[#00E5FF] text-sm icon-filled">diamond</span>
+                    <span id="db-diamond" class="font-bold text-[11px]">0</span>
+                </div>
             </div>
-
-            <!-- AVATAR (Siap untuk Custom Frame PNG) -->
+            
             <div id="avatar-container" class="relative w-12 h-12 flex items-center justify-center flex-shrink-0">
                 <img id="db-avatar" src="" alt="Profile" class="w-full h-full rounded-full object-cover z-0 transition-all">
-                <!-- Frame PNG akan disuntikkan secara otomatis di sini oleh JS -->
+                <!-- Frame PNG disuntikkan di sini via JS -->
             </div>
         </div>
     </header>
@@ -65,7 +77,7 @@
         <section class="bg-gradient-to-br from-primary to-[#5a3cc7] rounded-3xl p-6 shadow-[0_10px_30px_rgba(124,92,255,0.3)] relative overflow-hidden">
             <div class="absolute -right-4 -top-4 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
             <div class="relative z-10">
-                <h2 class="text-3xl font-extrabold leading-tight mb-2">Ready for your next<br>challenge?</h2>
+                <h2 class="text-3xl font-extrabold leading-tight mb-2">Siap untuk tantangan berikutnya?</h2>
                 <p id="db-level-text" class="text-white/80 text-sm mb-6">Memuat level...</p>
                 
                 <div class="mb-2">
@@ -76,7 +88,7 @@
                 <p id="db-xp-text" class="text-xs text-white/80 font-medium mb-6">0 / 0 XP</p>
                 
                 <button id="btn-continue" class="w-full bg-white text-primary font-bold py-3.5 rounded-[20px] shadow-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform">
-                    Continue Learning
+                    Lanjutkan Belajar
                     <span class="material-symbols-outlined icon-filled text-lg">play_arrow</span>
                 </button>
             </div>
@@ -84,34 +96,39 @@
 
         <!-- Popular Subjects -->
         <section>
-            <div class="flex justify-between items-end mb-4">
-                <h3 class="text-xl font-bold">Popular Subjects</h3>
-                <button onclick="window.location.href='learn.html'" class="text-primary text-sm font-semibold hover:text-primaryLight transition-colors">View All Subjects →</button>
+            <div class="flex justify-between items-center mb-4 gap-4">
+                <h3 class="text-xl font-bold leading-tight">Mata Pelajaran Populer</h3>
+                <!-- PERBAIKAN: Tombol dipersingkat dan dikunci agar tidak dua baris -->
+                <button onclick="window.location.href='learn.html'" class="text-primary text-sm font-semibold hover:text-primaryLight transition-colors whitespace-nowrap flex-shrink-0">
+                    Lihat Semua &rarr;
+                </button>
             </div>
             <div class="grid grid-cols-2 gap-4">
                 
                 <!-- KARTU 1: MATHEMATICS -->
                 <button onclick="window.location.href='subject.html?id=mathematics'" class="bg-card p-5 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/5 transition-colors">
-                    <div class="w-14 h-14 rounded-2xl bg-[#00B0FF] flex items-center justify-center shadow-[0_4px_15px_rgba(0,176,255,0.3)]"><span class="material-symbols-outlined text-white icon-filled text-2xl">menu_book</span></div>
-                    <h4 class="font-bold text-sm">Mathematics</h4>
+                    <div class="w-14 h-14 rounded-2xl bg-[#00B0FF] flex items-center justify-center shadow-[0_4px_15px_rgba(0,176,255,0.3)]"><span class="material-symbols-outlined text-white icon-filled text-2xl">calculate</span></div>
+                    <h4 class="font-bold text-sm">Matematika</h4>
                 </button>
                 
-                <!-- KARTU 2: SCIENCE -->
+                <!-- KARTU 2: SCIENCE (Astronomi) -->
                 <button onclick="window.location.href='subject.html?id=science'" class="bg-card p-5 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/5 transition-colors">
-                    <div class="w-14 h-14 rounded-2xl bg-[#00C853] flex items-center justify-center shadow-[0_4px_15px_rgba(0,200,83,0.3)]"><span class="material-symbols-outlined text-white icon-filled text-2xl">science</span></div>
-                    <h4 class="font-bold text-sm">Science</h4>
+                    <div class="w-14 h-14 rounded-2xl bg-[#00C853] flex items-center justify-center shadow-[0_4px_15px_rgba(0,200,83,0.3)]">
+                        <span class="material-symbols-outlined text-white icon-filled text-2xl">rocket_launch</span>
+                    </div>
+                    <h4 class="font-bold text-sm">Astronomi</h4>
                 </button>
                 
                 <!-- KARTU 3: TECHNOLOGY -->
                 <button onclick="window.location.href='subject.html?id=technology'" class="bg-card p-5 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/5 transition-colors">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF4081] to-[#E040FB] flex items-center justify-center shadow-[0_4px_15px_rgba(255,64,129,0.3)]"><span class="material-symbols-outlined text-white icon-filled text-2xl">computer</span></div>
-                    <h4 class="font-bold text-sm">Technology</h4>
+                    <h4 class="font-bold text-sm">Teknologi</h4>
                 </button>
                 
                 <!-- KARTU 4: HISTORY -->
                 <button onclick="window.location.href='subject.html?id=history'" class="bg-card p-5 rounded-3xl border border-white/5 flex flex-col items-center justify-center text-center gap-3 hover:bg-white/5 transition-colors">
                     <div class="w-14 h-14 rounded-2xl bg-[#FF6D00] flex items-center justify-center shadow-[0_4px_15px_rgba(255,109,0,0.3)]"><span class="material-symbols-outlined text-white icon-filled text-2xl">history_edu</span></div>
-                    <h4 class="font-bold text-sm">History</h4>
+                    <h4 class="font-bold text-sm">Sejarah</h4>
                 </button>
                 
             </div>
@@ -119,19 +136,19 @@
         
         <!-- Daily Reward -->
         <section>
-            <h3 class="text-xl font-bold mb-4">Daily Reward</h3>
+            <h3 class="text-xl font-bold mb-4">Hadiah Harian</h3>
             <div class="bg-card p-4 rounded-[24px] border border-white/5 flex items-center justify-between">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 flex items-center justify-center text-[#FFD600]">
                         <span class="material-symbols-outlined text-4xl icon-filled">magic_button</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm">Daily Login Bonus</h4>
-                        <p class="text-textDim text-xs">+150 Diamonds</p>
+                        <h4 class="font-bold text-sm">Bonus Masuk Harian</h4>
+                        <p class="text-textDim text-xs">+150 Diamond</p>
                     </div>
                 </div>
                 <button id="btn-claim-reward" class="bg-primary text-white font-bold text-xs py-2.5 px-5 rounded-[14px] hover:bg-primaryLight transition-colors">
-                    CLAIM
+                    KLAIM
                 </button>
             </div>
         </section>
@@ -139,7 +156,7 @@
         <!-- Leaderboard Preview -->
         <section>
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold">Leaderboard</h3>
+                <h3 class="text-xl font-bold">Papan Peringkat</h3>
                 <div class="flex bg-card rounded-lg p-1 text-xs font-semibold">
                     <button class="bg-[#38374A] text-white px-3 py-1 rounded-md">Global</button>
                 </div>
@@ -152,49 +169,49 @@
 
         <!-- Stat Summary Section -->
         <section>
-            <h3 class="text-xl font-bold mb-4">Stat Summary</h3>
+            <h3 class="text-xl font-bold mb-4">Ringkasan Statistik</h3>
             <div class="bg-card p-4 rounded-[28px] border border-white/5 grid grid-cols-2 gap-3">
                 <div class="bg-[#181824] p-5 rounded-2xl text-center flex flex-col justify-center">
-                    <p class="text-textDim text-xs font-semibold mb-1">Accuracy</p>
+                    <p class="text-textDim text-xs font-semibold mb-1">Akurasi</p>
                     <p id="stat-accuracy" class="text-3xl font-extrabold text-success">0%</p>
                 </div>
                 <div class="bg-[#181824] p-5 rounded-2xl text-center flex flex-col justify-center">
-                    <p class="text-textDim text-xs font-semibold mb-1">Solved</p>
+                    <p class="text-textDim text-xs font-semibold mb-1">Diselesaikan</p>
                     <p id="stat-solved" class="text-3xl font-extrabold text-white">0</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Bottom Navigation Bar -->
-    <nav class="fixed bottom-0 left-0 w-full bg-card border-t border-white/5 px-6 pt-3 pb-safe-area-inset-bottom h-[88px] rounded-t-[32px] flex justify-around items-start z-50">
+    <!-- Bottom Navigation Bar (z-[60] untuk memastikan selalu paling atas) -->
+    <nav class="fixed bottom-0 left-0 w-full bg-card border-t border-white/5 px-6 pt-3 pb-safe-area-inset-bottom h-[88px] rounded-t-[32px] flex justify-around items-start z-[60] shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
         <a href="home.html" class="flex flex-col items-center gap-1 w-16 group">
-            <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all">
+            <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all shadow-[inset_0_0_12px_rgba(124,92,255,0.2)]">
                 <span class="material-symbols-outlined icon-filled">home</span>
             </div>
-            <span class="text-[10px] font-bold text-primary">Home</span>
+            <span class="text-[10px] font-bold text-primary">Beranda</span>
         </a>
         <a href="learn.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">explore</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Learn</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Belajar</span>
         </a>
         <a href="leaderboard.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">emoji_events</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Rank</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Peringkat</span>
         </a>
         <a href="profile.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">person</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profile</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profil</span>
         </a>
     </nav>
 
     <!-- Logic Script -->
-    <script type="module" src="js/pages/dashboard.js?v  =999"></script>
+    <script type="module" src="js/pages/dashboard.js?v=999"></script>
 </body>
 </html>

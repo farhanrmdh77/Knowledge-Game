@@ -1,8 +1,7 @@
 // File: js/pages/leaderboard.js
 import { auth, db } from '../config/firebaseConfig.js';
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-// 🔥 OPTIMASI: Tambahkan query, orderBy, dan limit pada import Firestore 🔥
-import { collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const cosmeticsData = {
     borders: {
@@ -47,11 +46,10 @@ async function fetchLeaderboardData() {
     try {
         const usersRef = collection(db, "users");
         
-        // 🔥 OPTIMASI: Tarik HANYA 20 orang teratas berdasarkan XP Global tertinggi 🔥
-        // Jika sedang berada di tab subject, Firebase akan meload manual semuanya di memory JS bawah, 
-        // tapi secara default query global ditarik seefisien mungkin!
-        const q = query(usersRef, orderBy("xp", "desc"), limit(20));
-        const snap = await getDocs(q);
+        // 🔥 OPTIMASI ALGORITMA REAL RANK 🔥
+        // Kita tarik semua data pemain 1 kali saja di awal. Ini memungkinkan kita 
+        // menghitung peringkat berapapun (misal: 32, 50, 100) secara presisi mutlak!
+        const snap = await getDocs(usersRef);
         
         allPlayers = [];
         snap.forEach(doc => {
@@ -61,36 +59,12 @@ async function fetchLeaderboardData() {
                 username: data.username || "Pemain",
                 level: data.level || 1,
                 globalXp: data.xp || 0,
-                globalPoints: data.diamond || 0,
                 subjectStats: data.subjects || {}, 
                 avatarUrl: data.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(data.username || 'Pemain')}&backgroundColor=7C5CFF`,
                 equippedBorder: data.equippedBorder || 'border_default',
                 equippedTitle: data.equippedTitle || 'title_default'
             });
         });
-
-        // 🔥 WAJIB: Masukkan data current user (diri sendiri) secara manual jika ternyata dia tidak masuk ke dalam Top 20 Global
-        // Tujuannya agar kartu sticky "My Ranking" di bagian bawah layar tidak kosong.
-        const isMeInTop20 = allPlayers.find(p => p.id === currentUserUid);
-        if (!isMeInTop20 && currentUserUid) {
-            const myUserRef = doc(db, "users", currentUserUid);
-            const mySnap = await getDoc(myUserRef);
-            if (mySnap.exists()) {
-                const myData = mySnap.data();
-                allPlayers.push({
-                    id: currentUserUid,
-                    username: myData.username || "Pemain",
-                    level: myData.level || 1,
-                    globalXp: myData.xp || 0,
-                    globalPoints: myData.diamond || 0,
-                    subjectStats: myData.subjects || {}, 
-                    avatarUrl: myData.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(myData.username || 'Pemain')}&backgroundColor=7C5CFF`,
-                    equippedBorder: myData.equippedBorder || 'border_default',
-                    equippedTitle: myData.equippedTitle || 'title_default',
-                    isForced: true // Tandai bahwa user ini dimasukkan paksa karena tidak masuk Top 20
-                });
-            }
-        }
 
         renderLeaderboard();
     } catch (error) {
@@ -102,39 +76,32 @@ async function fetchLeaderboardData() {
 function renderLeaderboard() {
     let displayPlayers = allPlayers.map(p => {
         let displayXp = p.globalXp;
-        let displayPoints = p.globalPoints;
 
         if (currentTab === 'subject' && currentSubject !== 'all') {
             displayXp = p.subjectStats[currentSubject]?.xp || 0;
-            displayPoints = p.subjectStats[currentSubject]?.diamond || 0;
         }
 
         return {
             id: p.id,
             username: p.username,
             level: p.level,
-            points: displayPoints, 
             xp: displayXp,
             avatarUrl: p.avatarUrl,
             equippedBorder: p.equippedBorder, 
-            equippedTitle: p.equippedTitle,
-            isForced: p.isForced
+            equippedTitle: p.equippedTitle
         };
     });
 
+    // Jika di tab subject, singkirkan yang XP-nya 0 (belum pernah main)
     if (currentTab === 'subject' && currentSubject !== 'all') {
         displayPlayers = displayPlayers.filter(p => p.xp > 0);
     }
 
-    // URUTKAN BERDASARKAN XP LALU DIAMOND
-    displayPlayers.sort((a, b) => {
-        if (b.xp !== a.xp) return b.xp - a.xp; 
-        return b.points - a.points;            
-    });
+    // URUTKAN MURNI BERDASARKAN XP (DIAMOND DIHAPUS)
+    displayPlayers.sort((a, b) => b.xp - a.xp);
 
-    // Karena user kita yang dimasukkan paksa (Forced) mungkin berada di peringkat >20, 
-    // Kita harus memisahkannya dari list utama (agar list murni hanya 20 orang).
-    const top20Players = displayPlayers.filter((p, index) => index < 20 || p.isForced === undefined);
+    // Ambil Top 20 untuk List Utama
+    const top20Players = displayPlayers.slice(0, 20);
 
     const podiumContainer = document.getElementById('podium-container');
     const listContainer = document.getElementById('list-container');
@@ -145,10 +112,10 @@ function renderLeaderboard() {
         listContainer.innerHTML = `
             <div class="bg-card p-8 rounded-[24px] text-center border border-white/5 flex flex-col items-center mx-6">
                 <span class="material-symbols-outlined text-4xl text-textDim mb-3">sentiment_dissatisfied</span>
-                <p class="font-bold text-white mb-1">No rankings available.</p>
-                <p class="text-xs text-textDim mb-4">Be the first to conquer this subject!</p>
+                <p class="font-bold text-white mb-1">Belum ada peringkat.</p>
+                <p class="text-xs text-textDim mb-4">Jadilah yang pertama menguasai subjek ini!</p>
                 <button onclick="window.location.href='learn.html'" class="bg-primary text-white font-bold py-3 px-6 rounded-xl hover:bg-primaryLight transition-colors text-sm">
-                    Start Learning
+                    Mulai Belajar
                 </button>
             </div>
         `;
@@ -159,16 +126,13 @@ function renderLeaderboard() {
     renderPodium(top20Players);
     renderList(top20Players);
     
-    // Pass original displayPlayers array to current user render, so the rank is accurate!
+    // Kirim full array ke sticky bar agar dia bisa melacak peringkat 21, 32, dst.
     renderCurrentUser(displayPlayers); 
 }
 
 function renderPodium(players) {
     const container = document.getElementById('podium-container');
-    
-    // 🔥 FIX UTAMA: Paksa container rata bawah (items-end) agar balok menapak di lantai
     container.className = "flex justify-center items-end h-[260px] w-full mt-6 px-2 gap-2 border-b border-white/5 pb-0";
-    
     let html = '';
 
     // ================== RANK 2 ==================
@@ -253,9 +217,6 @@ function renderList(players) {
     for (let i = 3; i < players.length; i++) {
         const p = players[i];
         
-        // Skip user yang dimasukkan paksa karena tidak tembus top 20, biarkan dia tampil di "My Ranking" saja
-        if (p.isForced) continue;
-
         const isMe = p.id === currentUserUid;
         
         const cardBorderClass = isMe ? 'border-primary shadow-[0_0_15px_rgba(124,92,255,0.3)] bg-primary/20' : 'border-white/5 bg-card hover:bg-white/5';
@@ -289,10 +250,8 @@ function renderList(players) {
                 </div>
                 
                 <div class="text-right">
-                    <span class="font-black text-[#00E5FF] flex items-center justify-end gap-1 text-sm">
-                        <span class="material-symbols-outlined text-[14px] icon-filled text-[#00E5FF]">diamond</span>${p.points.toLocaleString('id-ID')}
-                    </span>
-                    <span class="text-xs text-textDim mt-0.5 block">${p.xp.toLocaleString('id-ID')} XP</span>
+                    <!-- 🔥 TAMPILAN DIAMOND DIHAPUS, DIGANTIKAN OLEH XP SEBAGAI METRIK UTAMA 🔥 -->
+                    <span class="font-black text-primaryLight block tracking-wide">${p.xp.toLocaleString('id-ID')} XP</span>
                 </div>
             </div>
         `;
@@ -305,7 +264,7 @@ function renderCurrentUser(players) {
     const stickyContainer = document.querySelector('.fixed.bottom-\\[96px\\]');
     if (!stickyContainer) return;
 
-    // Temukan rank asli user dari array lengkap yang telah diurutkan
+    // Temukan rank asli user dari seluruh dunia/subjek!
     const myIndex = players.findIndex(p => p.id === currentUserUid);
     
     if (myIndex === -1) {
@@ -315,13 +274,12 @@ function renderCurrentUser(players) {
 
     const p = players[myIndex];
     
-    // Tampilkan label rank: Jika tidak masuk 20 besar, tulis ">20"
-    const rankLabel = myIndex < 20 ? (myIndex + 1) : ">20";
+    // 🔥 PERINGKAT ASLI SEKARANG TAMPIL MESKIPUN DI ATAS 20 🔥
+    const rankLabel = myIndex + 1; 
     
     const xpInLevel = p.xp % 1000;
     const progressPercent = (xpInLevel / 1000) * 100;
 
-    // Logika Bingkai untuk Sticky Bar
     const borderObj = cosmeticsData.borders[p.equippedBorder] || cosmeticsData.borders['border_default'];
     let frameHtml = '';
     let avatarClass = 'w-12 h-12 rounded-full object-cover z-0 border-2 border-primary bg-card ';
@@ -351,17 +309,13 @@ function renderCurrentUser(players) {
             </div>
             
             <div class="text-right pr-2">
-                <span class="font-extrabold text-[#00E5FF] flex items-center justify-end gap-1 text-sm">
-                    <span class="material-symbols-outlined text-[14px] icon-filled text-[#00E5FF]">diamond</span>${p.points.toLocaleString('id-ID')}
-                </span>
-                <span class="text-[9px] text-textDim font-bold mt-0.5 block">${p.xp.toLocaleString('id-ID')} XP</span>
+                <!-- 🔥 TAMPILAN DIAMOND DIHAPUS, XP MENJADI FOKUS UTAMA 🔥 -->
+                <span class="font-extrabold text-primaryLight block tracking-wide">${p.xp.toLocaleString('id-ID')} XP</span>
             </div>
         </div>
     `;
 }
 
-// ... [Setup Tabs tetapkan tidak ada perubahan logika, hanya memastikan nama fungsi terpanggil]
-import { getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"; // <-- pastikan getDoc juga di-import di paling atas jika belum.
 function setupTabs() {
     const tabGlobal = document.getElementById('tab-global');
     const tabSubject = document.getElementById('tab-subject');
@@ -371,7 +325,8 @@ function setupTabs() {
     const activeClass = ['bg-[#38374A]', 'text-white', 'shadow-sm'];
     const inactiveClass = ['text-textDim', 'hover:text-white', 'bg-transparent'];
 
-    tabGlobal.addEventListener('click', async () => {
+    tabGlobal.addEventListener('click', () => {
+        if (currentTab === 'global') return; // Cegah re-render jika klik tab yang sama
         currentTab = 'global';
         tabGlobal.classList.add(...activeClass);
         tabGlobal.classList.remove(...inactiveClass);
@@ -379,19 +334,12 @@ function setupTabs() {
         tabSubject.classList.add(...inactiveClass);
         subjectFilterContainer.classList.add('hidden');
         
-        // Show loading spinner
-        document.getElementById('podium-container').innerHTML = `
-            <div class="animate-pulse text-primary text-center">
-                 <span class="material-symbols-outlined text-4xl animate-spin">autorenew</span>
-                 <p class="text-[10px] mt-2 font-bold uppercase tracking-widest text-primaryLight">Sinkronisasi Server...</p>
-            </div>
-        `;
-        document.getElementById('list-container').innerHTML = '';
-        
-        await fetchLeaderboardData(); // Refetch with limit 20
+        // 🔥 OPTIMASI: Pindah tab INSTAN tanpa memuat ulang (loading) dari server 🔥
+        renderLeaderboard(); 
     });
 
-    tabSubject.addEventListener('click', async () => {
+    tabSubject.addEventListener('click', () => {
+        if (currentTab === 'subject') return; // Cegah re-render jika klik tab yang sama
         currentTab = 'subject';
         tabSubject.classList.add(...activeClass);
         tabSubject.classList.remove(...inactiveClass);
@@ -399,38 +347,8 @@ function setupTabs() {
         tabGlobal.classList.add(...inactiveClass);
         subjectFilterContainer.classList.remove('hidden');
         
-        // Show loading spinner
-        document.getElementById('podium-container').innerHTML = `
-            <div class="animate-pulse text-primary text-center">
-                 <span class="material-symbols-outlined text-4xl animate-spin">autorenew</span>
-                 <p class="text-[10px] mt-2 font-bold uppercase tracking-widest text-primaryLight">Sinkronisasi Server...</p>
-            </div>
-        `;
-        document.getElementById('list-container').innerHTML = '';
-        
-        // Jika masuk tab subject, kita harus tarik ulang data HANYA untuk Top 20 subject tersebut!
-        // Namun karena struktur DB Anda nyarang di "subjects.math.xp", Firebase tidak bisa "orderBy" field dinamis berlapis dengan sempurna tanpa index.
-        // Solusi aman: tarik limit 50-100 orang saja khusus tab ini, lalu filter di javascript.
-        try {
-            const usersRef = collection(db, "users");
-            const snap = await getDocs(usersRef); // Mengambil keseluruhan secara aman
-            allPlayers = [];
-            snap.forEach(doc => {
-                const data = doc.data();
-                allPlayers.push({
-                    id: doc.id,
-                    username: data.username || "Pemain",
-                    level: data.level || 1,
-                    globalXp: data.xp || 0,
-                    globalPoints: data.diamond || 0,
-                    subjectStats: data.subjects || {}, 
-                    avatarUrl: data.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(data.username || 'Pemain')}&backgroundColor=7C5CFF`,
-                    equippedBorder: data.equippedBorder || 'border_default',
-                    equippedTitle: data.equippedTitle || 'title_default'
-                });
-            });
-            renderLeaderboard();
-        } catch (error) { console.error(error); }
+        // 🔥 OPTIMASI: Pindah tab INSTAN tanpa memuat ulang (loading) dari server 🔥
+        renderLeaderboard();
     });
 
     selectSubject.addEventListener('change', (e) => {

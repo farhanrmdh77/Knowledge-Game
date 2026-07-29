@@ -21,7 +21,7 @@
 
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Leaderboard - Knowledge Game</title>
+    <title>Papan Peringkat - Knowledge Game</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -56,8 +56,8 @@
         <div class="w-14 h-14 mx-auto bg-gradient-to-br from-warning to-[#FF6D00] rounded-[18px] flex items-center justify-center mb-3 shadow-[0_4px_15px_rgba(255,214,0,0.3)]">
             <span class="material-symbols-outlined icon-filled text-white text-3xl">emoji_events</span>
         </div>
-        <h1 class="text-2xl font-extrabold mb-1">Leaderboard</h1>
-        <p class="text-textDim text-xs">Compete with friends and climb the rankings.</p>
+        <h1 class="text-2xl font-extrabold mb-1">Papan Peringkat</h1>
+        <p class="text-textDim text-xs">Bersainglah dengan teman dan raih peringkat tertinggi.</p>
     </header>
 
     <!-- Filter Tabs (Segmented Control) -->
@@ -67,7 +67,7 @@
                 Global
             </button>
             <button id="tab-subject" class="flex-1 text-textDim font-bold py-2.5 rounded-xl text-sm hover:text-white transition-all">
-                Subject
+                Pelajaran
             </button>
         </div>
 
@@ -75,11 +75,11 @@
         <div id="subject-filter-container" class="hidden mt-3 animate-fadeIn">
             <div class="relative">
                 <select class="w-full bg-card border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-white appearance-none outline-none focus:border-primary transition-colors">
-                    <option value="all">All Subjects</option>
-                    <option value="mathematics">Mathematics</option>
-                    <option value="science">Science</option>
-                    <option value="technology">Technology</option>
-                    <option value="history">History</option>
+                    <option value="all">Semua Pelajaran</option>
+                    <option value="mathematics">Matematika</option>
+                    <option value="science">Astronomi</option>
+                    <option value="technology">Teknologi</option>
+                    <option value="history">Sejarah</option>
                 </select>
                 <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-textDim pointer-events-none">expand_more</span>
             </div>
@@ -105,9 +105,10 @@
     </main>
 
     <!-- CURRENT USER CARD (STICKY) -->
+    <!-- Elemen ini hanya akan muncul sebagai cadangan jika JS belum meload, JS akan mereplace ini -->
     <div class="fixed bottom-[96px] left-0 w-full px-6 z-40 pointer-events-none">
         <div class="bg-[#2a2940] p-4 rounded-[24px] flex items-center gap-4 border border-primary shadow-[0_0_25px_rgba(124,92,255,0.25)] relative overflow-hidden backdrop-blur-lg pointer-events-auto">
-            <div class="absolute top-0 right-0 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-bl-xl tracking-widest uppercase shadow-md">YOU</div>
+            <div class="absolute top-0 right-0 bg-primary text-white text-[9px] font-black px-3 py-1 rounded-bl-xl tracking-widest uppercase shadow-md">KAMU</div>
             
             <span class="font-black text-primary w-5 text-center text-base">?</span>
             
@@ -116,9 +117,9 @@
             </div>
             
             <div class="flex-grow">
-                <p class="font-bold text-sm text-white">My Rank</p>
+                <p class="font-bold text-sm text-white">Peringkat Saya</p>
                 <div class="flex items-center gap-2 mt-0.5">
-                    <span class="text-[10px] font-bold text-textDim">Progres</span>
+                    <span class="text-[10px] font-bold text-textDim">Kemajuan</span>
                     <div class="w-14 h-1.5 bg-black/40 rounded-full overflow-hidden">
                         <div class="h-full bg-primary w-full rounded-full shadow-[0_0_8px_rgba(124,92,255,0.6)]"></div>
                     </div>
@@ -140,14 +141,14 @@
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">home</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Home</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Beranda</span>
         </a>
         
         <a href="learn.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">explore</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Learn</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Belajar</span>
         </a>
 
         <!-- Rank (ACTIVE) -->
@@ -155,17 +156,17 @@
             <div class="w-12 h-12 bg-primary/20 text-primary rounded-[18px] flex items-center justify-center transition-all group-active:scale-95 shadow-[inset_0_0_12px_rgba(124,92,255,0.2)]">
                 <span class="material-symbols-outlined icon-filled">emoji_events</span>
             </div>
-            <span class="text-[10px] font-bold text-primary">Rank</span>
+            <span class="text-[10px] font-bold text-primary">Peringkat</span>
         </a>
 
         <a href="profile.html" class="flex flex-col items-center gap-1 w-16 group mt-1">
             <div class="w-10 h-10 text-textDim group-hover:text-white rounded-xl flex items-center justify-center transition-all">
                 <span class="material-symbols-outlined">person</span>
             </div>
-            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profile</span>
+            <span class="text-[10px] font-semibold text-textDim group-hover:text-white">Profil</span>
         </a>
     </nav>
 
-    <script type="module" src="js/pages/leaderboard.js"></script>
+    <script type="module" src="js/pages/leaderboard.js?v=999"></script>
 </body>
 </html>
