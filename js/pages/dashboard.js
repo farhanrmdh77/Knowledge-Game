@@ -15,7 +15,7 @@ const cosmeticsData = {
         'frame_6': { type: 'image', url: 'assets/frames/Frame6.png', scale: 110, name: 'Rubber Duck', price: 1200 },
         'frame_7': { type: 'image', url: 'assets/frames/Frame7.png', scale: 110, name: 'Lantern Festival', price: 1500 },
         'frame_8': { type: 'image', url: 'assets/frames/Frame8.png', scale: 115, name: 'Golden Glory', price: 1500 },
-        'frame_9': { type: 'image', url: 'assets/frames/Frame9.png', scale: 115, name: 'Ocean Whisper', price: 2000 }
+        'frame_9': { type: 'image', url: 'assets/frames/Frame9.png', scale: 200, name: 'Ocean Whisper', price: 2000 }
     },
     titles: {
         'title_default': { name: '', color: 'hidden' },
@@ -42,23 +42,45 @@ document.addEventListener('DOMContentLoaded', () => {
             let data;
             
             // ==========================================
-            // SISTEM AUTO-HEALING (PENYEMBUH DATABASE)
+            // SISTEM AUTO-HEALING TAHAP 2 (ANTI-ZOMBIE ACCOUNT)
             // ==========================================
+            // Ambil nama dari email jika nama asli kosong (misal: "farhan@gmail.com" jadi "farhan")
+            const fallbackName = user.email ? user.email.split('@')[0] : "Player";
+
             if (userSnap.exists()) {
                 data = userSnap.data();
+                
+                // Jika ini adalah akun lama yang rusak (namanya kosong / tidak ada avatar)
+                let needsUpdate = false;
+                if (!data.username || data.username === "Pemain") {
+                    data.username = fallbackName;
+                    needsUpdate = true;
+                }
+                if (!data.avatarUrl) {
+                    data.avatarUrl = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(fallbackName)}&backgroundColor=7C5CFF`;
+                    needsUpdate = true;
+                }
+                
+                // Tambal database secara diam-diam di latar belakang
+                if (needsUpdate) {
+                    await updateDoc(userRef, { username: data.username, avatarUrl: data.avatarUrl });
+                }
+
             } else {
                 console.warn("⚠️ Data tidak ditemukan! Sistem membuat profil baru otomatis...");
                 data = {
                     uid: user.uid,
-                    username: "Pemain",
+                    username: fallbackName,
                     email: user.email || "",
-                    // Gunakan encodeURIComponent agar spasi pada nama tidak membuat link error
-                    avatarUrl: `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent("Pemain")}&backgroundColor=7C5CFF`,
+                    avatarUrl: `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(fallbackName)}&backgroundColor=7C5CFF`,
                     level: 1,
                     xp: 0,
                     diamond: 50,
                     streak: 1,
                     lastLogin: new Date(),
+                    badges: [],
+                    achievements: [],
+                    inventory: ['border_default', 'title_default'],
                     equippedBorder: 'border_default',
                     equippedTitle: 'title_default'
                 };
@@ -66,13 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Mulai Proses Render UI
-            const username = data.username || "Pemain";
+            const username = data.username;
             let diamond = data.diamond || 0; 
             const xp = data.xp || 0;
             const level = data.level || 1;
-            
-            // ✅ KODE FINAL (Prioritaskan avatarUrl dari database, aman dengan spasi)
-            const avatarUrl = data.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(username)}&backgroundColor=7C5CFF`;
+            const avatarUrl = data.avatarUrl;
 
             // Logika Streak Harian
             let currentStreak = data.streak || 0;
@@ -124,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const frameImg = document.createElement('img');
                     frameImg.id = 'custom-image-frame';
                     frameImg.src = borderObj.url;
-                    // Render skala bingkai dinamis menggunakan style inline (Dijamin presisi)
                     frameImg.style.width = `${borderObj.scale}%`;
                     frameImg.style.height = `${borderObj.scale}%`;
                     frameImg.className = `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none object-contain pointer-events-none z-10`;
@@ -214,11 +233,16 @@ async function loadLeaderboardPreview(currentUid) {
         let players = [];
         snap.forEach(doc => {
             const d = doc.data();
+            // Fallback nama menggunakan email jika tidak ada
+            const fbName = d.email ? d.email.split('@')[0] : "Player";
             players.push({
-                id: doc.id, username: d.username || "Pemain", points: d.diamond || 0, xp: d.xp || 0,
-                // Menggunakan encodeURIComponent untuk Leaderboard
-                avatarUrl: d.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(d.username || 'Pemain')}&backgroundColor=7C5CFF`,
-                equippedBorder: d.equippedBorder || 'border_default', equippedTitle: d.equippedTitle || 'title_default'
+                id: doc.id, 
+                username: d.username && d.username !== "Pemain" ? d.username : fbName, 
+                points: d.diamond || 0, 
+                xp: d.xp || 0,
+                avatarUrl: d.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(fbName)}&backgroundColor=7C5CFF`,
+                equippedBorder: d.equippedBorder || 'border_default', 
+                equippedTitle: d.equippedTitle || 'title_default'
             });
         });
 
@@ -237,7 +261,6 @@ async function loadLeaderboardPreview(currentUid) {
             const rankColor = rank === 1 ? 'text-[#FFD600]' : rank === 2 ? 'text-[#C0C0C0]' : 'text-[#CD7F32]';
             const bgMe = isMe ? 'bg-primary/10 border border-primary/30' : '';
             
-            // Logika Deteksi Bingkai untuk Leaderboard
             const borderObj = cosmeticsData.borders[p.equippedBorder] || cosmeticsData.borders['border_default'];
             let frameHtml = '';
             let avatarClass = 'w-10 h-10 rounded-full object-cover z-0 ';
@@ -256,7 +279,6 @@ async function loadLeaderboardPreview(currentUid) {
                     <div class="flex items-center gap-3">
                         <span class="font-black text-sm w-5 text-center ${rankColor}">#${rank}</span>
                         
-                        <!-- Wadah Relative untuk Leaderboard -->
                         <div class="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
                             <img src="${p.avatarUrl}" class="${avatarClass}">
                             ${frameHtml}
