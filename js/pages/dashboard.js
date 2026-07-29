@@ -41,38 +41,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let data;
             
-            // ==========================================
-            // SISTEM AUTO-HEALING TAHAP 2 (ANTI-ZOMBIE ACCOUNT)
-            // ==========================================
-            // Ambil nama dari email jika nama asli kosong (misal: "farhan@gmail.com" jadi "farhan")
+            // 🔥 TARIK MEMORI DARURAT (Failsafe jika Firebase gagal menyimpan nama saat registrasi)
+            const pendingUsername = localStorage.getItem('pending_username');
+            const pendingAvatar = localStorage.getItem('pending_avatar');
+            
             const fallbackName = user.email ? user.email.split('@')[0] : "Player";
 
             if (userSnap.exists()) {
                 data = userSnap.data();
-                
-                // Jika ini adalah akun lama yang rusak (namanya kosong / tidak ada avatar)
                 let needsUpdate = false;
-                if (!data.username || data.username === "Pemain") {
+                
+                // 1. Cek apakah ada nama dari proses registrasi yang tertinggal
+                if (pendingUsername && data.username !== pendingUsername) {
+                    data.username = pendingUsername;
+                    needsUpdate = true;
+                } else if (!data.username || data.username === "Pemain") {
                     data.username = fallbackName;
                     needsUpdate = true;
                 }
-                if (!data.avatarUrl) {
-                    data.avatarUrl = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(fallbackName)}&backgroundColor=7C5CFF`;
+
+                // 2. Cek apakah ada avatar dari proses registrasi yang tertinggal
+                if (pendingAvatar && data.avatarUrl !== pendingAvatar) {
+                    data.avatarUrl = pendingAvatar;
+                    needsUpdate = true;
+                } else if (!data.avatarUrl) {
+                    data.avatarUrl = `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(data.username)}&backgroundColor=7C5CFF`;
                     needsUpdate = true;
                 }
                 
-                // Tambal database secara diam-diam di latar belakang
+                // Tambal database secara otomatis jika data bolong
                 if (needsUpdate) {
                     await updateDoc(userRef, { username: data.username, avatarUrl: data.avatarUrl });
                 }
 
             } else {
-                console.warn("⚠️ Data tidak ditemukan! Sistem membuat profil baru otomatis...");
+                console.warn("⚠️ Data di Firebase kosong! Menggunakan Memori Darurat...");
+                
+                // Jika database benar-benar kosong karena gagal tulis, gunakan Memori Darurat
+                const finalName = pendingUsername || fallbackName;
+                const finalAvatar = pendingAvatar || `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(finalName)}&backgroundColor=7C5CFF`;
+
                 data = {
                     uid: user.uid,
-                    username: fallbackName,
+                    username: finalName,
                     email: user.email || "",
-                    avatarUrl: `https://api.dicebear.com/7.x/adventurer/svg?seed=${encodeURIComponent(fallbackName)}&backgroundColor=7C5CFF`,
+                    avatarUrl: finalAvatar,
                     level: 1,
                     xp: 0,
                     diamond: 50,
@@ -87,12 +100,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 await setDoc(userRef, data);
             }
 
+            // Bersihkan memori darurat agar tidak menimpa di masa depan
+            localStorage.removeItem('pending_username');
+            localStorage.removeItem('pending_avatar');
+
+            // ==========================================
             // Mulai Proses Render UI
+            // ==========================================
             const username = data.username;
+            const avatarUrl = data.avatarUrl;
             let diamond = data.diamond || 0; 
             const xp = data.xp || 0;
             const level = data.level || 1;
-            const avatarUrl = data.avatarUrl;
 
             // Logika Streak Harian
             let currentStreak = data.streak || 0;
@@ -118,9 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateDoc(userRef, { streak: currentStreak, lastLogin: new Date() }).catch(e => console.log(e));
             }
 
-            // ==========================================
-            // RENDER KOSMETIK & PROFIL DASAR
-            // ==========================================
+            // Render Kosmetik
             const equippedBorder = data.equippedBorder || 'border_default';
             const equippedTitleKey = data.equippedTitle || 'title_default';
             
@@ -131,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const avatarImg = document.getElementById('db-avatar');
 
             if (avatarContainer && avatarImg) {
-                // Sapu bersih bingkai PNG lama
                 const existingFrame = document.getElementById('custom-image-frame');
                 if (existingFrame) existingFrame.remove();
 
@@ -159,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             safeSetText('db-streak', currentStreak); 
             safeSetText('db-diamond', diamond.toLocaleString('id-ID'));
-            
             safeSetText('db-level-text', `Level ${level} • Keep going!`);
             safeSetText('db-xp-text', `${xp % 1000} / 1000 XP (Total: ${xp} XP)`);
             
@@ -233,7 +248,6 @@ async function loadLeaderboardPreview(currentUid) {
         let players = [];
         snap.forEach(doc => {
             const d = doc.data();
-            // Fallback nama menggunakan email jika tidak ada
             const fbName = d.email ? d.email.split('@')[0] : "Player";
             players.push({
                 id: doc.id, 

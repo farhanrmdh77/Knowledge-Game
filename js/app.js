@@ -5,7 +5,6 @@ let isProcessingAuth = false;
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Cek status login (Lempar ke home.html JIKA BENAR-BENAR sudah login manual)
     if (typeof checkAuth === 'function') {
         checkAuth((user) => {
             if (!isProcessingAuth) {
@@ -92,19 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     isProcessingAuth = false; 
                 }
             } else {
+                // 🔥 KUNCI UTAMA: Simpan nama dan avatar ke Memori Darurat HP sebelum dikirim!
+                localStorage.setItem('pending_username', username);
+                localStorage.setItem('pending_avatar', avatarUrl);
+
                 const res = await registerUser(email, password, username, avatarUrl);
+                
                 if (res.success) {
-                    // Tampilkan notifikasi BERHASIL DAFTAR
                     alert("🎉 Registrasi Berhasil!\n\nSilakan Masuk (Login) menggunakan Email dan Password yang baru saja Anda daftarkan.");
-                    
-                    // Kembalikan tombol dan hapus isi form password
                     submitBtn.disabled = false;
                     document.getElementById('password').value = ''; 
-                    
-                    // Ganti UI menjadi form Login!
                     switchMode(true); 
-                    
-                    // Buka pengaman agar checkAuth bekerja normal lagi
                     isProcessingAuth = false; 
                 } else {
                     let errorMsg = res.error;
