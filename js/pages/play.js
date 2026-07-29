@@ -9,13 +9,14 @@ let questions = [];
 let currentIndex = 0;
 let score = 0;
 let lives = 3; 
+let isQuizEnded = false; 
 
 // === SISTEM EKONOMI ===
 let earnedXP = 0; 
 let earnedDiamond = 0; 
 let startingDiamonds = 0; 
 let maxDiamondsForChallenge = 100;
-let xpPerQuestion = 100; // 🔥 Variabel baru untuk XP dinamis
+let xpPerQuestion = 100; 
 
 const REVIVE_COST = 50;
 let correctAnswers = 0;
@@ -81,7 +82,6 @@ function initGame() {
             question: q.question, options: q.options, correct: q.correctAnswer, explanation: q.explanation
         }));
     } else {
-        // Fallback jika belum buat soalnya di quizData.js
         alert("Soal untuk Epic Stage sedang dibuat! Kembali ke menu.");
         window.location.href = 'learn.html';
         return;
@@ -193,7 +193,6 @@ function handleAnswer(selectedIndex, selectedBtn) {
             selectedBtn.querySelector('.option-letter').classList.replace('text-textDim', 'text-black');
         }
         
-        // 🔥 PENAMBAHAN XP DINAMIS 🔥
         score += xpPerQuestion;
         earnedXP += xpPerQuestion;
         correctAnswers++;
@@ -232,8 +231,8 @@ function handleAnswer(selectedIndex, selectedBtn) {
 
     document.getElementById('score-text').textContent = score;
 
-    if (lives <= 0) setTimeout(() => showReviveModal(), 2000);
-    else setTimeout(() => { currentIndex++; loadQuestion(); }, 2000);
+    if (lives <= 0) setTimeout(() => showReviveModal(), 1500);
+    else setTimeout(() => { currentIndex++; loadQuestion(); }, 1500);
 }
 
 function showExplanation(isCorrect, text) {
@@ -294,7 +293,7 @@ window.acceptRevive = async () => {
             updateLivesUI();
             document.getElementById('revive-modal').classList.add('hidden');
             
-            currentIndex++;
+            isAnsweringAllowed = true;
             loadQuestion();
         } catch (error) {
             console.error("Gagal transaksi revive:", error);
@@ -309,18 +308,34 @@ window.declineRevive = () => { document.getElementById('revive-modal').classList
 window.closeInsufficientModal = () => document.getElementById('insufficient-diamond-modal').classList.add('hidden');
 
 function endQuiz() {
-    const accuracy = (correctAnswers / questions.length) * 100;
-    const MINIMUM_PASS_PERCENT = 50; 
-    
+    if (isQuizEnded) return;
+    isQuizEnded = true;
+
     let finalXP = earnedXP;
     let finalDiamond = earnedDiamond; 
     let finalScore = score;
-    let passStatus = "lulus";
+    let passStatus = "lulus"; // 🔥 DEFAULT: Lulus asalkan bertahan hidup sampai akhir
 
-    if (accuracy < MINIMUM_PASS_PERCENT || lives <= 0) {
-        finalXP = 0; finalScore = 0; finalDiamond = 0; passStatus = "gagal";
+    // 🔥 LOGIKA SESUAI PERMINTAAN: Mati di tengah jalan = Hangus & Gagal
+    if (lives <= 0) {
+        finalXP = 0; 
+        finalScore = 0; 
+        finalDiamond = 0; 
+        passStatus = "gagal";
     }
 
+    // 🔥 ANTI-EKSPLOITASI MODE REPLAY
+    const quizMode = localStorage.getItem('quizMode') || 'start';
+    if (quizMode === 'replay') {
+        finalXP = 0; 
+        finalDiamond = 0; 
+    }
+
+    const challengeId = localStorage.getItem('currentChallengeId') || 'math_1';
+    const challengeIndex = parseInt(challengeId.split('_')[1]) - 1 || 0;
+    
+    // Simpan semua data permainan
+    localStorage.setItem('q_played_index', challengeIndex);
     localStorage.setItem('q_pass_status', passStatus); 
     localStorage.setItem('q_score', finalScore);
     localStorage.setItem('q_xp', finalXP);
@@ -331,3 +346,7 @@ function endQuiz() {
 
     window.location.href = 'result.html';
 }
+
+const style = document.createElement('style');
+style.innerHTML = `@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }`;
+document.head.appendChild(style);
